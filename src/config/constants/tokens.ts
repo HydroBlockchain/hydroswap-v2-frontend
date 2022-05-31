@@ -2104,6 +2104,22 @@ export const mainnetTokens = defineTokens({
     'MixMarvel Token',
     'https://www.mixmarvel.com/',
   ),
+  hydro : new Token(
+    MAINNET,
+    '0x5B387f4886F043f603f7d0cb55DBd727D6649C73',
+    18,
+    'HYDRO',
+    'HYDRO TOKEN',
+    'https://projecthydro.org/'
+  ),
+  kvs : new Token(
+    MAINNET,
+    '0x14866bb7db3276cD5f3249934f86Dbd79A741D34',
+    18,
+    'KVS',
+    'KVS TOKEN',
+    'https://projecthydro.org/'
+  )
 } as const)
 
 export const testnetTokens = defineTokens({
@@ -2147,6 +2163,22 @@ export const testnetTokens = defineTokens({
     'Bakeryswap Token',
     'https://www.bakeryswap.org/',
   ),
+  hydro : new Token(
+    TESTNET,
+    '0x5B387f4886F043f603f7d0cb55DBd727D6649C73',
+    18,
+    'HYDRO',
+    'HYDRO TOKEN',
+    'https://projecthydro.org/'
+  ),
+  kvs : new Token(
+    TESTNET,
+    '0x14866bb7db3276cD5f3249934f86Dbd79A741D34',
+    18,
+    'KVS',
+    'KVS TOKEN',
+    'https://projecthydro.org/'
+  )
 } as const)
 
 const tokens = () => {
