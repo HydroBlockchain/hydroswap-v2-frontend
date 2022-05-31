@@ -5,15 +5,15 @@ import ListsUpdater from './state/lists/updater'
 import MulticallUpdater from './state/multicall/updater'
 import TransactionUpdater from './state/transactions/updater'
 
-// export function Updaters() {
-//   return (
-//     <>
-//       <ListsUpdater />
-//       <TransactionUpdater />
-//       <MulticallUpdater />
-//     </>
-//   )
-// }
+export function Updaters() {
+  return (
+    <>
+      <ListsUpdater />
+      <TransactionUpdater />
+      <MulticallUpdater />
+    </>
+  )
+}
 
 export function Blocklist({ children }: { children: ReactNode }) {
   const { account } = useActiveWeb3React()
