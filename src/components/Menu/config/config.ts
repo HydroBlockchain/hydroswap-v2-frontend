@@ -14,7 +14,7 @@ import {
 import { ContextApi } from 'contexts/Localization/types'
 import { nftsBaseUrl } from 'views/Nft/market/constants'
 import { perpLangMap } from 'utils/getPerpetualLanguageCode'
-import { DropdownMenuItems } from 'hydroswap-uikitv2 /src/components/DropdownMenu/types'
+import { DropdownMenuItems } from 'hydroswap-uikitv2/src/components/DropdownMenu/types'
 
 export type ConfigMenuDropDownItemsType = DropdownMenuItems & { hideSubNav?: boolean }
 export type ConfigMenuItemsType = Omit<MenuItemsType, 'items'> & { hideSubNav?: boolean } & {

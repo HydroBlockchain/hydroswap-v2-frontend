@@ -8,7 +8,8 @@ const createJestConfig = nextJest({ dir: './' })
 const customJestConfig = {
   testPathIgnorePatterns: ['<rootDir>/cypress/', '<rootDir>/src/config/__tests__/', '<rootDir>/packages'],
   moduleNameMapper: {
-    '^hydroswap-uikitv2 ': '<rootDir>/packages/uikit/src',
+    // '^@pancakeswap/uikit': '<rootDir>/packages/uikit/src',
+    '^hydroswap-uikitv2': '<rootDir>/packages/hydroswap-uikit/src',
   },
   moduleDirectories: ['node_modules', 'src'],
   testTimeout: 20000,
