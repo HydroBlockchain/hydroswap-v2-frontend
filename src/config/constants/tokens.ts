@@ -2132,12 +2132,12 @@ export const testnetTokens = defineTokens({
     'https://www.binance.com/',
   ),
   cake: new Token(
-    TESTNET,
-    '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
+    MAINNET,
+    '0xf3DBB49999B25c9D6641a9423C7ad84168D00071',
     18,
-    'CAKE',
-    'PancakeSwap Token',
-    'https://pancakeswap.finance/',
+    'HYDRO',
+    'Hydro',
+    'https://projecthydro.org/',
   ),
   busd: new Token(
     TESTNET,

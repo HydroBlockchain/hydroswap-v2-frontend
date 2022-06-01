@@ -11,7 +11,7 @@ export const baseColors = {
   warning: "#dfd980",
 };
 
-//#2e2e30cf
+// #2e2e30cf
 
 export const additionalColors = {
   binance: "#F0B90B",

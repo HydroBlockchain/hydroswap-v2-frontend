@@ -3,10 +3,10 @@
  */
 const tokens = {
   cake: {
-    symbol: "CAKE",
+    symbol: "Hydro",
     address: {
       56: "0xf3DBB49999B25c9D6641a9423C7ad84168D00071",
-      97: "0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe",
+      97: "",
     },
     decimals: 18,
     projectLink: "https://pancakeswap.finance/",
