@@ -14,6 +14,7 @@ export interface MulticallOptions extends CallOverrides {
 
 const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
   const multi = getMulticallContract()
+  console.log(multi, 'multi')
   const itf = new Interface(abi)
 
   const calldata = calls.map((call) => ({

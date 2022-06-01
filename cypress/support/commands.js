@@ -54,9 +54,9 @@ class CustomizedBridge extends Eip1193Bridge {
     }
     if (method === 'eth_chainId') {
       if (isCallbackForm) {
-        return callback(null, { result: '0x38' })
+        return callback(null, { result: '0x61' })
       }
-      return Promise.resolve('0x38')
+      return Promise.resolve('0x61')
     }
     try {
       const result = await super.send(method, params)
@@ -83,7 +83,7 @@ Cypress.Commands.overwrite('visit', (original, url, options) => {
         options.onBeforeLoad(win)
       }
       win.localStorage.clear()
-      const provider = new JsonRpcProvider('https://bsc-dataseed.binance.org/', 56)
+      const provider = new JsonRpcProvider('https://data-seed-prebsc-1-s3.binance.org:8545', 97)
       const signer = new Wallet(TEST_PRIVATE_KEY, provider)
       // eslint-disable-next-line no-param-reassign
       win.ethereum = new CustomizedBridge(signer, provider)
