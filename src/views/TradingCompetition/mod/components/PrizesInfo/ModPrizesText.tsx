@@ -1,4 +1,4 @@
-import { Flex, Heading, Text } from '@pancakeswap/uikit'
+import { Flex, Heading, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import Image from 'next/image'
 import styled from 'styled-components'

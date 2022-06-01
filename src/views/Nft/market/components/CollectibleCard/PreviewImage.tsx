@@ -1,4 +1,4 @@
-import { BackgroundImage, BoxProps } from '@pancakeswap/uikit'
+import { BackgroundImage, BoxProps } from 'hydroswap-uikitv2'
 import PlaceholderImage from './PlaceholderImage'
 
 interface PreviewImageProps extends BoxProps {

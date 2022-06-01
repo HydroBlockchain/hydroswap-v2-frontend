@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Flex } from '@pancakeswap/uikit'
+import { Flex } from 'hydroswap-uikitv2'
 import Page from 'components/Layout/Page'
 import { useGetCollection } from 'state/nftMarket/hooks'
 import { getNftsFromCollectionApi } from 'state/nftMarket/helpers'

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, ChevronDownIcon } from '@pancakeswap/uikit'
+import { Text, ChevronDownIcon } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import BaseCell from 'views/Pools/components/PoolsTable/Cells/BaseCell'
 

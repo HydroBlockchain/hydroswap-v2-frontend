@@ -1,4 +1,4 @@
-import { Flex, Text, Button, Heading, useModal, Skeleton } from '@pancakeswap/uikit'
+import { Flex, Text, Button, Heading, useModal, Skeleton } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
 import { Token } from '@pancakeswap/sdk'
 import { useTranslation } from 'contexts/Localization'

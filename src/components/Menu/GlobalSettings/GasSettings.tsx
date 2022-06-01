@@ -1,4 +1,4 @@
-import { Flex, Button, Text } from '@pancakeswap/uikit'
+import { Flex, Button, Text } from 'hydroswap-uikitv2'
 import QuestionHelper from 'components/QuestionHelper'
 import { useTranslation } from 'contexts/Localization'
 import { useGasPriceManager } from 'state/user/hooks'

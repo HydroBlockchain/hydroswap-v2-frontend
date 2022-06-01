@@ -1,4 +1,4 @@
-import { Flex, Text, Button, Spinner } from '@pancakeswap/uikit'
+import { Flex, Text, Button, Spinner } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 
 interface ConfirmStageProps {

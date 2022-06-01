@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
-import { Text, useMatchBreakpoints, TokenPairImage as UITokenPairImage } from '@pancakeswap/uikit'
+import { Text, useMatchBreakpoints, TokenPairImage as UITokenPairImage } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { DeserializedPool } from 'state/types'
 import { BIG_ZERO } from 'utils/bigNumber'

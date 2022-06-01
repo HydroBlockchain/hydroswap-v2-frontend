@@ -1,5 +1,5 @@
 import { useTranslation } from 'contexts/Localization'
-import { Text, Link } from '@pancakeswap/uikit'
+import { Text, Link } from 'hydroswap-uikitv2'
 
 const SafemoonWarning = () => {
   const { t } = useTranslation()

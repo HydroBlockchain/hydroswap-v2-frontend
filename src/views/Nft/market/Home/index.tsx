@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Box, Button, Flex, Heading, LinkExternal } from '@pancakeswap/uikit'
+import { Box, Button, Flex, Heading, LinkExternal } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'

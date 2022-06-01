@@ -1,4 +1,4 @@
-import { TagProps } from '@pancakeswap/uikit'
+import { TagProps } from 'hydroswap-uikitv2'
 import { ClosedTag, CommunityTag, CoreTag, SoonTag, VoteNowTag } from 'components/Tags'
 import { ProposalState } from 'state/types'
 

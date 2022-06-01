@@ -1,4 +1,4 @@
-import { Progress } from '@pancakeswap/uikit'
+import { Progress } from 'hydroswap-uikitv2'
 import { differenceInSeconds } from 'date-fns'
 import { Auction, AuctionStatus } from 'config/constants/types'
 import { SLOW_INTERVAL } from 'config/constants'

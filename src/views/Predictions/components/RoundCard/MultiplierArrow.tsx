@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import styled, { CSSProperties } from 'styled-components'
-import { Box, Flex, Text } from '@pancakeswap/uikit'
+import { Box, Flex, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { BetPosition } from 'state/types'
 import { RoundMultiplierDownArrow, RoundMultiplierUpArrow } from '../../RoundMultiplierArrows'

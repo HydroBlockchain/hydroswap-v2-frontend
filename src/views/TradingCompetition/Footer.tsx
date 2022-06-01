@@ -1,4 +1,4 @@
-import { Flex } from '@pancakeswap/uikit'
+import { Flex } from 'hydroswap-uikitv2'
 import Image from 'next/image'
 import useTheme from 'hooks/useTheme'
 import PageSection from 'components/PageSection'

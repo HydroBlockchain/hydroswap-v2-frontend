@@ -1,4 +1,4 @@
-import { Text } from '@pancakeswap/uikit'
+import { Text } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 
 const CrossText = styled(Text)`

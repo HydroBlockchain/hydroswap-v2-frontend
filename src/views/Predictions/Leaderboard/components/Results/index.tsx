@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Flex, useMatchBreakpoints, AutoRenewIcon } from '@pancakeswap/uikit'
+import { Box, Button, Grid, Flex, useMatchBreakpoints, AutoRenewIcon } from 'hydroswap-uikitv2'
 import useLocalDispatch from 'contexts/LocalRedux/useLocalDispatch'
 import {
   useGetLeaderboardHasMoreResults,

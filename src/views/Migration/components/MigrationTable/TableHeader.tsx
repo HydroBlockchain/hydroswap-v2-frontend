@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, CardHeader } from '@pancakeswap/uikit'
+import { Text, CardHeader } from 'hydroswap-uikitv2'
 
 export interface TableHeaderProps {
   title: string

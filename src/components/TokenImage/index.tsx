@@ -3,7 +3,7 @@ import {
   TokenPairImageProps as UIKitTokenPairImageProps,
   TokenImage as UIKitTokenImage,
   ImageProps,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import tokens from 'config/constants/tokens'
 import { Token } from '@pancakeswap/sdk'
 

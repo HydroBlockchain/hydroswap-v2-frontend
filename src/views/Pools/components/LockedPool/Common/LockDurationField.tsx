@@ -1,4 +1,4 @@
-import { Text, Flex, Button, Input, Box } from '@pancakeswap/uikit'
+import { Text, Flex, Button, Input, Box } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import _toNumber from 'lodash/toNumber'

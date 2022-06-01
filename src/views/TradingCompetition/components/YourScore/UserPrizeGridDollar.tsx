@@ -1,4 +1,4 @@
-import { Text, Skeleton } from '@pancakeswap/uikit'
+import { Text, Skeleton } from 'hydroswap-uikitv2'
 
 interface UserPrizeGridDollarProps {
   dollarValueOfTokensReward: number

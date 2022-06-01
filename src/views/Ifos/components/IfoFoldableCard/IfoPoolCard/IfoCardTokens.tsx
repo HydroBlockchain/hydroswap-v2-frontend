@@ -12,7 +12,7 @@ import {
   Message,
   MessageText,
   ErrorIcon,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import { Token } from '@pancakeswap/sdk'
 import { Ifo, PoolIds } from 'config/constants/types'

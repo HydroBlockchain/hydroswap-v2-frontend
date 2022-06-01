@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ArrowDownIcon, ArrowUpIcon } from '@pancakeswap/uikit'
+import { ArrowDownIcon, ArrowUpIcon } from 'hydroswap-uikitv2'
 import { BetPosition } from 'state/types'
 import { useTranslation } from 'contexts/Localization'
 

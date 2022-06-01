@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Flex, useTooltip } from '@pancakeswap/uikit'
+import { Flex, useTooltip } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import CountdownCircle from './CountdownCircle'
 

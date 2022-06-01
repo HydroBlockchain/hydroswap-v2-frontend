@@ -1,4 +1,4 @@
-import { Tag, TagProps, Text, SplitIcon, LockIcon, UnlockIcon, HotIcon, Box } from '@pancakeswap/uikit'
+import { Tag, TagProps, Text, SplitIcon, LockIcon, UnlockIcon, HotIcon, Box } from 'hydroswap-uikitv2'
 import { FlexGap, FlexGapProps } from 'components/Layout/Flex'
 import Trans from 'components/Trans'
 import { useTranslation } from 'contexts/Localization'

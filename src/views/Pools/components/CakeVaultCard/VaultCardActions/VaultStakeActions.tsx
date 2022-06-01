@@ -1,4 +1,4 @@
-import { Flex, Skeleton, useModal } from '@pancakeswap/uikit'
+import { Flex, Skeleton, useModal } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
 import { DeserializedPool } from 'state/types'
 import NotEnoughTokensModal from '../../PoolCard/Modals/NotEnoughTokensModal'

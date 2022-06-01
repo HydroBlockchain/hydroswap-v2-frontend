@@ -16,7 +16,7 @@ import {
   Text,
   TeamPlayerIcon,
   TrophyGoldIcon,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { Td, BoldTd, StyledPrizeTable } from '../../../../components/StyledPrizeTable'
 

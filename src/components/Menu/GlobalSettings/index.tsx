@@ -1,4 +1,4 @@
-import { Flex, IconButton, CogIcon, useModal } from '@pancakeswap/uikit'
+import { Flex, IconButton, CogIcon, useModal } from 'hydroswap-uikitv2'
 import SettingsModal from './SettingsModal'
 
 type Props = {

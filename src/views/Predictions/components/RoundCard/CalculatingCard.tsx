@@ -1,4 +1,4 @@
-import { Card, CardBody, Flex, Spinner, WaitIcon, TooltipText, useTooltip, InfoIcon } from '@pancakeswap/uikit'
+import { Card, CardBody, Flex, Spinner, WaitIcon, TooltipText, useTooltip, InfoIcon } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { NodeRound, BetPosition } from 'state/types'
 import useTheme from 'hooks/useTheme'

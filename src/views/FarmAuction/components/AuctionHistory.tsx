@@ -12,7 +12,7 @@ import {
   BunnyPlaceholderIcon,
   Spinner,
   useMatchBreakpoints,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import AuctionLeaderboardTable from './AuctionLeaderboard/AuctionLeaderboardTable'
 import { useFarmAuction } from '../hooks/useFarmAuction'

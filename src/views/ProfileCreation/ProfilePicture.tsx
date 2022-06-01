@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { AutoRenewIcon, Button, Card, CardBody, Heading, Skeleton, Text } from '@pancakeswap/uikit'
+import { AutoRenewIcon, Button, Card, CardBody, Heading, Skeleton, Text } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { getPancakeProfileAddress } from 'utils/addressHelpers'

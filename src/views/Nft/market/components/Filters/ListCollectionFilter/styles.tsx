@@ -1,4 +1,4 @@
-import { Checkbox, Flex, Text } from '@pancakeswap/uikit'
+import { Checkbox, Flex, Text } from 'hydroswap-uikitv2'
 import { StyledItemRow } from '../ListFilter/styles'
 
 interface CollectionItemRowProps {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Card, CardBody, Flex, PlayCircleOutlineIcon, Text, useTooltip } from '@pancakeswap/uikit'
+import { Card, CardBody, Flex, PlayCircleOutlineIcon, Text, useTooltip } from 'hydroswap-uikitv2'
 import { getNow } from 'utils/getNow'
 import { useTranslation } from 'contexts/Localization'
 import { NodeRound, NodeLedger, BetPosition } from 'state/types'

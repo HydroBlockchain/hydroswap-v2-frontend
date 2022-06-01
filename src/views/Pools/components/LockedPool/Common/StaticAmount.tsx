@@ -1,4 +1,4 @@
-import { Text, Flex, Image, Box } from '@pancakeswap/uikit'
+import { Text, Flex, Image, Box } from 'hydroswap-uikitv2'
 import { BalanceWithLoading } from 'components/Balance'
 import Divider from 'components/Divider'
 import { useTranslation } from 'contexts/Localization'

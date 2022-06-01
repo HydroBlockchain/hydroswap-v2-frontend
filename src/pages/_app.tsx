@@ -1,4 +1,4 @@
-import { ResetCSS } from '@pancakeswap/uikit'
+import { ResetCSS } from '../../packages/uikit/src/index'
 import Script from 'next/script'
 import dynamic from 'next/dynamic'
 import BigNumber from 'bignumber.js'
@@ -73,7 +73,7 @@ function MyApp(props: AppProps) {
           <GlobalStyle />
           <GlobalCheckClaimStatus excludeLocations={[]} />
           <PersistGate loading={null} persistor={persistor}>
-            {/* <Updaters /> */}
+            <Updaters />
             <App {...props} />
           </PersistGate>
         </Blocklist>

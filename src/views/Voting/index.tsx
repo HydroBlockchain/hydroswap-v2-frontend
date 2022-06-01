@@ -1,4 +1,4 @@
-import { Flex } from '@pancakeswap/uikit'
+import { Flex } from 'hydroswap-uikitv2'
 import { PageMeta } from 'components/Layout/Page'
 import styled from 'styled-components'
 import Footer from './components/Footer'

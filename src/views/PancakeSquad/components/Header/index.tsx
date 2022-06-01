@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Box, Flex, lightColors, Spinner, Text, Timeline } from '@pancakeswap/uikit'
+import { Box, Flex, lightColors, Spinner, Text, Timeline } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { useGetCakeBalance } from 'hooks/useTokenBalance'
 import useTheme from 'hooks/useTheme'

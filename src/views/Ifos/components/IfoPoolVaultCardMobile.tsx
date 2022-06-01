@@ -1,4 +1,4 @@
-import { Box, Card, CardBody, CardHeader, ExpandableButton, Flex, Text, Message, Button } from '@pancakeswap/uikit'
+import { Box, Card, CardBody, CardHeader, ExpandableButton, Flex, Text, Message, Button } from 'hydroswap-uikitv2'
 import { ActionContainer } from 'views/Pools/components/PoolsTable/ActionPanel/styles'
 import { useState } from 'react'
 import styled from 'styled-components'

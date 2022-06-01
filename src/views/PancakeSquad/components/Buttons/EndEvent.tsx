@@ -1,5 +1,5 @@
 import { NextLinkFromReactRouter } from 'components/NextLink'
-import { Button, Flex } from '@pancakeswap/uikit'
+import { Button, Flex } from 'hydroswap-uikitv2'
 import { ContextApi } from 'contexts/Localization/types'
 import { SaleStatusEnum, UserStatusEnum } from '../../types'
 

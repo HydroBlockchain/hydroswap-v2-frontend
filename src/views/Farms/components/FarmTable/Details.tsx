@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ChevronDownIcon, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { ChevronDownIcon, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 
 interface DetailsProps {

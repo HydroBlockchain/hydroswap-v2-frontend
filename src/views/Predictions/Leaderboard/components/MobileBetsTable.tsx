@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Token } from '@pancakeswap/sdk'
-import { Flex, Text, ChevronUpIcon, ChevronDownIcon } from '@pancakeswap/uikit'
+import { Flex, Text, ChevronUpIcon, ChevronDownIcon } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import PreviousBetsTable from './PreviousBetsTable'
 

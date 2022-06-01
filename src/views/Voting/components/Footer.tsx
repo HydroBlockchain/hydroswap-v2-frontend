@@ -1,4 +1,4 @@
-import { Box, Button, Text, Heading, ProposalIcon, Flex } from '@pancakeswap/uikit'
+import { Box, Button, Text, Heading, ProposalIcon, Flex } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import Link from 'next/link'

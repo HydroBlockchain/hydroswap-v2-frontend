@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@pancakeswap/uikit'
+import { ButtonMenu, ButtonMenuItem, NotificationDot } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { useRouter } from 'next/router'
 import { NextLinkFromReactRouter } from 'components/NextLink'

@@ -1,4 +1,4 @@
-import { InstagramIcon, TwitterIcon } from '@pancakeswap/uikit'
+import { InstagramIcon, TwitterIcon } from 'hydroswap-uikitv2'
 import { ContextApi } from 'contexts/Localization/types'
 
 type ArtistConfigType = {

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { CurrencyAmount, Token, Trade } from '@pancakeswap/sdk'
-import { Button, Box, Flex, useModal, useMatchBreakpoints, BottomDrawer, Link } from '@pancakeswap/uikit'
+import { Button, Box, Flex, useModal, useMatchBreakpoints, BottomDrawer, Link } from 'hydroswap-uikitv2'
 
 import { useTranslation } from 'contexts/Localization'
 import { AutoColumn } from 'components/Layout/Column'
@@ -41,7 +41,7 @@ const LimitOrders = () => {
   const { isMobile, isTablet } = useMatchBreakpoints()
   const { theme } = useTheme()
   const [userChartPreference, setUserChartPreference] = useExchangeChartManager(isMobile)
-  const [isChartExpanded, setIsChartExpanded] = useState(false)
+  const [isChartExpanded, setIsChartExpanded] = useState(true)
   const [isChartDisplayed, setIsChartDisplayed] = useState(userChartPreference)
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useWeb3React } from '@web3-react/core'
 import { Price } from '@pancakeswap/sdk'
-import { Button, Grid, Text, Flex, Box, BinanceIcon, useModal, Skeleton } from '@pancakeswap/uikit'
+import { Button, Grid, Text, Flex, Box, BinanceIcon, useModal, Skeleton } from 'hydroswap-uikitv2'
 import { formatNumber } from 'utils/formatBalance'
 import { ContextApi } from 'contexts/Localization/types'
 import { useTranslation } from 'contexts/Localization'

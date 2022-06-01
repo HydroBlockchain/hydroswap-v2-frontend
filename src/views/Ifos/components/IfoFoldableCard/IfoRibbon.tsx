@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Progress, ProgressBar } from '@pancakeswap/uikit'
+import { Box, Flex, Heading, Progress, ProgressBar } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
 import { PublicIfoData } from '../../types'

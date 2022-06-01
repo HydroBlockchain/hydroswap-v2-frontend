@@ -1,4 +1,4 @@
-import { Flex, Text } from '@pancakeswap/uikit'
+import { Flex, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 
 const LockDurationRow = ({ weekDuration }) => {

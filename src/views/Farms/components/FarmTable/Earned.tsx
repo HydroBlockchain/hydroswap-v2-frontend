@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Skeleton } from '@pancakeswap/uikit'
+import { Skeleton } from 'hydroswap-uikitv2'
 
 export interface EarnedProps {
   earnings: number

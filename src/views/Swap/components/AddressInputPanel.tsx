@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import styled from 'styled-components'
-import { Text, Link } from '@pancakeswap/uikit'
+import { Text, Link } from 'hydroswap-uikitv2'
 import { isAddress } from 'utils'
 import { useTranslation } from 'contexts/Localization'
 import useActiveWeb3React from '../../../hooks/useActiveWeb3React'

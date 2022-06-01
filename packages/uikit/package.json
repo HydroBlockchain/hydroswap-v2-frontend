@@ -1,5 +1,5 @@
 {
-  "name": "@pancakeswap/uikit",
+  "name": "hydroswap-uikitv2 ",
   "version": "0.63.1",
   "description": "Set of UI components for pancake projects",
   "main": "src/index.ts",
@@ -57,6 +57,7 @@
     "@popperjs/core": "^2.9.2",
     "@types/styled-system": "^5.1.10",
     "framer-motion": "4.1.17",
+    "hydroswap-uikitv2": "^0.0.7",
     "lodash": "^4.17.20",
     "react-popper": "^2.2.5",
     "styled-system": "^5.1.5",

@@ -1,5 +1,5 @@
 import { useTheme } from 'styled-components'
-import { Svg, SvgProps } from '@pancakeswap/uikit'
+import { Svg, SvgProps } from 'hydroswap-uikitv2'
 
 interface MultiplierProps extends SvgProps {
   isActive: boolean

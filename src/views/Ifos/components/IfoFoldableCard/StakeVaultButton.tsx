@@ -1,4 +1,4 @@
-import { Button } from '@pancakeswap/uikit'
+import { Button } from 'hydroswap-uikitv2'
 
 import { useTranslation } from 'contexts/Localization'
 

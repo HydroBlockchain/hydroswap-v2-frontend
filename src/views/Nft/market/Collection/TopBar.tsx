@@ -1,4 +1,4 @@
-import { Box, ChevronLeftIcon, Flex } from '@pancakeswap/uikit'
+import { Box, ChevronLeftIcon, Flex } from 'hydroswap-uikitv2'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'

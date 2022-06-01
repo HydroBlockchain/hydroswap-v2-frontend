@@ -1,4 +1,4 @@
-import { ButtonMenu, ButtonMenuItem } from '@pancakeswap/uikit'
+import { ButtonMenu, ButtonMenuItem } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import useLocalDispatch from 'contexts/LocalRedux/useLocalDispatch'
 import { setLeaderboardFilter } from 'state/predictions'

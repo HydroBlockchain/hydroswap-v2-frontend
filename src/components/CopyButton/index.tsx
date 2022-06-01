@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CopyIcon, SvgProps } from '@pancakeswap/uikit'
+import { CopyIcon, SvgProps } from 'hydroswap-uikitv2'
 import { copyText } from 'utils/copyText'
 import styled from 'styled-components'
 

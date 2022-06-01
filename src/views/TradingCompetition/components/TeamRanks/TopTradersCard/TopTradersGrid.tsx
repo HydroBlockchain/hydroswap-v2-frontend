@@ -1,4 +1,4 @@
-import { Box, Skeleton } from '@pancakeswap/uikit'
+import { Box, Skeleton } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { LeaderboardDataItem } from '../../../types'
 import GridItem from './GridItem'

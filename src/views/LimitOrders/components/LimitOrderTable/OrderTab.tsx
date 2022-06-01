@@ -1,4 +1,4 @@
-import { ButtonMenu, ButtonMenuItem } from '@pancakeswap/uikit'
+import { ButtonMenu, ButtonMenuItem } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import useTheme from 'hooks/useTheme'
 import { useTranslation } from 'contexts/Localization'

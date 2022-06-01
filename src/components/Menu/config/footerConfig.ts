@@ -1,4 +1,4 @@
-import { FooterLinkType } from '@pancakeswap/uikit'
+import { FooterLinkType } from 'hydroswap-uikitv2'
 import { ContextApi } from 'contexts/Localization/types'
 
 export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [

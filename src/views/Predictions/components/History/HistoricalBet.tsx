@@ -10,7 +10,7 @@ import {
   Text,
   useTooltip,
   WaitIcon,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import styled from 'styled-components'
 import useLocalDispatch from 'contexts/LocalRedux/useLocalDispatch'

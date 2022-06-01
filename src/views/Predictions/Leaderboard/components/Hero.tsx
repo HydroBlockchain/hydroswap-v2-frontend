@@ -1,4 +1,4 @@
-import { Heading } from '@pancakeswap/uikit'
+import { Heading } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import PageHeader from 'components/PageHeader'
 import Crumbs from './Crumbs'

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useModal } from '@pancakeswap/uikit'
+import { useModal } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import dynamic from 'next/dynamic'
 import request, { gql } from 'graphql-request'

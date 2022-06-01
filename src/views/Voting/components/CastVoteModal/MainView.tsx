@@ -1,4 +1,4 @@
-import { IconButton, Text, Skeleton, Button, AutoRenewIcon, ChevronRightIcon, Message } from '@pancakeswap/uikit'
+import { IconButton, Text, Skeleton, Button, AutoRenewIcon, ChevronRightIcon, Message } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { formatNumber } from 'utils/formatBalance'
 import TextEllipsis from '../TextEllipsis'

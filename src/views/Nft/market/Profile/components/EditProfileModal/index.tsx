@@ -1,4 +1,4 @@
-import { InjectedModalProps, Modal } from '@pancakeswap/uikit'
+import { InjectedModalProps, Modal } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { ContextApi } from 'contexts/Localization/types'
 import useEditProfile, { Views } from './reducer'

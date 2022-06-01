@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useTranslation } from 'contexts/Localization'
-import { Button, AutoRenewIcon } from '@pancakeswap/uikit'
+import { Button, AutoRenewIcon } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
 import { DeserializedPool, VaultKey } from 'state/types'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'

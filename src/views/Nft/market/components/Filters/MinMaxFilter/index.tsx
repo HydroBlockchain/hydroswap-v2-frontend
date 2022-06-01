@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Box, BoxProps, Button, Grid, InlineMenu, TextField } from '@pancakeswap/uikit'
+import { Box, BoxProps, Button, Grid, InlineMenu, TextField } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import FilterFooter from '../FilterFooter'
 

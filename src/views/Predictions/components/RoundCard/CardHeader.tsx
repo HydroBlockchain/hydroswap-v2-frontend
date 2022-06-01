@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { Flex, Text } from '@pancakeswap/uikit'
+import { Flex, Text } from 'hydroswap-uikitv2'
 import styled, { DefaultTheme } from 'styled-components'
 
 type Status = 'expired' | 'live' | 'next' | 'soon' | 'canceled' | 'calculating'

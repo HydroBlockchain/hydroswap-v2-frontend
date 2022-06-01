@@ -1,4 +1,4 @@
-import { Text } from '@pancakeswap/uikit'
+import { Text } from 'hydroswap-uikitv2'
 import { toDate, format } from 'date-fns'
 import { useTranslation } from 'contexts/Localization'
 import { ProposalState } from 'state/types'

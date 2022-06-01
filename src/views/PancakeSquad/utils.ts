@@ -1,4 +1,4 @@
-import { EventStatus } from '@pancakeswap/uikit'
+import { EventStatus } from 'hydroswap-uikitv2'
 import { ContextApi } from 'contexts/Localization/types'
 import formatTimePeriod from 'utils/formatTimePeriod'
 import getTimePeriods from 'utils/getTimePeriods'

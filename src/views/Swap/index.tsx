@@ -13,7 +13,7 @@ import {
   useMatchBreakpoints,
   ArrowUpDownIcon,
   Skeleton,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import UnsupportedCurrencyFooter from 'components/UnsupportedCurrencyFooter'
 import Footer from 'components/Menu/Footer'

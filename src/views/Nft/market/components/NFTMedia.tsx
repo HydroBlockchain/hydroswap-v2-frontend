@@ -1,4 +1,4 @@
-import { Box, BoxProps } from '@pancakeswap/uikit'
+import { Box, BoxProps } from 'hydroswap-uikitv2'
 import { FC, useEffect, useRef } from 'react'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
 import { NftToken } from 'state/nftMarket/types'

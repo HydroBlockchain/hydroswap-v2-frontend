@@ -11,7 +11,7 @@ import {
   CardRibbon,
   useMatchBreakpoints,
   BunnyPlaceholderIcon,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { LotteryRound } from 'state/types'
 import { useGetUserLotteriesGraphData, useLottery } from 'state/lottery/hooks'
 import { LotteryStatus } from 'config/constants/types'

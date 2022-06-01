@@ -1,5 +1,5 @@
 import { useEffect, memo } from 'react'
-import { useModal } from '@pancakeswap/uikit'
+import { useModal } from 'hydroswap-uikitv2'
 import DisclaimerModal from 'components/DisclaimerModal'
 import { useUserLimitOrderAcceptedWarning } from 'state/user/hooks'
 

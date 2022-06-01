@@ -1,5 +1,5 @@
 import styled, { keyframes, css } from 'styled-components'
-import { Box, Flex, HelpIcon, Text, useTooltip, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Box, Flex, HelpIcon, Text, useTooltip, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import { getVaultPosition, VaultPosition } from 'utils/cakePool'
 import BigNumber from 'bignumber.js'

@@ -1,4 +1,4 @@
-import { ErrorIcon, Flex, Text } from '@pancakeswap/uikit'
+import { ErrorIcon, Flex, Text } from 'hydroswap-uikitv2'
 import { AutoColumn } from 'components/Layout/Column'
 import styled, { css } from 'styled-components'
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import useDelayedUnmount from 'hooks/useDelayedUnmount'
-import { useMatchBreakpoints } from '@pancakeswap/uikit'
+import { useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { DeserializedPool, VaultKey } from 'state/types'
 import { useVaultPoolByKey, useVaultPools } from 'state/pools/hooks'
 import { BIG_ZERO } from 'utils/bigNumber'

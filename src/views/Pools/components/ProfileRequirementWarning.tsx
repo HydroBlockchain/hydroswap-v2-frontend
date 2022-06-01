@@ -1,4 +1,4 @@
-import { Box, Message, MessageText } from '@pancakeswap/uikit'
+import { Box, Message, MessageText } from 'hydroswap-uikitv2'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'
 import { DeserializedPool } from 'state/types'

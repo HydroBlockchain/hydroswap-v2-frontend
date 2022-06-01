@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Button, Heading, Text, LogoIcon } from '@pancakeswap/uikit'
+import { Button, Heading, Text, LogoIcon } from 'hydroswap-uikitv2'
 import Page from 'components/Layout/Page'
 import { useTranslation } from 'contexts/Localization'
 import Link from 'next/link'

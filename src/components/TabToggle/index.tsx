@@ -1,4 +1,4 @@
-import { Box, BoxProps, Flex } from '@pancakeswap/uikit'
+import { Box, BoxProps, Flex } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 
 const Wrapper = styled(Flex)`

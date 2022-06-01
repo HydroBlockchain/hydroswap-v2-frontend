@@ -1,4 +1,4 @@
-import { Flex } from '@pancakeswap/uikit'
+import { Flex } from 'hydroswap-uikitv2'
 import Loading from 'components/Loading'
 
 const TableLoading = () => {

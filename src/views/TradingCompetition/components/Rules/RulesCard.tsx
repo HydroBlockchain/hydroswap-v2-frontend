@@ -1,4 +1,4 @@
-import { Heading, Card, CardBody } from '@pancakeswap/uikit'
+import { Heading, Card, CardBody } from 'hydroswap-uikitv2'
 
 const RulesCard: React.FC<{ title?: string }> = ({ title, children }) => {
   return (

@@ -1,5 +1,5 @@
 import { Token } from '@pancakeswap/sdk'
-import { Box, Card, Text } from '@pancakeswap/uikit'
+import { Box, Card, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import PreviousBetsTable from '../PreviousBetsTable'
 

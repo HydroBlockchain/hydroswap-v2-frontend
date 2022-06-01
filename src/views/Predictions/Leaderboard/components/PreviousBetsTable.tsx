@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import times from 'lodash/times'
 import orderBy from 'lodash/orderBy'
-import { Skeleton, Table, Td, Th } from '@pancakeswap/uikit'
+import { Skeleton, Table, Td, Th } from 'hydroswap-uikitv2'
 import { Token } from '@pancakeswap/sdk'
 import { useTranslation } from 'contexts/Localization'
 import { getBetHistory, transformBetResponse } from 'state/predictions/helpers'

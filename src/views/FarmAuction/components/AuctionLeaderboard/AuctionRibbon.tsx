@@ -1,4 +1,4 @@
-import { Text } from '@pancakeswap/uikit'
+import { Text } from 'hydroswap-uikitv2'
 import { Auction, AuctionStatus } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'
 

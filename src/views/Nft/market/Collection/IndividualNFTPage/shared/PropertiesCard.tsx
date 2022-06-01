@@ -1,4 +1,4 @@
-import { Box, Flex, Text, NftIcon } from '@pancakeswap/uikit'
+import { Box, Flex, Text, NftIcon } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { NftAttribute } from 'state/nftMarket/types'
 import ExpandableCard from './ExpandableCard'

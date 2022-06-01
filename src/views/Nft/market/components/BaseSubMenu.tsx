@@ -1,4 +1,4 @@
-import { SubMenuItems } from '@pancakeswap/uikit'
+import { SubMenuItems } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 
 const BaseSubMenu = styled(SubMenuItems)`

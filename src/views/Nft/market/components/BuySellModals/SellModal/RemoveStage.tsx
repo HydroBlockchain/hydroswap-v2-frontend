@@ -1,4 +1,4 @@
-import { Flex, Box, Text, Button } from '@pancakeswap/uikit'
+import { Flex, Box, Text, Button } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { Divider } from '../shared/styles'
 

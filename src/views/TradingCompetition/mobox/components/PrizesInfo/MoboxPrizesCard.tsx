@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Card, CardHeader, Box, Heading, Text } from '@pancakeswap/uikit'
+import { Card, CardHeader, Box, Heading, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import PrizesGrid from '../../../components/PrizesInfo/PrizesGrid/PrizesGrid'
 import { mboxPrizes } from '../../../../../config/constants/trading-competition/prizes'

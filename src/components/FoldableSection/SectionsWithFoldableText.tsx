@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Text, Heading, Card, CardHeader, CardBody, Box, BoxProps } from '@pancakeswap/uikit'
+import { Text, Heading, Card, CardHeader, CardBody, Box, BoxProps } from 'hydroswap-uikitv2'
 import FoldableText from './FoldableText'
 
 interface Props extends BoxProps {

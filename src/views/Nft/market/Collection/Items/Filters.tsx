@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Box, ButtonMenu, ButtonMenuItem, Flex, Grid, Text } from '@pancakeswap/uikit'
+import { Box, ButtonMenu, ButtonMenuItem, Flex, Grid, Text } from 'hydroswap-uikitv2'
 import capitalize from 'lodash/capitalize'
 import isEmpty from 'lodash/isEmpty'
 import { useGetNftFilters, useGetNftShowOnlyOnSale } from 'state/nftMarket/hooks'
