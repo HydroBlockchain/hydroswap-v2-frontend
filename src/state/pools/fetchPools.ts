@@ -28,12 +28,12 @@ const startEndBlockCalls = poolsWithEnd.flatMap((poolConfig) => {
 
 export const fetchPoolsBlockLimits = async () => {
   let startEndBlockRaw
-  try {
-    startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
-  } catch (error) {
-    console.log(error, 'startEndBlockRaw')
-  }
-  console.log(startEndBlockRaw, 'startEndBlockRaw')
+  // try {
+  //   startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
+  // } catch (error) {
+  //   console.log(error, 'startEndBlockRaw')
+  // }
+  // console.log(startEndBlockRaw, 'startEndBlockRaw')
 
   const startEndBlockResult = startEndBlockRaw.reduce((resultArray, item, index) => {
     const chunkIndex = Math.floor(index / 2)
@@ -141,4 +141,5 @@ export const fetchPoolsProfileRequirement = async (): Promise<{
       },
     }
   }, {})
+  
 }

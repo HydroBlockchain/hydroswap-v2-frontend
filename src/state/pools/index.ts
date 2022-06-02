@@ -1,3 +1,4 @@
+
 /* eslint-disable no-console */
 import { createAsyncThunk, createSlice, PayloadAction, isAnyOf } from '@reduxjs/toolkit'
 import BigNumber from 'bignumber.js'
@@ -234,14 +235,17 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
       fetchUserBalances(account),
       fetchUserStakeBalances(account),
       fetchUserPendingRewards(account),
+      
     ])
-    console.log(allowances, stakedBalances, pendingRewards, 'Userdata')
+    const totalStakings = await fetchPoolsTotalStaking()
+    console.log(allowances, stakedBalances, pendingRewards, totalStakings, 'Userdata')
     const userData = poolsConfig.map((pool) => ({
       sousId: pool.sousId,
       allowance: allowances[pool.sousId],
       stakingTokenBalance: stakingTokenBalances[pool.sousId],
       stakedBalance: stakedBalances[pool.sousId],
       pendingReward: pendingRewards[pool.sousId],
+      totalStaking: totalStakings[pool.sousId]
     }))
     return userData
   } catch (e) {
@@ -280,6 +284,14 @@ export const updateUserPendingReward = createAsyncThunk<
 >('pool/updateUserPendingReward', async ({ sousId, account }) => {
   const pendingRewards = await fetchUserPendingRewards(account)
   return { sousId, field: 'pendingReward', value: pendingRewards[sousId] }
+})
+
+export const updatePoolTotalStaking = createAsyncThunk<
+{ sousId: number; field: string; value: any },
+{sousId: number}
+>('pool/updatePoolTotalStaking',async ({sousId}) => {
+  const totalStakings = await fetchPoolsTotalStaking()
+  return{ sousId, field: 'totalStaking', value: totalStakings[sousId]}
 })
 
 export const fetchCakeVaultPublicData = createAsyncThunk<SerializedCakeVault>('cakeVault/fetchPublicData', async () => {
@@ -378,6 +390,7 @@ export const PoolsSlice = createSlice({
         updateUserBalance.fulfilled,
         updateUserStakedBalance.fulfilled,
         updateUserPendingReward.fulfilled,
+        updatePoolTotalStaking.fulfilled
       ),
       (state, action: PayloadAction<{ sousId: number; field: string; value: any }>) => {
         const { field, value, sousId } = action.payload

@@ -76,6 +76,7 @@ import nftMarketAbi from 'config/abi/nftMarket.json'
 import nftSaleAbi from 'config/abi/nftSale.json'
 import pancakeSquadAbi from 'config/abi/pancakeSquad.json'
 import erc721CollectionAbi from 'config/abi/erc721collection.json'
+import kvsStakingAbi from 'config/abi/kvsStaking.json';
 
 // Types
 import type {
@@ -144,6 +145,11 @@ export const getSouschefContract = (id: number, signer?: Signer | Provider) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
   const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
   return getContract(abi, getAddress(config.contractAddress), signer) as SousChef
+}
+
+export const getKvsContract = (id: number, signer?: Signer | Provider) => {
+  const config = poolsConfig.find((pool) => pool.sousId === id)
+  return getContract(kvsStakingAbi, getAddress(config.contractAddress), signer)
 }
 export const getSouschefV2Contract = (id: number, signer?: Signer | Provider) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
