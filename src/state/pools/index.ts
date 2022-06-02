@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { createAsyncThunk, createSlice, PayloadAction, isAnyOf } from '@reduxjs/toolkit'
 import BigNumber from 'bignumber.js'
 import poolsConfig from 'config/constants/pools'
@@ -234,7 +235,7 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
       fetchUserStakeBalances(account),
       fetchUserPendingRewards(account),
     ])
-
+    console.log(allowances, stakedBalances, pendingRewards, 'Userdata')
     const userData = poolsConfig.map((pool) => ({
       sousId: pool.sousId,
       allowance: allowances[pool.sousId],
@@ -244,6 +245,7 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
     }))
     return userData
   } catch (e) {
+    console.log(e, 'userdata error')
     return rejectWithValue(e)
   }
 })

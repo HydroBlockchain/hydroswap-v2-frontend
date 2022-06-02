@@ -125,6 +125,9 @@ export const getContract = (abi: any, address: string, signer?: Signer | Provide
 export const getBep20Contract = (address: string, signer?: Signer | Provider) => {
   return getContract(bep20Abi, address, signer) as Erc20
 }
+export const getMulticallContract = (signer?: Signer | Provider) => {
+  return getContract(MultiCallAbi, getMulticallAddress(), signer) as Multicall
+}
 export const getErc721Contract = (address: string, signer?: Signer | Provider) => {
   return getContract(erc721Abi, address, signer) as Erc721
 }
@@ -214,9 +217,7 @@ export const getPredictionsContract = (address: string, signer?: Signer | Provid
 export const getChainlinkOracleContract = (address: string, signer?: Signer | Provider) => {
   return getContract(chainlinkOracleAbi, address, signer) as ChainlinkOracle
 }
-export const getMulticallContract = () => {
-  return getContract(MultiCallAbi, getMulticallAddress(), simpleRpcProvider) as Multicall
-}
+
 export const getBunnySpecialCakeVaultContract = (signer?: Signer | Provider) => {
   return getContract(bunnySpecialCakeVaultAbi, getBunnySpecialCakeVaultAddress(), signer) as BunnySpecialCakeVault
 }
