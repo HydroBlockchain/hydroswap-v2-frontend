@@ -22,6 +22,7 @@ import useCatchTxError from 'hooks/useCatchTxError'
 import { updateUserBalance, updateUserPendingReward, updateUserStakedBalance } from 'state/pools'
 import { useAppDispatch } from 'state'
 import { DeserializedPool } from 'state/types'
+import BigNumber from 'bignumber.js'
 import useHarvestPool from '../../../hooks/useHarvestPool'
 import useStakePool from '../../../hooks/useStakePool'
 
@@ -34,14 +35,11 @@ interface CollectModalProps {
   isBnbPool: boolean
   isCompoundPool?: boolean
   onDismiss?: () => void
-  pool: DeserializedPool
+  earning: BigNumber
 }
 
-
-
-
 const CollectModal: React.FC<CollectModalProps> = ({
-  pool,
+  earning,
   formattedBalance,
   fullBalance,
   earningToken,
@@ -57,7 +55,7 @@ const CollectModal: React.FC<CollectModalProps> = ({
   const { account } = useWeb3React()
   const dispatch = useAppDispatch()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
-  const { onReward } = useHarvestPool({sousId, pool})
+  const { onReward } = useHarvestPool(sousId, isBnbPool, account)
   const { onStake } = useStakePool(sousId, isBnbPool)
   const [shouldCompound, setShouldCompound] = useState(isCompoundPool)
   const { targetRef, tooltip, tooltipVisible } = useTooltip(

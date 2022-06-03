@@ -19,7 +19,6 @@ interface HarvestActionsProps {
 }
 
 const HarvestActions: React.FC<HarvestActionsProps> = ({
-  pool,
   earnings,
   earningToken,
   sousId,
@@ -40,7 +39,7 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
 
   const [onPresentCollect] = useModal(
     <CollectModal
-      earning={earning}
+      earning={earnings}
       formattedBalance={formattedBalance}
       fullBalance={fullBalance}
       earningToken={earningToken}
