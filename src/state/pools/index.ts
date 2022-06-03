@@ -1,5 +1,3 @@
-
-
 /* eslint-disable no-console */
 import { createAsyncThunk, createSlice, PayloadAction, isAnyOf } from '@reduxjs/toolkit'
 import BigNumber from 'bignumber.js'
@@ -26,8 +24,8 @@ import {
   // fetchPoolsBlockLimits,
   fetchPoolsProfileRequirement,
   fetchPoolsStakingLimits,
-  fetchPoolsTotalStaking, 
-  fetchPoolsAPR
+  fetchPoolsTotalStaking,
+  fetchPoolsAPR,
 } from './fetchPools'
 import {
   fetchPoolsAllowance,
@@ -200,22 +198,19 @@ export const fetchCakePoolUserDataAsync = (account: string) => async (dispatch) 
 
 export const fetchPoolsPublicDataAsync = () => async (dispatch, getState) => {
   try {
-    const [totalStakings, aprs] = await Promise.all([
-      fetchPoolsTotalStaking(),
-       fetchPoolsAPR()
-    ])
+    const [totalStakings, aprs] = await Promise.all([fetchPoolsTotalStaking(), fetchPoolsAPR()])
 
     const liveData = poolsConfig.map((pool) => {
       const totalStaking = totalStakings.find((entry) => entry.sousId === pool.sousId)
       const apy = aprs.find((entry) => entry.sousId === pool.sousId)
       return {
-        ...totalStaking, 
+        ...totalStaking,
         ...apy,
       }
     })
     dispatch(setPoolsPublicData(liveData))
-  } catch (error){
-    console.error("my" , error)
+  } catch (error) {
+    console.error('my', error)
   }
 }
 
@@ -258,10 +253,9 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
       fetchUserBalances(account),
       fetchUserStakeBalances(account),
       fetchUserPendingRewards(account),
-      
     ])
-    const totalStakings = await fetchPoolsTotalStaking()
-    console.log(allowances, stakedBalances, pendingRewards, totalStakings, 'Userdata')
+
+    console.log(allowances, stakedBalances, pendingRewards, 'Userdata')
     const userData = poolsConfig.map((pool) => ({
       sousId: pool.sousId,
       allowance: allowances[pool.sousId],
@@ -307,7 +301,6 @@ export const updateUserPendingReward = createAsyncThunk<
   const pendingRewards = await fetchUserPendingRewards(account)
   return { sousId, field: 'pendingReward', value: pendingRewards[sousId] }
 })
-
 
 export const fetchCakeVaultPublicData = createAsyncThunk<SerializedCakeVault>('cakeVault/fetchPublicData', async () => {
   const publicVaultInfo = await fetchPublicVaultData()

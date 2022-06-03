@@ -26,9 +26,7 @@ const sousStakeBnb = async (sousChefContract, amount) => {
 }
 
 const useStakePool = (sousId: number, isUsingBnb = false) => {
-  const sousChefContract =  useKvsContract(sousId)
- 
- 
+  const sousChefContract = useKvsContract(sousId)
 
   const handleStake = useCallback(
     async (amount: string, decimals: number) => {
