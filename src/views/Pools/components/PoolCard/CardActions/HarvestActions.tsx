@@ -29,6 +29,7 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
 }) => {
   const { t } = useTranslation()
   const earningTokenBalance = getBalanceNumber(earnings, earningToken.decimals)
+  console.log(earnings, 'earnings')
   const formattedBalance = formatNumber(earningTokenBalance, 3, 3)
 
   const earningTokenDollarBalance = getBalanceNumber(earnings.multipliedBy(earningTokenPrice), earningToken.decimals)
@@ -39,7 +40,7 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
 
   const [onPresentCollect] = useModal(
     <CollectModal
-      pool ={pool}
+      earning={earning}
       formattedBalance={formattedBalance}
       fullBalance={fullBalance}
       earningToken={earningToken}

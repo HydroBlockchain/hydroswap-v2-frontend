@@ -19,20 +19,16 @@ const harvestPoolBnb = async (sousChefContract) => {
   return sousChefContract.deposit({ ...options, value: BIG_ZERO, gasPrice })
 }
 
-const useHarvestPool = ({sousId, isUsingBnb = false, pool}) => {
-  const { userData} =pool
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const amount = userData?.pendingReward ? new BigNumber(userData.pendingReward) : BIG_ZERO
+const useHarvestPool = (sousId, isUsingBnb = false, earning: number) => {
   const sousChefContract = useKvsContract(sousId)
-  
 
   const handleHarvest = useCallback(async () => {
     if (isUsingBnb) {
       return harvestPoolBnb(sousChefContract)
     }
 
-    return harvestPool(sousChefContract, amount)
-  }, [isUsingBnb, sousChefContract, amount])
+    return harvestPool(sousChefContract, earning)
+  }, [isUsingBnb, sousChefContract, earning])
 
   return { onReward: handleHarvest }
 }
