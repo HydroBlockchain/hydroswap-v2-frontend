@@ -13,6 +13,7 @@ export interface MulticallOptions extends CallOverrides {
   requireSuccess?: boolean
 }
 
+declare const window:any
 const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
   const provider = new ethers.providers.Web3Provider(window.ethereum)
   const multi = getMulticallContract(provider)

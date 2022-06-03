@@ -19,15 +19,15 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
         label: t('Swap'),
         href: '/swap',
       },
-      {
-        label: t('Liquidity'),
-        href: '/liquidity',
-      },
+      // {
+      //   label: t('Liquidity'),
+      //   href: '/liquidity',
+      // },
     ],
   },
   {
     label: t('Earn'),
-    href: '/farms',
+    href: '/pools',
     items: [
       {
         label: t('Pools'),

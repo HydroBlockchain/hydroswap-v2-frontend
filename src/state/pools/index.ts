@@ -23,7 +23,7 @@ import priceHelperLpsConfig from 'config/constants/priceHelperLps'
 import fetchFarms from '../farms/fetchFarms'
 import getFarmsPrices from '../farms/getFarmsPrices'
 import {
-  fetchPoolsBlockLimits,
+  // fetchPoolsBlockLimits,
   fetchPoolsProfileRequirement,
   fetchPoolsStakingLimits,
   fetchPoolsTotalStaking, 

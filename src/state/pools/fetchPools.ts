@@ -17,51 +17,50 @@ import { getBalanceNumber } from "../../utils/formatBalance";
 
 const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0)
 
-const startEndBlockCalls = poolsWithEnd.flatMap((poolConfig) => {
-  return [
-    {
-      address: getAddress(poolConfig.contractAddress),
-      name: 'startBlock',
-    },
-    {
-      address: getAddress(poolConfig.contractAddress),
-      name: 'bonusEndBlock',
-    },
-  ]
-})
+// const startEndBlockCalls = poolsWithEnd.flatMap((poolConfig) => {
+//   return [
+//     {
+//       address: getAddress(poolConfig.contractAddress),
+//       name: 'startBlock',
+//     },
+//     {
+//       address: getAddress(poolConfig.contractAddress),
+//       name: 'bonusEndBlock',
+//     },
+//   ]
+// })
 
-export const fetchPoolsBlockLimits = async () => {
-  let startEndBlockRaw
-  // try {
-  //   startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
-  // } catch (error) {
-  //   console.log(error, 'startEndBlockRaw')
-  // }
-  // console.log(startEndBlockRaw, 'startEndBlockRaw')
+// export const fetchPoolsBlockLimits = async () => {
+//   let startEndBlockRaw
+//   // try {
+//   //   startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
+//   // } catch (error) {
+//   //   console.log(error, 'startEndBlockRaw')
+//   // }
+//   // console.log(startEndBlockRaw, 'startEndBlockRaw')
 
-  const startEndBlockResult = startEndBlockRaw.reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index / 2)
+//   const startEndBlockResult = startEndBlockRaw.reduce((resultArray, item, index) => {
+//     const chunkIndex = Math.floor(index / 2)
 
-    if (!resultArray[chunkIndex]) {
-      // eslint-disable-next-line no-param-reassign
-      resultArray[chunkIndex] = [] // start a new chunk
-    }
+//     if (!resultArray[chunkIndex]) {
+//       // eslint-disable-next-line no-param-reassign
+//       resultArray[chunkIndex] = [] // start a new chunk
+//     }
 
-    resultArray[chunkIndex].push(item)
+//     resultArray[chunkIndex].push(item)
 
-    return resultArray
-  }, [])
+//     return resultArray
+//   }, [])
 
-  return poolsWithEnd.map((cakePoolConfig, index) => {
-    const [[startBlock], [endBlock]] = startEndBlockResult[index]
-    return {
-      sousId: cakePoolConfig.sousId,
-      startBlock: startBlock.toNumber(),
-      endBlock: endBlock.toNumber(),
-    }
-  })
-}
-
+//   return poolsWithEnd.map((cakePoolConfig, index) => {
+//     const [[startBlock], [endBlock]] = startEndBlockResult[index]
+//     return {
+//       sousId: cakePoolConfig.sousId,
+//       startBlock: startBlock.toNumber(),
+//       endBlock: endBlock.toNumber(),
+//     }
+//   })
+// }
 const poolsBalanceOf = poolsConfig.map((poolConfig) => {
   return {
     address: poolConfig.stakingToken.address,
