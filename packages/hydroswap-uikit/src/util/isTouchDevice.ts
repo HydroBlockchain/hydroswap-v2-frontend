@@ -1,3 +1,7 @@
+
+
+declare const navigator: any;
+
 const isTouchDevice = (): boolean => {
   return (
     typeof window !== "undefined" &&

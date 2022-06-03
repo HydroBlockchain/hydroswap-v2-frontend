@@ -44,7 +44,7 @@ it("renders correctly", () => {
         footerLinks={footerLinks}
         activeItem="Trade"
         activeSubItem="Exchange"
-        buyCakeLabel="Buy CAKE"
+        buyCakeLabel="BUY HYDRO"
       >
         body
       </Menu>
