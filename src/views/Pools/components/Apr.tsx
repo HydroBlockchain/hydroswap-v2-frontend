@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import styled from 'styled-components'
 import { Text, Flex, useModal, CalculateIcon, Skeleton, FlexProps, Button } from '@pancakeswap/uikit'
 import RoiCalculatorModal from 'components/RoiCalculatorModal'
@@ -33,18 +34,19 @@ const Apr: React.FC<AprProps> = ({
   ...props
 }) => {
   const {
+    apy,
     stakingToken,
     earningToken,
     isFinished,
     earningTokenPrice,
     stakingTokenPrice,
     userData,
-    apr,
     rawApr,
     vaultKey,
   } = pool
   const { t } = useTranslation()
   const currentBlock = useCurrentBlock()
+  
 
   const { shouldShowBlockCountdown, hasPoolStarted } = getPoolBlockInfo(pool, currentBlock)
 
@@ -57,7 +59,7 @@ const Apr: React.FC<AprProps> = ({
       earningTokenPrice={earningTokenPrice}
       stakingTokenPrice={stakingTokenPrice}
       stakingTokenBalance={stakedBalance.plus(stakingTokenBalance)}
-      apr={vaultKey ? rawApr : apr}
+      apr={vaultKey ? rawApr : apy}
       stakingTokenSymbol={stakingToken.symbol}
       linkLabel={t('Get %symbol%', { symbol: stakingToken.symbol })}
       linkHref={apyModalLink}
@@ -72,26 +74,27 @@ const Apr: React.FC<AprProps> = ({
     onPresentApyModal()
   }
 
-  const isValidate = apr !== undefined && !Number.isNaN(apr)
-
+  const isValidate = apy !== undefined && !Number.isNaN(apy)
+  console.log( apy,  "my apr")
   return (
+    
     <AprLabelContainer alignItems="center" justifyContent="flex-start" {...props}>
       {isValidate || isFinished ? (
         <>
           {hasPoolStarted || !shouldShowBlockCountdown ? (
             <>
               <BalanceWithLoading
-                onClick={openRoiModal}
                 fontSize={fontSize}
                 isDisabled={isFinished}
-                value={isFinished ? 0 : apr}
+                value={isFinished ? 0 : apy}
                 decimals={2}
                 unit="%"
               />
               {!isFinished && showIcon && (
-                <Button onClick={openRoiModal} variant="text" width="20px" height="20px" padding="0px" marginLeft="4px">
-                  <CalculateIcon color="textSubtle" width="20px" />
-                </Button>
+                // <Button onClick={openRoiModal} variant="text" width="20px" height="20px" padding="0px" marginLeft="4px">
+                //  <CalculateIcon color="textSubtle" width="20px" />
+                // </Button>
+                <div />
               )}
             </>
           ) : (

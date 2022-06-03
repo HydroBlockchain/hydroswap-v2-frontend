@@ -76,7 +76,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
           }}
           ml="4px"
         >
-          {pendingTx ? t('Harvesting') : t('Harvest')}
+          {pendingTx ? t('Harvesting') : t('Harvest00')}
         </Button>
       </ActionContent>
     </ActionContainer>

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useState } from 'react'
 import styled from 'styled-components'
 import { useMatchBreakpoints } from '@pancakeswap/uikit'

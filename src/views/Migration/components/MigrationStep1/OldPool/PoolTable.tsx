@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
@@ -24,6 +25,7 @@ const Container = styled.div`
 
 const PoolsTable: React.FC<PoolsTableProps> = ({ pools, userDataReady, account }) => {
   const { t } = useTranslation()
+  
 
   return (
     <Container>

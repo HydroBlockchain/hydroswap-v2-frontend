@@ -18,9 +18,11 @@ const StyledCell = styled(BaseCell)`
 
 const TotalStakedCell: React.FC<TotalStakedCellProps> = ({ pool }) => {
   const { t } = useTranslation()
-  const { stakingToken, totalStaked, vaultKey, userData } = pool
+  const { stakingToken, totalStaked, vaultKey} = pool
   const { totalCakeInVault } = useVaultPoolByKey(vaultKey)
+  console.log(totalStaked, "totalStaked")
 
+  
   const totalStakedBalance = useMemo(() => {
     if (vaultKey) {
       return getBalanceNumber(totalCakeInVault, stakingToken.decimals)
@@ -28,19 +30,8 @@ const TotalStakedCell: React.FC<TotalStakedCellProps> = ({ pool }) => {
 
     return getBalanceNumber(totalStaked, stakingToken.decimals)
   }, [vaultKey, totalCakeInVault, totalStaked, stakingToken.decimals])
+ 
 
-  // const totalStakedBalance2 = async () => {
-    
-  // }
-
-  // export const fetchPoolsTotalStaking = async () => {
-  //   const poolsTotalStaked = await multicall(erc20ABI, poolsBalanceOf)
-  //   console.log(poolsTotalStaked.toString(), 'poolsTotalStaked')
-  //   return poolsConfig.map((p, index) => ({
-  //     sousId: p.sousId,
-  //     totalStaked: new BigNumber(poolsTotalStaked[index]).toJSON(),
-  //   }))
-  // }
 
   return (
     <StyledCell role="cell">

@@ -42,7 +42,7 @@ const TotalStaked: React.FC<TotalStakedProps> = ({ pool, totalCakeInVault, cakeI
 
   return (
     <Containter justifyContent="space-between">
-      <Text>{t('Total staked')}</Text>
+      <Text>{t('Total staked02')}</Text>
       <Flex height="20px" alignItems="center">
         <Balance fontSize="16px" value={totalStakedBalance} decimals={0} unit={` ${stakingToken.symbol}`} />
       </Flex>

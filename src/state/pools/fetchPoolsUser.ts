@@ -89,7 +89,7 @@ export const fetchUserStakeBalances = async (account) => {
 export const fetchUserPendingRewards = async (account) => {
   const calls = nonBnbPools.map((p) => ({
     address: getAddress(p.contractAddress),
-    name: 'viewUser',
+    name: 'checkCurrentRewards',
     params: [account],
   }))
 
@@ -100,7 +100,7 @@ export const fetchUserPendingRewards = async (account) => {
   return nonBnbPools.reduce(
     (acc, pool, index) => ({
       ...acc,
-      [pool.sousId]: new BigNumber(result[index][0]["requests"]["amount"].toString()).toJSON(),
+      [pool.sousId]: new BigNumber(result[index].toString()).toJSON(),
     }),
     {},
   )
