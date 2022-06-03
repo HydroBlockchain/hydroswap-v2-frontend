@@ -50,6 +50,7 @@ const CardActions: React.FC<CardActionsProps> = ({ pool, stakedBalance }) => {
               </InlineText>
             </Box>
             <HarvestActions
+              pool={pool}
               earnings={earnings}
               earningToken={earningToken}
               sousId={sousId}

@@ -1,8 +1,11 @@
+
+
 /* eslint-disable no-console */
 import BigNumber from 'bignumber.js'
 import { BigNumber as EthersBigNumber } from '@ethersproject/bignumber'
 import poolsConfig from 'config/constants/pools'
 import sousChefABI from 'config/abi/sousChef.json'
+import kvsStakingABI from 'config/abi/kvsStaking.json'
 import erc20ABI from 'config/abi/erc20.json'
 import multicall, { multicallv2 } from 'utils/multicall'
 import { getAddress } from 'utils/addressHelpers'
@@ -10,6 +13,7 @@ import { BIG_ZERO } from 'utils/bigNumber'
 import chunk from 'lodash/chunk'
 import sousChefV2 from '../../config/abi/sousChefV2.json'
 import sousChefV3 from '../../config/abi/sousChefV3.json'
+import { getBalanceNumber } from "../../utils/formatBalance";
 
 const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0)
 
@@ -28,12 +32,12 @@ const startEndBlockCalls = poolsWithEnd.flatMap((poolConfig) => {
 
 export const fetchPoolsBlockLimits = async () => {
   let startEndBlockRaw
-  try {
-    startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
-  } catch (error) {
-    console.log(error, 'startEndBlockRaw')
-  }
-  console.log(startEndBlockRaw, 'startEndBlockRaw')
+  // try {
+  //   startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
+  // } catch (error) {
+  //   console.log(error, 'startEndBlockRaw')
+  // }
+  // console.log(startEndBlockRaw, 'startEndBlockRaw')
 
   const startEndBlockResult = startEndBlockRaw.reduce((resultArray, item, index) => {
     const chunkIndex = Math.floor(index / 2)
@@ -68,10 +72,25 @@ const poolsBalanceOf = poolsConfig.map((poolConfig) => {
 
 export const fetchPoolsTotalStaking = async () => {
   const poolsTotalStaked = await multicall(erc20ABI, poolsBalanceOf)
-  console.log(poolsTotalStaked.toString(), 'poolsTotalStaked')
   return poolsConfig.map((p, index) => ({
     sousId: p.sousId,
     totalStaked: new BigNumber(poolsTotalStaked[index]).toJSON(),
+  }))
+}
+
+const poolsAPR = poolsConfig.map((poolConfig) => {
+  return {
+    address: getAddress(poolConfig.contractAddress),
+    name: 'checkAPY'
+  }
+})
+
+export const fetchPoolsAPR = async () => {
+  const poolsApr = await multicall(kvsStakingABI, poolsAPR)
+  console.log(poolsApr.toString(), "poolsApr")
+  return poolsConfig.map((p, index) => ({
+    sousId : p.sousId,
+    apy : new BigNumber(poolsApr[index]).toJSON()
   }))
 }
 
@@ -141,4 +160,5 @@ export const fetchPoolsProfileRequirement = async (): Promise<{
       },
     }
   }, {})
+  
 }

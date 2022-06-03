@@ -171,7 +171,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
     }
   }
 
-  if (showRoiCalculator) {
+  if (!showRoiCalculator) {
     return (
       <RoiCalculatorModal
         earningTokenPrice={earningTokenPrice}

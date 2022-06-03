@@ -128,9 +128,11 @@ interface CorePoolProps {
   stakingTokenPrice?: number
   earningTokenPrice?: number
   vaultKey?: VaultKey
+  apy?: number
 }
 
 export interface DeserializedPool extends DeserializedPoolConfig, CorePoolProps {
+  find: any
   totalStaked?: BigNumber
   stakingLimit?: BigNumber
   stakingLimitEndBlock?: number

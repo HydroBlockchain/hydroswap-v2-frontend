@@ -1,3 +1,4 @@
+import { request } from 'graphql-request';
 /* eslint-disable no-console */
 import poolsConfig from 'config/constants/pools'
 import erc20ABI from 'config/abi/erc20.json'
@@ -71,12 +72,11 @@ export const fetchUserStakeBalances = async (account) => {
     params: [account],
   }))
   const userInfos = await multicall(kvsStakingABI, calls)
-  const userInfo = userInfos[0][0].amount
-  console.log(userInfo.amount, 'userInfo')
+ 
   return nonBnbPools.reduce(
     (acc, pool, index) => ({
       ...acc,
-      [pool.sousId]: new BigNumber(userInfo[index]).toJSON(),
+      [pool.sousId]: new BigNumber(userInfos[index][0]["amount"].toString()).toJSON(),
     }),
     {},
   )
@@ -89,16 +89,18 @@ export const fetchUserStakeBalances = async (account) => {
 export const fetchUserPendingRewards = async (account) => {
   const calls = nonBnbPools.map((p) => ({
     address: getAddress(p.contractAddress),
-    name: 'viewUser',
+    name: 'checkCurrentRewards',
     params: [account],
   }))
+
   const result = await multicall(kvsStakingABI, calls)
-  const res = result[0][0].requests.amount
-  console.log(res.toString(), 'pending rewards')
+
+  
+
   return nonBnbPools.reduce(
     (acc, pool, index) => ({
       ...acc,
-      [pool.sousId]: new BigNumber(res[index]).toJSON(),
+      [pool.sousId]: new BigNumber(result[index].toString()).toJSON(),
     }),
     {},
   )
