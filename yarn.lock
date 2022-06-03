@@ -2950,7 +2950,7 @@
   dependencies:
     "@octokit/openapi-types" "^11.2.0"
 
-"@pancakeswap/eslint-config-pancake@file:C:\\Users\\Pelumi\\Desktop\\frontend-v2\\packages\\eslint-config":
+"@pancakeswap/eslint-config-pancake@file:C:\\Users\\HP\\test-ui2\\pancake-frontend\\packages\\eslint-config":
   "resolved" "file:packages/eslint-config"
   "version" "1.2.0"
   dependencies:
@@ -2975,7 +2975,7 @@
     "tiny-warning" "^1.0.3"
     "toformat" "^2.0.0"
 
-"@pancakeswap/uikit@file:C:\\Users\\Pelumi\\Desktop\\frontend-v2\\packages\\uikit":
+"@pancakeswap/uikit@file:C:\\Users\\HP\\test-ui2\\pancake-frontend\\packages\\uikit":
   "resolved" "file:packages/uikit"
   "version" "0.63.1"
   dependencies:
