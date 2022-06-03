@@ -1,4 +1,4 @@
-import { Svg, SvgProps } from '@pancakeswap/uikit'
+import { Svg, SvgProps } from 'hydroswap-uikitv2'
 
 export const SlideSvgLight: React.FC<SvgProps> = (props) => {
   return (

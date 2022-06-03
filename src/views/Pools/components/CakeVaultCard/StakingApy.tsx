@@ -1,4 +1,4 @@
-import { Flex, Text, Skeleton, useModal, Button, CalculateIcon } from '@pancakeswap/uikit'
+import { Flex, Text, Skeleton, useModal, Button, CalculateIcon } from 'hydroswap-uikitv2'
 import { LightGreyCard } from 'components/Card'
 import { useTranslation } from 'contexts/Localization'
 import { useVaultApy } from 'hooks/useVaultApy'

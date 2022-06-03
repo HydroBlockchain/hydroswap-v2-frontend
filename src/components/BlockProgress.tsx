@@ -1,4 +1,4 @@
-import { Progress, ProgressProps } from '@pancakeswap/uikit'
+import { Progress, ProgressProps } from 'hydroswap-uikitv2'
 import { useCurrentBlock } from 'state/block/hooks'
 
 interface BlockProgressProps extends ProgressProps {

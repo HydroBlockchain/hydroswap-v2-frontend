@@ -51,12 +51,12 @@
       "logoURI": "https://pancakeswap.finance/images/tokens/0x55d398326f99059fF775485246999027B3197955.png"
     },
     {
-      "name": "PancakeSwap Token",
-      "symbol": "CAKE",
-      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "name": "Hydro",
+      "symbol": "HYDRO",
+      "address": "0xf3DBB49999B25c9D6641a9423C7ad84168D00071",
       "chainId": 56,
       "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png"
+      "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/2698.png"
     },
     {
       "name": "Venus",

@@ -1,4 +1,4 @@
-import { LinkExternal } from '@pancakeswap/uikit'
+import { LinkExternal } from 'hydroswap-uikitv2'
 import { ContextApi } from 'contexts/Localization/types'
 
 const config = (t: ContextApi['t']) => {

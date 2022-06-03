@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { useProfile } from 'state/profile/hooks'
-import { Box, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Box, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useTradingCompetitionContractFanToken } from 'hooks/useContract'
 import useTheme from 'hooks/useTheme'
 import { PageMeta } from 'components/Layout/Page'

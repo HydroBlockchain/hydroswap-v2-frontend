@@ -14,7 +14,7 @@ import {
   CalculateIcon,
   IconButton,
   Skeleton,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'
 import useToast from 'hooks/useToast'

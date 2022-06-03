@@ -1,4 +1,4 @@
-import { Grid, GridProps } from '@pancakeswap/uikit'
+import { Grid, GridProps } from 'hydroswap-uikitv2'
 
 const FilterFooter: React.FC<GridProps> = ({ children, ...props }) => (
   <Grid

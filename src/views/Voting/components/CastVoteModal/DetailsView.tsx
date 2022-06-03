@@ -1,4 +1,4 @@
-import { Flex, LinkExternal, Text } from '@pancakeswap/uikit'
+import { Flex, LinkExternal, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
 import { getBscScanLink } from 'utils'

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Link from 'next/link'
-import { Flex, HelpIcon, Button, PrizeIcon } from '@pancakeswap/uikit'
+import { Flex, HelpIcon, Button, PrizeIcon } from 'hydroswap-uikitv2'
 import FlexRow from './FlexRow'
 import { PricePairLabel, TimerLabel } from './Label'
 import PrevNextNav from './PrevNextNav'

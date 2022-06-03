@@ -1,5 +1,5 @@
 import { Trade, TradeType } from '@pancakeswap/sdk'
-import { Text } from '@pancakeswap/uikit'
+import { Text } from 'hydroswap-uikitv2'
 import { Field } from 'state/swap/actions'
 import { useTranslation } from 'contexts/Localization'
 import { useUserSlippageTolerance } from 'state/user/hooks'

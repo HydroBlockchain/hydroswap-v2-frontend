@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Flex, ArrowDownIcon, ArrowUpIcon } from '@pancakeswap/uikit'
+import { Flex, ArrowDownIcon, ArrowUpIcon } from 'hydroswap-uikitv2'
 import styled, { keyframes } from 'styled-components'
 import { CalculatorMode, RoiCalculatorReducerState } from './useRoiCalculatorReducer'
 

@@ -1,4 +1,4 @@
-import { Box, ButtonMenu, ButtonMenuItem, Flex } from '@pancakeswap/uikit'
+import { Box, ButtonMenu, ButtonMenuItem, Flex } from 'hydroswap-uikitv2'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'
 import { useRouter } from 'next/router'

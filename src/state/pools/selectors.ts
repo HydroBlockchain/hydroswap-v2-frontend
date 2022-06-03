@@ -26,14 +26,15 @@ export const poolsWithVaultSelector = createSelector(
   [poolsWithUserDataLoadingSelector, makeVaultPoolByKey(VaultKey.CakeVault)],
   (poolsWithUserDataLoading, deserializedCakeVault) => {
     const { pools, userDataLoaded } = poolsWithUserDataLoading
-    const cakePool = pools.find((pool) => !pool.isFinished && pool.sousId === 0)
-    const withoutCakePool = pools.filter((pool) => pool.sousId !== 0)
+     const cakePool = pools.find((pool) => !pool.isFinished && pool.sousId === 0)
+    // const withoutCakePool = pools.filter((pool) => pool.sousId !== 0)
+    const withoutCakePool = pools.filter((pool) => !pool.isFinished && pool.sousId === 0)
 
     const cakeAutoVault = {
       ...cakePool,
       ...deserializedCakeVault,
       vaultKey: VaultKey.CakeVault,
-      userData: { ...cakePool.userData, ...deserializedCakeVault.userData },
+      userData: { ...cakePool?.userData, ...deserializedCakeVault.userData },
     }
 
     const cakeAutoVaultWithApr = {

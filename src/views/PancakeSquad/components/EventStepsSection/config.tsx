@@ -1,4 +1,4 @@
-import { Button } from '@pancakeswap/uikit'
+import { Button } from 'hydroswap-uikitv2'
 import { SaleStatusEnum, UserStatusEnum } from 'views/PancakeSquad/types'
 import ActivateProfileButton from '../Buttons/ActivateProfile'
 import BuyTicketsButtons from '../Buttons/BuyTickets'
@@ -60,7 +60,7 @@ const stepsConfigBuilder = ({ t, userInfos, eventInfos, userStatus, account, the
             target="_blank"
             width="100%"
           >
-            {t('Buy CAKE')}
+            {t('BUY HYDRO')}
           </Button>
         </>
       ),

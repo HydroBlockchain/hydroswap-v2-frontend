@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Text, Flex, Skeleton, Image } from '@pancakeswap/uikit'
+import { Text, Flex, Skeleton, Image } from 'hydroswap-uikitv2'
 import { useFarmAuctionContract } from 'hooks/useContract'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
 import { useTranslation } from 'contexts/Localization'

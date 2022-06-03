@@ -1,4 +1,4 @@
-import { Button, AutoRenewIcon, Skeleton } from '@pancakeswap/uikit'
+import { Button, AutoRenewIcon, Skeleton } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { useERC20 } from 'hooks/useContract'
 import { DeserializedPool } from 'state/types'

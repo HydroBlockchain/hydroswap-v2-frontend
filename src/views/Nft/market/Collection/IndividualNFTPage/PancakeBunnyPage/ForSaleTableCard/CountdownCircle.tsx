@@ -1,4 +1,4 @@
-import { Spinner, Text } from '@pancakeswap/uikit'
+import { Spinner, Text } from 'hydroswap-uikitv2'
 
 import styled, { keyframes } from 'styled-components'
 

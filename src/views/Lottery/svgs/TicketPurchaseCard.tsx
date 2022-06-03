@@ -1,4 +1,4 @@
-import { Svg, SvgProps } from '@pancakeswap/uikit'
+import { Svg, SvgProps } from 'hydroswap-uikitv2'
 
 const TicketPurchaseCard: React.FC<SvgProps> = (props) => {
   return (

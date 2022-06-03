@@ -1,5 +1,5 @@
 import { useWeb3React } from '@web3-react/core'
-import { Box, Flex, Heading, Text, PrizeIcon, BlockIcon, LinkExternal, useTooltip, InfoIcon } from '@pancakeswap/uikit'
+import { Box, Flex, Heading, Text, PrizeIcon, BlockIcon, LinkExternal, useTooltip, InfoIcon } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import useLocalDispatch from 'contexts/LocalRedux/useLocalDispatch'
 import { useTranslation } from 'contexts/Localization'

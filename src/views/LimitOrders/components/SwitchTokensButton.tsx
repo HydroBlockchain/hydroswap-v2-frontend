@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowDownIcon, IconButton, ArrowUpDownIcon } from '@pancakeswap/uikit'
+import { ArrowDownIcon, IconButton, ArrowUpDownIcon } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { AutoColumn } from 'components/Layout/Column'
 import { AutoRow } from 'components/Layout/Row'

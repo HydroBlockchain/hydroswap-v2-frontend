@@ -8,7 +8,7 @@ import {
   useTooltip,
   ArrowUpIcon,
   ArrowDownIcon,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { getNow } from 'utils/getNow'
 import { useTranslation } from 'contexts/Localization'
 import useLocalDispatch from 'contexts/LocalRedux/useLocalDispatch'

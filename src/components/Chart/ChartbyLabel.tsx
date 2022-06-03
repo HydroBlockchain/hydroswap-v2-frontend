@@ -1,4 +1,4 @@
-import { Flex, FlexProps, Link, Text, LinkProps } from '@pancakeswap/uikit'
+import { Flex, FlexProps, Link, Text, LinkProps } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 
 export const ChartByLabel = ({

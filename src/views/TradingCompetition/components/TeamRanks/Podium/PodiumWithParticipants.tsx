@@ -1,5 +1,5 @@
 import { useTranslation } from 'contexts/Localization'
-import { Flex, Text, Skeleton, AccountFilledIcon } from '@pancakeswap/uikit'
+import { Flex, Text, Skeleton, AccountFilledIcon } from 'hydroswap-uikitv2'
 import { StyledVolumeText, PodiumProps, RightBox, MiddleBox, LeftBox, Wrapper, Inner, StyledVolumeFlex } from './styles'
 import TeamPodiumIcon from './TeamPodiumIcon'
 import { PodiumBase } from '../../../svgs'

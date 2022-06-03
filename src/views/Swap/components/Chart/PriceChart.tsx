@@ -9,7 +9,7 @@ import {
   // TradingViewIcon,
   LineGraphIcon,
   useMatchBreakpoints,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { CurrencyLogo, DoubleCurrencyLogo } from 'components/Logo'
 // import { TradingViewLabel } from 'components/TradingView'
 import { useTranslation } from 'contexts/Localization'
@@ -98,13 +98,13 @@ const PriceChart = ({
             </ChartButton> */}
           </Flex>
         </Flex>
-        {!isMobile && (
+        {/* {!isMobile && (
           <Flex>
             <IconButton variant="text" onClick={toggleExpanded}>
               {isChartExpanded ? <ShrinkIcon color="text" /> : <ExpandIcon color="text" />}
             </IconButton>
           </Flex>
-        )}
+        )} */}
       </Flex>
       {chartView === ChartViewMode.BASIC && (
         <BasicChart

@@ -1,4 +1,4 @@
-import { Flex, Heading, Skeleton, Text } from '@pancakeswap/uikit'
+import { Flex, Heading, Skeleton, Text } from 'hydroswap-uikitv2'
 import Balance from 'components/Balance'
 import cakeAbi from 'config/abi/cake.json'
 import tokens from 'config/constants/tokens'

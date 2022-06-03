@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Modal, Grid, Flex, Text, BinanceIcon, Skeleton } from '@pancakeswap/uikit'
+import { Modal, Grid, Flex, Text, BinanceIcon, Skeleton } from 'hydroswap-uikitv2'
 import { useBNBBusdPrice } from 'hooks/useBUSDPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { BuyingStage } from './types'

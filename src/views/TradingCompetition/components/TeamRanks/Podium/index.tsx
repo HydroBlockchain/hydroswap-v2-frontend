@@ -1,6 +1,6 @@
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
-import { Flex, Box, Text, Skeleton } from '@pancakeswap/uikit'
+import { Flex, Box, Text, Skeleton } from 'hydroswap-uikitv2'
 import TeamPodiumIcon from './TeamPodiumIcon'
 import { PodiumBase } from '../../../svgs'
 import { localiseTradingVolume } from '../../../helpers'

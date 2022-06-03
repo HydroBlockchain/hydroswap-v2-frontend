@@ -1,4 +1,4 @@
-import { Modal, Flex, Text } from '@pancakeswap/uikit'
+import { Modal, Flex, Text } from 'hydroswap-uikitv2'
 import { BigNumber } from '@ethersproject/bignumber'
 import { formatUnits } from '@ethersproject/units'
 import { useTranslation } from 'contexts/Localization'

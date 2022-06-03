@@ -1,4 +1,4 @@
-import { CardHeader, Flex, Heading, Text } from '@pancakeswap/uikit'
+import { CardHeader, Flex, Heading, Text } from 'hydroswap-uikitv2'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 

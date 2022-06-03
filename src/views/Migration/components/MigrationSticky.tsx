@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
-import { Text, Button, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Text, Button, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import { ProgressStepsType } from './ProgressSteps'
 

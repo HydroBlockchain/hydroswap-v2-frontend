@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import { Button, Card, CardBody, CardHeader, CardProps, Heading, Radio, Text, useModal } from '@pancakeswap/uikit'
+import { Button, Card, CardBody, CardHeader, CardProps, Heading, Radio, Text, useModal } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import { Proposal } from 'state/types'
 import useToast from 'hooks/useToast'

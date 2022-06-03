@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Card } from '@pancakeswap/uikit'
+import { Card } from 'hydroswap-uikitv2'
 
 export const StyledCard = styled(Card)<{ isFinished?: boolean }>`
   min-width: 280px;

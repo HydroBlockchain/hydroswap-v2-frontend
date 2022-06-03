@@ -1,4 +1,4 @@
-import { Box } from '@pancakeswap/uikit'
+import { Box } from 'hydroswap-uikitv2'
 import useTheme from 'hooks/useTheme'
 import PageSection from 'components/PageSection'
 import { TeamRanksProps } from '../types'

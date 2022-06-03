@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, memo } from 'react'
 import { useCountUp } from 'react-countup'
-import { Skeleton, TooltipText } from '@pancakeswap/uikit'
+import { Skeleton, TooltipText } from 'hydroswap-uikitv2'
 import { formatBigNumberToFixed } from 'utils/formatBalance'
 import usePollOraclePrice from '../../hooks/usePollOraclePrice'
 

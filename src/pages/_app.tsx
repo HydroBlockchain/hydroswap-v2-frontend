@@ -1,4 +1,4 @@
-import { ResetCSS } from '@pancakeswap/uikit'
+import { ResetCSS } from 'hydroswap-uikitv2'
 import Script from 'next/script'
 import dynamic from 'next/dynamic'
 import BigNumber from 'bignumber.js'

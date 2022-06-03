@@ -14,7 +14,7 @@ import {
   Th,
   Card,
   Skeleton,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import useSWRImmutable from 'swr/immutable'
 import orderBy from 'lodash/orderBy'
 import { getLeastMostPriceInCollection } from 'state/nftMarket/helpers'

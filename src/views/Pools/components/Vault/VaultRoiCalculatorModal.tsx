@@ -1,4 +1,4 @@
-import { Box, ButtonMenu, ButtonMenuItem } from '@pancakeswap/uikit'
+import { Box, ButtonMenu, ButtonMenuItem } from 'hydroswap-uikitv2'
 import RoiCalculatorModal, { RoiCalculatorModalProps } from 'components/RoiCalculatorModal'
 import { CalculatorMode } from 'components/RoiCalculatorModal/useRoiCalculatorReducer'
 import { useTranslation } from 'contexts/Localization'

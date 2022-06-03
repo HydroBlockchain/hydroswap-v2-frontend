@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { TabMenu as UIKitTabMenu, Tab, Flex, VerifiedIcon, CommunityIcon } from '@pancakeswap/uikit'
+import { TabMenu as UIKitTabMenu, Tab, Flex, VerifiedIcon, CommunityIcon } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { ProposalType } from 'state/types'
 

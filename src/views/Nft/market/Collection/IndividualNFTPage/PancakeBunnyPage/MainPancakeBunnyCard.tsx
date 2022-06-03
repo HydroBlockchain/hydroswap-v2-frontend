@@ -1,5 +1,5 @@
 import { useWeb3React } from '@web3-react/core'
-import { Flex, Box, Card, CardBody, Text, Button, BinanceIcon, Skeleton, useModal } from '@pancakeswap/uikit'
+import { Flex, Box, Card, CardBody, Text, Button, BinanceIcon, Skeleton, useModal } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { formatNumber } from 'utils/formatBalance'
 import { multiplyPriceByAmount } from 'utils/prices'

@@ -9,7 +9,7 @@ import {
   useMatchBreakpoints,
   useModal,
   Skeleton,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { Activity, NftToken } from 'state/nftMarket/types'
 import { Price } from '@pancakeswap/sdk'

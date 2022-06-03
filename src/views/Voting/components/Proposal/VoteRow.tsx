@@ -1,4 +1,4 @@
-import { Flex, LinkExternal, Text, Tag, CheckmarkCircleIcon } from '@pancakeswap/uikit'
+import { Flex, LinkExternal, Text, Tag, CheckmarkCircleIcon } from 'hydroswap-uikitv2'
 import truncateHash from 'utils/truncateHash'
 import { getBscScanLink } from 'utils'
 import { useTranslation } from 'contexts/Localization'

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { Flex, Text, HelpIcon, useTooltip } from '@pancakeswap/uikit'
+import { Flex, Text, HelpIcon, useTooltip } from 'hydroswap-uikitv2'
 import { LiquidityProps } from '../Cells/Liquidity'
 
 const Containter = styled(Flex)`

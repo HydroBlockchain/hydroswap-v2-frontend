@@ -1,4 +1,4 @@
-import { Button, ButtonProps, useModal } from '@pancakeswap/uikit'
+import { Button, ButtonProps, useModal } from 'hydroswap-uikitv2'
 import useLocalDispatch from 'contexts/LocalRedux/useLocalDispatch'
 import { useCollectWinningModalProps } from 'state/predictions/hooks'
 import { useConfig } from '../context/ConfigProvider'

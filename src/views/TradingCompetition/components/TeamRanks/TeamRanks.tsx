@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Flex, Box } from '@pancakeswap/uikit'
+import { Flex, Box } from 'hydroswap-uikitv2'
 import Image from 'next/image'
 import orderBy from 'lodash/orderBy'
 import { TeamRanksProps } from '../../types'

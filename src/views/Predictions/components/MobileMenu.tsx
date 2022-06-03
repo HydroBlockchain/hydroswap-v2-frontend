@@ -9,7 +9,7 @@ import {
   ChartIcon,
   HistoryIcon,
   IconButton,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import useLocalDispatch from 'contexts/LocalRedux/useLocalDispatch'
 import { PredictionStatus } from 'state/types'
 import { useGetPredictionsStatus, useIsChartPaneOpen, useIsHistoryPaneOpen } from 'state/predictions/hooks'

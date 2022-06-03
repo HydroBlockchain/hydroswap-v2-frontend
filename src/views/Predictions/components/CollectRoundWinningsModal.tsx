@@ -15,7 +15,7 @@ import {
   Box,
   ModalCloseButton,
   Skeleton,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { AnyAction, AsyncThunkAction } from '@reduxjs/toolkit'
 import { Token } from '@pancakeswap/sdk'
 

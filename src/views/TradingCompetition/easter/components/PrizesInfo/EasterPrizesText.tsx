@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Image from 'next/image'
-import { Flex, Text, Heading } from '@pancakeswap/uikit'
+import { Flex, Text, Heading } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import EasterFlipperBunny from '../../../pngs/easter-flippers.png'
 

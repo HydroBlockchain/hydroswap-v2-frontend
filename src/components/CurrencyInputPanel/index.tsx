@@ -1,5 +1,5 @@
 import { Currency, Pair, Token } from '@pancakeswap/sdk'
-import { Button, ChevronDownIcon, Text, useModal, Flex, Box, MetamaskIcon } from '@pancakeswap/uikit'
+import { Button, ChevronDownIcon, Text, useModal, Flex, Box, MetamaskIcon } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { registerToken } from 'utils/wallet'
 import { isAddress } from 'utils'

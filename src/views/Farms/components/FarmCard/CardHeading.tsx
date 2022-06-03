@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Tag, Flex, Heading, Skeleton } from '@pancakeswap/uikit'
+import { Tag, Flex, Heading, Skeleton } from 'hydroswap-uikitv2'
 import { Token } from '@pancakeswap/sdk'
 import { FarmAuctionTag, CoreTag } from 'components/Tags'
 import { TokenPairImage } from 'components/TokenImage'

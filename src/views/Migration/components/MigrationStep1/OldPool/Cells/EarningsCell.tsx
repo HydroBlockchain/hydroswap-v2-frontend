@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Flex, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Text, Flex, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { DeserializedPool } from 'state/types'
 import BigNumber from 'bignumber.js'
 import { BIG_ZERO } from 'utils/bigNumber'

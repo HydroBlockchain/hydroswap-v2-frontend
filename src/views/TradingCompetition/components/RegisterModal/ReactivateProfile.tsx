@@ -1,4 +1,4 @@
-import { Heading, Button, Text } from '@pancakeswap/uikit'
+import { Heading, Button, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { CompetitionProps } from 'views/TradingCompetition/types'
 import { nftsBaseUrl } from 'views/Nft/market/constants'

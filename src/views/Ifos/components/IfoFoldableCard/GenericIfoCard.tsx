@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { Box, Flex, HelpIcon, CardHeader, CardBody, Text, useTooltip } from '@pancakeswap/uikit'
+import { Box, Flex, HelpIcon, CardHeader, CardBody, Text, useTooltip } from 'hydroswap-uikitv2'
 
 import { StyledCard } from '../IfoCardStyles'
 import { CardConfigReturn } from './types'

@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { Text, TextProps } from '@pancakeswap/uikit'
+import { Text, TextProps } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 
 interface PercentageOfTotalProps extends TextProps {

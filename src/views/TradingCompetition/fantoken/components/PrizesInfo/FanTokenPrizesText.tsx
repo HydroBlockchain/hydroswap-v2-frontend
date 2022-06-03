@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Flex, Text, Heading } from '@pancakeswap/uikit'
+import { Flex, Text, Heading } from 'hydroswap-uikitv2'
 import Image from 'next/image'
 import { useTranslation } from 'contexts/Localization'
 import FanTokenFlipperBunny from '../../../pngs/fan-token-flippers.png'

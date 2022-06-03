@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Flex, Heading, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Text, Flex, Heading, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import Balance from 'components/Balance'
 import { ActionContainer, ActionTitles, ActionContent } from 'views/Pools/components/PoolsTable/ActionPanel/styles'

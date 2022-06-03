@@ -1,4 +1,4 @@
-import { Flex, UserMenuItem, WarningIcon } from '@pancakeswap/uikit'
+import { Flex, UserMenuItem, WarningIcon } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { useGetBnbBalance } from 'hooks/useTokenBalance'
 import { FetchStatus } from 'config/constants/types'

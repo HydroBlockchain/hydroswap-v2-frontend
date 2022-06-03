@@ -1,4 +1,4 @@
-import { Box, Flex, SkeletonV2, Text } from '@pancakeswap/uikit'
+import { Box, Flex, SkeletonV2, Text } from 'hydroswap-uikitv2'
 import { useProfileForAddress } from 'state/profile/hooks'
 import styled from 'styled-components'
 import truncateHash from 'utils/truncateHash'

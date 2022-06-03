@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Box, Flex, Text, SearchIcon, Link } from '@pancakeswap/uikit'
+import { Box, Flex, Text, SearchIcon, Link } from 'hydroswap-uikitv2'
 import { getBscScanLink } from 'utils'
 import { formatNumber } from 'utils/formatBalance'
 import uriToHttp from 'utils/uriToHttp'

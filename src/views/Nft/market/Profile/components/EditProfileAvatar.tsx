@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useModal } from '@pancakeswap/uikit'
+import { useModal } from 'hydroswap-uikitv2'
 import AvatarImage from 'views/Nft/market/components/BannerHeader/AvatarImage'
 import EditProfileModal from './EditProfileModal'
 

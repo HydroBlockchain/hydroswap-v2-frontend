@@ -1,5 +1,5 @@
 import { useCallback, memo } from 'react'
-import { Button, useModal, Skeleton } from '@pancakeswap/uikit'
+import { Button, useModal, Skeleton } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { usePool } from 'state/pools/hooks'
 import AddAmountModal from '../Modals/AddAmountModal'

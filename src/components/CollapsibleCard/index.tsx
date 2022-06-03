@@ -8,7 +8,7 @@ import {
   IconButton,
   ChevronUpIcon,
   ChevronDownIcon,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 
 interface CollapsibleCardProps extends CardProps {
   initialOpenState?: boolean

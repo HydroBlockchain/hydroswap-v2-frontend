@@ -1,4 +1,4 @@
-import { Flex, BinanceIcon, Text, Skeleton } from '@pancakeswap/uikit'
+import { Flex, BinanceIcon, Text, Skeleton } from 'hydroswap-uikitv2'
 import { multiplyPriceByAmount } from 'utils/prices'
 
 const ActivityPrice = ({ bnbBusdPrice, price }) => {

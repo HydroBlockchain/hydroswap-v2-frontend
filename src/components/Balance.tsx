@@ -1,4 +1,4 @@
-import { Text, TextProps, Skeleton } from '@pancakeswap/uikit'
+import { Text, TextProps, Skeleton } from 'hydroswap-uikitv2'
 import { useEffect, useRef } from 'react'
 import CountUp from 'react-countup'
 import styled, { keyframes } from 'styled-components'

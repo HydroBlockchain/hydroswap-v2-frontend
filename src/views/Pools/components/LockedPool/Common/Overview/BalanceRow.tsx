@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Text, Flex, TooltipText, useTooltip } from '@pancakeswap/uikit'
+import { Text, Flex, TooltipText, useTooltip } from 'hydroswap-uikitv2'
 import { BalanceWithLoading } from 'components/Balance'
 import isUndefinedOrNull from 'utils/isUndefinedOrNull'
 import _toNumber from 'lodash/toNumber'

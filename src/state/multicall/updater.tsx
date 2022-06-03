@@ -29,10 +29,12 @@ const CALL_CHUNK_SIZE = 500
  */
 async function fetchChunk(
   multicallContract: Contract,
-  chunk: Call[],
+  chun: Call[],
   minBlockNumber: number,
 ): Promise<{ results: string[]; blockNumber: number }> {
+  const chunk = chun.filter(i =>!(i.address =='0x8F3273Fb89B075b1645095ABaC6ed17B2d4Bc576'))
   console.debug('Fetching chunk', multicallContract, chunk, minBlockNumber)
+  console.log(chunk, "multi")
   let resultsBlockNumber
   let returnData
   try {
@@ -57,6 +59,7 @@ async function fetchChunk(
           console.debug('Splitting a chunk in 2', chunk)
         }
         const half = Math.floor(chunk.length / 2)
+        console.log('flooor chunk', chunk)
         const [c0, c1] = await Promise.all([
           fetchChunk(multicallContract, chunk.slice(0, half), minBlockNumber),
           fetchChunk(multicallContract, chunk.slice(half, chunk.length), minBlockNumber),
@@ -172,9 +175,10 @@ export default function Updater(): null {
     const outdatedCallKeys: string[] = JSON.parse(serializedOutdatedCallKeys)
     if (outdatedCallKeys.length === 0) return
     const calls = outdatedCallKeys.map((key) => parseCallKey(key))
-
+    // const calls = call.filter(i =>!(i.address =='0x8F3273Fb89B075b1645095ABaC6ed17B2d4Bc576'))
+    console.log('calls', calls)
     const chunkedCalls = chunkArray(calls, CALL_CHUNK_SIZE)
-
+    
     if (cancellations.current?.blockNumber !== currentBlock) {
       cancellations.current?.cancellations?.forEach((c) => c())
     }

@@ -9,7 +9,7 @@ import {
   Text,
   ButtonMenu,
   ButtonMenuItem,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import useLocalDispatch from 'contexts/LocalRedux/useLocalDispatch'
 import { HistoryFilter } from 'state/types'
 import { setHistoryFilter, setHistoryPaneState } from 'state/predictions'

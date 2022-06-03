@@ -1,4 +1,4 @@
-import { appearAnimation, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { appearAnimation, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import { useLayoutEffect, useState } from 'react'
 import styled from 'styled-components'

@@ -1,4 +1,4 @@
-import { Box, BoxProps } from '@pancakeswap/uikit'
+import { Box, BoxProps } from 'hydroswap-uikitv2'
 
 const Container: React.FC<BoxProps> = ({ children, ...props }) => (
   <Box px={['16px', '24px']} mx="auto" maxWidth="1200px" {...props}>

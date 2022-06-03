@@ -1,4 +1,4 @@
-import { Box, Flex, FlexProps } from '@pancakeswap/uikit'
+import { Box, Flex, FlexProps } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import { CopyButton } from '../../CopyButton'
