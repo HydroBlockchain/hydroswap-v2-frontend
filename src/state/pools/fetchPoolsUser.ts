@@ -25,7 +25,6 @@ export const fetchPoolsAllowance = async (account) => {
   }))
 
   const allowances = await multicall(erc20ABI, calls)
-  console.log(allowances.toString(), 'allowances')
 
   return nonBnbPools.reduce(
     (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(allowances[index]).toJSON() }),
@@ -42,7 +41,7 @@ export const fetchUserBalances = async (account) => {
     params: [account],
   }))
   const tokenBalancesRaw = await multicall(erc20ABI, calls)
-  console.log(tokenBalancesRaw.toString(), 'tokenBalancesRaw')
+
   const tokenBalances = tokens.reduce((acc, token, index) => ({ ...acc, [token]: tokenBalancesRaw[index] }), {})
   const poolTokenBalances = nonBnbPools.reduce(
     (acc, pool) => ({
@@ -97,7 +96,7 @@ export const fetchUserPendingRewards = async (account) => {
   try {
     
     const result = await multicall(kvsStakingABI, calls)
-    console.log(result, 'result <>', calls)
+    // console.log(result, 'result <>', calls)
     // return nonBnbPools.reduce(
     //   (acc, pool, index) => ({
     //     ...acc,

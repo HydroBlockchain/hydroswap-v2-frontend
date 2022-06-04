@@ -75,7 +75,6 @@ const Apr: React.FC<AprProps> = ({
   }
 
   const isValidate = apy !== undefined && !Number.isNaN(apy)
-  console.log( apy,  "my apr")
   return (
     
     <AprLabelContainer alignItems="center" justifyContent="flex-start" {...props}>

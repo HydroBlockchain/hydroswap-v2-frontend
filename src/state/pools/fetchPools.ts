@@ -86,7 +86,7 @@ const poolsAPR = poolsConfig.map((poolConfig) => {
 
 export const fetchPoolsAPR = async () => {
   const poolsApr = await multicall(kvsStakingABI, poolsAPR)
-  console.log(poolsApr.toString(), "poolsApr")
+ 
   return poolsConfig.map((p, index) => ({
     sousId : p.sousId,
     apy : new BigNumber(poolsApr[index]).toJSON()

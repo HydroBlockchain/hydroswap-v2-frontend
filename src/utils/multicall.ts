@@ -15,10 +15,10 @@ export interface MulticallOptions extends CallOverrides {
 
 declare const window:any
 const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
-  console.log(window.ethereum, 'window.ethereum >>>>')
+  // console.log(window.ethereum, 'window.ethereum >>>>')
   const provider = new ethers.providers.Web3Provider(window.ethereum)
   const multi = getMulticallContract(provider)
-  console.log(multi, 'multi')
+  // console.log(multi, 'multi')
   const itf = new Interface(abi)
 
   const calldata = calls.map((call) => ({
@@ -31,7 +31,6 @@ const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
     const { returnData } = await multi.aggregate(calldata)
   
     const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call))
-    console.log('resss', res)
   
     return res as any
 
