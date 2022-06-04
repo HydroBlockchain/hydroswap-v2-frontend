@@ -53,7 +53,7 @@ const AutoAprCell: React.FC<AprCellProps> = ({ pool }) => {
             {flexibleApy ? (
               <AprLabelContainer alignItems="center" justifyContent="flex-start">
                 <Balance
-                  /*@ts-ignore*/
+                  /* @ts-ignore */
                   fontSize={['14px', '14px', '16px']}
                   value={parseFloat(flexibleApy)}
                   decimals={2}

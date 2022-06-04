@@ -46,7 +46,6 @@ const Apr: React.FC<AprProps> = ({
   } = pool
   const { t } = useTranslation()
   const currentBlock = useCurrentBlock()
-  
 
   const { shouldShowBlockCountdown, hasPoolStarted } = getPoolBlockInfo(pool, currentBlock)
 
@@ -76,7 +75,6 @@ const Apr: React.FC<AprProps> = ({
 
   const isValidate = apy !== undefined && !Number.isNaN(apy)
   return (
-    
     <AprLabelContainer alignItems="center" justifyContent="flex-start" {...props}>
       {isValidate || isFinished ? (
         <>
@@ -85,7 +83,7 @@ const Apr: React.FC<AprProps> = ({
               <BalanceWithLoading
                 fontSize={fontSize}
                 isDisabled={isFinished}
-                value={isFinished ? 0 : apy}
+                value={apy / 10 ** 6}
                 decimals={2}
                 unit="%"
               />

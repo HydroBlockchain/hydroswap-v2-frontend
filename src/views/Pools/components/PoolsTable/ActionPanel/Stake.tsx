@@ -80,7 +80,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
   const { isVaultApproved, setLastUpdated } = useCheckVaultApprovalStatus()
   const { handleApprove: handleVaultApprove, pendingTx: pendingVaultTx } = useVaultApprove(setLastUpdated)
 
-  const handleApprove = vaultKey ? handleVaultApprove : handlePoolApprove
+  const handleApprove = handlePoolApprove
   const pendingTx = vaultKey ? pendingVaultTx : pendingPoolTx
 
   const isBnbPool = poolCategory === PoolCategory.BINANCE
@@ -230,7 +230,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
           </Text>
         </ActionTitles>
         <ActionContent>
-          <Button width="100%" disabled={pendingTx} onClick={handleApprove} variant="secondary">
+          <Button width="100%" disabled={pendingTx} onClick={handlePoolApprove} variant="secondary">
             {t('Enable')}
           </Button>
         </ActionContent>
