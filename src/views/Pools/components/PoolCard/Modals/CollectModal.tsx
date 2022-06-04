@@ -35,7 +35,7 @@ interface CollectModalProps {
   isBnbPool: boolean
   isCompoundPool?: boolean
   onDismiss?: () => void
-  earning: BigNumber
+  earning?: BigNumber
 }
 
 const CollectModal: React.FC<CollectModalProps> = ({

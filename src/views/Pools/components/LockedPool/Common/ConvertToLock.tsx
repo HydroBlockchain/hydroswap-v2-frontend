@@ -23,6 +23,7 @@ const ConvertToLock: React.FC<ConvertToLockProps> = ({ stakingToken, currentStak
   return (
     <Message
       variant="warning"
+        /*@ts-ignore*/
       action={
         <Flex mt={!isTableView && '8px'} flexGrow={1} ml={isTableView && '80px'}>
           <ExtendButton

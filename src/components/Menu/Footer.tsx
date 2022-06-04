@@ -30,8 +30,8 @@ const Footer: React.FC<{ variant?: FooterVariant; helpUrl?: string }> = ({
   return (
     <Wrapper $isSide={isSide}>
       <Flex 
-      mt={'2rem'}
-      mb={'2rem'}
+      mt='2rem'
+      mb='2rem'
       flexDirection={isSide ? 'column' : ['column', 'column', 'row']} alignItems="center">
         <LinkExternal
           id="ercBridge"

@@ -51,7 +51,10 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
   }
 >(
   'farms/fetchFarmsPublicDataAsync',
+  /*@ts-ignore*/
   async (pids) => {
+
+  // async (pids) => {
     // const masterChefAddress = getMasterChefAddress()
     // const calls = [
     //   {
@@ -75,16 +78,16 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
 
     // return [farmsWithPrices, poolLength.toNumber(), regularCakePerBlock.toNumber()]
   },
-  {
-    condition: (arg, { getState }) => {
-      const { farms } = getState()
-      if (farms.loadingKeys[stringify({ type: fetchFarmsPublicDataAsync.typePrefix, arg })]) {
-        console.debug('farms action is fetching, skipping here')
-        return false
-      }
-      return true
-    },
-  },
+  // {
+  //   condition: (arg, { getState }) => {
+  //     const { farms } = getState()
+  //     if (farms.loadingKeys[stringify({ type: fetchFarmsPublicDataAsync.typePrefix, arg })]) {
+  //       console.debug('farms action is fetching, skipping here')
+  //       return false
+  //     }
+  //     return true
+  //   },
+  // },
 )
 
 interface FarmUserDataResponse {
@@ -199,13 +202,13 @@ export const farmsSlice = createSlice({
     builder.addMatcher(
       isAnyOf(fetchFarmUserDataAsync.fulfilled, fetchFarmsPublicDataAsync.fulfilled),
       (state, action) => {
-        state.loadingKeys[serializeLoadingKey(action, 'fulfilled')] = false
+     //   state.loadingKeys[serializeLoadingKey(action, 'fulfilled')] = false
       },
     )
     builder.addMatcher(
       isAnyOf(fetchFarmsPublicDataAsync.rejected, fetchFarmUserDataAsync.rejected),
       (state, action) => {
-        state.loadingKeys[serializeLoadingKey(action, 'rejected')] = false
+      //  state.loadingKeys[serializeLoadingKey(action, 'rejected')] = false
       },
     )
   },

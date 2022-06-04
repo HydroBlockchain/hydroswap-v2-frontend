@@ -53,6 +53,7 @@ const AutoAprCell: React.FC<AprCellProps> = ({ pool }) => {
             {flexibleApy ? (
               <AprLabelContainer alignItems="center" justifyContent="flex-start">
                 <Balance
+                  /*@ts-ignore*/
                   fontSize={['14px', '14px', '16px']}
                   value={parseFloat(flexibleApy)}
                   decimals={2}
@@ -87,7 +88,7 @@ const AutoAprCell: React.FC<AprCellProps> = ({ pool }) => {
             </Text>
             {lockedApy ? (
               <AprLabelContainer alignItems="center" justifyContent="flex-start">
-                <FlexGap gap="4px" flexWrap="wrap">
+                {/* <FlexGap gap="4px" flexWrap="wrap">
                   <Text fontSize={['14px', '14px', '16px']} style={{ whiteSpace: 'nowrap' }} fontWeight={[500, 400]}>
                     {t('Up to')}
                   </Text>
@@ -113,7 +114,7 @@ const AutoAprCell: React.FC<AprCellProps> = ({ pool }) => {
                       <CalculateIcon color="textSubtle" width="20px" />
                     </Button>
                   )}
-                </FlexGap>
+                </FlexGap> */}
               </AprLabelContainer>
             ) : (
               <Skeleton width="80px" height="16px" />

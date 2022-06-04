@@ -1,4 +1,4 @@
-import { appearAnimation, useMatchBreakpoints } from 'hydroswap-uikitv2'
+import {  useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import { useLayoutEffect, useState } from 'react'
 import styled from 'styled-components'
@@ -51,11 +51,11 @@ const BannerPlaceHolder = styled.div<{ walletConnected: boolean }>`
   }
 `
 
+// animation: ${appearAnimation} 0.3s ease-in-out 0.7s forwards;
 const StyledSwiper = styled(Swiper)`
   position: relative;
   overflow: visible;
   opacity: 0;
-  animation: ${appearAnimation} 0.3s ease-in-out 0.7s forwards;
   .swiper-pagination {
     position: absolute;
     left: 50%;

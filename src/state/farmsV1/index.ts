@@ -46,34 +46,36 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
   }
 >(
   'farmsV1/fetchFarmsPublicDataAsync',
-  // async (pids) => {
-  //   const poolLength = await fetchMasterChefFarmPoolLength()
-  //   const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
-  //   const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
+    /*@ts-ignore*/
+  async (pids) => {
+    // const poolLength = await fetchMasterChefFarmPoolLength()
+    // const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
+    // const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
 
-  //   // Add price helper farms
-  //   const farmsWithPriceHelpers = farmsCanFetch.concat(priceHelperLpsConfig)
+    // // Add price helper farms
+    // const farmsWithPriceHelpers = farmsCanFetch.concat(priceHelperLpsConfig)
 
-  //   const farms = await fetchFarms(farmsWithPriceHelpers)
-  //   const farmsWithPrices = getFarmsPrices(farms)
+    // const farms = await fetchFarms(farmsWithPriceHelpers)
+    // const farmsWithPrices = getFarmsPrices(farms)
 
-  //   // Filter out price helper LP config farms
-  //   const farmsWithoutHelperLps = farmsWithPrices.filter((farm: SerializedFarm) => {
-  //     return farm.v1pid || farm.v1pid === 0
-  //   })
+    // // Filter out price helper LP config farms
+    // const farmsWithoutHelperLps = farmsWithPrices.filter((farm: SerializedFarm) => {
+    //   return farm.v1pid || farm.v1pid === 0
+    // })
 
-  //   return [farmsWithoutHelperLps, poolLength.toNumber()]
-  // },
-  // {
-  //   condition: (arg, { getState }) => {
-  //     const { farmsV1 } = getState()
-  //     if (farmsV1.loadingKeys[stringify({ type: fetchFarmsPublicDataAsync.typePrefix, arg })]) {
-  //       console.debug('farms action is fetching, skipping here')
-  //       return false
-  //     }
-  //     return true
-  //   },
-  // },
+    // return [farmsWithoutHelperLps, poolLength.toNumber()]
+  },
+  {
+    condition: (arg, { getState }) => {
+        /*@ts-ignore*/
+      const { farmsV1 } = getState()
+      if (farmsV1.loadingKeys[stringify({ type: fetchFarmsPublicDataAsync.typePrefix, arg })]) {
+        console.debug('farms action is fetching, skipping here')
+        return false
+      }
+      return true
+    },
+  },
 )
 
 interface FarmUserDataResponse {
@@ -92,6 +94,7 @@ export const fetchFarmUserDataAsync = createAsyncThunk<
   }
 >(
   'farmsV1/fetchFarmUserDataAsync',
+  /*@ts-ignore*/
   async ({ account, pids }) => {
     // const poolLength = await fetchMasterChefFarmPoolLength()
     // const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
@@ -113,6 +116,7 @@ export const fetchFarmUserDataAsync = createAsyncThunk<
   },
   {
     condition: (arg, { getState }) => {
+        /*@ts-ignore*/
       const { farmsV1 } = getState()
       if (farmsV1.loadingKeys[stringify({ type: fetchFarmUserDataAsync.typePrefix, arg })]) {
         console.debug('farms user action is fetching, skipping here')

@@ -1,4 +1,5 @@
-import { Box, Flex, SkeletonV2, Text } from 'hydroswap-uikitv2'
+// import { Box, Flex, SkeletonV2, Text } from 'hydroswap-uikitv2'
+import { Box, Flex, Text } from 'hydroswap-uikitv2'
 import { useProfileForAddress } from 'state/profile/hooks'
 import styled from 'styled-components'
 import truncateHash from 'utils/truncateHash'
@@ -105,9 +106,9 @@ const GridItem: React.FC<{ traderData?: LeaderboardDataItem; teamImages: React.R
         <Text fontSize="16px" bold color="secondary">
           #{rank}
         </Text>
-        <SkeletonV2 width="24px" height="24px" ml={['16px', null, '16px']} isDataReady={!isFetching}>
+        {/* <SkeletonV2 width="24px" height="24px" ml={['16px', null, '16px']} isDataReady={!isFetching}>
           <Avatar src={profile?.nft?.image?.thumbnail} />
-        </SkeletonV2>
+        </SkeletonV2> */}
       </Flex>
       <VolumeAddressWrapper>
         <Flex alignItems="center" justifyContent="flex-start">

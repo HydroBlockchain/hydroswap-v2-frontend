@@ -40,6 +40,7 @@ const AfterLockedActions: React.FC<AfterLockedActionsPropsType> = ({
     <Message
       variant="warning"
       mb="16px"
+      /*@ts-ignore*/
       action={
         <Container mt={!isDesktopView && '8px'} ml="10px">
           <ConvertToFlexibleButton
