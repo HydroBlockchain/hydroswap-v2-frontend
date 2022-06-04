@@ -1120,6 +1120,6 @@ const farms: SerializedFarmConfig[] = [
   //   token: serializedTokens.ada,
   //   quoteToken: serializedTokens.wbnb,
   // },
-].filter((f) => !!f.lpAddresses[CHAIN_ID])
+]
 
 export default farms
