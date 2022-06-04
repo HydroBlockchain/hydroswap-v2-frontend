@@ -76,7 +76,7 @@ export const fetchUserStakeBalances = async (account) => {
   return nonBnbPools.reduce(
     (acc, pool, index) => ({
       ...acc,
-      [pool.sousId]: new BigNumber(userInfos[index]?.[0]?.["amount"]?.toString())?.toJSON() ?? new BigNumber(0).toJSON(),
+      [pool.sousId]: new BigNumber(userInfos[index][0]["amount"].toString()).toJSON(),
     }),
     {},
   )
@@ -93,22 +93,21 @@ export const fetchUserPendingRewards = async (account) => {
     params: [account],
   }))
 
-  let result;
-  console.log('userrrrr', kvsStakingABI, calls, account)
-  try{
-   result = await multicall(kvsStakingABI, calls)
-    console.log(result.toString(), 'result <<>>')
-
+  
+  try {
+    
+    const result = await multicall(kvsStakingABI, calls)
+    console.log(result, 'result <>', calls)
+    // return nonBnbPools.reduce(
+    //   (acc, pool, index) => ({
+    //     ...acc,
+    //     [pool.sousId]: new BigNumber(result[index].toString()).toJSON(),
+    //   }),
+    //   {},
+    // )
   }
-  catch(e){
-    console.log(e, 'error for bnb pools')
-  }
+  catch (e) {
+    console.log('multicall error', e)
 
-  return nonBnbPools.reduce(
-    (acc, pool, index) => ({
-      ...acc,
-      [pool.sousId]: new BigNumber(result[index].toString()).toJSON(),
-    }),
-    {},
-  )
+   }
 }

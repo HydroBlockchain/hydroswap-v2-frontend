@@ -263,7 +263,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
                     decimals={5}
                     value={vaultKey ? cakeAsNumberBalance : stakedTokenBalance}
                   />
-                  <SkeletonV2
+                  {/* <SkeletonV2
                     isDataReady={Number.isFinite(vaultKey ? stakedAutoDollarValue : stakedTokenDollarBalance)}
                     width={120}
                     wrapperProps={{ height: '20px' }}
@@ -278,7 +278,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
                       unit=" USD"
                       prefix="~"
                     />
-                  </SkeletonV2>
+                  </SkeletonV2> */}
                 </Box>
               </ActionContent>
               {vaultPosition === VaultPosition.Locked && (

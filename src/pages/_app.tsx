@@ -57,7 +57,7 @@ function MyApp(props: AppProps) {
           content=""
         />
         <meta name="theme-color" content="#1FC7D4" />
-        <meta name="twitter:image" content="https://pancakeswap.finance/images/hero.png" />
+        <meta name="twitter:image" content="https://s2.coinmarketcap.com/static/img/coins/64x64/2698.png" />
         <meta
           name="twitter:description"
           content=""

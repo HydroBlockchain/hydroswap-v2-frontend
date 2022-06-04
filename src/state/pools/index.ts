@@ -247,21 +247,25 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
   { sousId: number; allowance: any; stakingTokenBalance: any; stakedBalance: any; pendingReward: any }[],
   string
 >('pool/fetchPoolsUserData', async (account, { rejectWithValue }) => {
+
   try {
-    const [allowances, stakingTokenBalances, stakedBalances, pendingRewards] = await Promise.all([
+    const [allowances, stakingTokenBalances,
+       stakedBalances, 
+       pendingRewards
+      ] = await Promise.all([
       fetchPoolsAllowance(account),
       fetchUserBalances(account),
       fetchUserStakeBalances(account),
       fetchUserPendingRewards(account),
     ])
 
-    console.log(allowances, stakedBalances, pendingRewards, 'Userdata')
+    
     const userData = poolsConfig.map((pool) => ({
       sousId: pool.sousId,
       allowance: allowances[pool.sousId],
       stakingTokenBalance: stakingTokenBalances[pool.sousId],
-      stakedBalance: stakedBalances[pool.sousId],
-      pendingReward: pendingRewards[pool.sousId],
+      stakedBalance: stakedBalances?.[pool.sousId],
+      pendingReward: pendingRewards?.[pool.sousId],
     }))
     return userData
   } catch (e) {
@@ -368,7 +372,7 @@ export const PoolsSlice = createSlice({
       ) => {
         const userData = action.payload
         state.data = state.data.map((pool) => {
-          const userPoolData = userData.find((entry) => entry.sousId === pool.sousId)
+          const userPoolData = userData?.find((entry) => entry.sousId === pool.sousId)
           return { ...pool, userDataLoaded: true, userData: userPoolData }
         })
         state.userDataLoaded = true

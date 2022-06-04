@@ -90,6 +90,11 @@ const config = {
   async redirects() {
     return [
       {
+        source: '/',
+        destination: '/pools',
+        permanent: false,
+      },
+      {
         source: '/send',
         destination: '/swap',
         permanent: true,

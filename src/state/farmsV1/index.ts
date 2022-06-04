@@ -46,34 +46,34 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
   }
 >(
   'farmsV1/fetchFarmsPublicDataAsync',
-  async (pids) => {
-    const poolLength = await fetchMasterChefFarmPoolLength()
-    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
-    const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
+  // async (pids) => {
+  //   const poolLength = await fetchMasterChefFarmPoolLength()
+  //   const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
+  //   const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
 
-    // Add price helper farms
-    const farmsWithPriceHelpers = farmsCanFetch.concat(priceHelperLpsConfig)
+  //   // Add price helper farms
+  //   const farmsWithPriceHelpers = farmsCanFetch.concat(priceHelperLpsConfig)
 
-    const farms = await fetchFarms(farmsWithPriceHelpers)
-    const farmsWithPrices = getFarmsPrices(farms)
+  //   const farms = await fetchFarms(farmsWithPriceHelpers)
+  //   const farmsWithPrices = getFarmsPrices(farms)
 
-    // Filter out price helper LP config farms
-    const farmsWithoutHelperLps = farmsWithPrices.filter((farm: SerializedFarm) => {
-      return farm.v1pid || farm.v1pid === 0
-    })
+  //   // Filter out price helper LP config farms
+  //   const farmsWithoutHelperLps = farmsWithPrices.filter((farm: SerializedFarm) => {
+  //     return farm.v1pid || farm.v1pid === 0
+  //   })
 
-    return [farmsWithoutHelperLps, poolLength.toNumber()]
-  },
-  {
-    condition: (arg, { getState }) => {
-      const { farmsV1 } = getState()
-      if (farmsV1.loadingKeys[stringify({ type: fetchFarmsPublicDataAsync.typePrefix, arg })]) {
-        console.debug('farms action is fetching, skipping here')
-        return false
-      }
-      return true
-    },
-  },
+  //   return [farmsWithoutHelperLps, poolLength.toNumber()]
+  // },
+  // {
+  //   condition: (arg, { getState }) => {
+  //     const { farmsV1 } = getState()
+  //     if (farmsV1.loadingKeys[stringify({ type: fetchFarmsPublicDataAsync.typePrefix, arg })]) {
+  //       console.debug('farms action is fetching, skipping here')
+  //       return false
+  //     }
+  //     return true
+  //   },
+  // },
 )
 
 interface FarmUserDataResponse {
@@ -93,23 +93,23 @@ export const fetchFarmUserDataAsync = createAsyncThunk<
 >(
   'farmsV1/fetchFarmUserDataAsync',
   async ({ account, pids }) => {
-    const poolLength = await fetchMasterChefFarmPoolLength()
-    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
-    const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
-    const userFarmAllowances = await fetchFarmUserAllowances(account, farmsCanFetch)
-    const userFarmTokenBalances = await fetchFarmUserTokenBalances(account, farmsCanFetch)
-    const userStakedBalances = await fetchFarmUserStakedBalances(account, farmsCanFetch)
-    const userFarmEarnings = await fetchFarmUserEarnings(account, farmsCanFetch)
+    // const poolLength = await fetchMasterChefFarmPoolLength()
+    // const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
+    // const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
+    // const userFarmAllowances = await fetchFarmUserAllowances(account, farmsCanFetch)
+    // const userFarmTokenBalances = await fetchFarmUserTokenBalances(account, farmsCanFetch)
+    // const userStakedBalances = await fetchFarmUserStakedBalances(account, farmsCanFetch)
+    // const userFarmEarnings = await fetchFarmUserEarnings(account, farmsCanFetch)
 
-    return userFarmAllowances.map((farmAllowance, index) => {
-      return {
-        pid: farmsCanFetch[index].v1pid,
-        allowance: userFarmAllowances[index],
-        tokenBalance: userFarmTokenBalances[index],
-        stakedBalance: userStakedBalances[index],
-        earnings: userFarmEarnings[index],
-      }
-    })
+    // return userFarmAllowances.map((farmAllowance, index) => {
+    //   return {
+    //     pid: farmsCanFetch[index].v1pid,
+    //     allowance: userFarmAllowances[index],
+    //     tokenBalance: userFarmTokenBalances[index],
+    //     stakedBalance: userStakedBalances[index],
+    //     earnings: userFarmEarnings[index],
+    //   }
+    // })
   },
   {
     condition: (arg, { getState }) => {

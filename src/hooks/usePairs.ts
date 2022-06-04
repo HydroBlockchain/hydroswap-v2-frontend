@@ -38,7 +38,7 @@ export function usePairs(currencies: [Currency | undefined, Currency | undefined
           console.error(
             error.msg,
             `- pairAddresses: ${tokenA?.address}-${tokenB?.address}`,
-            `chainId: ${tokenA?.chainId}`,
+            `chainId: ${97}`,
           )
 
           return undefined

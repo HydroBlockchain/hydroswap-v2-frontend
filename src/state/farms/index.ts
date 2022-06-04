@@ -52,27 +52,28 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
 >(
   'farms/fetchFarmsPublicDataAsync',
   async (pids) => {
-    const masterChefAddress = getMasterChefAddress()
-    const calls = [
-      {
-        address: masterChefAddress,
-        name: 'poolLength',
-      },
-      {
-        address: masterChefAddress,
-        name: 'cakePerBlock',
-        params: [true],
-      },
-    ]
-    const [[poolLength], [cakePerBlockRaw]] = await multicall(masterchefABI, calls)
-    const regularCakePerBlock = getBalanceAmount(ethersToBigNumber(cakePerBlockRaw))
-    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
-    const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.pid))
+    // const masterChefAddress = getMasterChefAddress()
+    // const calls = [
+    //   {
+    //     address: masterChefAddress,
+    //     name: 'poolLength',
+    //   },
+    //   {
+    //     address: masterChefAddress,
+    //     name: 'cakePerBlock',
+    //     params: [true],
+    //   },
+    // ]
+    // const [[poolLength], [cakePerBlockRaw]] = await multicall(masterchefABI, calls)
+    // console.log('pool length >>', poolLength)
+    // const regularCakePerBlock = getBalanceAmount(ethersToBigNumber(cakePerBlockRaw))
+    // const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
+    // const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.pid))
 
-    const farms = await fetchFarms(farmsCanFetch)
-    const farmsWithPrices = getFarmsPrices(farms)
+    // const farms = await fetchFarms(farmsCanFetch)
+    // const farmsWithPrices =getcch getFarmsPrices(farms)
 
-    return [farmsWithPrices, poolLength.toNumber(), regularCakePerBlock.toNumber()]
+    // return [farmsWithPrices, poolLength.toNumber(), regularCakePerBlock.toNumber()]
   },
   {
     condition: (arg, { getState }) => {
@@ -173,13 +174,13 @@ export const farmsSlice = createSlice({
     })
     // Update farms with live data
     builder.addCase(fetchFarmsPublicDataAsync.fulfilled, (state, action) => {
-      const [farmPayload, poolLength, regularCakePerBlock] = action.payload
-      state.data = state.data.map((farm) => {
-        const liveFarmData = farmPayload.find((farmData) => farmData.pid === farm.pid)
-        return { ...farm, ...liveFarmData }
-      })
-      state.poolLength = poolLength
-      state.regularCakePerBlock = regularCakePerBlock
+      // const [farmPayload, poolLength, regularCakePerBlock] = action.payload
+      // state.data = state.data.map((farm) => {
+      //   const liveFarmData = farmPayload.find((farmData) => farmData.pid === farm.pid)
+      //   return { ...farm, ...liveFarmData }
+      // })
+      // state.poolLength = poolLength
+      // state.regularCakePerBlock = regularCakePerBlock
     })
 
     // Update farms with user data

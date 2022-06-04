@@ -45,7 +45,7 @@ const PoolsTable: React.FC<PoolsTableProps> = ({ pools, account }) => {
   return (
     <StyledTableBorder>
       <StyledTable id="pools-table" role="table" ref={tableWrapperEl}>
-        {pools.map((pool) => (
+        {pools.filter(i=> !i?.vaultKey).map((pool) => (
           <PoolRow key={pool.vaultKey ?? pool.sousId} pool={pool} account={account} />
         ))}
         <ScrollButtonContainer>

@@ -2132,8 +2132,8 @@ export const testnetTokens = defineTokens({
     'https://www.binance.com/',
   ),
   cake: new Token(
-    MAINNET,
-    '0xf3DBB49999B25c9D6641a9423C7ad84168D00071',
+    TESTNET,
+    '0x5B387f4886F043f603f7d0cb55DBd727D6649C73',
     18,
     'HYDRO',
     'Hydro',
@@ -2183,7 +2183,7 @@ export const testnetTokens = defineTokens({
 
 const tokens = () => {
   const chainId = CHAIN_ID
-
+ 
   // If testnet - return list comprised of testnetTokens wherever they exist, and mainnetTokens where they don't
   if (parseInt(chainId, 10) === ChainId.TESTNET) {
     return Object.keys(mainnetTokens).reduce((accum, key) => {

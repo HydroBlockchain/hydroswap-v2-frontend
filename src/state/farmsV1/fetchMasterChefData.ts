@@ -10,8 +10,8 @@ const masterChefAddress = getMasterChefV1Address()
 const masterChefContract = getMasterchefV1Contract()
 
 export const fetchMasterChefFarmPoolLength = async () => {
-  const poolLength = await masterChefContract.poolLength()
-  return poolLength
+  // const poolLength = await masterChefContract.poolLength()
+  // return poolLength
 }
 
 const masterChefFarmCalls = (farm: SerializedFarm) => {

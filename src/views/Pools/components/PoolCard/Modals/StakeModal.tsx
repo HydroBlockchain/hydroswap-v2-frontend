@@ -254,7 +254,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
         <PercentageButton onClick={() => handleChangePercent(75)}>75%</PercentageButton>
         <PercentageButton onClick={() => handleChangePercent(100)}>{t('Max')}</PercentageButton>
       </Flex>
-      {!isRemovingStake && (
+      {/* {!isRemovingStake && (
         <Flex mt="24px" alignItems="center" justifyContent="space-between">
           <Text mr="8px" color="textSubtle">
             {t('Annual ROI at current rates')}:
@@ -275,7 +275,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
             <Skeleton width={60} />
           )}
         </Flex>
-      )}
+      )} */}
       {isRemovingStake && pool.enableEmergencyWithdraw && (
         <Flex maxWidth="346px" mt="24px">
           <Text textAlign="center">
