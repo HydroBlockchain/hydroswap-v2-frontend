@@ -37,6 +37,7 @@
     ]
   },
   "dependencies": {
+    "hydroswap-uikitv2": "file:packages/hydroswap-uikit",
     "@binance-chain/bsc-connector": "^1.0.0",
     "@blocto/blocto-connector": "^0.2.3",
     "@ethersproject/abi": "^5.5.0",
