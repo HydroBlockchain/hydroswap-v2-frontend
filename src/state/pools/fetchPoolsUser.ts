@@ -92,21 +92,12 @@ export const fetchUserPendingRewards = async (account) => {
     params: [account],
   }))
 
-  
-  try {
-    
-    const result = await multicall(kvsStakingABI, calls)
-    // console.log(result, 'result <>', calls)
-    // return nonBnbPools.reduce(
-    //   (acc, pool, index) => ({
-    //     ...acc,
-    //     [pool.sousId]: new BigNumber(result[index].toString()).toJSON(),
-    //   }),
-    //   {},
-    // )
-  }
-  catch (e) {
-    console.log('multicall error', e)
-
-   }
+  const result = await multicall(kvsStakingABI, calls)
+  return nonBnbPools.reduce(
+    (acc, pool, index) => ({
+      ...acc,
+      [pool.sousId]: new BigNumber(result[index].toString()).toJSON(),
+    }),
+    {},
+  )
 }
