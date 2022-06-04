@@ -83,7 +83,7 @@ const Apr: React.FC<AprProps> = ({
               <BalanceWithLoading
                 fontSize={fontSize}
                 isDisabled={isFinished}
-                value={apy / 10 ** 6}
+                value={apy/10 ** 6}
                 decimals={2}
                 unit="%"
               />
