@@ -30,6 +30,7 @@ const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool,
           title={isCakePool ? t('Manual') : t('Earn %asset%', { asset: earningToken.symbol })}
           subTitle={isCakePool ? t('Earn CAKE, stake CAKE') : t('Stake %symbol%', { symbol: stakingToken.symbol })}
         />
+        {console.log(earningToken, stakingToken, 'tokennnnnn')}
         <TokenPairImage primaryToken={earningToken} secondaryToken={stakingToken} width={64} height={64} />
       </PoolCardHeader>
       <CardBody>

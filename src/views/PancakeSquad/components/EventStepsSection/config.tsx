@@ -1,3 +1,4 @@
+import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { Button } from 'hydroswap-uikitv2'
 import { SaleStatusEnum, UserStatusEnum } from 'views/PancakeSquad/types'
 import ActivateProfileButton from '../Buttons/ActivateProfile'
@@ -25,7 +26,6 @@ const stepsConfigBuilder = ({ t, userInfos, eventInfos, userStatus, account, the
   const isBuyPhaseFinished = totalTicketsDistributed === maxSupply
   const isMintingFinished = totalSupplyMinted === maxSupply
   const hasData = !!eventInfos && !!userInfos
-
   return [
     {
       id: 1,

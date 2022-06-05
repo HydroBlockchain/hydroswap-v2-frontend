@@ -259,7 +259,7 @@ const Pools: React.FC = () => {
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
             <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-              {t('Syrup Pools')}
+              {t('Hydro Pools')}
             </Heading>
             <Heading scale="md" color="text">
               {t('Just stake some tokens to earn.')}
@@ -279,7 +279,7 @@ const Pools: React.FC = () => {
             viewMode={viewMode}
             setViewMode={setViewMode}
           />
-          <FilterContainer>
+          {/* <FilterContainer>
             <LabelWrapper>
               <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
                 {t('Sort by')}
@@ -318,12 +318,12 @@ const Pools: React.FC = () => {
               </Text>
               <SearchInput onChange={handleChangeSearchQuery} placeholder="Search Pools" />
             </LabelWrapper>
-          </FilterContainer>
+          </FilterContainer> */}
         </PoolControls>
         {showFinishedPools && (
           <FinishedTextContainer>
             {/* <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
-              {t('Looking for v1 CAKE syrup pools?')}
+              {t('Looking for v1 CAKE Hydro Pools?')}
             </Text> */}
             {/* <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="failure">
               {t('Go to migration page')}.

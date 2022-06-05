@@ -40,6 +40,7 @@ export const poolsWithVaultSelector = createSelector(
     const cakeAutoVaultWithApr = {
       ...cakeAutoVault,
     }
-    return { pools: [cakeAutoVaultWithApr, ...withoutCakePool], userDataLoaded }
+    return { pools: withoutCakePool, userDataLoaded }
+    // return { pools: [cakeAutoVaultWithApr, ...withoutCakePool], userDataLoaded }
   },
 )
