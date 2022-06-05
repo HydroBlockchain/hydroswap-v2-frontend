@@ -6,6 +6,7 @@ interface SpacerProps {
 }
 
 const Spacer: React.FC<SpacerProps> = ({ size = 'md' }) => {
+  console.log('contexttt', ThemeContext)
   const { spacing } = useContext(ThemeContext)
 
   let s: number

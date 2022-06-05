@@ -21,7 +21,6 @@ const sousEmergencyUnstake = (sousChefContract: any) => {
 }
 
 const useUnstakePool = (sousId: number, enableEmergencyWithdraw = false) => {
-  console.log('i was called')
   const sousChefContract = useKvsContract(sousId)
 
   const handleUnstake = useCallback(
