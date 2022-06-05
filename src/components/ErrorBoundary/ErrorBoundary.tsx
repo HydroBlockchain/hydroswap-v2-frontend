@@ -7,6 +7,8 @@ import { copyText } from 'utils/copyText'
 export default function ErrorBoundary({ children }) {
   const { t } = useTranslation()
   return (
+    <>
+      {/* @ts-ignore */}
     <Sentry.ErrorBoundary
       beforeCapture={(scope) => {
         scope.setLevel(Sentry.Severity.Fatal)
@@ -36,5 +38,6 @@ export default function ErrorBoundary({ children }) {
     >
       {children}
     </Sentry.ErrorBoundary>
+    </>
   )
 }

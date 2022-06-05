@@ -2,11 +2,12 @@ import {
   MenuItemsType,
 } from 'hydroswap-uikitv2'
 import { ContextApi } from 'contexts/Localization/types'
-import { DropdownMenuItems } from 'hydroswap-uikitv2/src/components/DropdownMenu/types'
+// import { DropdownMenuItems } from 'hydroswap-uikitv2/src/components/DropdownMenu/types'
 
-export type ConfigMenuDropDownItemsType = DropdownMenuItems & { hideSubNav?: boolean }
+// export type ConfigMenuDropDownItemsType = DropdownMenuItems & { hideSubNav?: boolean }
 export type ConfigMenuItemsType = Omit<MenuItemsType, 'items'> & { hideSubNav?: boolean } & {
-  items?: ConfigMenuDropDownItemsType[]
+  items?: any[]
+  // items?: ConfigMenuDropDownItemsType[]
 }
 
 const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType[] = (t, languageCode) => [
