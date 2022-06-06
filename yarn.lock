@@ -6967,10 +6967,10 @@ hydroswap-uikitv2@^0.2.3:
     rollup "^2.75.5"
     styled-system "^5.1.5"
 
-hydroswap-uikitv2@^0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/hydroswap-uikitv2/-/hydroswap-uikitv2-0.3.5.tgz#08527ad75ce2365ba0ddefb9bd1018ec033ad7d5"
-  integrity sha512-zO+vkMiRDXAfyQXEcAI86c55ry92tsbc1RS+OUgEe3jtYr7cfnlgdmVnDQFh+OW/aUKho2iRVB8iBZFFrD0NSw==
+hydroswap-uikitv2@^0.3.9:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/hydroswap-uikitv2/-/hydroswap-uikitv2-0.3.9.tgz#546f891835e018d903d3303278a984e18bcbad70"
+  integrity sha512-PKBnWnAx6xRr79AethQSuxxV4dnQIA3V4upVuRH3jFYr8ynEE0abjgGZvrjuQ4g8xKGUhdgjaLLQrW28Tx5WGw==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@rollup/plugin-typescript" "^8.3.2"

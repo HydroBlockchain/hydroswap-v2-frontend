@@ -6,7 +6,6 @@ import Container from 'components/Layout/Container'
 import { PageMeta } from 'components/Layout/Page'
 import { useTranslation } from 'contexts/Localization'
 import Hero from './components/Hero'
-import MetricsSection from './components/MetricsSection'
 
 import UserBanner from './components/UserBanner'
 import MultipleBanner from './components/Banners/MultipleBanner'
