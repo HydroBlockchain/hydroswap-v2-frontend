@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import { Text, PancakeToggle, Toggle, Flex, Modal, InjectedModalProps, ThemeSwitcher } from 'hydroswap-uikitv2'
+import { Text, Toggle, Flex, Modal, InjectedModalProps, ThemeSwitcher } from 'hydroswap-uikitv2'
 import {
-  useAudioModeManager,
   useExpertModeManager,
-  useSubgraphHealthIndicatorManager,
   useUserExpertModeAcknowledgementShow,
   useUserSingleHopOnly,
 } from 'state/user/hooks'
