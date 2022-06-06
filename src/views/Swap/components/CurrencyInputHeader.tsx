@@ -64,7 +64,7 @@ const CurrencyInputHeader: React.FC<Props> = ({
         </Flex>
         <Flex>
           <NotificationDot show={expertMode}>
-            <GlobalSettings color="textSubtle" mr="0" />
+            <GlobalSettings color="textSubtle" mr="22px" />
           </NotificationDot>
           <IconButton onClick={onPresentTransactionsModal} variant="text" scale="sm">
             <HistoryIcon color="textSubtle" width="24px" />
