@@ -14,7 +14,11 @@ export const StyledCard = styled(Card)<{ isFinished?: boolean }>`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     max-width: 850px;
-    margin: 0 12px 46px;
+    margin: 0 12px 48px;
+  }
+
+  @media (min-width:1444px){
+    margin-bottom: 32rem;
   }
 `
 

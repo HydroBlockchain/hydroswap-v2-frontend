@@ -16,6 +16,7 @@ const StyledCard = styled(Box)`
 
 const UserBanner = () => {
   return (
+    <>
     <StyledCard p={['16px', null, null, '24px']}>
       <Flex alignItems="center" justifyContent="center" flexDirection={['column', null, null, 'row']}>
         <Flex flex="1" mr={[null, null, null, '32px']}>
@@ -26,6 +27,7 @@ const UserBanner = () => {
         </Flex>
       </Flex>
     </StyledCard>
+    </>
   )
 }
 

@@ -54,6 +54,7 @@ const HarvestCard = () => {
   }, [farmsWithStakedBalance, masterChefContract, toastSuccess, t, fetchWithCatchTxError])
 
   return (
+    <>
     <StyledCard>
       <CardBody>
         <Flex flexDirection={['column', null, null, 'row']} justifyContent="space-between" alignItems="center">
@@ -105,6 +106,7 @@ const HarvestCard = () => {
         </Flex>
       </CardBody>
     </StyledCard>
+    </>
   )
 }
 

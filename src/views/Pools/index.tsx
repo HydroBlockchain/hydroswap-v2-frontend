@@ -336,7 +336,7 @@ const Pools: React.FC = () => {
             <Loading />
           </Flex>
         )}
-        {viewMode === ViewMode.CARD ? cardLayout : tableLayout}
+        {viewMode === ViewMode.CARD ? cardLayout : cardLayout}
         <div ref={observerRef} />
         {/* <Image
           mx="auto"

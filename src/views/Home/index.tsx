@@ -5,6 +5,8 @@ import useTheme from 'hooks/useTheme'
 import Container from 'components/Layout/Container'
 import { PageMeta } from 'components/Layout/Page'
 import { useTranslation } from 'contexts/Localization'
+import { Image, Flex, Button, Text } from 'hydroswap-uikitv2'
+import { NextLinkFromReactRouter } from 'components/NextLink'
 import Hero from './components/Hero'
 import MetricsSection from './components/MetricsSection'
 
@@ -46,7 +48,7 @@ const Home: React.FC = () => {
   return (
     <>
       <PageMeta />
-      <StyledHeroSection
+      {/* <StyledHeroSection
         innerProps={{ style: { margin: '0', width: '100%' } }}
         background={
           theme.isDark
@@ -63,7 +65,33 @@ const Home: React.FC = () => {
         )}
         <MultipleBanner />
         <Hero />
-      </StyledHeroSection>
+      </StyledHeroSection> */}
+      <Flex  justifyContent='center' >
+        <Image 
+          src={
+            theme.isDark ?
+            '/images/logo.svg':
+            '/images/logo-black.svg' 
+          }
+          width={1024} height={300}
+            />
+      </Flex>
+      <Flex justifyContent='center' mb="8rem">
+        <NextLinkFromReactRouter to="swap">
+          <Button mr="10px" width={['100%', null, null, 'auto']} variant="secondary">
+            <Text color="primary" bold>
+              {t('Swap')}
+            </Text>
+          </Button>
+        </NextLinkFromReactRouter>
+        <NextLinkFromReactRouter to="pools">
+          <Button width={['100%', null, null, 'auto']} variant="secondary">
+            <Text color="primary" bold>
+              {t('Stake')}
+            </Text>
+          </Button>
+        </NextLinkFromReactRouter>
+      </Flex>
     </>
   )
 }

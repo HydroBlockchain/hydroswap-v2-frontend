@@ -68,27 +68,33 @@ const CollectModal: React.FC<CollectModalProps> = ({
 
   const handleHarvestConfirm = async () => {
     const receipt = await fetchWithCatchTxError(() => {
-      if (shouldCompound) {
-        return onStake(fullBalance, earningToken.decimals)
-      }
+      // if (shouldCompound) {
+      //   return onStake(fullBalance, earningToken.decimals)
+      // }
       return onReward()
     })
     if (receipt?.status) {
-      if (shouldCompound) {
-        toastSuccess(
-          `${t('Compounded')}!`,
-          <ToastDescriptionWithTx txHash={receipt.transactionHash}>
-            {t('Your %symbol% earnings have been re-invested into the pool!', { symbol: earningToken.symbol })}
-          </ToastDescriptionWithTx>,
-        )
-      } else {
-        toastSuccess(
-          `${t('Harvested')}!`,
-          <ToastDescriptionWithTx txHash={receipt.transactionHash}>
-            {t('Your %symbol% earnings have been sent to your wallet!', { symbol: earningToken.symbol })}
-          </ToastDescriptionWithTx>,
-        )
-      }
+      // if (shouldCompound) {
+      //   toastSuccess(
+      //     `${t('Compounded')}!`,
+      //     <ToastDescriptionWithTx txHash={receipt.transactionHash}>
+      //       {t('Your %symbol% earnings have been re-invested into the pool!', { symbol: earningToken.symbol })}
+      //     </ToastDescriptionWithTx>,
+      //   )
+      // } else {
+      //   toastSuccess(
+      //     `${t('Harvested')}!`,
+      //     <ToastDescriptionWithTx txHash={receipt.transactionHash}>
+      //       {t('Your %symbol% earnings have been sent to your wallet!', { symbol: earningToken.symbol })}
+      //     </ToastDescriptionWithTx>,
+      //   )
+      // }
+      toastSuccess(
+        `${t('Harvested')}!`,
+        <ToastDescriptionWithTx txHash={receipt.transactionHash}>
+          {t('Your %symbol% earnings have been sent to your wallet!', { symbol: earningToken.symbol })}
+        </ToastDescriptionWithTx>,
+      )
       dispatch(updateUserStakedBalance({ sousId, account }))
       dispatch(updateUserPendingReward({ sousId, account }))
       dispatch(updateUserBalance({ sousId, account }))
@@ -98,30 +104,32 @@ const CollectModal: React.FC<CollectModalProps> = ({
 
   return (
     <Modal
-      title={`${earningToken.symbol} ${isCompoundPool ? t('Collect') : t('Harvest')}`}
+      title={`${earningToken.symbol} ${('Harvest')}`}
       onDismiss={onDismiss}
       headerBackground={theme.colors.gradients.cardHeader}
     >
       {isCompoundPool && (
         <Flex justifyContent="center" alignItems="center" mb="24px">
-          <ButtonMenu
+           <Text size="lg" >{t('Harvest')}</Text>
+          {/* <ButtonMenu
             activeIndex={shouldCompound ? 0 : 1}
             scale="sm"
             variant="subtle"
             onItemClick={(index) => setShouldCompound(!index)}
           >
             <ButtonMenuItem as="button">{t('Compound')}</ButtonMenuItem>
-            <ButtonMenuItem as="button">{t('Harvest')}</ButtonMenuItem>
+             <ButtonMenuItem as="button">{t('Harvest')}</ButtonMenuItem>
           </ButtonMenu>
           <Flex ml="10px" ref={targetRef}>
             <HelpIcon color="textSubtle" />
           </Flex>
-          {tooltipVisible && tooltip}
+          {tooltipVisible && tooltip} */}
         </Flex>
       )}
+     
 
       <Flex justifyContent="space-between" alignItems="center" mb="24px">
-        <Text>{shouldCompound ? t('Compounding') : t('Harvesting')}:</Text>
+        <Text>{t('Harvesting')}:</Text>
         <Flex flexDirection="column">
           <Heading>
             {formattedBalance} {earningToken.symbol}

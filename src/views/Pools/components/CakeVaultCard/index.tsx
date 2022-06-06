@@ -47,6 +47,7 @@ const CakeVaultCard: React.FC<CakeVaultProps> = ({ pool, showStakedOnly, default
   }
 
   return (
+    <>
     <StyledCard isActive {...props}>
       <PoolCardHeader isStaking={accountHasSharesStaked}>
         <PoolCardHeaderTitle
@@ -98,6 +99,7 @@ const CakeVaultCard: React.FC<CakeVaultProps> = ({ pool, showStakedOnly, default
       </StyledCardBody>
       <CardFooter defaultExpanded={defaultFooterExpanded} pool={pool} account={account} />
     </StyledCard>
+    </>
   )
 }
 
