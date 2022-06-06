@@ -13,7 +13,7 @@ export const StyledCard = styled(Card)<{ isFinished?: boolean }>`
   color: ${({ isFinished, theme }) => theme.colors[isFinished ? 'textDisabled' : 'secondary']};
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    max-width: 750px;
+    max-width: 850px;
     margin: 0 12px 46px;
   }
 `
