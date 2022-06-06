@@ -16,14 +16,24 @@ import useAuth from 'hooks/useAuth'
 // import { useRouter } from 'next/router'
 import { useProfile } from 'state/profile/hooks'
 import { usePendingTransactions } from 'state/transactions/hooks'
-import ConnectWalletButton from 'components/ConnectWalletButton'
+import ConnectWalletBtn from 'components/ConnectWalletButton'
 import { useTranslation } from 'contexts/Localization'
 // import { nftsBaseUrl } from 'views/Nft/market/constants'
 import WalletModal, { WalletView } from './WalletModal'
 // import ProfileUserMenuItem from './ProfileUserMenuItem'
 import WalletUserMenuItem from './WalletUserMenuItem'
+import  useTheme  from 'hooks/useTheme'
+import styled from 'styled-components'
 
+
+const ConnectWalletButton:any = styled(ConnectWalletBtn)`
+background-color:${({ theme }) => theme.isDark ? '#1a1a1a' : 'hsla(0, 0%, 54%, 1)'};
+border-radius:0;
+`
+  
 const UserMenu = () => {
+  const th = useTheme()
+  console.log('UserMenu', th)
   // const router = useRouter()
   const { t } = useTranslation()
   const { account, error } = useWeb3React()
