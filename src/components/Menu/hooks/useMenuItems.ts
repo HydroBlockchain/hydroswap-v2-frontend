@@ -18,7 +18,7 @@ export const useMenuItems = (): ConfigMenuItemsType[] => {
   return useMemo(() => {
     if (menuItemsStatus && Object.keys(menuItemsStatus).length) {
       return menuItems.map((item) => {
-        const innerItems = item.items.map((innerItem) => {
+        const innerItems = item?.items?.map((innerItem) => {
           const itemStatus = menuItemsStatus[innerItem.href]
           if (itemStatus) {
             let itemMenuStatus
