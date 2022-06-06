@@ -111,6 +111,12 @@ export const fetchPoolsStakingLimits = async (
     })
     .flat()
 
+  // if(poolStakingCalls.length > 0){
+  //   return
+  // }
+
+  console.log(poolStakingCalls, "poolStakingCalls")
+
   const poolStakingResultRaw = await multicallv2(sousChefV2, poolStakingCalls, { requireSuccess: false })
   const chunkSize = poolStakingCalls.length / validPools.length
   const poolStakingChunkedResultRaw = chunk(poolStakingResultRaw.flat(), chunkSize)

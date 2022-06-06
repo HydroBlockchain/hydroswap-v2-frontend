@@ -6,6 +6,7 @@ import { useTranslation } from 'contexts/Localization'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { DeserializedPool } from 'state/types'
 import { TokenPairImage } from 'components/TokenImage'
+import styled from 'styled-components'
 import AprRow from './AprRow'
 import { StyledCard } from './StyledCard'
 import CardFooter from './CardFooter'
@@ -21,6 +22,7 @@ const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool,
   const isCakePool = earningToken.symbol === 'CAKE' && stakingToken.symbol === 'CAKE'
 
   return (
+    <>
     <StyledCard
       isFinished={isFinished && sousId !== 0}
       ribbon={isFinished && <CardRibbon variantColor="textDisabled" text={t('Finished')} />}
@@ -30,7 +32,6 @@ const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool,
           title={isCakePool ? t('Manual') : t('Earn %asset%', { asset: earningToken.symbol })}
           subTitle={isCakePool ? t('Earn CAKE, stake CAKE') : t('Stake %symbol%', { symbol: stakingToken.symbol })}
         />
-        {console.log(earningToken, stakingToken, 'tokennnnnn')}
         <TokenPairImage primaryToken={earningToken} secondaryToken={stakingToken} width={64} height={64} />
       </PoolCardHeader>
       <CardBody>
@@ -50,6 +51,7 @@ const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool,
       </CardBody>
       <CardFooter pool={pool} account={account} />
     </StyledCard>
+    </>
   )
 }
 

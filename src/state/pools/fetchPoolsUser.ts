@@ -79,10 +79,6 @@ export const fetchUserStakeBalances = async (account) => {
     }),
     {},
   )
-  // return nonBnbPools.reduce(
-  //   (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(allowances[index]).toJSON() }),
-  //   {},
-  // )
 }
 
 export const fetchUserPendingRewards = async (account) => {

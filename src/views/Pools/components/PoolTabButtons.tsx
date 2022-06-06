@@ -78,19 +78,21 @@ const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, vi
     </Wrapper>
   )
 
-  const stakedOnlySwitch = (
-    <ToggleWrapper>
-      <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
-      <Text> {t('Staked only')}</Text>
-    </ToggleWrapper>
-  )
+  // const stakedOnlySwitch = (
+  //   <ToggleWrapper>
+  //     <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
+  //     <Text> {t('Staked only')}</Text>
+  //   </ToggleWrapper>
+  // )
 
   return (
-    <ViewControls>
+    <>
+    {/* <ViewControls>
       {viewModeToggle}
       {stakedOnlySwitch}
       {liveOrFinishedSwitch}
-    </ViewControls>
+    </ViewControls> */}
+    </>
   )
 }
 
