@@ -29,12 +29,10 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
   {
     label: t('Stake'),
     href: '/pools',
-    // items: [
-    //   {
-    //     label: t('Pools'),
-    //     href: '/pools',
-    //   },
-    // ],
+  },
+  {
+    label: t('Bridge'),
+    href: '/bridge',
   },
 
 ]

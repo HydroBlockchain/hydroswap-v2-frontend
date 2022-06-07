@@ -8,7 +8,6 @@ export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
       {
         label: t('Contact'),
         href: '#',
-        isHighlighted: true,
       },
       {
         label: t('Blog'),

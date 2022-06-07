@@ -64,37 +64,41 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
       style={{ maxWidth: '420px' }}
     >
       <ScrollableContainer>
-        <Flex pb="24px" flexDirection="column">
-          <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
+        <Flex pb="0px" flexDirection="column">
+          {/* <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
             {t('Global')}
-          </Text>
-          <Flex justifyContent="space-between">
-            <Text mb="24px">{t('Dark mode')}</Text>
-            <ThemeSwitcher isDark={isDark} toggleTheme={() => setTheme(isDark ? 'light' : 'dark')} />
-          </Flex>
+          </Text> */}
           <GasSettings />
         </Flex>
-        <Flex pt="24px" flexDirection="column" borderTop={`1px ${theme.colors.cardBorder} solid`}>
-          <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
+        
+        <Flex 
+         flexDirection="column" 
+        pt="24px"
+        // borderTop={`1px ${theme.colors.cardBorder} solid`}
+        >
+          {/* <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
             {t('Swaps & Liquidity')}
-          </Text>
-          <TransactionSettings />
+          </Text> */}
+          <TransactionSettings borderColor={theme.colors.cardBorder} />
         </Flex>
-        <Flex justifyContent="space-between" alignItems="center" mb="24px">
-          <Flex alignItems="center">
+        <Flex justifyContent="space-between" alignItems="center" mb="15px"
+        
+        >
+          <Flex alignItems="center"
+          >
             <Text>{t('Expert Mode')}</Text>
-            <QuestionHelper
+            {/* <QuestionHelper
               text={t('Bypasses confirmation modals and allows high slippage trades. Use at your own risk.')}
               placement="top-start"
               ml="4px"
-            />
+            /> */}
           </Flex>
           <Toggle id="toggle-expert-mode-button" scale="md" checked={expertMode} onChange={handleExpertModeToggle} />
         </Flex>
-        <Flex justifyContent="space-between" alignItems="center" mb="24px">
+        <Flex justifyContent="space-between" alignItems="center" mb="20px">
           <Flex alignItems="center">
             <Text>{t('Disable Multihops')}</Text>
-            <QuestionHelper text={t('Restricts swaps to direct pairs only.')} placement="top-start" ml="4px" />
+            {/* <QuestionHelper text={t('Restricts swaps to direct pairs only.')} placement="top-start" ml="4px" /> */}
           </Flex>
           <Toggle
             id="toggle-disable-multihop-button"
@@ -105,6 +109,10 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
             }}
           />
         </Flex>
+        <Flex justifyContent="space-between">
+            <Text mb="0px">{t('Dark mode')}</Text>
+            <ThemeSwitcher isDark={isDark} toggleTheme={() => setTheme(isDark ? 'light' : 'dark')} />
+          </Flex>
         {/* <Flex justifyContent="space-between" alignItems="center" mb="24px">
           <Flex alignItems="center">
             <Text>{t('Subgraph Health Indicator')}</Text>

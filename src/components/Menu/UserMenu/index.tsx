@@ -32,8 +32,6 @@ border-radius:0;
 `
   
 const UserMenu = () => {
-  const th = useTheme()
-  console.log('UserMenu', th)
   // const router = useRouter()
   const { t } = useTranslation()
   const { account, error } = useWeb3React()
