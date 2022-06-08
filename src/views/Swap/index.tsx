@@ -412,7 +412,7 @@ export default function Swap() {
                   hasAmount={hasAmount}
                   onRefreshPrice={onRefreshPrice}
                 />
-                <Wrapper id="swap-page" style={{ minHeight: '412px' }}>
+                <Wrapper id="swap-page" style={{ minHeight: '350px' }}>
                   <AutoColumn gap="sm">
                     <CurrencyInputPanel
                       label={
@@ -480,7 +480,7 @@ export default function Swap() {
                     ) : null}
 
                     {showWrap ? null : (
-                      <AutoColumn gap="7px" style={{ padding: '0 16px' }}>
+                      <AutoColumn gap="7px" style={{ padding: '0 8px' }}>
                         <RowBetween align="center">
                           {Boolean(trade) && (
                             <>

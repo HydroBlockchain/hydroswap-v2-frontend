@@ -18,7 +18,6 @@ const InputRow = styled.div<{ selected: boolean }>`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-end;
-  padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0.75rem 0.75rem 0.75rem 1rem')};
 `
 const CurrencySelectButton = styled(Button).attrs({ variant: 'text', scale: 'sm' })`
   padding: 0 0.5rem;
@@ -30,7 +29,7 @@ const LabelRow = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-size: 0.75rem;
   line-height: 1rem;
-  padding: 0.75rem 1rem 0 1rem;
+  padding: 1rem 1rem 1rem 1rem;
 `
 const InputPanel = styled.div`
   display: flex;
@@ -175,14 +174,15 @@ export default function CurrencyInputPanel({
                 onUserInput(val)
               }}
             />
-          </LabelRow>
-          <InputRow selected={disableCurrencySelect}>
+             <InputRow selected={disableCurrencySelect}>
             {account && currency && showMaxButton && label !== 'To' && (
-              <Button onClick={onMax} scale="xs" variant="secondary">
+              <Button onClick={onMax} scale="xs" variant="tertiary">
                 {t('Max').toLocaleUpperCase(locale)}
               </Button>
             )}
           </InputRow>
+          </LabelRow>
+         
         </Container>
       </InputPanel>
     </Box>

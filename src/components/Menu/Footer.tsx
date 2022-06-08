@@ -33,7 +33,7 @@ const Footer: React.FC<{ variant?: FooterVariant; helpUrl?: string }> = ({
       mt='2rem'
       mb='2rem'
       flexDirection={isSide ? 'column' : ['column', 'column', 'row']} alignItems="center">
-        <LinkExternal
+        {/* <LinkExternal
           id="ercBridge"
           href=""
           ml={[0, 0, '40px']}
@@ -41,7 +41,7 @@ const Footer: React.FC<{ variant?: FooterVariant; helpUrl?: string }> = ({
           mb={['8px', '8px', 0]}
         >
           {t('Convert ERC-20 to BEP-20')}
-        </LinkExternal>
+        </LinkExternal> */}
       </Flex>
       {isSide && <Flex flexGrow={1} />}
     </Wrapper>
