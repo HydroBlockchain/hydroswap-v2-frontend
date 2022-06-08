@@ -1,4 +1,4 @@
-import { Flex, Text, Button, IconStyledBtn, AddIcon, MinusIcon, useModal, Skeleton, useTooltip } from 'hydroswap-uikitv2'
+import { Flex, Text, Button, IconButton, AddIcon, MinusIcon, useModal, Skeleton, useTooltip } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -93,9 +93,9 @@ const StakeAction: React.FC<StakeActionsProps> = ({
           </StyledBtn>
           {reachStakingLimit ? (
             <span ref={targetRef}>
-              <IconStyledBtn variant="secondary" disabled>
+              <IconButton variant="secondary" disabled>
                 <AddIcon color="textDisabled" width="24px" height="24px" />
-              </IconStyledBtn>
+              </IconButton>
             </span>
           ) : (
             <StyledBtn
