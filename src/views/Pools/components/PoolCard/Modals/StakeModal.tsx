@@ -206,9 +206,14 @@ const StakeModal: React.FC<StakeModalProps> = ({
       <Flex alignItems="center" justifyContent="space-between" mb="8px">
         <Text bold>{isRemovingStake ? t('Unstake') : t('Stake')}:</Text>
         <Flex alignItems="center" minWidth="70px">
-          <Image src={`/images/tokens/${stakingToken.address}.png`} width={24} height={24} alt={stakingToken.symbol} />
+          {/* <Image src={`/images/tokens/${stakingToken.address}.png`} width={24} height={24} alt={stakingToken.symbol} />
           <Text ml="4px" bold>
             {stakingToken.symbol}
+          </Text> */}
+          <Text ml="auto" color="textSubtle" fontSize="12px" mb="6px">
+            {t('Balance: %balance%', {
+              balance: getFullDisplayBalance(getCalculatedStakingLimit(), stakingToken.decimals),
+            })}
           </Text>
         </Flex>
       </Flex>
@@ -234,11 +239,11 @@ const StakeModal: React.FC<StakeModalProps> = ({
           })}
         </Text>
       )}
-      <Text ml="auto" color="textSubtle" fontSize="12px" mb="8px">
+      {/* <Text ml="auto" color="textSubtle" fontSize="12px" mb="8px">
         {t('Balance: %balance%', {
           balance: getFullDisplayBalance(getCalculatedStakingLimit(), stakingToken.decimals),
         })}
-      </Text>
+      </Text> */}
       <Slider
         min={0}
         max={100}
@@ -285,22 +290,26 @@ const StakeModal: React.FC<StakeModalProps> = ({
           </Text>
         </Flex>
       )}
+     <Flex justifyContent='center' alignItems='center'>
       <Button
-        isLoading={pendingTx}
-        endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
-        onClick={handleConfirmClick}
-        disabled={!stakeAmount || parseFloat(stakeAmount) === 0 || hasReachedStakeLimit || userNotEnoughToken}
-        mt="24px"
-      >
-        {pendingTx ? t('Confirming') : t('Confirm')}
-      </Button>
-      {!isRemovingStake && (
-        <StyledLink external href={getTokenLink}>
-          <Button width="100%" mt="8px" variant="secondary">
-            {t('Get %symbol%', { symbol: stakingToken.symbol })}
-          </Button>
-        </StyledLink>
-      )}
+          isLoading={pendingTx}
+          endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
+          onClick={handleConfirmClick}
+          disabled={!stakeAmount || parseFloat(stakeAmount) === 0  || userNotEnoughToken}
+          mt="24px"
+          mr="24px"
+          
+        >
+          {pendingTx ? t('Confirming') : t('Confirm')}
+        </Button>
+        {!isRemovingStake && (
+            <Button mt="24px" variant="secondary">
+               <StyledLink external href={getTokenLink}>
+              {t('Get %symbol%', { symbol: stakingToken.symbol })}
+              </StyledLink>
+            </Button>
+        )}
+     </Flex>
     </Modal>
   )
 }

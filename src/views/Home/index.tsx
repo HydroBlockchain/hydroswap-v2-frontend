@@ -51,8 +51,8 @@ const Home: React.FC = () => {
         <Image 
           src={
             theme.isDark ?
-            '/images/logo.svg':
-            '/images/logo-black.svg' 
+            '/images/logo.png':
+            '/images/logo-black.png' 
           }
           width={1024} height={452}
             />

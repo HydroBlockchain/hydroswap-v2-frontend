@@ -81,9 +81,10 @@ const StakeAction: React.FC<StakeActionsProps> = ({
           </>
         </Flex>
         <Flex>
-          <IconButton variant="secondary" onClick={onPresentUnstake} mr="6px">
-            <MinusIcon color="primary" width="24px" />
-          </IconButton>
+          <Button variant="secondary" onClick={onPresentUnstake} mr="6px">
+            {/* <MinusIcon color="primary" width="24px" /> */}
+            {t(`Remove`)}
+          </Button>
           {reachStakingLimit ? (
             <span ref={targetRef}>
               <IconButton variant="secondary" disabled>
@@ -91,13 +92,14 @@ const StakeAction: React.FC<StakeActionsProps> = ({
               </IconButton>
             </span>
           ) : (
-            <IconButton
+            <Button
               variant="secondary"
               onClick={stakingTokenBalance.gt(0) ? onPresentStake : onPresentTokenRequired}
               disabled={isFinished}
             >
-              <AddIcon color="primary" width="24px" height="24px" />
-            </IconButton>
+              {/* <AddIcon color="primary" width="24px" height="24px" /> */}
+              {t(`Add`)}
+            </Button>
           )}
         </Flex>
         {tooltipVisible && tooltip}

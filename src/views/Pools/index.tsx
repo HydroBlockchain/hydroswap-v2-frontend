@@ -36,14 +36,24 @@ const CardLayout = styled(FlexLayout)`
   
 `
 
-const CardHeade = styled(CardHeader)`
+const CardHead= styled(CardHeader)`
     background: ${({theme}) => theme.colors.gradients.bubblegum} ;
 `
 
-const WrapperFooter = styled(CardFooter)<{background?: string}>`
- border-radius: ${({ theme }) => `${theme.radii.card} ${theme.radii.card} 0 0`};
- height: 30px;
-  
+const Grid = styled.div`
+  display:grid ;
+  grid-gap: 40px ;
+  grid-template-columns: 1fr 1fr  1fr;
+  grid-template-rows: auto auto ;
+  grid-template-areas:
+  '. b .'
+  'a a a';
+
+  ${({ theme }) => theme.mediaQueries.lg}{
+    
+    grid-template-areas:
+    'a a b' ;
+  }
 `
 
 const PoolControls = styled.div`
@@ -176,7 +186,6 @@ const Pools: React.FC = () => {
   const [numberOfPoolsVisible, setNumberOfPoolsVisible] = useState(NUMBER_OF_POOLS_VISIBLE)
   const { observerRef, isIntersecting } = useIntersectionObserver()
   const [searchQuery, setSearchQuery] = useState('')
-  const [isPlaying, setIsPlaying] = useState(true);
   const [sortOption, setSortOption] = useState('hot')
   const chosenPoolsLength = useRef(0)
   const { theme } = useTheme()
@@ -272,11 +281,13 @@ const Pools: React.FC = () => {
   const cardLayout = (
     chosenPools.map((pool) => {
       return(
-        <Flex flexWrap='wrap'>
-          <PoolCard key={pool.sousId} pool={pool} account={account} />
-         <div>
+        <Grid >
+         <div style={{ gridArea: 'a' }}>
+          <PoolCard  key={pool.sousId} pool={pool} account={account} />
+         </div>
+         <div style={{ gridArea: 'b' }}>
           <Card>
-            <CardHeade>
+            <CardHead>
                 <Heading textAlign='center' scale='lg' paddingTop='19px' paddingBottom='19px'>
                   <Image src={
                     theme.isDark ? 
@@ -286,13 +297,13 @@ const Pools: React.FC = () => {
                    width={300} height={30} 
                    />
                 </Heading>
-            </CardHeade>
+            </CardHead>
             <CardBody>
               <video autoPlay muted loop src="https://keresverse.org/wp-content/uploads/2022/05/LogoNew0001-0240.mp4" width={300} height={270} />
             </CardBody>
           </Card> 
          </div>
-        </Flex>
+        </Grid>
       )
     })
 
