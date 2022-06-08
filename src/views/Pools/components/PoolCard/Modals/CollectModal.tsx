@@ -104,13 +104,13 @@ const CollectModal: React.FC<CollectModalProps> = ({
 
   return (
     <Modal
-      title={`${earningToken.symbol} ${('Harvest')}`}
+      title={`${('Harvest Vouchers')}`}
       onDismiss={onDismiss}
       headerBackground={theme.colors.gradients.cardHeader}
     >
       {isCompoundPool && (
-        <Flex justifyContent="center" alignItems="center" mb="24px">
-           <Text size="lg" >{t('Harvest')}</Text>
+        <Flex justifyContent="center" alignItems="center" mb="0px">
+           <Text size="lg" >{t('Amount')}</Text>
           {/* <ButtonMenu
             activeIndex={shouldCompound ? 0 : 1}
             scale="sm"
@@ -128,16 +128,21 @@ const CollectModal: React.FC<CollectModalProps> = ({
       )}
      
 
-      <Flex justifyContent="space-between" alignItems="center" mb="24px">
-        <Text>{t('Harvesting')}:</Text>
-        <Flex flexDirection="column">
-          <Heading>
-            {formattedBalance} {earningToken.symbol}
+      <Flex justifyContent="center" alignItems="center" mb="0px">
+        <Flex >  
+        <Text>
+            {formattedBalance} 
+        </Text>
+          <Heading ml='0.5rem'>
+            {earningToken.symbol}
           </Heading>
-          {earningsDollarValue > 0 && (
+            </Flex>
+      </Flex>
+
+      <Flex justifyContent={'center'} mb='24px'>
+         {earningsDollarValue > 0 && (
             <Text fontSize="12px" color="textSubtle">{`~${formatNumber(earningsDollarValue)} USD`}</Text>
           )}
-        </Flex>
       </Flex>
 
       <Button
@@ -146,11 +151,11 @@ const CollectModal: React.FC<CollectModalProps> = ({
         isLoading={pendingTx}
         endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
       >
-        {pendingTx ? t('Confirming') : t('Confirm')}
+        {pendingTx ? t('Harvesting') : t('Harvest')}
       </Button>
-      <Button variant="text" onClick={onDismiss} pb="0px">
+      {/* <Button variant="text" onClick={onDismiss} pb="0px">
         {t('Close Window')}
-      </Button>
+      </Button> */}
     </Modal>
   )
 }
