@@ -20,6 +20,7 @@ import WalletInfo from './WalletInfo'
 import WalletTransactions from './WalletTransactions'
 import WalletWrongNetwork from './WalletWrongNetwork'
 
+
 export enum WalletView {
   WALLET_INFO,
   TRANSACTIONS,
@@ -52,12 +53,26 @@ const WalletModal: React.FC<WalletModalProps> = ({ initialView = WalletView.WALL
     setView(newIndex)
   }
 
+  const ButtonMenuStyled = styled(ButtonMenu)`
+  background-color: transparent;
+  border: 0;
+  `
+  const ButtonMenuItemStyled = styled(ButtonMenuItem)`
+  margin:0 0.5rem;
+  background: ${({theme, isActive}) => {
+    return isActive? theme?.colors?.btnBackground:theme?.colors?.backgroundAlt
+  }};
+  color: ${({theme, isActive}) => {
+    return isActive? 'hsla(0, 0%, 91%, 1)':!theme?.isDark ? theme?.colors?.btnBackground:theme?.colors?.btnColor
+  }};
+  `
   const TabsComponent: React.FC = () => (
     <Tabs>
-      <ButtonMenu scale="sm" variant="subtle" onItemClick={handleClick} activeIndex={view} fullWidth>
-        <ButtonMenuItem>{t('Wallet')}</ButtonMenuItem>
-        <ButtonMenuItem>{t('Transactions')}</ButtonMenuItem>
-      </ButtonMenu>
+      <ButtonMenuStyled 
+      scale="sm" variant="subtle" onItemClick={handleClick} activeIndex={view} fullWidth>
+        <ButtonMenuItemStyled>{t('Wallet')}</ButtonMenuItemStyled>
+        <ButtonMenuItemStyled>{t('Transactions')}</ButtonMenuItemStyled>
+      </ButtonMenuStyled>
     </Tabs>
   )
 
@@ -72,7 +87,7 @@ const WalletModal: React.FC<WalletModalProps> = ({ initialView = WalletView.WALL
         </IconButton>
       </ModalHeader>
       {view !== WalletView.WRONG_NETWORK && <TabsComponent />}
-      <ModalBody p="24px" maxWidth="400px" width="100%">
+      <ModalBody p="24px" maxWidth="500px" width="100%">
         {view === WalletView.WALLET_INFO && <WalletInfo hasLowBnbBalance={hasLowBnbBalance} onDismiss={onDismiss} />}
         {view === WalletView.TRANSACTIONS && <WalletTransactions />}
         {view === WalletView.WRONG_NETWORK && <WalletWrongNetwork onDismiss={onDismiss} />}

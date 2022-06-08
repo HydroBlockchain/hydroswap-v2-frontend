@@ -5,6 +5,8 @@ import { FetchStatus } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'
 import useAuth from 'hooks/useAuth'
 import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
+import styled, {useTheme} from 'styled-components'
+
 
 import { getBscScanLink } from 'utils'
 import { formatBigNumber, getFullDisplayBalance } from 'utils/formatBalance'
@@ -15,7 +17,11 @@ interface WalletInfoProps {
   onDismiss: InjectedModalProps['onDismiss']
 }
 
+const LinkExternalStyled = styled(LinkExternal)`
+  color: ${({theme}) => theme.colors.btnColor};
+`
 const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) => {
+  const theme = useTheme()
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const { balance, fetchStatus } = useGetBnbBalance()
@@ -57,14 +63,26 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
           <Text>{getFullDisplayBalance(cakeBalance, 18, 3)}</Text>
         )}
       </Flex>
-      <Flex alignItems="center" justifyContent="space-between" mb="0px">
-      <Button variant="secondary" width="100%" onClick={handleLogout}  mr='0.5rem' >
+
+      <Flex >
+      <Box width={'50%'} >
+      <Button 
+       width="100%" onClick={handleLogout}  mr='0.5rem'
+        >
         {t('Disconnect')}
       </Button>
-      <Button variant="secondary" width="100%" onClick={handleLogout} ml='0.5rem'>
-      {/* {t('View on BscScan')} */}
-        <LinkExternal href={getBscScanLink(account, 'address')}>{t('View on BscScan')}</LinkExternal>
+      </Box>
+      <Box width={'50%'} >
+      <Button 
+      width="100%" onClick={handleLogout} ml='0.5rem' style={{
+        whiteSpace: 'nowrap',
+        minWidth: 'auto',
+      }}>
+        <LinkExternalStyled 
+        color={theme.colors.btnColor}
+        href={getBscScanLink(account, 'address')}>{t('View on BscScan')}</LinkExternalStyled>
       </Button>
+      </Box>
       </Flex>
     </>
   )
