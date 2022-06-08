@@ -97,9 +97,6 @@ const Footer: React.FC<FooterProps> = ({ pool, account, defaultExpanded, childre
           </Button>
         </Flex>
       )}
-        <Flex mb="4px" ref={targetRef}>
-          <ManualPoolTag />
-        </Flex>
       </Flex>
       {/* <ExpandableButtonWrapper>
         <Flex alignItems="center">

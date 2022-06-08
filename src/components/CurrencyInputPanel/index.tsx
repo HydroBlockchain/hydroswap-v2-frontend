@@ -43,6 +43,9 @@ const Container = styled.div`
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.input};
   box-shadow: ${({ theme }) => theme.shadows.inset};
+  border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
+  /* background-color:red; */
+
 `
 interface CurrencyInputPanelProps {
   value: string

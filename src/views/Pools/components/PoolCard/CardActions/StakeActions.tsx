@@ -1,4 +1,4 @@
-import { Flex, Text, Button, IconButton, AddIcon, MinusIcon, useModal, Skeleton, useTooltip } from 'hydroswap-uikitv2'
+import { Flex, Text, Button, IconStyledBtn, AddIcon, MinusIcon, useModal, Skeleton, useTooltip } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -6,6 +6,7 @@ import { DeserializedPool } from 'state/types'
 import Balance from 'components/Balance'
 import NotEnoughTokensModal from '../Modals/NotEnoughTokensModal'
 import StakeModal from '../Modals/StakeModal'
+import styled from 'styled-components'
 
 interface StakeActionsProps {
   pool: DeserializedPool
@@ -15,6 +16,11 @@ interface StakeActionsProps {
   isStaked: ConstrainBoolean
   isLoading?: boolean
 }
+
+const StyledBtn = styled(Button)`
+background-color: ${props => props.theme.colors.btnBackground};
+color: ${props => props.theme.colors.btnColor};
+`
 
 const StakeAction: React.FC<StakeActionsProps> = ({
   pool,
@@ -81,33 +87,32 @@ const StakeAction: React.FC<StakeActionsProps> = ({
           </>
         </Flex>
         <Flex>
-          <Button variant="secondary" onClick={onPresentUnstake} mr="6px">
+          <StyledBtn onClick={onPresentUnstake} mr="6px">
             {/* <MinusIcon color="primary" width="24px" /> */}
             {t(`Remove`)}
-          </Button>
+          </StyledBtn>
           {reachStakingLimit ? (
             <span ref={targetRef}>
-              <IconButton variant="secondary" disabled>
+              <IconStyledBtn variant="secondary" disabled>
                 <AddIcon color="textDisabled" width="24px" height="24px" />
-              </IconButton>
+              </IconStyledBtn>
             </span>
           ) : (
-            <Button
-              variant="secondary"
+            <StyledBtn
               onClick={stakingTokenBalance.gt(0) ? onPresentStake : onPresentTokenRequired}
               disabled={isFinished}
             >
               {/* <AddIcon color="primary" width="24px" height="24px" /> */}
               {t(`Add`)}
-            </Button>
+            </StyledBtn>
           )}
         </Flex>
         {tooltipVisible && tooltip}
       </Flex>
     ) : (
-      <Button disabled={isFinished} onClick={stakingTokenBalance.gt(0) ? onPresentStake : onPresentTokenRequired}>
+      <StyledBtn disabled={isFinished} onClick={stakingTokenBalance.gt(0) ? onPresentStake : onPresentTokenRequired}>
         {t('Stake')}
-      </Button>
+      </StyledBtn>
     )
   }
 

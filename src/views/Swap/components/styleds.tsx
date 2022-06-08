@@ -7,6 +7,7 @@ export const Wrapper = styled(Flex)`
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
+  background:${({ theme }) => theme.colors.gradients.cardBody};
 `
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
