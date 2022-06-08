@@ -4,7 +4,7 @@ import { BigNumber as EthersBigNumber } from '@ethersproject/bignumber'
 import { formatUnits } from '@ethersproject/units'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Heading, Flex, Image, Text, Link } from 'hydroswap-uikitv2'
+import { Flex, Text, Link, CardHeader, CardBody, Heading, CardFooter,Card, Image } from 'hydroswap-uikitv2'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import { useTranslation } from 'contexts/Localization'
@@ -23,14 +23,28 @@ import { useRouter } from 'next/router'
 import Loading from 'components/Loading'
 import { useInitialBlock } from 'state/block/hooks'
 import { BSC_BLOCK_TIME } from 'config'
+import ReactPlayer from 'react-player/lazy'
+import useTheme from 'hooks/useTheme'
 import PoolCard from './components/PoolCard'
 import CakeVaultCard from './components/CakeVaultCard'
 import PoolTabButtons from './components/PoolTabButtons'
 import PoolsTable from './components/PoolsTable/PoolsTable'
 import { getCakeVaultEarnings } from './helpers'
+import PoolCardHeader from './components/PoolCard/PoolCardHeader'
+
 
 const CardLayout = styled(FlexLayout)`
-  justify-content: center;
+  
+`
+
+const CardHeade = styled(CardHeader)`
+    background: ${({theme}) => theme.colors.gradients.bubblegum} ;
+`
+
+const WrapperFooter = styled(CardFooter)<{background?: string}>`
+ border-radius: ${({ theme }) => `${theme.radii.card} ${theme.radii.card} 0 0`};
+ height: 30px;
+  
 `
 
 const PoolControls = styled.div`
@@ -163,8 +177,10 @@ const Pools: React.FC = () => {
   const [numberOfPoolsVisible, setNumberOfPoolsVisible] = useState(NUMBER_OF_POOLS_VISIBLE)
   const { observerRef, isIntersecting } = useIntersectionObserver()
   const [searchQuery, setSearchQuery] = useState('')
+  const [isPlaying, setIsPlaying] = useState(true);
   const [sortOption, setSortOption] = useState('hot')
   const chosenPoolsLength = useRef(0)
+  const { theme } = useTheme()
   const initialBlock = useInitialBlock()
 
   const [finishedPools, openPools] = useMemo(() => partition(pools, (pool) => pool.isFinished), [pools])
@@ -214,12 +230,12 @@ const Pools: React.FC = () => {
 
   const showFinishedPools = router.pathname.includes('history')
 
-  const handleChangeSearchQuery = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(event.target.value),
-    [],
-  )
+  // const handleChangeSearchQuery = useCallback(
+  //   (event: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(event.target.value),
+  //   [],
+  // )
 
-  const handleSortOptionChange = useCallback((option: OptionProps) => setSortOption(option.value), [])
+  // const handleSortOptionChange = useCallback((option: OptionProps) => setSortOption(option.value), [])
 
   let chosenPools
   if (showFinishedPools) {
@@ -239,19 +255,51 @@ const Pools: React.FC = () => {
   }, [account, sortOption, pools, chosenPools, numberOfPoolsVisible, searchQuery])
   chosenPoolsLength.current = chosenPools.length
 
+  // const cardLayout = (
+  //   <CardLayout>
+  //     {chosenPools.map((pool) =>
+  //       pool.vaultKey ? (
+  //         <CakeVaultCard key={pool.vaultKey} pool={pool} showStakedOnly={stakedOnly} />
+  //       ) : (
+  //           <PoolCard key={pool.sousId} pool={pool} account={account} />
+
+  //       )
+  //     )}
+  //   </CardLayout>
+  // )
+
+
+
   const cardLayout = (
-    <CardLayout>
-      {chosenPools.map((pool) =>
-        pool.vaultKey ? (
-          <CakeVaultCard key={pool.vaultKey} pool={pool} showStakedOnly={stakedOnly} />
-        ) : (
+    chosenPools.map((pool) => {
+      return(
+        <Flex flexWrap='wrap'>
           <PoolCard key={pool.sousId} pool={pool} account={account} />
-        ),
-      )}
-    </CardLayout>
+         <div>
+          <Card>
+            <CardHeade>
+                <Heading textAlign='center' scale='lg' paddingTop='19px' paddingBottom='19px'>
+                  <Image src={
+                    theme.isDark ? 
+                    '/images/Keresverse.svg':
+                    '/images/Keresverse-black.svg'
+                  }
+                   width={300} height={30} 
+                   />
+                </Heading>
+            </CardHeade>
+            <CardBody>
+              <video autoPlay muted loop src="https://keresverse.org/wp-content/uploads/2022/05/LogoNew0001-0240.mp4" width={300} height={270} />
+            </CardBody>
+          </Card> 
+         </div>
+        </Flex>
+      )
+    })
+
   )
 
-  const tableLayout = <PoolsTable pools={chosenPools} account={account} />
+  // const tableLayout = <PoolsTable pools={chosenPools} account={account} />
 
   return (
     <>
@@ -267,9 +315,6 @@ const Pools: React.FC = () => {
             </Heading>
           </Flex>
         </Flex> */}
-        <Heading textAlign="center" scale="lg" color="secondary">
-              {t('Keres Voucher Staking Pool')}
-        </Heading>
       </PageHeader>
       <Page>
         <PoolControls>
@@ -339,14 +384,6 @@ const Pools: React.FC = () => {
         { cardLayout}
         {/* {viewMode === ViewMode.CARD ? cardLayout : tableLayout} */}
         <div ref={observerRef} />
-        {/* <Image
-          mx="auto"
-          mt="12px"
-          src="/images/decorations/3d-syrup-bunnies.png"
-          alt="Pancake illustration"
-          width={192}
-          height={184.5}
-        /> */}
       </Page>
     </>
   )

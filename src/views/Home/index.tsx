@@ -47,49 +47,15 @@ const Home: React.FC = () => {
   return (
     <>
       <PageMeta />
-      {/* <StyledHeroSection
-        innerProps={{ style: { margin: '0', width: '100%' } }}
-        background={
-          theme.isDark
-            ? 'radial-gradient(103.12% 50% at 50% 50%, #21193A 0%, #191326 100%)'
-            : 'linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%)'
-        }
-        index={2}
-        hasCurvedDivider={false}
-      >
-        {account && (
-          <UserBannerWrapper>
-            <UserBanner />
-          </UserBannerWrapper>
-        )}
-        <MultipleBanner />
-        <Hero />
-      </StyledHeroSection> */}
-      <Flex  justifyContent='center' >
+      <Flex  justifyContent='center' mt="40px" mb="40px">
         <Image 
           src={
             theme.isDark ?
             '/images/logo.svg':
             '/images/logo-black.svg' 
           }
-          width={1024} height={300}
+          width={1024} height={452}
             />
-      </Flex>
-      <Flex justifyContent='center' mb="8rem">
-        <NextLinkFromReactRouter to="swap">
-          <Button mr="10px" width={['100%', null, null, 'auto']} variant="secondary">
-            <Text color="primary" bold>
-              {t('Swap')}
-            </Text>
-          </Button>
-        </NextLinkFromReactRouter>
-        <NextLinkFromReactRouter to="pools">
-          <Button width={['100%', null, null, 'auto']} variant="secondary">
-            <Text color="primary" bold>
-              {t('Stake')}
-            </Text>
-          </Button>
-        </NextLinkFromReactRouter>
       </Flex>
     </>
   )
