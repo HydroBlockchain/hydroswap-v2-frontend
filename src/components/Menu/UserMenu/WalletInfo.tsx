@@ -57,12 +57,15 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
           <Text>{getFullDisplayBalance(cakeBalance, 18, 3)}</Text>
         )}
       </Flex>
-      <Flex alignItems="center" justifyContent="end" mb="24px">
-        <LinkExternal href={getBscScanLink(account, 'address')}>{t('View on BscScan')}</LinkExternal>
-      </Flex>
-      <Button variant="secondary" width="100%" onClick={handleLogout}>
-        {t('Disconnect Wallet')}
+      <Flex alignItems="center" justifyContent="space-between" mb="0px">
+      <Button variant="secondary" width="100%" onClick={handleLogout}  mr='0.5rem' >
+        {t('Disconnect')}
       </Button>
+      <Button variant="secondary" width="100%" onClick={handleLogout} ml='0.5rem'>
+      {/* {t('View on BscScan')} */}
+        <LinkExternal href={getBscScanLink(account, 'address')}>{t('View on BscScan')}</LinkExternal>
+      </Button>
+      </Flex>
     </>
   )
 }
