@@ -1,8 +1,15 @@
 import { Flex, TooltipText, useTooltip } from 'hydroswap-uikitv2'
+import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import { DeserializedPool } from 'state/types'
 import BigNumber from 'bignumber.js'
 import Apr from 'views/Pools/components/Apr'
+
+const StyledTooltip = styled(TooltipText)`
+font-weight:700;
+font-size:24px;
+text-decoration:none;
+`
 
 interface AprRowProps {
   pool: DeserializedPool
@@ -24,7 +31,7 @@ const AprRow: React.FC<AprRowProps> = ({ pool, stakedBalance, performanceFee = 0
   return (
     <Flex alignItems="center" justifyContent="space-between">
       {tooltipVisible && tooltip}
-      <TooltipText ref={targetRef}>{vaultKey ? `${t('APY')}:` : `${t('APR')}:`}</TooltipText>
+      <StyledTooltip ref={targetRef}>{vaultKey ? `${t('APY')}:` : `${t('APR')}:`}</StyledTooltip>
       <Apr pool={pool} stakedBalance={stakedBalance} performanceFee={performanceFee} showIcon={showIcon} />
     </Flex>
   )

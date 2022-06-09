@@ -5,7 +5,6 @@ import { useTranslation } from 'contexts/Localization'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { DeserializedPool } from 'state/types'
 import { TokenPairImage } from 'components/TokenImage'
-import styled from 'styled-components'
 import AprRow from './AprRow'
 import { StyledCard } from './StyledCard'
 import CardFooter from './CardFooter'
@@ -30,7 +29,8 @@ const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool,
     >
       <PoolCardHeader isStaking={accountHasStakedBalance} isFinished={isFinished && sousId !== 0}>
         <PoolCardHeaderTitle
-          title={isCakePool ? t('Manual') : t('Earn %asset%', { asset: earningToken.symbol })}
+          title='Farm Keres Vouchers'
+          // title={isCakePool ? t('Manual') : t('Earn %asset%', { asset: earningToken.symbol })}
           subTitle={isCakePool ? t('Earn CAKE, stake CAKE') : t('Stake %symbol%', { symbol: stakingToken.symbol })}
         />
         <TokenPairImage primaryToken={earningToken} secondaryToken={stakingToken} width={64} height={64} />

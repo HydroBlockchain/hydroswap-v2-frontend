@@ -37,7 +37,7 @@ const CardLayout = styled(FlexLayout)`
 `
 
 const CardHead= styled(CardHeader)`
-    background: ${({theme}) => theme.colors.gradients.bubblegum} ;
+    background: ${({theme}) => theme.colors.gradients.cardHeader} ;
 `
 
 const Grid = styled.div`
@@ -289,7 +289,8 @@ const Pools: React.FC = () => {
           <Card>
             <CardHead>
                 <Heading textAlign='center' scale='lg' paddingTop='19px' paddingBottom='19px'>
-                  <Image src={
+                  <Image    
+                   src={
                     theme.isDark ? 
                     '/images/Keresverse.svg':
                     '/images/Keresverse-black.svg'

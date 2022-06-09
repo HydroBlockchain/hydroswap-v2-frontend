@@ -43,8 +43,7 @@ const Container = styled.div`
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.input};
   box-shadow: ${({ theme }) => theme.shadows.inset};
-  border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
-  /* background-color:red; */
+  /* border: 1px solid ${({ theme }) => theme.colors.inputSecondary}; */
 
 `
 interface CurrencyInputPanelProps {
@@ -179,9 +178,9 @@ export default function CurrencyInputPanel({
             />
              <InputRow selected={disableCurrencySelect}>
             {account && currency && showMaxButton && label !== 'To' && (
-              <Button onClick={onMax} scale="xs" variant="tertiary">
+              < StyledMax onClick={onMax} scale="xs" variant="tertiary">
                 {t('Max').toLocaleUpperCase(locale)}
-              </Button>
+              </ StyledMax>
             )}
           </InputRow>
           </LabelRow>
@@ -191,3 +190,10 @@ export default function CurrencyInputPanel({
     </Box>
   )
 }
+
+
+const StyledMax=styled(Button)`
+background-color:${({ theme }) => theme.colors.gradients.cardHeader};
+padding:0.8rem 1rem;
+color:${({ theme }) => theme.colors.text};
+`

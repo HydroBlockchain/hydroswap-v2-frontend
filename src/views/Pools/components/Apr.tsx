@@ -12,11 +12,18 @@ import { useCurrentBlock } from 'state/block/hooks'
 import { getPoolBlockInfo } from 'views/Pools/helpers'
 
 const AprLabelContainer = styled(Flex)`
+font-weight:700;
+font-size:24px;
+color:blue;
   &:hover {
     opacity: 0.5;
   }
 `
 
+const StyledBalance = styled(BalanceWithLoading)`
+font-weight:700;
+font-size:24px;
+`
 interface AprProps extends FlexProps {
   pool: DeserializedPool
   stakedBalance: BigNumber
@@ -80,7 +87,7 @@ const Apr: React.FC<AprProps> = ({
         <>
           {hasPoolStarted || !shouldShowBlockCountdown ? (
             <>
-              <BalanceWithLoading
+              <StyledBalance
                 fontSize={fontSize}
                 isDisabled={isFinished}
                 value={apy/10 ** 6}

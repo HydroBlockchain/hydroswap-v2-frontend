@@ -35,6 +35,7 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
   {
     label: t('Bridge'),
     href: 'https://hydro-bridge.org',
+    external:true,
   },  
 ]
 
