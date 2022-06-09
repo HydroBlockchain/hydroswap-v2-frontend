@@ -13,8 +13,10 @@ export type ConfigMenuItemsType = Omit<MenuItemsType, 'items'> & { hideSubNav?: 
 const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType[] = (t, languageCode) => [
   {
     label: t('Swap'),
-    href: '/swap',
+     href: '/swap',
     showItemsOnMobile: false,
+    // type: 1,
+
     // items: [
     //   {
     //     label: t('Swap'),
@@ -32,9 +34,8 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
   },
   {
     label: t('Bridge'),
-    href: '/bridge',
-  },
-
+    href: 'https://hydro-bridge.org',
+  },  
 ]
 
 export default config

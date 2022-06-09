@@ -47,7 +47,8 @@ const Home: React.FC = () => {
   return (
     <>
       <PageMeta />
-      <Flex  justifyContent='center' mt="40px" mb="40px">
+      <Flex  justifyContent='center' mt="40px" mb="40px"
+       pr='1rem' >
         <Image 
           src={
             theme.isDark ?
