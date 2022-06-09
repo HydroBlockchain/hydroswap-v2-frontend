@@ -3,7 +3,7 @@ import type {
   UnknownAsyncThunkPendingAction,
   UnknownAsyncThunkRejectedAction,
   // eslint-disable-next-line import/no-unresolved
-} from '@reduxjs/toolkit/dist/matchers'
+} from '@reduxjs/toolkit/dist'
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit'
 import stringify from 'fast-json-stable-stringify'
 import farmsConfig from 'config/constants/farms'

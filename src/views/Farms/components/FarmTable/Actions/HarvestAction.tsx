@@ -31,11 +31,12 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
   let displayBalance = userDataReady ? earnings.toLocaleString() : <Skeleton width={60} />
 
   // If user didn't connect wallet default balance will be 0
-  if (!earningsBigNumber.isZero()) {
-    earnings = getBalanceAmount(earningsBigNumber)
-    earningsBusd = earnings.multipliedBy(cakePrice).toNumber()
-    displayBalance = earnings.toFixed(3, BigNumber.ROUND_DOWN)
-  }
+  
+  // if (!earningsBigNumber.isZero()) {
+  //   earnings = getBalanceAmount(earningsBigNumber)
+  //   earningsBusd = earnings.multipliedBy(cakePrice).toNumber()
+  //   displayBalance = earnings.toFixed(3, BigNumber.ROUND_DOWN)
+  // }
 
   const { onReward } = useHarvestFarm(pid)
   const { t } = useTranslation()

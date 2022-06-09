@@ -65,14 +65,14 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
       </Flex>
 
       <Flex >
-      <Box width={'50%'} >
+      <Box width='50%' >
       <Button 
        width="100%" onClick={handleLogout}  mr='0.5rem'
         >
         {t('Disconnect')}
       </Button>
       </Box>
-      <Box width={'50%'} >
+      <Box width='50%' >
       <Button 
       width="100%" onClick={handleLogout} ml='0.5rem' style={{
         whiteSpace: 'nowrap',

@@ -18,12 +18,11 @@ import { useProfile } from 'state/profile/hooks'
 import { usePendingTransactions } from 'state/transactions/hooks'
 import ConnectWalletBtn from 'components/ConnectWalletButton'
 import { useTranslation } from 'contexts/Localization'
+import styled from 'styled-components'
 // import { nftsBaseUrl } from 'views/Nft/market/constants'
 import WalletModal, { WalletView } from './WalletModal'
 // import ProfileUserMenuItem from './ProfileUserMenuItem'
 import WalletUserMenuItem from './WalletUserMenuItem'
-import  useTheme  from 'hooks/useTheme'
-import styled from 'styled-components'
 
 
 const ConnectWalletButton:any = styled(ConnectWalletBtn)`
