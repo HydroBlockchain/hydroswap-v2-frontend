@@ -43,7 +43,8 @@ const CardHead= styled(CardHeader)`
 const Grid = styled.div`
   display:grid ;
   grid-gap: 40px ;
-  grid-template-columns: 1fr 1fr  1fr;
+  
+  grid-template-columns: 1fr 320px  1fr;
   grid-template-rows: auto auto ;
   grid-template-areas:
   '. b .'
@@ -300,7 +301,7 @@ const Pools: React.FC = () => {
                 </Heading>
             </CardHead>
             <CardBody>
-              <video autoPlay muted loop src="https://keresverse.org/wp-content/uploads/2022/05/LogoNew0001-0240.mp4" width={300} height={270} />
+              <Image src="/images/wex.gif" alt='keresverse' width={300} height={270} />
             </CardBody>
           </Card> 
          </div>
