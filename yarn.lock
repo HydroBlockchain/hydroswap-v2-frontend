@@ -6941,6 +6941,16 @@ husky@7.0.0:
   resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.0.tgz#3dbd5d28e76234689ee29bb41e048f28e3e46616"
   integrity sha512-xK7lO0EtSzfFPiw+oQncQVy/XqV7UVVjxBByc+Iv5iK3yhW9boDoWgvZy3OGo48QKg/hUtZkzz0hi2HXa0kn7w==
 
+hydroswap-uikit@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/hydroswap-uikit/-/hydroswap-uikit-0.0.5.tgz#8b8cec31254c339dee88e57b3bd1fdbfa7c90403"
+  integrity sha512-PdNJpjfZHTt2t8QEFgNh6cVBTrs73aD23UkhP7vk4AzTtvqRBWNicEXNDVJmz6payqNTptGFmp+9rA4YbWLT0A==
+  dependencies:
+    "@popperjs/core" "^2.9.2"
+    lodash "^4.17.20"
+    react-popper "^2.2.5"
+    styled-system "^5.1.5"
+
 hydroswap-uikitv2@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/hydroswap-uikitv2/-/hydroswap-uikitv2-0.0.7.tgz#1ad4b1ba7de1bdb87963112a578873e197da9733"
@@ -6967,10 +6977,10 @@ hydroswap-uikitv2@^0.2.3:
     rollup "^2.75.5"
     styled-system "^5.1.5"
 
-hydroswap-uikitv2@^0.7.8:
-  version "0.7.8"
-  resolved "https://registry.yarnpkg.com/hydroswap-uikitv2/-/hydroswap-uikitv2-0.7.8.tgz#bde179d0070416b79f3b05280667460ce47b2d3e"
-  integrity sha512-Du9CQAkdSFa9zbEGUg4qAZ3qI+1WRT84Wp5SMPJHqGfUTbygZ65mBNVeH5PhIhPtmin5ZmxVTjO0Ac8HPPnnug==
+hydroswap-uikitv2@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/hydroswap-uikitv2/-/hydroswap-uikitv2-0.8.1.tgz#8a5f7dcdedf465d0de52873b3da029f4fb646504"
+  integrity sha512-fa5gXCojfNLK2oW/IBMAWscU3meNaeSA0+H18GlFDmPHjaf5qmCQb7NnELmsZoL9H+MHTcnREhymLwLEVZF3bQ==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@rollup/plugin-typescript" "^8.3.2"
