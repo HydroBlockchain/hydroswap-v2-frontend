@@ -43,15 +43,13 @@ const CardHead= styled(CardHeader)`
 const Grid = styled.div`
   display:grid ;
   grid-gap: 40px ;
-  
   grid-template-columns: 1fr 320px  1fr;
-  grid-template-rows: auto auto ;
   grid-template-areas:
   '. b .'
   'a a a';
 
   ${({ theme }) => theme.mediaQueries.lg}{
-    
+    grid-gap: 60px ;
     grid-template-areas:
     'a a b' ;
   }
@@ -111,6 +109,10 @@ const FinishedTextLink = styled(Link)`
   font-weight: 400;
   white-space: nowrap;
   text-decoration: underline;
+`
+
+const H = styled.h1`
+  font-family:"Droidiga" ;
 `
 
 const NUMBER_OF_POOLS_VISIBLE = 12

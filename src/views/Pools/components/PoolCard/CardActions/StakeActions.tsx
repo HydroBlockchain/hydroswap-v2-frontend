@@ -4,9 +4,9 @@ import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { DeserializedPool } from 'state/types'
 import Balance from 'components/Balance'
+import styled from 'styled-components'
 import NotEnoughTokensModal from '../Modals/NotEnoughTokensModal'
 import StakeModal from '../Modals/StakeModal'
-import styled from 'styled-components'
 
 interface StakeActionsProps {
   pool: DeserializedPool
