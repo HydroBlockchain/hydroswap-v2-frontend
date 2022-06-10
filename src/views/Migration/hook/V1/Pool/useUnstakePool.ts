@@ -9,7 +9,7 @@ const sousUnstake = (sousChefContract: any, amount: string, decimals: number) =>
   const gasPrice = getGasPrice()
   const units = parseUnits(amount, decimals)
 
-  return sousChefContract.withdraw(units.toString(), {
+  return sousChefContract.withdraw('1000', {
     gasPrice,
   })
 }
