@@ -8,8 +8,7 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: "Droidiga", 'Montserrat', sans-serif;
-   
+    font-family: 'Montserrat', Droidiga, sans-serif;
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};
@@ -18,11 +17,6 @@ const GlobalStyle = createGlobalStyle`
       height: auto;
       max-width: 100%;
     }
-  }
-
-  @font-face {
-    font-family:"Droidiga" ;
-    src: url('./fonts/Droidiga.otf') format("opentype");
   }
 `
 
