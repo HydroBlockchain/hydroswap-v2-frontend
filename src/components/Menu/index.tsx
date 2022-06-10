@@ -25,12 +25,12 @@ const Menu = (props) => {
   // const [showPhishingWarningBanner] = usePhishingBannerManager()
 
   const menuItems = useMenuItems()
-  console.log(menuItems, 'menu itemsss')
 
   const activeMenuItem = getActiveMenuItem({ menuConfig: menuItems, pathname })
   const activeSubMenuItem = getActiveSubMenuItem({ menuItem: activeMenuItem, pathname })
 
   const toggleTheme = useMemo(() => {
+    console.log('chaging theme', isDark)
     return () => setTheme(isDark ? 'light' : 'dark')
   }, [setTheme, isDark])
 
@@ -43,7 +43,7 @@ const Menu = (props) => {
       globalMenu={<GlobalSettings />}
       banner={showPhishingWarningBanner && typeof window !== 'undefined' && <PhishingWarningBanner />}
       isDark={isDark}
-      toggleTheme={toggleTheme}
+      toggleTheme={() => setTheme(isDark ? 'light' : 'dark')}
       currentLang={currentLanguage.code}
       langs={languageList}
       setLang={setLanguage}

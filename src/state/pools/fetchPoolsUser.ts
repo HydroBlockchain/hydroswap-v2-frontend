@@ -92,7 +92,7 @@ export const fetchUserPendingRewards = async (account) => {
   return nonBnbPools.reduce(
     (acc, pool, index) => ({
       ...acc,
-      [pool.sousId]: new BigNumber(result[index].toString()).toJSON(),
+      [pool.sousId]: new BigNumber(result?.[index]?.toString()).toJSON() ?? new BigNumber(0),
     }),
     {},
   )
