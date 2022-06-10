@@ -25,6 +25,8 @@ export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol)
     const receipt = await fetchWithCatchTxError(() => {
       return callWithGasPrice(lpContract, 'approve', [sousChefContract.address, MaxUint256])
     })
+
+   
     if (receipt?.status) {
       toastSuccess(
         t('Contract Enabled'),

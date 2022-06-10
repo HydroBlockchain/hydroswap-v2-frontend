@@ -74,6 +74,12 @@ const CollectModal: React.FC<CollectModalProps> = ({
       return onReward()
     })
     if (receipt?.status) {
+      toastSuccess(
+        `${t('Harvested')}!`,
+        <ToastDescriptionWithTx txHash={receipt.transactionHash}>
+          {t('Your %symbol% earnings have been sent to your wallet!', { symbol: earningToken.symbol })}
+        </ToastDescriptionWithTx>,
+      )
       // if (shouldCompound) {
       //   toastSuccess(
       //     `${t('Compounded')}!`,
@@ -89,12 +95,7 @@ const CollectModal: React.FC<CollectModalProps> = ({
       //     </ToastDescriptionWithTx>,
       //   )
       // }
-      toastSuccess(
-        `${t('Harvested')}!`,
-        <ToastDescriptionWithTx txHash={receipt.transactionHash}>
-          {t('Your %symbol% earnings have been sent to your wallet!', { symbol: earningToken.symbol })}
-        </ToastDescriptionWithTx>,
-      )
+      
       dispatch(updateUserStakedBalance({ sousId, account }))
       dispatch(updateUserPendingReward({ sousId, account }))
       dispatch(updateUserBalance({ sousId, account }))
@@ -139,7 +140,7 @@ const CollectModal: React.FC<CollectModalProps> = ({
             </Flex>
       </Flex>
 
-      <Flex justifyContent={'center'} mb='24px'>
+      <Flex justifyContent='center' mb='24px'>
          {earningsDollarValue > 0 && (
             <Text fontSize="12px" color="textSubtle">{`~${formatNumber(earningsDollarValue)} USD`}</Text>
           )}

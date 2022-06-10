@@ -2105,15 +2105,15 @@ export const mainnetTokens = defineTokens({
     'https://www.mixmarvel.com/',
   ),
   hydro: new Token(
-    TESTNET,
-    '0x5B387f4886F043f603f7d0cb55DBd727D6649C73',
+    MAINNET,
+    '0xf3DBB49999B25c9D6641a9423C7ad84168D00071',
     18,
     'HYDRO',
     'Hydro Token',
     'https://projecthydro.org/',
   ),
   kvs: new Token(
-    TESTNET,
+    MAINNET,
     '0x14866bb7db3276cD5f3249934f86Dbd79A741D34',
     18,
     'KVS',
