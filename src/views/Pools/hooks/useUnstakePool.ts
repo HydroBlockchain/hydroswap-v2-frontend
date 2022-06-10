@@ -26,9 +26,9 @@ const useUnstakePool = (sousId: number, enableEmergencyWithdraw = false) => {
   const handleUnstake = useCallback(
     async (amount: string, decimals: number) => {
       
-      if (enableEmergencyWithdraw) {
-        return sousEmergencyUnstake(sousChefContract)
-      }
+      // if (enableEmergencyWithdraw) {
+      //   return sousEmergencyUnstake(sousChefContract)
+      // }
 
       return sousUnstake(sousChefContract, amount, decimals)
     },
