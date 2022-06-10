@@ -59,7 +59,8 @@ const pools: SerializedPoolConfig[] = [
     stakingToken: serializedTokens.hydro,
     earningToken: serializedTokens.kvs,
     contractAddress: {
-      97: '0x75095AEB0F89A63d2Bbc7e9bF6715B50f8a25A0C',
+      97: '0x7ADc1A269B6Bfd20b9e32b7a7dd3980D7A92C301',
+      // 97: '0x75095AEB0F89A63d2Bbc7e9bF6715B50f8a25A0C',
       56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
     },
     poolCategory: PoolCategory.CORE,
@@ -73,7 +74,7 @@ const pools: SerializedPoolConfig[] = [
     stakingToken: serializedTokens.hydro,
     earningToken: serializedTokens.kvs,
     contractAddress: {
-      97: '0x75095AEB0F89A63d2Bbc7e9bF6715B50f8a25A0C',
+      97: '0x7ADc1A269B6Bfd20b9e32b7a7dd3980D7A92C301',
       56: '0x0F96E19Bdc787e767BA1e8F1aDD0f62cbdad87C8',
     },
     poolCategory: PoolCategory.CORE,
