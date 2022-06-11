@@ -36,7 +36,7 @@ const Page = styled(Container)`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 80vh ; 
+  height: 72vh ; 
   width: 100% ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: row;
     position: relative;
