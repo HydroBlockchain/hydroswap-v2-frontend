@@ -9,9 +9,15 @@ declare module 'styled-components' {
 const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Montserrat', sans-serif;
+    
   }
+
+  .dSUpqp {
+    min-height: 80vh !important;
+}
   body {
     background-color: ${({ theme }) => theme.colors.background};
+    
 
     img {
       height: auto;
