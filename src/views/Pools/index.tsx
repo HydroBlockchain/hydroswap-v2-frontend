@@ -4,7 +4,7 @@ import { BigNumber as EthersBigNumber } from '@ethersproject/bignumber'
 import { formatUnits } from '@ethersproject/units'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Flex, Text, Link, CardHeader, CardBody, Heading, CardFooter,Card, Image } from 'hydroswap-uikitv2'
+import { Flex, Text, Link, CardHeader, CardBody, Heading, CardFooter, Card, Image } from 'hydroswap-uikitv2'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import { useTranslation } from 'contexts/Localization'
@@ -31,29 +31,40 @@ import PoolsTable from './components/PoolsTable/PoolsTable'
 import { getCakeVaultEarnings } from './helpers'
 import PoolCardHeader from './components/PoolCard/PoolCardHeader'
 
+const CardLayout = styled(FlexLayout)``
 
-const CardLayout = styled(FlexLayout)`
-  
-`
-
-const CardHead= styled(CardHeader)`
-    background: ${({theme}) => theme.colors.gradients.cardHeader} ;
+const CardHead = styled(CardHeader)`
+  background: ${({ theme }) => theme.colors.gradients.cardHeader};
 `
 
 const Grid = styled.div`
-  display:grid ;
-  grid-gap: 40px ;
-  grid-template-columns: 1fr 320px  1fr;
+  display: grid;
+  grid-row-gap: 40px;
+  grid-template-columns: 1fr 320px 1fr;
   grid-template-areas:
-  '. b .'
-  'a a a';
+    '. b .'
+    'a a a';
 
-  ${({ theme }) => theme.mediaQueries.lg}{
-    grid-gap: 60px ;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    grid-row-gap: 45px;
     grid-template-areas:
-    'a a b' ;
+      '. b .'
+      'a a a';
+  }
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    grid-row-gap: 45px;
+    grid-template-areas:
+      '. b .'
+      'a a a';
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    grid-column-gap: 45px;
+    grid-template-areas: 'a a b';
   }
 `
+const SCointainer = styled.div``
 
 const PoolControls = styled.div`
   display: flex;
@@ -112,7 +123,7 @@ const FinishedTextLink = styled(Link)`
 `
 
 const H = styled.h1`
-  font-family:"Droidiga" ;
+  font-family: 'Droidiga';
 `
 
 const NUMBER_OF_POOLS_VISIBLE = 12
@@ -279,39 +290,31 @@ const Pools: React.FC = () => {
   //   </CardLayout>
   // )
 
-
-
-  const cardLayout = (
-    chosenPools.map((pool) => {
-      return(
-        <Grid >
-         <div style={{ gridArea: 'a' }}>
-          <PoolCard  key={pool.sousId} pool={pool} account={account} />
-         </div>
-         <div style={{ gridArea: 'b' }}>
+  const cardLayout = chosenPools.map((pool) => {
+    return (
+      <Grid>
+        <div style={{ gridArea: 'a' }}>
+          <PoolCard key={pool.sousId} pool={pool} account={account} />
+        </div>
+        <div style={{ gridArea: 'b' }}>
           <Card>
             <CardHead>
-                <Heading textAlign='center' scale='lg' paddingTop='19px' paddingBottom='19px'>
-                  <Image    
-                   src={
-                    theme.isDark ? 
-                    '/images/Keresverse.svg':
-                    '/images/Keresverse-black.svg'
-                  }
-                   width={300} height={30} 
-                   />
-                </Heading>
+              <Heading textAlign="center" scale="lg" paddingTop="19px" paddingBottom="19px">
+                <Image
+                  src={theme.isDark ? '/images/Keresverse.svg' : '/images/Keresverse-black.svg'}
+                  width={300}
+                  height={30}
+                />
+              </Heading>
             </CardHead>
             <CardBody>
-              <Image src="/images/wex.gif" alt='keresverse' width={300} height={270} />
+              <Image src="/images/wex.gif" alt="keresverse" width={300} height={270} />
             </CardBody>
-          </Card> 
-         </div>
-        </Grid>
-      )
-    })
-
-  )
+          </Card>
+        </div>
+      </Grid>
+    )
+  })
 
   // const tableLayout = <PoolsTable pools={chosenPools} account={account} />
 
@@ -395,7 +398,7 @@ const Pools: React.FC = () => {
             <Loading />
           </Flex>
         )}
-        { cardLayout}
+        {cardLayout}
         {/* {viewMode === ViewMode.CARD ? cardLayout : tableLayout} */}
         <div ref={observerRef} />
       </Page>

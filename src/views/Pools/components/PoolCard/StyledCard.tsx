@@ -16,10 +16,6 @@ export const StyledCard = styled(Card)<{ isFinished?: boolean }>`
     max-width: 750px;
     margin: 0 12px 48px;
   }
-
-  @media (min-width:1444px){
-    margin-bottom: 32rem;
-  }
 `
 
 export default StyledCard
@@ -43,4 +39,3 @@ export default StyledCard
 //     margin-bottom: 32rem;
 //   }
 // `
-
