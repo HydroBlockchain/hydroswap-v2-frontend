@@ -152,18 +152,49 @@ const StakeAction: React.FC<StakeActionsProps> = ({
 <div > 
   {
     (!loading &&  (stakeInfo?.pending && stakeInfo.requestedAmount > 0 && stakeInfo.releaseAt )  ) && <>
-     <Text mt='16px'>
-    Time Before Unstaking
-    <CurrentTimer targetDate={ new Date(stakeInfo.releaseAt) } />
-    Amount to Claim:  {(+stakeInfo?.requestedAmount)/10**18} Hydro
+     <Flex justifyContent='space-between' alignItems='center'>
+    <div>
+    <Text mt='16px' fontSize='12px'>
+    Stake Unlocks In
   </Text>
+    <CurrentTimer targetDate={ new Date(stakeInfo?.releaseAt) } />
+    </div>
+    <div style={{
+     
+      marginTop: '8px',
 
+    }}>
+
+  
+      <Text
+      fontSize='12px'
+       mb='0.5rem'>
+    Amount to Unlock
+
+      </Text>
+      <StyledStakedHydro>
+      {(+stakeInfo?.requestedAmount)/10**18} HYDRO
+      </StyledStakedHydro>
+    </div>
+  </Flex>
   {/* <Button width='100%' onClick={onRequest}>Error Checking Staking Status, Try again</Button> */}
     </>
   }
+
+ 
     </div>
   </>
   }</Flex>
 }
 
+const StyledStakedHydro = styled.div`
+font-weight: 700;
+font-size: 1.25rem;
+line-height: 1.75rem;
+padding: 0.75rem 1.8rem;
+text-align:center;
+color:${({theme})=> theme.colors.text };
+border-radius:20px;
+background:${({theme})=> theme.colors.btnBackground};
+`
 export default StakeAction

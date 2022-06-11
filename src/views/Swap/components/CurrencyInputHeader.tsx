@@ -30,6 +30,7 @@ const CurrencyInputContainer = styled(Flex)`
   align-items: center;
   padding: 24px;
   width: 100%;
+  background:${({ theme }) => theme.colors.gradients.cardHeader};
   border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
 `
 

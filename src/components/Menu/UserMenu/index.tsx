@@ -29,7 +29,8 @@ const ConnectWalletButton:any = styled(ConnectWalletBtn)`
 background-color:${({ theme }) => theme.isDark ? '#1a1a1a' : 'hsla(0, 0%, 54%, 1)'};
 border-radius:0;
 `
-  
+
+
 const UserMenu = () => {
   // const router = useRouter()
   const { t } = useTranslation()
@@ -64,9 +65,15 @@ const UserMenu = () => {
     }
   }
 
+
+  const StyledUserMenuItems = styled.div`
+  background:${({theme})=> theme.colors.menuBackground};
+  border-radius:7px;
+  `
   const UserMenuItems = () => {
     return (
       <>
+      <StyledUserMenuItems>
         <WalletUserMenuItem isWrongNetwork={isWrongNetwork} onPresentWalletModal={onClickWalletMenu} />
         <UserMenuItem as="button" disabled={isWrongNetwork} onClick={onPresentTransactionModal}>
           {t('Recent Transactions')}
@@ -79,9 +86,13 @@ const UserMenu = () => {
             <LogoutIcon />
           </Flex>
         </UserMenuItem>
+        </StyledUserMenuItems>
       </>
     )
   }
+
+
+  
 
   if (account) {
     return (<>
