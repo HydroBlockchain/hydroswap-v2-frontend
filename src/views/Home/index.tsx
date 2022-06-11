@@ -9,9 +9,6 @@ import { Image, Flex, Button, Text } from 'hydroswap-uikitv2'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import Hero from './components/Hero'
 
-import UserBanner from './components/UserBanner'
-import MultipleBanner from './components/Banners/MultipleBanner'
-
 const StyledHeroSection = styled(PageSection)`
   padding-top: 16px;
 

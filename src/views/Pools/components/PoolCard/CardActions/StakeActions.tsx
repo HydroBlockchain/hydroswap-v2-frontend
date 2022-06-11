@@ -64,18 +64,6 @@ const StakeAction: React.FC<StakeActionsProps> = ({
     />,
   )
 
-  const { toastSuccess } = useToast()
-    
-  const [onPresentUnstake] = useModal(
-    <StakeModal
-      stakingTokenBalance={stakingTokenBalance}
-      isBnbPool={isBnbPool}
-      pool={pool}
-      stakingTokenPrice={stakingTokenPrice}
-      isRemovingStake
-    />,
-  )
-
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     t('You’ve already staked the maximum amount you can stake in this pool!'),
     { placement: 'bottom' },
@@ -167,7 +155,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
      <Text mt='16px'>
     Time Before Unstaking
     <CurrentTimer targetDate={ new Date(stakeInfo.releaseAt) } />
-    Amount to Unstake:  {(+stakeInfo?.requestedAmount)/10**18} Hydro
+    Amount to Claim:  {(+stakeInfo?.requestedAmount)/10**18} Hydro
   </Text>
 
   {/* <Button width='100%' onClick={onRequest}>Error Checking Staking Status, Try again</Button> */}
