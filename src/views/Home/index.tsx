@@ -76,7 +76,12 @@ const Home: React.FC = () => {
       <Page>
         {isMobile || isTablet ? (
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <Image src="/images/logo-dm.svg" width={480} height={120} mb="30px" />
+            <Image
+              src={theme.isDark ? '/images/logo-dm.svg' : '/images/logo-lm.svg'}
+              width={480}
+              height={120}
+              mb="30px"
+            />
             <Image src="/images/hero.png" width={648} height={450} mb="30px" />
           </div>
         ) : (
