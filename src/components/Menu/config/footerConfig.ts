@@ -11,7 +11,7 @@ export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
       },
       {
         label: t('Email'),
-        href: 'mailto: team@projecthydro.org',
+        href: 'mailto:team@projecthydro.org',
       },
       {
         label: t('Blog'),
