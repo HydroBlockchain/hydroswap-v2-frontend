@@ -10,6 +10,10 @@ export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
         href: 'https://twitter.com/HydroBlockchain',
       },
       {
+        label: t('Email'),
+        href: 'mailto: team@projecthydro.org',
+      },
+      {
         label: t('Blog'),
         href: 'https://projecthydro.org/blog/',
       },
