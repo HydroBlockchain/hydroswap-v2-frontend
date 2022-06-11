@@ -54,11 +54,11 @@ const CurrencyInputHeader: React.FC<Props> = ({
   return (
     <CurrencyInputContainer>
       <Flex width="100%" alignItems="center" justifyContent="space-between">
-        {/* {setIsChartDisplayed && (
+         {setIsChartDisplayed && (
           <ColoredIconButton onClick={toggleChartDisplayed} variant="text" scale="sm">
             {isChartDisplayed ? <ChartDisableIcon color="textSubtle" /> : <ChartIcon width="24px" color="textSubtle" />}
           </ColoredIconButton>
-        )} */}
+        )} 
         <Flex flexDirection="column" alignItems="flex-start" width="100%" mr={18}>
           <Heading as="h2">{title}</Heading>
         </Flex>
@@ -70,7 +70,7 @@ const CurrencyInputHeader: React.FC<Props> = ({
             <HistoryIcon color="textSubtle" width="24px" />
           </IconButton>
           <IconButton variant="text" scale="sm" onClick={() => onRefreshPrice()}>
-            <RefreshIcon disabled={!hasAmount} color="textSubtle" width="27px" />
+            <RefreshIcon disabled={!hasAmount} color="textSubtle" width="24px" />
           </IconButton>
         </Flex>
       </Flex>
