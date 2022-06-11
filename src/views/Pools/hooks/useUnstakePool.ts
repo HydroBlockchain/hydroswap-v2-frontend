@@ -2,13 +2,13 @@ import { useCallback } from 'react'
 import { parseUnits } from '@ethersproject/units'
 import { useSousChef, useKvsContract } from 'hooks/useContract'
 import getGasPrice from 'utils/getGasPrice'
+import BigNumber from 'bignumber.js'
+import { BIG_TEN } from 'utils/bigNumber'
 
 const sousUnstake = (sousChefContract: any, amount: string, decimals: number) => {
   const gasPrice = getGasPrice()
-  const amt = String(Math.round(+amount))
-  const units = parseUnits(amount, decimals)
- 
-  return sousChefContract.withdrawFunds(units.toString(), {
+
+  return sousChefContract.withdrawFunds(new BigNumber(amount).times(BIG_TEN.pow(decimals)).toString(), {
     gasPrice,
   })
 }
