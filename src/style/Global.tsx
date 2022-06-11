@@ -12,13 +12,6 @@ const GlobalStyle = createGlobalStyle`
     
   }
 
-  .dSUpqp {
-    min-height: 80vh !important;
-}
-
-.hfvWqC {
-  min-height: 80vh !important;
-}
   body {
     background-color: ${({ theme }) => theme.colors.background};
     
