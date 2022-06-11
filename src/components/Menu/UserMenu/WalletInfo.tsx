@@ -28,8 +28,7 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
   const { balance: cakeBalance, fetchStatus: cakeFetchStatus } = useTokenBalance(tokens.hydro.address)
   
   const { logout } = useAuth()
-  console.log(cakeFetchStatus, cakeBalance.toString(), tokens.hydro.address,   "Hydro Balance")
-
+ 
   const handleLogout = () => {
     onDismiss?.()
     logout()

@@ -314,13 +314,13 @@ const StakeModal: React.FC<StakeModalProps> = ({
         >
           {pendingTx ? t('Confirming') : t('Confirm')}
         </Button>
-        { (!isRemovingStake && !placeRequest ) && (
+        {/* { (!isRemovingStake && !placeRequest ) && (
             <Button mt="24px" variant="secondary">
                <StyledLink external href={getTokenLink}>
               {t('Get %symbol%', { symbol: stakingToken.symbol })}
               </StyledLink>
             </Button>
-        )}
+        )} */}
      </Flex>
     </Modal>
   )
