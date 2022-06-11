@@ -7,9 +7,7 @@ export const StyledPriceChart = styled(Box)<{
   $isFullWidthContainer?: boolean
 }>`
   border: none;
-  border-radius: 32px;
   width: 80%;
-  padding-top: 36px;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 8px;
     background: ${({ $isDark }) => ($isDark ? 'rgba(39, 38, 44, 0.5)' : 'rgba(255, 255, 255, 0.5)')};
@@ -18,7 +16,9 @@ export const StyledPriceChart = styled(Box)<{
     width: ${({ $isExpanded, $isFullWidthContainer }) => ($isFullWidthContainer || $isExpanded ? '70%' : '70%')};
     height: ${({ $isExpanded }) => ($isExpanded ? 'calc(100vh - 100px)' : '435px')};
   }
-`
+  padding-top: 0px!important;
+  border-radius: 24px!important;
+  `
 
 StyledPriceChart.defaultProps = {
   height: '70%',

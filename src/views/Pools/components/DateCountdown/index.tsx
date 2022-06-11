@@ -40,7 +40,7 @@ const DateTimeDisplay = ({ value, type, isDanger }) => {
     return (
       <div className={isDanger ? 'countdown danger' : 'countdown'}>
         <p>{value}</p>
-        <span>{type}</span>
+        <span className='duration'>{type}</span>
       </div>
     );
   };
@@ -71,7 +71,7 @@ const ExpiredNotice = () => {
   return (
       <WrapperExpired>      
     <div className="expired-notice">
-      <span>Expired!!!</span>
+      <span>Waiting Time is Over!</span>
       <p>You can now unstake your hydro</p>
     </div>
       </WrapperExpired>
@@ -79,7 +79,6 @@ const ExpiredNotice = () => {
 };
 
 const WrapperCounter = styled.div`
-
 .show-counter {
   padding: 0.5rem;
 }
@@ -93,10 +92,10 @@ const WrapperCounter = styled.div`
   font-size: 1.25rem;
   line-height: 1.75rem;
   padding: 0.5rem;
-  border: 1px solid #ebebeb;
-  border-radius: 0.25rem;
   text-decoration: none;
-  color:${({theme})=> theme.colors.text }
+  color:${({theme})=> theme.colors.text };
+  border-radius:20px;
+  background:${({theme})=> theme.colors.btnBackground};
 }
 
 .show-counter .countdown {
@@ -108,7 +107,7 @@ const WrapperCounter = styled.div`
 }
 
 .show-counter .countdown.danger {
-  color: #ff0000;
+  color: green;
 }
 
 .show-counter .countdown > p {
@@ -121,7 +120,11 @@ const WrapperCounter = styled.div`
   line-height: 1rem;
 }
 
-
+.duration {
+  margin-top:0.2rem;
+  font-weight:500;
+  /* color:green; */
+}
 `
 const ShowCounter = ({ days, hours, minutes, seconds }) => {
   return (

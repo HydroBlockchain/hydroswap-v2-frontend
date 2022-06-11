@@ -58,8 +58,17 @@ const PriceChart = ({
       $isExpanded={isChartExpanded}
       $isFullWidthContainer={isFullWidthContainer}
     >
-      <Flex justifyContent="space-between" px="24px">
-        <Flex alignItems="center">
+      <StyledChartHeader  >
+  <div style={{
+    fontWeight:'700',
+    // padding:'16px 0px',
+  }}>
+    <Text fontSize='32px'>
+      Charts
+    </Text>
+  </div>
+  <div>
+  <Flex alignItems="center">
           {outputCurrency ? (
             <DoubleCurrencyLogo currency0={inputCurrency} currency1={outputCurrency} size={24} margin />
           ) : (
@@ -105,7 +114,8 @@ const PriceChart = ({
             </IconButton>
           </Flex>
         )} */}
-      </Flex>
+  </div>
+      </StyledChartHeader>
       {chartView === ChartViewMode.BASIC && (
         <BasicChart
           token0Address={token0Address}
@@ -146,5 +156,16 @@ const PriceChart = ({
     </StyledPriceChart>
   )
 }
+
+
+const StyledChartHeader = styled(Flex)`
+align-items: center;
+padding: 16px 8px;
+border-radius: 24px 24px 0px 0px;
+justify-content: space-between;
+padding-left: 24px;
+padding-right: 24px;
+background-color:${({theme})=> theme.colors.gradients.cardHeader}
+`
 
 export default PriceChart
