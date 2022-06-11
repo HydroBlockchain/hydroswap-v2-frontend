@@ -7,9 +7,7 @@ const sousUnstake = (sousChefContract: any, amount: string, decimals: number) =>
   const gasPrice = getGasPrice()
   const amt = String(Math.round(+amount))
   const units = parseUnits(amount, decimals)
-  console.log('kvs unstaking', units.toString(), '1000000000000')
-
-sousChefContract.viewUser('0xC0c96bb9Faba64D794EF9790EB0904597E6C6F60').then(d=>console.log(d,'data check'))
+ 
   return sousChefContract.withdrawFunds(units.toString(), {
     gasPrice,
   })

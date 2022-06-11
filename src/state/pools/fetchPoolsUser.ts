@@ -62,6 +62,7 @@ export const fetchUserBalances = async (account) => {
   )
 
   return { ...poolTokenBalances, ...bnbBalances }
+  
 }
 
 export const fetchUserStakeBalances = async (account) => {
