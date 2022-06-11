@@ -30,6 +30,7 @@ import { getInterestBreakdown } from 'utils/compoundApyHelpers'
 import PercentageButton from './PercentageButton'
 import useStakePool from '../../../hooks/useStakePool'
 import useUnstakePool from '../../../hooks/useUnstakePool'
+import useUserStakeInfo from '../../../hooks/useUserStakeInfo'
 
 interface StakeModalProps {
   isBnbPool: boolean
@@ -71,6 +72,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
   const { sousId, stakingToken, earningTokenPrice, apr, userData, stakingLimit, earningToken } = pool
   const { account } = useWeb3React()
   const dispatch = useAppDispatch()
+  const {onRequest} = useUserStakeInfo(sousId, account)
   const { t } = useTranslation()
   const { theme } = useTheme()
   const { onStake } = useStakePool(sousId, isBnbPool)
@@ -142,22 +144,16 @@ const StakeModal: React.FC<StakeModalProps> = ({
   }
 
   const handleConfirmClick = async () => {
-    // if (placeRequest) {
-    //   const receipt = await fetchWithCatchTxError(() => {
-    //     //
-    //   })
-    //   return;
-    // }
-
     if(claimHydro){
       return;
     }
     const receipt = await fetchWithCatchTxError(() => {
       if (isRemovingStake) {
-        console.log('is removng ......')
-        return onUnstake(stakeAmount, stakingToken.decimals)
+      return onUnstake(stakeAmount, stakingToken.decimals)
       }
-      return onStake(stakeAmount, stakingToken.decimals)
+       else {
+         return onStake(stakeAmount, stakingToken.decimals)
+       }
     })
     if (receipt?.status) {
       if (isRemovingStake) {
@@ -179,6 +175,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
           </ToastDescriptionWithTx>,
         )
       }
+      onRequest?.()
       dispatch(updateUserStakedBalance({ sousId, account }))
       dispatch(updateUserPendingReward({ sousId, account }))
       dispatch(updateUserBalance({ sousId, account }))
