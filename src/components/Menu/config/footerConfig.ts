@@ -7,7 +7,7 @@ export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
     items: [
       {
         label: t('Contact'),
-        email: 'https://t.me/projecthydro',
+        href: 'https://t.me/projecthydro',
       },
       {
         label: t('Blog'),
