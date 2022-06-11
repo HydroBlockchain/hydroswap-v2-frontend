@@ -7,12 +7,20 @@ export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
     items: [
       {
         label: t('Contact'),
-        href: 'https://twitter.com/HydroBlockchain',
+        email: 'https://t.me/projecthydro',
       },
       {
         label: t('Blog'),
         href: 'https://projecthydro.org/blog/',
       },
+      {
+        label: t('Keresverse'),
+        href:'https://keresverse.org/',
+      },
+      {
+        label: t('Project Hydro'),
+        href: 'https://projecthydro.org/',
+      }
     ],
   },
   {
@@ -21,10 +29,6 @@ export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
       {
         label: t('Troubleshooting'),
         href: 'https://projecthydro.org/faq/',
-      },
-      {
-        label: t('Guides'),
-        href: '#',
       },
     ],
   },
