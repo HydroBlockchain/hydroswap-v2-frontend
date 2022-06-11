@@ -167,6 +167,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
      <Text mt='16px'>
     Time Before Unstaking
     <CurrentTimer targetDate={ new Date(stakeInfo.releaseAt) } />
+    Amount to Unstake:  {(+stakeInfo?.requestedAmount)/10**18} Hydro
   </Text>
 
   {/* <Button width='100%' onClick={onRequest}>Error Checking Staking Status, Try again</Button> */}
