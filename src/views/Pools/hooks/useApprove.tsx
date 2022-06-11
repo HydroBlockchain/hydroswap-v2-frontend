@@ -5,7 +5,7 @@ import { MaxUint256 } from '@ethersproject/constants'
 import { useAppDispatch } from 'state'
 import { updateUserAllowance } from 'state/actions'
 import { useTranslation } from 'contexts/Localization'
-import { useCake, useSousChef, useVaultPoolContract } from 'hooks/useContract'
+import { useCake, useKvsContract, useSousChef, useVaultPoolContract } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import useCatchTxError from 'hooks/useCatchTxError'
@@ -19,12 +19,14 @@ export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol)
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()
-  const sousChefContract = useSousChef(sousId)
+  const sousChefContract = useKvsContract(sousId)
 
   const handleApprove = useCallback(async () => {
     const receipt = await fetchWithCatchTxError(() => {
       return callWithGasPrice(lpContract, 'approve', [sousChefContract.address, MaxUint256])
     })
+
+   
     if (receipt?.status) {
       toastSuccess(
         t('Contract Enabled'),

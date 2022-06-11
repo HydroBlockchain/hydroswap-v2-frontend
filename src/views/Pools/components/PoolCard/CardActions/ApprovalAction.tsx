@@ -4,6 +4,7 @@ import { useERC20 } from 'hooks/useContract'
 import { DeserializedPool } from 'state/types'
 import { useApprovePool } from '../../../hooks/useApprove'
 
+
 interface ApprovalActionProps {
   pool: DeserializedPool
   isLoading?: boolean
@@ -12,7 +13,7 @@ interface ApprovalActionProps {
 const ApprovalAction: React.FC<ApprovalActionProps> = ({ pool, isLoading = false }) => {
   const { sousId, stakingToken, earningToken } = pool
   const { t } = useTranslation()
-  const stakingTokenContract = useERC20(stakingToken.address || '')
+  const stakingTokenContract = useERC20(stakingToken.address)
   const { handleApprove, pendingTx } = useApprovePool(stakingTokenContract, sousId, earningToken.symbol)
 
   return (

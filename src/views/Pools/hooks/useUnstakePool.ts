@@ -8,7 +8,6 @@ import { BIG_TEN } from 'utils/bigNumber'
 const sousUnstake = (sousChefContract: any, amount: string, decimals: number) => {
   const gasPrice = getGasPrice()
 
-console.log('inputs???', decimals, amount, new BigNumber(amount).times(BIG_TEN.pow(decimals)).toString())
   return sousChefContract.withdrawFunds(new BigNumber(amount).times(BIG_TEN.pow(decimals)).toString(), {
     gasPrice,
   })
@@ -25,9 +24,9 @@ const useUnstakePool = (sousId: number, enableEmergencyWithdraw = false) => {
   const handleUnstake = useCallback(
     async (amount: string, decimals: number) => {
       
-      if (enableEmergencyWithdraw) {
-        return sousEmergencyUnstake(sousChefContract)
-      }
+      // if (enableEmergencyWithdraw) {
+      //   return sousEmergencyUnstake(sousChefContract)
+      // }
 
       return sousUnstake(sousChefContract, amount, decimals)
     },
