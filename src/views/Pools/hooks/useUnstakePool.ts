@@ -2,15 +2,14 @@ import { useCallback } from 'react'
 import { parseUnits } from '@ethersproject/units'
 import { useSousChef, useKvsContract } from 'hooks/useContract'
 import getGasPrice from 'utils/getGasPrice'
+import BigNumber from 'bignumber.js'
+import { BIG_TEN } from 'utils/bigNumber'
 
 const sousUnstake = (sousChefContract: any, amount: string, decimals: number) => {
   const gasPrice = getGasPrice()
-  const amt = String(Math.round(+amount))
-  const units = parseUnits(amount, decimals)
-  console.log('kvs unstaking', amount, '1000000000000')
 
-sousChefContract.viewUser('0xC0c96bb9Faba64D794EF9790EB0904597E6C6F60').then(d=>console.log(d,'data check'))
-  return sousChefContract.withdrawFunds('10000000000300000000000000000000', {
+console.log('inputs???', decimals, amount, new BigNumber(amount).times(BIG_TEN.pow(decimals)).toString())
+  return sousChefContract.withdrawFunds(new BigNumber(amount).times(BIG_TEN.pow(decimals)).toString(), {
     gasPrice,
   })
 }

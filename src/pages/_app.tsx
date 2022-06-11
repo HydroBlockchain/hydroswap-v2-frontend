@@ -97,14 +97,22 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const Layout = Component.Layout || Fragment
   return (
     <ProductionErrorBoundary>
-      <Menu>
+      <Menu> 
+        <div style={{
+          // background:'red',
+          // display:'flex',
+          // justifyContent:'center',
+          // alignItems:'center',
+        }}>
+
         <Layout>
           <Component {...pageProps} />
         </Layout>
+        </div>
       </Menu>
-      <EasterEgg iterations={2} />
+      {/* <EasterEgg iterations={2} /> */}
       <ToastListener />
-      <FixedSubgraphHealthIndicator />
+      {/* <FixedSubgraphHealthIndicator /> */}
     </ProductionErrorBoundary>
   )
 }

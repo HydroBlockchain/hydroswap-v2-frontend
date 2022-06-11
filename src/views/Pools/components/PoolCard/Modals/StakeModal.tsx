@@ -38,6 +38,8 @@ interface StakeModalProps {
   stakingTokenPrice: number
   isRemovingStake?: boolean
   onDismiss?: () => void
+  placeRequest?:boolean
+  claimHydro?:boolean
 }
 
 const StyledLink = styled(Link)`
@@ -63,6 +65,8 @@ const StakeModal: React.FC<StakeModalProps> = ({
   stakingTokenPrice,
   isRemovingStake = false,
   onDismiss,
+  placeRequest=false,
+  claimHydro=false
 }) => {
   const { sousId, stakingToken, earningTokenPrice, apr, userData, stakingLimit, earningToken } = pool
   const { account } = useWeb3React()
@@ -138,8 +142,19 @@ const StakeModal: React.FC<StakeModalProps> = ({
   }
 
   const handleConfirmClick = async () => {
+    // if (placeRequest) {
+    //   const receipt = await fetchWithCatchTxError(() => {
+    //     //
+    //   })
+    //   return;
+    // }
+
+    if(claimHydro){
+      return;
+    }
     const receipt = await fetchWithCatchTxError(() => {
       if (isRemovingStake) {
+        console.log('is removng ......')
         return onUnstake(stakeAmount, stakingToken.decimals)
       }
       return onStake(stakeAmount, stakingToken.decimals)
@@ -191,7 +206,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
   return (
     <Modal
       minWidth="346px"
-      title={isRemovingStake ? t('Unstake') : t('Stake in Pool')}
+      title={ placeRequest ? 'Place Unstake Request': isRemovingStake ? t('Unstake') : t('Stake in Pool')}
       onDismiss={onDismiss}
       headerBackground={theme.colors.gradients.cardHeader}
     >
@@ -290,19 +305,19 @@ const StakeModal: React.FC<StakeModalProps> = ({
           </Text>
         </Flex>
       )}
-     <Flex justifyContent='center' alignItems='center'>
+     <Flex justifyContent='center' alignItems='center' >
       <Button
           isLoading={pendingTx}
           endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
           onClick={handleConfirmClick}
           disabled={!stakeAmount || parseFloat(stakeAmount) === 0  || userNotEnoughToken}
           mt="24px"
-          mr="24px"
-          
+           mr={placeRequest? '0px': '"24px"'}
+          width='100%'
         >
           {pendingTx ? t('Confirming') : t('Confirm')}
         </Button>
-        {!isRemovingStake && (
+        { (!isRemovingStake && !placeRequest ) && (
             <Button mt="24px" variant="secondary">
                <StyledLink external href={getTokenLink}>
               {t('Get %symbol%', { symbol: stakingToken.symbol })}
