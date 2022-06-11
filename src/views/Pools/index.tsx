@@ -308,7 +308,7 @@ const Pools: React.FC = () => {
               </Heading>
             </CardHead>
             <CardBody>
-              <Image src="/images/wex.gif" alt="keresverse" width={350} height={350} />
+              <Image src="/images/wex.gif" alt="keresverse" width={350} height={350} paddingTop="0px" paddingBottom="-10px" />
             </CardBody>
           </Card>
         </div>
