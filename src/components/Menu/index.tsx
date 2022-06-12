@@ -30,7 +30,6 @@ const Menu = (props) => {
   const activeSubMenuItem = getActiveSubMenuItem({ menuItem: activeMenuItem, pathname })
 
   const toggleTheme = useMemo(() => {
-    console.log('chaging theme', isDark)
     return () => setTheme(isDark ? 'light' : 'dark')
   }, [setTheme, isDark])
 

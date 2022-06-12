@@ -32,7 +32,7 @@ const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
     return res as any
   }
   catch(e){
-    console.log('aggregate failed >>>>>', e)
+  //  console.log('aggregate failed >>>>>', e)
 
   }
 }

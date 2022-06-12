@@ -269,7 +269,7 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
     }))
     return userData
   } catch (e) {
-    console.log(e, 'userdata error')
+  // console.log(e, 'userdata error')
     return rejectWithValue(e)
   }
 })
