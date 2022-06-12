@@ -6,6 +6,7 @@ import { useAllTokens } from 'hooks/Tokens'
 import { useMulticallContract } from 'hooks/useContract'
 import { isAddress } from 'utils'
 import orderBy from 'lodash/orderBy'
+import { useGetBnbBalance } from 'hooks/useTokenBalance'
 import { useSingleContractMultipleData, useMultipleContractSingleData } from '../multicall/hooks'
 
 /**
@@ -15,18 +16,21 @@ export function useBNBBalances(uncheckedAddresses?: (string | undefined)[]): {
   [address: string]: CurrencyAmount | undefined
 } {
   const multicallContract = useMulticallContract()
+  console.log(uncheckedAddresses, "multicallContract")
 
   const addresses: string[] = useMemo(
     () =>
       uncheckedAddresses ? orderBy(uncheckedAddresses.map(isAddress).filter((a): a is string => a !== false)) : [],
     [uncheckedAddresses],
   )
+  console.log(uncheckedAddresses, "multicallContract")
 
   const results = useSingleContractMultipleData(
     multicallContract,
     'getEthBalance',
     addresses.map((address) => [address]),
   )
+ 
 
   return useMemo(
     () =>
@@ -52,6 +56,7 @@ export function useTokenBalancesWithLoadingIndicator(
   )
 
   const validatedTokenAddresses = useMemo(() => validatedTokens.map((vt) => vt.address), [validatedTokens])
+
 
   const balances = useMultipleContractSingleData(
     validatedTokenAddresses,
@@ -105,8 +110,10 @@ export function useCurrencyBalances(
   )
 
   const tokenBalances = useTokenBalances(account, tokens)
+  console.log(tokens, 'tokens')
   const containsBNB: boolean = useMemo(() => currencies?.some((currency) => currency === ETHER) ?? false, [currencies])
   const bnbBalance = useBNBBalances(containsBNB ? [account] : [])
+  console.log("containsBNB", containsBNB)
 
   return useMemo(
     () =>

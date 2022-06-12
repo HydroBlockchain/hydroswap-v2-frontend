@@ -146,6 +146,7 @@ export default function Swap() {
     currencies,
     inputError: swapInputError,
   } = useDerivedSwapInfo(independentField, typedValue, inputCurrency, outputCurrency, recipient)
+  console.log(currencies[Field.INPUT], 'currencies')
 
   const {
     wrapType,
