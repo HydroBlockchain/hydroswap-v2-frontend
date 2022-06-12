@@ -7,7 +7,6 @@ import Balance from 'components/Balance'
 import styled from 'styled-components'
 import NotEnoughTokensModal from '../Modals/NotEnoughTokensModal'
 import StakeModal from '../Modals/StakeModal'
-import useToast from 'hooks/useToast'
 import useUserStakeInfo from "../../../hooks/useUserStakeInfo"
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import CurrentTimer from "../../DateCountdown"
@@ -37,8 +36,8 @@ const StakeAction: React.FC<StakeActionsProps> = ({
 }) => {
   const { stakingToken, stakingTokenPrice, stakingLimit, isFinished, userData, sousId,  } = pool
   const {account} = useActiveWeb3React()
-  const {stakeInfo, error, loading, onRequest} = useUserStakeInfo(sousId, account)
- 
+  const {stakeInfo, loading, loaded } = useUserStakeInfo(sousId, account)
+
   const { t } = useTranslation()
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals)
   const stakedTokenDollarBalance = getBalanceNumber(
@@ -93,7 +92,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
         </Flex>
         <Flex>
 
-          {loading &&
+          {!loaded &&
               <StyledBtn
               mr='16px'
                 disabled={loading}
@@ -104,7 +103,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
           }
            {
              placeRequest &&    <StyledBtn 
-             disabled={loading || stakeInfo?.pending}
+             disabled={loading || stakeInfo?.pending }
              onClick={onPresentStake} mr="6px">
                {t(`${loading ? 'checking': stakeInfo?.pending ? 'Request Pending' : 'Place Unstake Request'}`)}
              </StyledBtn>
@@ -151,7 +150,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
 {renderStakeAction()}
 <div > 
   {
-    (!loading &&  (stakeInfo?.pending && stakeInfo.requestedAmount > 0 && stakeInfo.releaseAt )  ) && <>
+    (loaded &&  (stakeInfo?.pending && stakeInfo.requestedAmount > 0 && stakeInfo.releaseAt )  ) && <>
      <Flex justifyContent='space-between' alignItems='center'>
     <div>
     <Text mt='16px' fontSize='12px'>
@@ -193,7 +192,7 @@ font-size: 1.25rem;
 line-height: 1.75rem;
 padding: 0.75rem 1.8rem;
 text-align:center;
-color:${({theme})=> theme.colors.text };
+color:${({theme})=> theme.colors.btnColor};
 border-radius:20px;
 background:${({theme})=> theme.colors.btnBackground};
 `

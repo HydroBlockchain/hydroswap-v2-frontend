@@ -93,7 +93,7 @@ const WrapperCounter = styled.div`
   line-height: 1.75rem;
   padding: 0.5rem;
   text-decoration: none;
-  color:${({theme})=> theme.colors.text };
+  color:${({theme})=> theme.colors.btnColor};
   border-radius:20px;
   background:${({theme})=> theme.colors.btnBackground};
 }
