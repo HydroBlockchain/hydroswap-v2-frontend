@@ -70,6 +70,7 @@ const poolsBalanceOf = poolsConfig.map((poolConfig) => {
 })
 
 export const fetchPoolsTotalStaking = async () => {
+ console.log( poolsBalanceOf, " poolsBalanceOf")
   const poolsTotalStaked = await multicall(erc20ABI, poolsBalanceOf)
   return poolsConfig.map((p, index) => ({
     sousId: p.sousId,
@@ -83,6 +84,8 @@ const poolsAPR = poolsConfig.map((poolConfig) => {
     name: 'checkAPY'
   }
 })
+
+console.log(poolsAPR, "poolsAPR")
 
 export const fetchPoolsAPR = async () => {
   const poolsApr = await multicall(kvsStakingABI, poolsAPR)

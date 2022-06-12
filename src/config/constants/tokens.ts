@@ -2114,7 +2114,7 @@ export const mainnetTokens = defineTokens({
   ),
   kvs: new Token(
     MAINNET,
-    '0x14866bb7db3276cD5f3249934f86Dbd79A741D34',
+    '0x804d51B4751eec021fef2199936FAFde0A520e04',
     18,
     'KVS',
     'Kvs Token',

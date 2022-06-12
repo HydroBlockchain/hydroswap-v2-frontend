@@ -37,7 +37,7 @@ export interface Message {
 }
 
 const STRATEGIES = [{ name: 'cake', params: { symbol: 'CAKE', address: tokens.cake.address, decimals: 18, max: 300 } }]
-const NETWORK = '97'
+const NETWORK = '56'
 
 /**
  * Generates metadata required by snapshot to validate payload
@@ -45,7 +45,7 @@ const NETWORK = '97'
 export const generateMetaData = () => {
   return {
     plugins: {},
-    network: 97,
+    network: 56,
     strategies: STRATEGIES,
   }
 }

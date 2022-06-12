@@ -4,8 +4,7 @@ import { Address } from 'config/constants/types'
 import { VaultKey } from 'state/types'
 
 export const getAddress = (address: Address): string => {
-  // const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
-  const chainId = 97
+   const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
   return address[chainId] ? address[chainId] : address[ChainId.MAINNET]
 }
 

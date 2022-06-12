@@ -8,7 +8,7 @@ if (
 }
 
 // Array of available nodes to connect to
-export const nodes = ["https://data-seed-prebsc-1-s1.binance.org:8545", "https://data-seed-prebsc-1-s1.binance.org:8545", "https://data-seed-prebsc-1-s1.binance.org:8545"]
+export const nodes = [process.env.NEXT_PUBLIC_NODE_1, process.env.NEXT_PUBLIC_NODE_2, process.env.NEXT_PUBLIC_NODE_3]
 
 const getNodeUrl = () => {
   // Use custom node if available (both for development and production)
