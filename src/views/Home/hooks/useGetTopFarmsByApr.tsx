@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ChainId } from '@pancakeswap/sdk'
+import { ChainId } from '@panakeswap/sdk'
 import { useFarms, usePriceCakeBusd } from 'state/farms/hooks'
 import { useAppDispatch } from 'state'
 import farmsConfig from 'config/constants/farms'

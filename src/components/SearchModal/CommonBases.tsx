@@ -1,4 +1,4 @@
-import { ChainId, Currency, currencyEquals, ETHER, Token } from '@pancakeswap/sdk'
+import { ChainId, Currency, currencyEquals, ETHER, Token } from '@panakeswap/sdk'
 import { Text } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'

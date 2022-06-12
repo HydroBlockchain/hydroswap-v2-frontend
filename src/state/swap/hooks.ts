@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, ETHER, Token, Trade } from '@pancakeswap/sdk'
+import { Currency, CurrencyAmount, ETHER, Token, Trade } from '@panakeswap/sdk'
 import { ParsedUrlQuery } from 'querystring'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { DEFAULT_INPUT_CURRENCY, DEFAULT_OUTPUT_CURRENCY } from 'config/constants'

@@ -1,5 +1,5 @@
 import { useRef, RefObject, useCallback, useState, useMemo } from 'react'
-import { Token } from '@pancakeswap/sdk'
+import { Token } from '@panakeswap/sdk'
 import { Text, Button, CloseIcon, IconButton, LinkExternal, Input, Link } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import Row, { RowBetween, RowFixed } from 'components/Layout/Row'

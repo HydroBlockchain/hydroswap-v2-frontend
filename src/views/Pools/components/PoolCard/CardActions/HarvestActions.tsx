@@ -1,6 +1,6 @@
 import { Flex, Text, Button, Heading, useModal, Skeleton } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
-import { Token } from '@pancakeswap/sdk'
+import { Token } from '@panakeswap/sdk'
 
 import { useTranslation } from 'contexts/Localization'
 import { getFullDisplayBalance, getBalanceNumber, formatNumber } from 'utils/formatBalance'

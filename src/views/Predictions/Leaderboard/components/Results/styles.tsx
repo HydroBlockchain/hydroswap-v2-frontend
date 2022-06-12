@@ -1,4 +1,4 @@
-import { Token } from '@pancakeswap/sdk'
+import { Token } from '@panakeswap/sdk'
 import { Flex, FlexProps, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import useBUSDPrice from 'hooks/useBUSDPrice'

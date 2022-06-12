@@ -1,4 +1,4 @@
-import { Token } from '@pancakeswap/sdk'
+import { Token } from '@panakeswap/sdk'
 import Balance from 'components/Balance'
 import { Flex, Skeleton, Text, TooltipText, useTooltip } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'

@@ -1,4 +1,4 @@
-import { FACTORY_ADDRESS } from '@pancakeswap/sdk'
+import { FACTORY_ADDRESS } from '@panakeswap/sdk'
 import { getUnixTime, sub } from 'date-fns'
 import { gql } from 'graphql-request'
 import { GetStaticProps } from 'next'

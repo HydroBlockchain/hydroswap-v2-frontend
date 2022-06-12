@@ -1,5 +1,5 @@
 import React from 'react'
-import { Currency, Percent, Price } from '@pancakeswap/sdk'
+import { Currency, Percent, Price } from '@panakeswap/sdk'
 import styled from 'styled-components'
 import { Input, Flex, Text, Button, AutoRenewIcon, SyncAltIcon, HelpIcon, useTooltip } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'

@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@pancakeswap/sdk'
+import { Currency, ETHER, Token } from '@panakeswap/sdk'
 import { BinanceIcon } from 'hydroswap-uikitv2'
 import { useMemo } from 'react'
 import styled from 'styled-components'
