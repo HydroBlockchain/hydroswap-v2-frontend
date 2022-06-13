@@ -85,7 +85,7 @@ const poolsAPR = poolsConfig.map((poolConfig) => {
   }
 })
 
-console.log(poolsAPR, "poolsAPR")
+// console.log(poolsAPR, "poolsAPR")
 
 export const fetchPoolsAPR = async () => {
   const poolsApr = await multicall(kvsStakingABI, poolsAPR)

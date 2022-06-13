@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Trade, TradeType } from '@pancakeswap/sdk'
+import { Trade, TradeType } from 'hydroswap-v2-sdk'
 import { Button, Text, ErrorIcon, ArrowDownIcon } from 'hydroswap-uikitv2'
 import { Field } from 'state/swap/actions'
 import { useTranslation } from 'contexts/Localization'

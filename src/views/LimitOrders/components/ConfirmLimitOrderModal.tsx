@@ -1,4 +1,4 @@
-import { Currency } from '@pancakeswap/sdk'
+import { Currency } from 'hydroswap-v2-sdk'
 import {
   ArrowDownIcon,
   Button,
