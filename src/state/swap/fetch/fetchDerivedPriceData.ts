@@ -17,7 +17,7 @@ const getTokenDerivedBnbPrices = async (tokenAddress: string, blocks: Block[]) =
   )
 
   if (!prices) {
-    console.error('Price data failed to load')
+    console.error('Price data failed to load2')
     return null
   }
 
