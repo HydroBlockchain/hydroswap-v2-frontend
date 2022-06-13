@@ -37,7 +37,6 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   const { stakingToken, stakingTokenPrice, stakingLimit, isFinished, userData, sousId,  } = pool
   const {account} = useActiveWeb3React()
   const {stakeInfo, loading, loaded } = useUserStakeInfo(sousId, account)
-  console.log(loading, loaded, stakeInfo, "<<<<<<########")
 
   const { t } = useTranslation()
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals)
