@@ -1,4 +1,4 @@
-import { Currency, Token } from '@pancakeswap/sdk'
+import { Currency, Token } from 'hydroswap-v2-sdk'
 import { Button, Text, Modal, useModal, InjectedModalProps, Link } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useCurrentBlock } from 'state/block/hooks'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { ethers } from 'ethers'
-import { getMulticallContract } from 'utils/contractHelpers'
+// import { getMulticallContract } from 'utils/contractHelpers'
 import { useMulticallContract } from '../../hooks/useContract'
 import useDebounce from '../../hooks/useDebounce'
 import { CancelledError, retry, RetryableError } from './retry'
@@ -152,8 +152,8 @@ export default function Updater(): null {
   const currentBlock = useCurrentBlock()
   const { chainId } = useActiveWeb3React()
   const provider = new ethers.providers.Web3Provider(window.ethereum)
-  // const multicallContract = useMulticallContract(provider)
-  const multicallContract = getMulticallContract(provider)
+  const multicallContract = useMulticallContract()
+  // const multicallContract = getMulticallContract(provider)
   const cancellations = useRef<{ blockNumber: number; cancellations: (() => void)[] }>()
 
   const listeningKeys: { [callKey: string]: number } = useMemo(() => {

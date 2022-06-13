@@ -1,5 +1,5 @@
 import { Fragment, memo } from 'react'
-import { Trade } from '@pancakeswap/sdk'
+import { Trade } from 'hydroswap-v2-sdk'
 import { Text, Flex, ChevronRightIcon } from 'hydroswap-uikitv2'
 import { unwrappedToken } from 'utils/wrappedCurrency'
 

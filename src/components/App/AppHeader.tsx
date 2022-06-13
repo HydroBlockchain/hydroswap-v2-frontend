@@ -19,7 +19,7 @@ const AppHeaderContainer = styled(Flex)`
   justify-content: space-between;
   padding: 24px;
   width: 100%;
-  background:red;
+  background:${({theme})=> theme.colors.gradients.cardHeader};
   border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
 `
 
