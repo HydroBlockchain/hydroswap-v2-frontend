@@ -171,7 +171,6 @@ export default function AddLiquidity() {
       value = BigNumber.from((tokenBIsBNB ? parsedAmountB : parsedAmountA).raw.toString())
     } else {
       estimate = routerContract.estimateGas.addLiquidity
-      console.log('router contract', routerContract)
       method = routerContract.addLiquidity
       args = [
         wrappedCurrency(currencyA, chainId)?.address ?? '',
@@ -187,37 +186,25 @@ export default function AddLiquidity() {
     }
     
     setLiquidityState({ attemptingTxn: true, liquidityErrorMessage: undefined, txHash: undefined })
-   estimate(...args, value ? { value } : {}).then(est =>console.log('estimatedGas', est)).catch(e => console.log('estimate error', e))
+    estimate(...args, value ? { value } : {}).then(est =>console.log('estimatedGas', est)).catch(e => console.log('estimate error', e))
     await estimate(...args, value ? { value } : {})
       .then((estimatedGasLimit) =>
         method(...args, {
           ...(value ? { value } : {}),
           gasLimit: calculateGasMargin(estimatedGasLimit),
           gasPrice,
-<<<<<<< HEAD
-        }).then((response) => {
+        })
+        .then((response) => {
           setLiquidityState({ attemptingTxn: false, liquidityErrorMessage: undefined, txHash: response.hash })
+
           addTransaction(response, {
             summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
               currencies[Field.CURRENCY_A]?.symbol
             } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
             type: 'add-liquidity',
           })
-        }),
-=======
         })
-        // .then((response) => {
-        //   setLiquidityState({ attemptingTxn: false, liquidityErrorMessage: undefined, txHash: response.hash })
-
-        //   addTransaction(response, {
-        //     summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
-        //       currencies[Field.CURRENCY_A]?.symbol
-        //     } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
-        //     type: 'add-liquidity',
-        //   })
-        // })
         ,
->>>>>>> cb6b4da9a32fa5f7f431fb0e7984357731eaab38
       )
       .catch((err) => {
         if (err && err.code !== 4001) {
