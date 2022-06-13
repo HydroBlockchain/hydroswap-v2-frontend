@@ -136,6 +136,8 @@ export default function AddLiquidity() {
   async function onAdd() {
     if (!chainId || !library || !account) return
     const routerContract = getRouterContract(chainId, library, account)
+   
+   
 
     const { [Field.CURRENCY_A]: parsedAmountA, [Field.CURRENCY_B]: parsedAmountB } = parsedAmounts
     if (!parsedAmountA || !parsedAmountB || !currencyA || !currencyB || !deadline) {
@@ -146,6 +148,8 @@ export default function AddLiquidity() {
       [Field.CURRENCY_A]: calculateSlippageAmount(parsedAmountA, noLiquidity ? 0 : allowedSlippage)[0],
       [Field.CURRENCY_B]: calculateSlippageAmount(parsedAmountB, noLiquidity ? 0 : allowedSlippage)[0],
     }
+
+
 
     let estimate
     let method: (...args: any) => Promise<TransactionResponse>
@@ -179,7 +183,7 @@ export default function AddLiquidity() {
       ]
       value = null
     }
-
+    
     setLiquidityState({ attemptingTxn: true, liquidityErrorMessage: undefined, txHash: undefined })
     await estimate(...args, value ? { value } : {})
       .then((estimatedGasLimit) =>
@@ -189,7 +193,6 @@ export default function AddLiquidity() {
           gasPrice,
         }).then((response) => {
           setLiquidityState({ attemptingTxn: false, liquidityErrorMessage: undefined, txHash: response.hash })
-
           addTransaction(response, {
             summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
               currencies[Field.CURRENCY_A]?.symbol
@@ -201,11 +204,11 @@ export default function AddLiquidity() {
       .catch((err) => {
         if (err && err.code !== 4001) {
           logError(err)
-          console.error(`Add Liquidity failed`, err, args, value)
+          console.error(`Add Liquidity failed `, err, args, value)
         }
         setLiquidityState({
           attemptingTxn: false,
-          liquidityErrorMessage: err && err.code !== 4001 ? `Add Liquidity failed: ${err.message}` : undefined,
+          liquidityErrorMessage: err && err.code !== 4001 ? `Add Liquidity failed : ${err.message}` : undefined,
           txHash: undefined,
         })
       })
