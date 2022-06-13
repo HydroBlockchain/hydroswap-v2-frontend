@@ -37,6 +37,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   const { stakingToken, stakingTokenPrice, stakingLimit, isFinished, userData, sousId,  } = pool
   const {account} = useActiveWeb3React()
   const {stakeInfo, loading, loaded } = useUserStakeInfo(sousId, account)
+  console.log(loading, loaded, stakeInfo, "<<<<<<########")
 
   const { t } = useTranslation()
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals)
@@ -102,7 +103,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
               </StyledBtn>
           }
            {
-             placeRequest &&    <StyledBtn 
+             (placeRequest && loaded) &&    <StyledBtn 
              disabled={loading || stakeInfo?.pending }
              onClick={onPresentStake} mr="6px">
                {t(`${loading ? 'checking': stakeInfo?.pending ? 'Request Pending' : 'Place Unstake Request'}`)}

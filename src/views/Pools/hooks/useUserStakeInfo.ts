@@ -11,8 +11,8 @@ const useUserStakeInfo = (sousId,  account) => {
   const sousChefContract = useKvsContract(sousId)
 
   const handleRequest = useCallback(async () => {
-      setError(false)
-    setLoading(true)
+    setError(false)
+    // setLoading(true)
     // eslint-disable-next-line react-hooks/rules-of-hooks
  
      try {
@@ -34,14 +34,13 @@ const useUserStakeInfo = (sousId,  account) => {
      catch(e){  
         setError(true)
      }
-
      setLoading(false)
-     
+  
   }, [sousChefContract, account])
 
   const interval = setInterval(() => {
     handleRequest()
-  }, 4000);
+  }, 30000);
   useEffect(() => {
     
     if (loaded && error) {

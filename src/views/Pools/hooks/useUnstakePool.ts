@@ -17,9 +17,8 @@ const sousUnstake = (sousChefContract: any, amount: string, decimals: number) =>
 
 
 const useUnstakePool = (sousId: number, enableEmergencyWithdraw = false) => {
-  const sousChefContract = useKvsContract(sousId)
-  const {account} = useActiveWeb3React()
-  const {onRequest} = useUserStakeInfo(sousId, account)
+const sousChefContract = useKvsContract(sousId)
+const {account} = useActiveWeb3React()
 
   const handleUnstake = useCallback(
     async (amount: string, decimals: number) => {
