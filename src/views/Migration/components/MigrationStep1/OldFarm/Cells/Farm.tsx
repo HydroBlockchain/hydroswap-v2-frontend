@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Text } from 'hydroswap-uikitv2'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import BaseCell, { CellContent } from 'views/Pools/components/PoolsTable/Cells/BaseCell'
 import { TokenPairImage } from 'components/TokenImage'
 import { FarmWithStakedValue } from 'views/Farms/components/types'

@@ -1,4 +1,4 @@
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import { Box, Card, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import PreviousBetsTable from '../PreviousBetsTable'

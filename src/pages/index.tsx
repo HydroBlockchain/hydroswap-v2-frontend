@@ -1,4 +1,4 @@
-import { FACTORY_ADDRESS } from '@panakeswap/sdk'
+import { FACTORY_ADDRESS } from 'hydroswap-v2-sdk'
 import { getUnixTime, sub } from 'date-fns'
 import { gql } from 'graphql-request'
 import { GetStaticProps } from 'next'

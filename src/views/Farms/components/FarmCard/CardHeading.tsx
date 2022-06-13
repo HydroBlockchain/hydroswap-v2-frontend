@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Tag, Flex, Heading, Skeleton } from 'hydroswap-uikitv2'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import { FarmAuctionTag, CoreTag } from 'components/Tags'
 import { TokenPairImage } from 'components/TokenImage'
 

@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from '@panakeswap/sdk'
+import { Token, TokenAmount } from 'hydroswap-v2-sdk'
 import { useMemo } from 'react'
 
 import { useTokenContract } from './useContract'

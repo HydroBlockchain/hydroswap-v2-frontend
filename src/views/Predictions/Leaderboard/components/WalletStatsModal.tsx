@@ -19,7 +19,7 @@ import useTheme from 'hooks/useTheme'
 import styled from 'styled-components'
 import { getBscScanLink } from 'utils'
 import truncateHash from 'utils/truncateHash'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 
 import { useTranslation } from 'contexts/Localization'
 import { FetchStatus } from 'config/constants/types'

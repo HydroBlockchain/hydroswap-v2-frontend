@@ -10,7 +10,7 @@ import { getDecimalAmount } from 'utils/formatBalance'
 import useToast from 'hooks/useToast'
 import useCatchTxError from 'hooks/useCatchTxError'
 import { fetchCakeVaultUserData } from 'state/pools'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import { ONE_WEEK_DEFAULT, vaultPoolConfig } from 'config/constants/pools'
 import { VaultKey } from 'state/types'
 

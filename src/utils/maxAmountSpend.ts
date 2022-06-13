@@ -1,4 +1,4 @@
-import { CurrencyAmount, ETHER, JSBI } from '@panakeswap/sdk'
+import { CurrencyAmount, ETHER, JSBI } from 'hydroswap-v2-sdk'
 import { MIN_BNB } from '../config/constants'
 
 /**

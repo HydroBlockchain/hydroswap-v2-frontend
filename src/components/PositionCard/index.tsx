@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { JSBI, Pair, Percent } from '@panakeswap/sdk'
+import { JSBI, Pair, Percent } from 'hydroswap-v2-sdk'
 import {
   Button,
   Text,

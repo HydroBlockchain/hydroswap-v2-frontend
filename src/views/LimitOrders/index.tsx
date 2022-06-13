@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState, useMemo } from 'react'
 import { useRouter } from 'next/router'
-import { CurrencyAmount, Token, Trade } from '@panakeswap/sdk'
+import { CurrencyAmount, Token, Trade } from 'hydroswap-v2-sdk'
 import { Button, Box, Flex, useModal, useMatchBreakpoints, BottomDrawer, Link } from 'hydroswap-uikitv2'
 
 import { useTranslation } from 'contexts/Localization'

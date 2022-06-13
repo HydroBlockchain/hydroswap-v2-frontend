@@ -1,4 +1,4 @@
-import { Currency } from '@panakeswap/sdk'
+import { Currency } from 'hydroswap-v2-sdk'
 import styled from 'styled-components'
 import CurrencyLogo from './CurrencyLogo'
 

@@ -2,7 +2,7 @@ import map from 'lodash/map'
 import omitBy from 'lodash/omitBy'
 import erc20ABI from 'config/abi/erc20.json'
 import tokens from 'config/constants/tokens'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import multicall from 'utils/multicall'
 
 // remove BNB because it's not a Bep20 token

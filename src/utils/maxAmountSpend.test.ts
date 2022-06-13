@@ -1,4 +1,4 @@
-import { CurrencyAmount, JSBI } from '@panakeswap/sdk'
+import { CurrencyAmount, JSBI } from 'hydroswap-v2-sdk'
 import { maxAmountSpend } from './maxAmountSpend'
 
 describe('maxAmountSpend', () => {

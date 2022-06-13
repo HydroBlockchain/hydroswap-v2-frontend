@@ -1,4 +1,4 @@
-import { ChainId } from '@panakeswap/sdk'
+import { ChainId } from 'hydroswap-v2-sdk'
 import getLpAddress from 'utils/getLpAddress'
 import { CHAIN_ID } from './networks'
 import tokens from './tokens'

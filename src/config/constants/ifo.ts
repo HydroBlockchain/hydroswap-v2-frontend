@@ -1,4 +1,4 @@
-import { Token, ChainId } from '@panakeswap/sdk'
+import { Token, ChainId } from 'hydroswap-v2-sdk'
 import tokens from './tokens'
 import farms from './farms'
 import { Ifo } from './types'

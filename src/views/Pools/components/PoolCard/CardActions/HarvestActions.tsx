@@ -1,10 +1,6 @@
 import { Flex, Text, Button, Heading, useModal, Skeleton } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
-import { Token } from '@panakeswap/sdk'
-
-import { useTranslation } from 'contexts/Localization'
 import { getFullDisplayBalance, getBalanceNumber, formatNumber } from 'utils/formatBalance'
-import Balance from 'components/Balance'
 import { DeserializedPool } from 'state/types'
 import CollectModal from '../Modals/CollectModal'
 

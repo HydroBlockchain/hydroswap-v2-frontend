@@ -2,7 +2,11 @@ import fs from 'fs'
 import os from 'os'
 import { request, gql } from 'graphql-request'
 import BigNumber from 'bignumber.js'
+<<<<<<< HEAD
 import { ChainId } from '@panakeswap/sdk'
+=======
+import { ChainId } from 'hydroswap-v2-sdk'
+>>>>>>> 07e0a34d8671a81f9cff3bd3f3bdf15cfd4caaa6
 import chunk from 'lodash/chunk'
 import { sub, getUnixTime } from 'date-fns'
 import farmsConfig from '../src/config/constants/farms'

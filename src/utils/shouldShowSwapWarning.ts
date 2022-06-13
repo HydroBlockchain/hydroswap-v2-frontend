@@ -1,4 +1,4 @@
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import SwapWarningTokens from 'config/constants/swapWarningTokens'
 
 const swapWarningTokens = Object.values(SwapWarningTokens)

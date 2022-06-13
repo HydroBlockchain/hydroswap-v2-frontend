@@ -17,7 +17,7 @@ import {
   Skeleton,
 } from 'hydroswap-uikitv2'
 import { AnyAction, AsyncThunkAction } from '@reduxjs/toolkit'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 
 import { useWeb3React } from '@web3-react/core'
 import { REWARD_RATE } from 'state/predictions/config'

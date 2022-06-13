@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import { KeyboardEvent, RefObject, useCallback, useMemo, useRef, useState, useEffect } from 'react'
-import { Currency, ETHER, Token } from '@panakeswap/sdk'
+import { Currency, ETHER, Token } from 'hydroswap-v2-sdk'
 import { Text, Input, Box } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { FixedSizeList } from 'react-window'

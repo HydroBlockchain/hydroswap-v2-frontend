@@ -42,7 +42,7 @@ import { Erc20, Erc20Bytes32, Multicall, Weth, Cake, Erc721collection, CakeVault
 
 // Imports below migrated from Exchange useContract.ts
 import { Contract } from '@ethersproject/contracts'
-import { WETH } from '@panakeswap/sdk'
+import { WETH } from 'hydroswap-v2-sdk'
 import IPancakePairABI from '../config/abi/IPancakePair.json'
 import { ERC20_BYTES32_ABI } from '../config/abi/erc20'
 import ERC20_ABI from '../config/abi/erc20.json'

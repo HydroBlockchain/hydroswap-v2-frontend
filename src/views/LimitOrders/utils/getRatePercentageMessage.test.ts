@@ -1,4 +1,4 @@
-import { JSBI, Price, Token } from '@panakeswap/sdk'
+import { JSBI, Price, Token } from 'hydroswap-v2-sdk'
 import getRatePercentageDifference from './getRatePercentageDifference'
 import { getRatePercentageMessage, PercentageDirection } from './getRatePercentageMessage'
 

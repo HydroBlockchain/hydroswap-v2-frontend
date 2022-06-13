@@ -1,4 +1,4 @@
-import { ChainId } from '@panakeswap/sdk'
+import { ChainId } from 'hydroswap-v2-sdk'
 import { TokenList } from '@uniswap/token-lists'
 import { useMemo } from 'react'
 import uniqBy from 'lodash/uniqBy'

@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { ChainId, Currency, Token } from '@panakeswap/sdk'
+import { ChainId, Currency, Token } from 'hydroswap-v2-sdk'
 import styled from 'styled-components'
 import {
   Button,

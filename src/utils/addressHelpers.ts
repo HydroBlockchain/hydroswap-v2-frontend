@@ -1,4 +1,4 @@
-import { ChainId } from '@panakeswap/sdk'
+import { ChainId } from 'hydroswap-v2-sdk'
 import addresses from 'config/constants/contracts'
 import { Address } from 'config/constants/types'
 import { VaultKey } from 'state/types'

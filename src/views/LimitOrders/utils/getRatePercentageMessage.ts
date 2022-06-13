@@ -1,4 +1,4 @@
-import { Percent } from '@panakeswap/sdk'
+import { Percent } from 'hydroswap-v2-sdk'
 import { TranslateFunction } from 'contexts/Localization/types'
 
 export enum PercentageDirection {

@@ -1,4 +1,4 @@
-import { Percent, Price } from '@panakeswap/sdk'
+import { Percent, Price } from 'hydroswap-v2-sdk'
 
 const getRatePercentageDifference = (currentMarketRate: Price, price: Price) => {
   if (currentMarketRate && price) {

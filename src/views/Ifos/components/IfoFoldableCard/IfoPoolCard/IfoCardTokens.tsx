@@ -14,7 +14,7 @@ import {
   ErrorIcon,
 } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import { Ifo, PoolIds } from 'config/constants/types'
 import tokens from 'config/constants/tokens'
 import { cakeBnbLpToken } from 'config/constants/ifo'

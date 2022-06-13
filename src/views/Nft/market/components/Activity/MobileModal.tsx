@@ -1,5 +1,5 @@
 import { InjectedModalProps, Modal, Flex, Text, Button, Link, BinanceIcon, Box } from 'hydroswap-uikitv2'
-import { Price } from '@panakeswap/sdk'
+import { Price } from 'hydroswap-v2-sdk'
 import useTheme from 'hooks/useTheme'
 import { Activity, NftToken } from 'state/nftMarket/types'
 import { LightGreyCard } from 'components/Card'

@@ -1,5 +1,5 @@
 import { Modal, ModalBody, Text, Image, Button, Link, OpenNewIcon } from 'hydroswap-uikitv2'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import { useTranslation } from 'contexts/Localization'
 
 interface Props {

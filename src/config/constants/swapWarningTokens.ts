@@ -1,4 +1,4 @@
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import tokens from 'config/constants/tokens'
 
 const { bondly, safemoon, itam, ccar, bttold } = tokens

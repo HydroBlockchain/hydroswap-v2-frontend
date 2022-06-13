@@ -1,4 +1,4 @@
-import { Currency, Percent, Price } from '@panakeswap/sdk'
+import { Currency, Percent, Price } from 'hydroswap-v2-sdk'
 import { Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { AutoColumn } from '../../components/Layout/Column'

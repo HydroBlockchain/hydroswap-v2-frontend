@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { useFarmUser } from 'state/farms/hooks'
 import { useTranslation } from 'contexts/Localization'
 import { Text } from 'hydroswap-uikitv2'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { TokenPairImage } from 'components/TokenImage'
 

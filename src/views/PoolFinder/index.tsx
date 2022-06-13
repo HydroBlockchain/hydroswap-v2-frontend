@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Currency, ETHER, JSBI, TokenAmount } from '@panakeswap/sdk'
+import { Currency, ETHER, JSBI, TokenAmount } from 'hydroswap-v2-sdk'
 import { Button, ChevronDownIcon, Text, AddIcon, useModal } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'

@@ -1,4 +1,4 @@
-import { ChainId, Pair, Token } from '@panakeswap/sdk'
+import { ChainId, Pair, Token } from 'hydroswap-v2-sdk'
 import { differenceInDays } from 'date-fns'
 import flatMap from 'lodash/flatMap'
 import farms from 'config/constants/farms'

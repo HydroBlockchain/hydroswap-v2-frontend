@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { Token } from '@panakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import { Button, Text, CheckmarkCircleIcon, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { AutoRow, RowFixed } from 'components/Layout/Row'
 import { AutoColumn } from 'components/Layout/Column'
