@@ -86,7 +86,7 @@ const Footer: React.FC<FooterProps> = ({ pool, account, defaultExpanded, childre
                 tokenAddress,
                 earningToken.symbol,
                 earningToken.decimals,
-                `https://tokens.pancakeswap.finance/images/${tokenAddress}.png`,
+                `https://www.hydroswap.org/images/${tokenAddress}.png`,
               )
             }
           >
