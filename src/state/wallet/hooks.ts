@@ -53,7 +53,7 @@ export function useTokenBalancesWithLoadingIndicator(
 
   const validatedTokenAddresses = useMemo(() => validatedTokens.map((vt) => vt.address), [validatedTokens])
 
-  console.log('validatedTokenAddresses', validatedTokenAddresses)
+
   const balances = useMultipleContractSingleData(
     validatedTokenAddresses,
     ERC20_INTERFACE,
@@ -68,7 +68,6 @@ export function useTokenBalancesWithLoadingIndicator(
       () =>
         address && validatedTokens.length > 0
           ? validatedTokens.reduce<{ [tokenAddress: string]: TokenAmount | undefined }>((memo, token, i) => {
-            console.log('culprit not run', balances)
               const value = balances?.[i]?.result?.[0]
               const amount = value ? JSBI.BigInt(value.toString()) : undefined
               if (amount) {
@@ -87,13 +86,11 @@ export function useTokenBalances(
   address?: string,
   tokens?: (Token | undefined)[],
 ): { [tokenAddress: string]: TokenAmount | undefined } {
-  console.log('useTokenBalances single >>', address, tokens, useTokenBalancesWithLoadingIndicator(address, tokens)[0])
   return useTokenBalancesWithLoadingIndicator(address, tokens)[0]
 }
 
 // get the balance for a single token/account combo
 export function useTokenBalance(account?: string, token?: Token): TokenAmount | undefined {
-  console.log('useTokenBalance +++', account, token)
   const tokenBalances = useTokenBalances(account, [token])
   if (!token) return undefined
   return tokenBalances[token.address]
@@ -103,7 +100,6 @@ export function useCurrencyBalances(
   account?: string,
   currencies?: (Currency | undefined)[],
 ): (CurrencyAmount | undefined)[] {
-  console.log('useCurrencyBalances', account, currencies)
   const tokens = useMemo(
     () => currencies?.filter((currency): currency is Token => currency instanceof Token) ?? [],
     [currencies],
@@ -112,7 +108,6 @@ export function useCurrencyBalances(
   const tokenBalances = useTokenBalances(account, tokens)
   const containsBNB: boolean = useMemo(() => currencies?.some((currency) => currency === ETHER) ?? false, [currencies])
   const bnbBalance = useBNBBalances(containsBNB ? [account] : [])
-  console.log('bnbBalance >>', bnbBalance)
 
   return useMemo(
     () =>
@@ -127,7 +122,6 @@ export function useCurrencyBalances(
 }
 
 export function useCurrencyBalance(account?: string, currency?: Currency): CurrencyAmount | undefined {
-  console.log('useCurrencyBalance >>>', useCurrencyBalances(account, [currency])[0] )
   return useCurrencyBalances(account, [currency])[0]
 }
 
