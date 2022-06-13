@@ -1011,7 +1011,7 @@ exports[`Trade #useAllCommonPairs should get all pair combinations wbnb, cake 1`
               "decimals": 18,
               "name": "Pancake LPs",
               "projectLink": undefined,
-              "symbol": "Cake-LP",
+              "symbol": "HYDRO-LP",
             },
             "tokenAmounts": Array [
               TokenAmount {
@@ -1076,7 +1076,7 @@ exports[`Trade #useAllCommonPairs should get all pair combinations wbnb, cake 1`
               "decimals": 18,
               "name": "Pancake LPs",
               "projectLink": undefined,
-              "symbol": "Cake-LP",
+              "symbol": "HYDRO-LP",
             },
             "tokenAmounts": Array [
               TokenAmount {
@@ -1141,7 +1141,7 @@ exports[`Trade #useAllCommonPairs should get all pair combinations wbnb, cake 1`
               "decimals": 18,
               "name": "Pancake LPs",
               "projectLink": undefined,
-              "symbol": "Cake-LP",
+              "symbol": "HYDRO-LP",
             },
             "tokenAmounts": Array [
               TokenAmount {
@@ -2200,7 +2200,7 @@ exports[`Trade #useAllCommonPairs should get all pair combinations, wbnb, wbnb 1
               "decimals": 18,
               "name": "Pancake LPs",
               "projectLink": undefined,
-              "symbol": "Cake-LP",
+              "symbol": "HYDRO-LP",
             },
             "tokenAmounts": Array [
               TokenAmount {
@@ -2265,7 +2265,7 @@ exports[`Trade #useAllCommonPairs should get all pair combinations, wbnb, wbnb 1
               "decimals": 18,
               "name": "Pancake LPs",
               "projectLink": undefined,
-              "symbol": "Cake-LP",
+              "symbol": "HYDRO-LP",
             },
             "tokenAmounts": Array [
               TokenAmount {
@@ -2330,7 +2330,7 @@ exports[`Trade #useAllCommonPairs should get all pair combinations, wbnb, wbnb 1
               "decimals": 18,
               "name": "Pancake LPs",
               "projectLink": undefined,
-              "symbol": "Cake-LP",
+              "symbol": "HYDRO-LP",
             },
             "tokenAmounts": Array [
               TokenAmount {
