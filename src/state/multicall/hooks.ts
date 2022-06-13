@@ -70,7 +70,6 @@ function useCallsData(calls: (Call | undefined)[], options?: ListenerOptions): C
   // update listeners when there is an actual change that persists for at least 100ms
   useEffect(() => {
     const callKeys: string[] = JSON.parse(serializedCallKeys)
-    console.log("useCallsData:", callKeys, chainId)
     if (!chainId || callKeys.length === 0) return undefined
     // eslint-disable-next-line @typescript-eslint/no-shadow
     const calls = callKeys.map((key) => parseCallKey(key))
@@ -170,7 +169,6 @@ export function useSingleContractMultipleData(
   options?: ListenerOptions,
 ): CallState[] {
   const fragment = useMemo(() => contract?.interface?.getFunction(methodName), [contract, methodName])
- console.log('call inputs', callInputs)
   const calls = useMemo(
     () =>
       contract && fragment && callInputs && callInputs.length > 0
@@ -185,7 +183,6 @@ export function useSingleContractMultipleData(
   )
 
   const results = useCallsData(calls, options)
-  console.log('results >>> + ', results)
 
   const { cache } = useSWRConfig()
 
@@ -204,7 +201,7 @@ export function useMultipleContractSingleData(
 ): CallState[] {
   const fragment = useMemo(() => contractInterface.getFunction(methodName), [contractInterface, methodName])
 
-  console.log('useMultipleContractSingleData', addresses,"\n", contractInterface, "\n", methodName, callInputs, "\n", fragment)
+
 
   const callData: string | undefined = useMemo(
     () =>
@@ -214,7 +211,6 @@ export function useMultipleContractSingleData(
     [callInputs, contractInterface, fragment],
   )
 
-    console.log('calldata >>>\n', addresses, callData)
 
   const calls = useMemo(
     () =>
@@ -230,8 +226,6 @@ export function useMultipleContractSingleData(
         : [],
     [addresses, callData, fragment],
   )
-
-  console.log('calls', calls)
 
   const results = useCallsData(calls, options)
 
