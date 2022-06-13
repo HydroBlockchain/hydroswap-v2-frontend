@@ -136,6 +136,8 @@ export default function AddLiquidity() {
   async function onAdd() {
     if (!chainId || !library || !account) return
     const routerContract = getRouterContract(chainId, library, account)
+   
+   
 
     const { [Field.CURRENCY_A]: parsedAmountA, [Field.CURRENCY_B]: parsedAmountB } = parsedAmounts
     if (!parsedAmountA || !parsedAmountB || !currencyA || !currencyB || !deadline) {
@@ -147,6 +149,8 @@ export default function AddLiquidity() {
       [Field.CURRENCY_B]: calculateSlippageAmount(parsedAmountB, noLiquidity ? 0 : allowedSlippage)[0],
     }
 
+
+
     let estimate
     let method: (...args: any) => Promise<TransactionResponse>
     let args: Array<string | string[] | number>
@@ -154,7 +158,6 @@ export default function AddLiquidity() {
     if (currencyA === ETHER || currencyB === ETHER) {
       const tokenBIsBNB = currencyB === ETHER
       estimate = routerContract.estimateGas.addLiquidityETH
-      console.log('estimate', estimate)
       method = routerContract.addLiquidityETH
       args = [
         wrappedCurrency(tokenBIsBNB ? currencyA : currencyB, chainId)?.address ?? '', // token
@@ -167,7 +170,6 @@ export default function AddLiquidity() {
       value = BigNumber.from((tokenBIsBNB ? parsedAmountB : parsedAmountA).raw.toString())
     } else {
       estimate = routerContract.estimateGas.addLiquidity
-      console.log('router contract', routerContract)
       method = routerContract.addLiquidity
       args = [
         wrappedCurrency(currencyA, chainId)?.address ?? '',
@@ -181,9 +183,8 @@ export default function AddLiquidity() {
       ]
       value = null
     }
-
+     
     setLiquidityState({ attemptingTxn: true, liquidityErrorMessage: undefined, txHash: undefined })
-   estimate(...args, value ? { value } : {}).then(est =>console.log('estimatedGas', est)).catch(e => console.log('estimate error', e, args, value))
     await estimate(...args, value ? { value } : {})
       .then((estimatedGasLimit) =>
         method(...args, {
@@ -206,11 +207,11 @@ export default function AddLiquidity() {
       .catch((err) => {
         if (err && err.code !== 4001) {
           logError(err)
-          console.error(`Add Liquidity failed`, err, args, value)
+          console.error(`Add Liquidity failed `, err, args, value)
         }
         setLiquidityState({
           attemptingTxn: false,
-          liquidityErrorMessage: err && err.code !== 4001 ? `Add Liquidity failed: ${err.message}` : undefined,
+          liquidityErrorMessage: err && err.code !== 4001 ? `Add Liquidity failed : ${err.message}` : undefined,
           txHash: undefined,
         })
       })

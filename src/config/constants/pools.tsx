@@ -14,7 +14,6 @@ export const UNLOCK_FREE_DURATION = 604800
 export const ONE_WEEK_DEFAULT = 604800
 export const BOOST_WEIGHT = BigNumber.from('20000000000000')
 export const DURATION_FACTOR = BigNumber.from('31536000')
-console.log(CHAIN_ID, "chainid")
 
 export const vaultPoolConfig = {
   [VaultKey.CakeVaultV1]: {

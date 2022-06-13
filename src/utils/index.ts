@@ -94,7 +94,6 @@ export function getContract(address: string, ABI: any, signer?: Signer | Provide
 
 // account is optional
 export function getRouterContract(_: number, library: Web3Provider, account?: string) {
-  console.log(ROUTER_ADDRESS[CHAIN_ID])
   return getContract(
     ROUTER_ADDRESS[CHAIN_ID],
     IPancakeRouter02ABI,

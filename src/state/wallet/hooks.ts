@@ -6,6 +6,7 @@ import { useAllTokens } from 'hooks/Tokens'
 import { useMulticallContract } from 'hooks/useContract'
 import { isAddress } from 'utils'
 import orderBy from 'lodash/orderBy'
+import { useGetBnbBalance } from 'hooks/useTokenBalance'
 import { useSingleContractMultipleData, useMultipleContractSingleData } from '../multicall/hooks'
 
 /**
@@ -27,6 +28,7 @@ export function useBNBBalances(uncheckedAddresses?: (string | undefined)[]): {
     'getEthBalance',
     addresses.map((address) => [address]),
   )
+ 
 
   return useMemo(
     () =>
@@ -53,7 +55,7 @@ export function useTokenBalancesWithLoadingIndicator(
 
   const validatedTokenAddresses = useMemo(() => validatedTokens.map((vt) => vt.address), [validatedTokens])
 
-
+ 
   const balances = useMultipleContractSingleData(
     validatedTokenAddresses,
     ERC20_INTERFACE,
