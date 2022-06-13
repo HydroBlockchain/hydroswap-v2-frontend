@@ -1,4 +1,4 @@
-import { Price } from '@pancakeswap/sdk'
+import { Price } from 'hydroswap-v2-sdk'
 import { Text, AutoRenewIcon } from 'hydroswap-uikitv2'
 import { StyledBalanceMaxMini } from './styleds'
 

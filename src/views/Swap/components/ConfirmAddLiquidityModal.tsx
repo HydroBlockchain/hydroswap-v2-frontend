@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { Currency, CurrencyAmount, Fraction, Percent, Token, TokenAmount } from '@pancakeswap/sdk'
+import { Currency, CurrencyAmount, Fraction, Percent, Token, TokenAmount } from 'hydroswap-v2-sdk'
 import { Flex, InjectedModalProps, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import TransactionConfirmationModal, {

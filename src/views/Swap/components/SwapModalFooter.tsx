@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import styled from 'styled-components'
-import { Trade, TradeType } from '@pancakeswap/sdk'
+import { Trade, TradeType } from 'hydroswap-v2-sdk'
 import { Button, Text, AutoRenewIcon } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { Field } from 'state/swap/actions'

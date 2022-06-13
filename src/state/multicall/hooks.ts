@@ -70,6 +70,7 @@ function useCallsData(calls: (Call | undefined)[], options?: ListenerOptions): C
   // update listeners when there is an actual change that persists for at least 100ms
   useEffect(() => {
     const callKeys: string[] = JSON.parse(serializedCallKeys)
+    console.log("useCallsData:", callKeys, chainId)
     if (!chainId || callKeys.length === 0) return undefined
     // eslint-disable-next-line @typescript-eslint/no-shadow
     const calls = callKeys.map((key) => parseCallKey(key))
@@ -184,6 +185,7 @@ export function useSingleContractMultipleData(
   )
 
   const results = useCallsData(calls, options)
+  console.log('results >>> + ', results)
 
   const { cache } = useSWRConfig()
 

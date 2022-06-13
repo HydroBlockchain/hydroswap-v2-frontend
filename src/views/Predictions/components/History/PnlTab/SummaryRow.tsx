@@ -1,4 +1,4 @@
-import { Price } from '@pancakeswap/sdk'
+import { Price } from 'hydroswap-v2-sdk'
 import { Flex, Text } from 'hydroswap-uikitv2'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { useTranslation } from 'contexts/Localization'

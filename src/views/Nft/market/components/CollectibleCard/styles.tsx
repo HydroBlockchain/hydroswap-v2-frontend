@@ -12,7 +12,7 @@ import {
   WalletFilledIcon,
   Skeleton,
 } from 'hydroswap-uikitv2'
-import { Price } from '@pancakeswap/sdk'
+import { Price } from 'hydroswap-v2-sdk'
 import { useTranslation } from 'contexts/Localization'
 import { multiplyPriceByAmount } from 'utils/prices'
 import styled from 'styled-components'

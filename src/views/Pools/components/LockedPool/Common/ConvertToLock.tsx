@@ -1,4 +1,4 @@
-import { Token } from '@pancakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 import { Flex, Message, MessageText, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { memo } from 'react'
