@@ -1,10 +1,6 @@
 import { useMemo } from 'react'
 import { formatUnits } from '@ethersproject/units'
-<<<<<<< HEAD
-import { CurrencyAmount, Price, Token, TokenAmount, JSBI, ETHER } from '@panakeswap/sdk'
-=======
 import { CurrencyAmount, Price, Token, TokenAmount, JSBI, ETHER } from 'hydroswap-v2-sdk'
->>>>>>> 07e0a34d8671a81f9cff3bd3f3bdf15cfd4caaa6
 import { BigNumber } from '@ethersproject/bignumber'
 import { useTradeExactIn } from 'hooks/Trades'
 import tryParseAmount from 'utils/tryParseAmount'

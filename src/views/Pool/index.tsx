@@ -13,7 +13,7 @@ import { AppHeader, AppBody } from '../../components/App'
 import Page from '../Page'
 
 const Body = styled(CardBody)`
-  background-color: ${({ theme }) => theme.colors.dropdownDeep};
+  background-color: ${({ theme }) => theme.colors.gradients.cardBody};
 `
 
 export default function Pool() {
