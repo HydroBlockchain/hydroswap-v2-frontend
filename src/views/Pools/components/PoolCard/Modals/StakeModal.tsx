@@ -149,7 +149,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
     }
     const receipt = await fetchWithCatchTxError(() => {
       if (isRemovingStake) {
-      return onUnstake(stakeAmount, stakingToken.decimals)
+       return onUnstake(stakeAmount, stakingToken.decimals)
       }
        else {
          return onStake(stakeAmount, stakingToken.decimals)
