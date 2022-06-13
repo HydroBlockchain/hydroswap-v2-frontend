@@ -184,9 +184,9 @@ export default function AddLiquidity() {
       ]
       value = null
     }
-    
+     
     setLiquidityState({ attemptingTxn: true, liquidityErrorMessage: undefined, txHash: undefined })
-    estimate(...args, value ? { value } : {}).then(est =>console.log('estimatedGas', est)).catch(e => console.log('estimate error', e))
+   estimate(...args, value ? { value } : {}).then(est =>console.log('estimatedGas', est)).catch(e => console.log('estimate error', e, args, value))
     await estimate(...args, value ? { value } : {})
       .then((estimatedGasLimit) =>
         method(...args, {
