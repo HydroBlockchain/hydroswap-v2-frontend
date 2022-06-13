@@ -290,7 +290,7 @@ export default function AddLiquidity() {
       <AppBody>
         <AppHeader
           title={t('Add Liquidity')}
-          subtitle={t('Add liquidity to receive LP tokens')}
+          subtitle={t('Add liquidity to receive Droplet tokens')}
           helper={t(
             'Liquidity providers earn a 0.17% trading fee on all trades made for that token pair, proportional to their share of the liquidity pool.',
           )}
@@ -429,7 +429,7 @@ export default function AddLiquidity() {
       </AppBody>
       {!addIsUnsupported ? (
         pair && !noLiquidity && pairState !== PairState.INVALID ? (
-          <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '400px', marginTop: '1rem' }}>
+          <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '434px', marginTop: '1rem' }}>
             <MinimalPositionCard showUnwrapped={oneCurrencyIsWBNB} pair={pair} />
           </AutoColumn>
         ) : null

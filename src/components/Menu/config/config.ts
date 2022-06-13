@@ -29,6 +29,10 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     // ],
   },
   {
+    label:t('Liquidity'),
+    href: '/liquidity',
+  },
+  {
     label: t('Stake'),
     href: '/pools',
   },
@@ -36,7 +40,7 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     label: t('Bridge'),
     href: 'https://hydro-bridge.org',
     external:true,
-  },  
+  },
 ]
 
 export default config
