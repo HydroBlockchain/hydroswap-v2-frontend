@@ -53,13 +53,13 @@ const Footer: React.FC<FooterProps> = ({ pool, account, defaultExpanded, childre
     <CardFooter>
       <Flex justifyContent="space-evenly" flexWrap="wrap">
        <Flex mb="4px">
-          <LinkExternal href={`/info/token/${earningToken.address}`} bold={false} small>
+          <LinkExternal href={`${BASE_BSC_SCAN_URL}/token/0x804d51B4751eec021fef2199936FAFde0A520e04`} small>
             {t('See Token Info')}
           </LinkExternal>
         </Flex>
         {!vaultKey && (
         <Flex mb="4px">
-          <LinkExternal href={earningToken.projectLink} bold={false} small>
+          <LinkExternal href={`https://keresverse.org`} bold={false} small>
             {t('View Project Site')}
           </LinkExternal>
         </Flex>
