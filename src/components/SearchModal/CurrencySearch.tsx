@@ -125,9 +125,9 @@ function CurrencySearch({
   const handleCurrencySelect = useCallback(
     (currency: Currency) => {
       onCurrencySelect(currency)
-      if (audioPlay) {
-        getSwapSound().play()
-      }
+      // if (audioPlay) {
+      //   getSwapSound().play()
+      // }
     },
     [audioPlay, onCurrencySelect],
   )

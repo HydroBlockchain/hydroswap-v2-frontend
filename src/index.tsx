@@ -10,7 +10,7 @@ export function Updaters() {
     <>
       <ListsUpdater />
       <TransactionUpdater />
-      <MulticallUpdater />
+      {/* <MulticallUpdater /> */}
     </>
   )
 }
