@@ -29,6 +29,10 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     // ],
   },
   {
+    label:t('Liquidity'),
+    href: '/liquidity',
+  },
+  {
     label: t('Stake'),
     href: '/pools',
   },
