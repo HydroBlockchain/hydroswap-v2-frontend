@@ -102,7 +102,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
               </StyledBtn>
           }
            {
-             placeRequest &&    <StyledBtn 
+             (placeRequest && loaded) &&    <StyledBtn 
              disabled={loading || stakeInfo?.pending }
              onClick={onPresentStake} mr="6px">
                {t(`${loading ? 'checking': stakeInfo?.pending ? 'Request Pending' : 'Place Unstake Request'}`)}
