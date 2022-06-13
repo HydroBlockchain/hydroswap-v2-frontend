@@ -16,14 +16,12 @@ export function useBNBBalances(uncheckedAddresses?: (string | undefined)[]): {
   [address: string]: CurrencyAmount | undefined
 } {
   const multicallContract = useMulticallContract()
-  console.log(uncheckedAddresses, "multicallContract")
 
   const addresses: string[] = useMemo(
     () =>
       uncheckedAddresses ? orderBy(uncheckedAddresses.map(isAddress).filter((a): a is string => a !== false)) : [],
     [uncheckedAddresses],
   )
-  console.log(uncheckedAddresses, "multicallContract")
 
   const results = useSingleContractMultipleData(
     multicallContract,
@@ -110,10 +108,8 @@ export function useCurrencyBalances(
   )
 
   const tokenBalances = useTokenBalances(account, tokens)
-  console.log(tokens, 'tokens')
   const containsBNB: boolean = useMemo(() => currencies?.some((currency) => currency === ETHER) ?? false, [currencies])
   const bnbBalance = useBNBBalances(containsBNB ? [account] : [])
-  console.log("containsBNB", containsBNB)
 
   return useMemo(
     () =>

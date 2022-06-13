@@ -34,10 +34,8 @@ const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0)
 //   let startEndBlockRaw
 //   // try {
 //   //   startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
-//   // } catch (error) {
-//   //   console.log(error, 'startEndBlockRaw')
+//   // } catch (error) 
 //   // }
-//   // console.log(startEndBlockRaw, 'startEndBlockRaw')
 
 //   const startEndBlockResult = startEndBlockRaw.reduce((resultArray, item, index) => {
 //     const chunkIndex = Math.floor(index / 2)
@@ -70,7 +68,6 @@ const poolsBalanceOf = poolsConfig.map((poolConfig) => {
 })
 
 export const fetchPoolsTotalStaking = async () => {
- console.log( poolsBalanceOf, " poolsBalanceOf")
   const poolsTotalStaked = await multicall(erc20ABI, poolsBalanceOf)
   return poolsConfig.map((p, index) => ({
     sousId: p.sousId,
@@ -85,7 +82,6 @@ const poolsAPR = poolsConfig.map((poolConfig) => {
   }
 })
 
-// console.log(poolsAPR, "poolsAPR")
 
 export const fetchPoolsAPR = async () => {
   const poolsApr = await multicall(kvsStakingABI, poolsAPR)
@@ -113,12 +109,6 @@ export const fetchPoolsStakingLimits = async (
       }))
     })
     .flat()
-
-  // if(poolStakingCalls.length > 0){
-  //   return
-  // }
-
-  // console.log(poolStakingCalls, "poolStakingCalls")
 
   const poolStakingResultRaw = await multicallv2(sousChefV2, poolStakingCalls, { requireSuccess: false })
   const chunkSize = poolStakingCalls.length / validPools.length

@@ -55,7 +55,6 @@ export function getBscScanLinkForNft(collectionAddress: string, tokenId: string)
 
 // add 10%
 export function calculateGasMargin(value: BigNumber): BigNumber {
-  console.log(value, "who")
   return value.mul(BigNumber.from(10000).add(BigNumber.from(1000))).div(BigNumber.from(10000))
 }
 
@@ -95,7 +94,6 @@ export function getContract(address: string, ABI: any, signer?: Signer | Provide
 
 // account is optional
 export function getRouterContract(_: number, library: Web3Provider, account?: string) {
-  console.log(ROUTER_ADDRESS[CHAIN_ID])
   return getContract(
     ROUTER_ADDRESS[CHAIN_ID],
     IPancakeRouter02ABI,

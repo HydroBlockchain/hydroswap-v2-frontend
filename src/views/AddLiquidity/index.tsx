@@ -158,7 +158,6 @@ export default function AddLiquidity() {
     if (currencyA === ETHER || currencyB === ETHER) {
       const tokenBIsBNB = currencyB === ETHER
       estimate = routerContract.estimateGas.addLiquidityETH
-      console.log('estimate', estimate)
       method = routerContract.addLiquidityETH
       args = [
         wrappedCurrency(tokenBIsBNB ? currencyA : currencyB, chainId)?.address ?? '', // token
@@ -186,7 +185,6 @@ export default function AddLiquidity() {
     }
      
     setLiquidityState({ attemptingTxn: true, liquidityErrorMessage: undefined, txHash: undefined })
-   estimate(...args, value ? { value } : {}).then(est =>console.log('estimatedGas', est)).catch(e => console.log('estimate error', e, args, value))
     await estimate(...args, value ? { value } : {})
       .then((estimatedGasLimit) =>
         method(...args, {
