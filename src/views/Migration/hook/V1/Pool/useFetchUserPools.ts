@@ -16,7 +16,6 @@ export interface PoolsState {
 
 const serializedTokens = serializeTokens()
 const cakeContract = getCakeContract()
-console.log('cake contract >>>', cakeContract)
 
 const initialData = {
   data: {
