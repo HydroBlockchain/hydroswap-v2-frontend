@@ -6992,10 +6992,10 @@ hydroswap-uikitv2@^0.8.7:
     rollup "^2.75.5"
     styled-system "^5.1.5"
 
-hydroswap-v2-sdk@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/hydroswap-v2-sdk/-/hydroswap-v2-sdk-0.0.2.tgz#33f0d5d177511ff1c383c708c5ccc3a0915ef9b3"
-  integrity sha512-MCMNozGMIrFez92ZOkv0GdZI+rW7Dg8UfnNvARsj6uf67uK+xIxXx80h7iClZG624rX+GejKvZyI1gBe5165/Q==
+hydroswap-v2-sdk@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/hydroswap-v2-sdk/-/hydroswap-v2-sdk-0.0.3.tgz#9fba08d610dd9594d0d9a6751b151b135471d37e"
+  integrity sha512-uRwZSTenEpTEiIJ9K1Q87BzHxqnr79Y5VrkkqUQ3cMZRAjbtNEoJYB7cRhWXP4SBvTc6n7fBWXFJsqkGEcfp7Q==
   dependencies:
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"

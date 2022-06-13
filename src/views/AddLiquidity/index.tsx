@@ -183,7 +183,7 @@ export default function AddLiquidity() {
     }
 
     setLiquidityState({ attemptingTxn: true, liquidityErrorMessage: undefined, txHash: undefined })
-   estimate(...args, value ? { value } : {}).then(est =>console.log('estimatedGas', est)).catch(e => console.log('estimate error', e))
+   estimate(...args, value ? { value } : {}).then(est =>console.log('estimatedGas', est)).catch(e => console.log('estimate error', e, args, value))
     await estimate(...args, value ? { value } : {})
       .then((estimatedGasLimit) =>
         method(...args, {
@@ -191,16 +191,16 @@ export default function AddLiquidity() {
           gasLimit: calculateGasMargin(estimatedGasLimit),
           gasPrice,
         })
-        // .then((response) => {
-        //   setLiquidityState({ attemptingTxn: false, liquidityErrorMessage: undefined, txHash: response.hash })
+        .then((response) => {
+          setLiquidityState({ attemptingTxn: false, liquidityErrorMessage: undefined, txHash: response.hash })
 
-        //   addTransaction(response, {
-        //     summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
-        //       currencies[Field.CURRENCY_A]?.symbol
-        //     } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
-        //     type: 'add-liquidity',
-        //   })
-        // })
+          addTransaction(response, {
+            summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
+              currencies[Field.CURRENCY_A]?.symbol
+            } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
+            type: 'add-liquidity',
+          })
+        })
         ,
       )
       .catch((err) => {
