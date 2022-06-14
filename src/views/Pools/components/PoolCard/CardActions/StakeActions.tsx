@@ -7,10 +7,12 @@ import Balance from 'components/Balance'
 import styled from 'styled-components'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import NotEnoughTokensModal from '../Modals/NotEnoughTokensModal'
-// import StakeModal from '../Modals/StakeModal'
+import StakeModal from '../Modals/StakeModal'
 import useUserStakeInfo from "../../../hooks/useUserStakeInfo"
 import CurrentTimer from "../../DateCountdown"
-import{StakeModal, AddStakeModal}  from '../Modals/StakeModal'
+import AddStakeModal from '../Modals/AddStakeModal'
+
+
 
 
 interface StakeActionsProps {
@@ -72,6 +74,8 @@ const StakeAction: React.FC<StakeActionsProps> = ({
      stakingTokenPrice={stakingTokenPrice}
     />
   )
+
+  
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     t('You’ve already staked the maximum amount you can stake in this pool!'),
