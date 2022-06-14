@@ -5,11 +5,12 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import { DeserializedPool } from 'state/types'
 import Balance from 'components/Balance'
 import styled from 'styled-components'
-import NotEnoughTokensModal from '../Modals/NotEnoughTokensModal'
-import StakeModal from '../Modals/StakeModal'
-import useUserStakeInfo from "../../../hooks/useUserStakeInfo"
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
+import NotEnoughTokensModal from '../Modals/NotEnoughTokensModal'
+// import StakeModal from '../Modals/StakeModal'
+import useUserStakeInfo from "../../../hooks/useUserStakeInfo"
 import CurrentTimer from "../../DateCountdown"
+import{StakeModal, AddStakeModal}  from '../Modals/StakeModal'
 
 
 interface StakeActionsProps {
@@ -47,7 +48,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
 
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />)
 
-  const placeRequest =  (stakeInfo?.pending ==false  && stakeInfo?.amount > 0) 
+  const placeRequest =  (stakeInfo?.pending == false  && stakeInfo?.amount > 0) 
 
   const claimHydro = (stakeInfo?.requestedAmount > 0 && (stakeInfo?.releasedAt < stakeInfo?.currentTimeStamp) && stakeInfo?.pending )
   const [onPresentStake] = useModal(
@@ -61,6 +62,15 @@ const StakeAction: React.FC<StakeActionsProps> = ({
       isRemovingStake={placeRequest}
       
     />,
+  )
+
+  const [onAddStake] = useModal(
+    <AddStakeModal
+     isBnbPool={isBnbPool}
+     pool={pool}
+     stakingTokenBalance={stakingTokenBalance}
+     stakingTokenPrice={stakingTokenPrice}
+    />
   )
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
@@ -127,7 +137,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
           ) : (
             <>
             <StyledBtn
-              onClick={stakingTokenBalance.gt(0) ? onPresentStake : onPresentTokenRequired}
+              onClick={stakingTokenBalance.gt(0) ? onAddStake : onPresentTokenRequired}
               disabled={isFinished}
             >
               {/* <AddIcon color="primary" width="24px" height="24px" /> */}
