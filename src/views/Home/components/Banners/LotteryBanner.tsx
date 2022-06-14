@@ -11,8 +11,8 @@ import styled from 'styled-components'
 import useSWR from 'swr'
 import { getBalanceNumber } from 'utils/formatBalance'
 import getTimePeriods from 'utils/getTimePeriods'
-import Timer from 'views/Lottery/components/Countdown/Timer'
-import useGetNextLotteryEvent from 'views/Lottery/hooks/useGetNextLotteryEvent'
+// import Timer from 'views/Lottery/components/Countdown/Timer'
+// import useGetNextLotteryEvent from 'views/Lottery/hooks/useGetNextLotteryEvent'
 import useNextEventCountdown from './hooks/useNextEventCountdown'
 import { lotteryImage, lotteryMobileImage } from './images'
 import * as S from './Styled'
@@ -61,39 +61,39 @@ export const StyledSubheading = styled(Heading)`
 `
 const isLotteryLive = (status: LotteryStatus) => status === LotteryStatus.OPEN
 
-const LotteryPrice: React.FC = () => {
-  const { data } = useSWR<LotteryResponse>(['currentLottery'])
-  const cakePriceBusd = usePriceCakeBusd()
-  const prizeInBusd = new BigNumber(data.amountCollectedInCake).times(cakePriceBusd)
-  const prizeTotal = getBalanceNumber(prizeInBusd)
-  const { t } = useTranslation()
+// const LotteryPrice: React.FC = () => {
+//   const { data } = useSWR<LotteryResponse>(['currentLottery'])
+//   const cakePriceBusd = usePriceCakeBusd()
+//   const prizeInBusd = new BigNumber(data.amountCollectedInCake).times(cakePriceBusd)
+//   const prizeTotal = getBalanceNumber(prizeInBusd)
+//   const { t } = useTranslation()
 
-  if (isLotteryLive(data.status)) {
-    return (
-      <>
-        {prizeInBusd.isNaN() ? (
-          <Skeleton height={20} width={90} display="inline-block" />
-        ) : (
-          t('Win $%prize% in Lottery', {
-            prize: prizeTotal.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }),
-          })
-        )}
-      </>
-    )
-  }
-  return null
-}
+//   if (isLotteryLive(data.status)) {
+//     return (
+//       <>
+//         {prizeInBusd.isNaN() ? (
+//           <Skeleton height={20} width={90} display="inline-block" />
+//         ) : (
+//           t('Win $%prize% in Lottery', {
+//             prize: prizeTotal.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }),
+//           })
+//         )}
+//       </>
+//     )
+//   }
+//   return null
+// }
 
-const LotteryCountDownTimer = () => {
-  const { data } = useSWR<LotteryResponse>(['currentLottery'])
-  const endTimeAsInt = parseInt(data.endTime, 10)
-  const { nextEventTime } = useGetNextLotteryEvent(endTimeAsInt, data.status)
-  const secondsRemaining = useNextEventCountdown(nextEventTime)
-  const { days, hours, minutes, seconds } = getTimePeriods(secondsRemaining)
-  if (isLotteryLive(data.status))
-    return <Timer wrapperClassName="custom-timer" seconds={seconds} minutes={minutes} hours={hours} days={days} />
-  return null
-}
+// const LotteryCountDownTimer = () => {
+//   const { data } = useSWR<LotteryResponse>(['currentLottery'])
+//   const endTimeAsInt = parseInt(data.endTime, 10)
+//   const { nextEventTime } = useGetNextLotteryEvent(endTimeAsInt, data.status)
+//   const secondsRemaining = useNextEventCountdown(nextEventTime)
+//   const { days, hours, minutes, seconds } = getTimePeriods(secondsRemaining)
+//   if (isLotteryLive(data.status))
+//     return <Timer wrapperClassName="custom-timer" seconds={seconds} minutes={minutes} hours={hours} days={days} />
+//   return null
+// }
 
 const LotteryBanner = () => {
   const { t } = useTranslation()
@@ -106,12 +106,12 @@ const LotteryBanner = () => {
         <S.LeftWrapper>
           {status === FetchStatus.Fetched && isLotteryLive(data.status) ? (
             <>
-              <StyledSubheading style={{ textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
+              {/* <StyledSubheading style={{ textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
                 <LotteryPrice />
-              </StyledSubheading>
-              <TimerWrapper>
+              </StyledSubheading> */}
+              {/* <TimerWrapper>
                 <LotteryCountDownTimer />
-              </TimerWrapper>
+              </TimerWrapper> */}
             </>
           ) : (
             <>
