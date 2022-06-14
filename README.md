@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/HydroBlockchain/brand-kit/blob/main/hydroswap-logo.png?raw=true">
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bc1db2cb-3699-448f-80d3-734d1e07131d/deploy-status)](https://app.netlify.com/sites/comforting-meerkat-58ecb6/deploys)</p>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0d87bd7e-3492-4fbe-adc1-dc91ee204217/deploy-status)](https://app.netlify.com/sites/hydro-swap/deploys)</p>
 
 This project contains the main features of the Hydroswap application.
 
