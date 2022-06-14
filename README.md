@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/HydroBlockchain/hydroswap-v2-frontend/afa5ad4773bae43b433f98de0f47a487f61d45d9/public/images/logo-dm.svg?token=AOV4JG4ZRSWIGMZI6UDQRBTCVCC2M">
+<p align="center"><img src="https://github.com/HydroBlockchain/brand-kit/blob/main/hydroswap-logo.png?raw=true">
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bc1db2cb-3699-448f-80d3-734d1e07131d/deploy-status)](https://app.netlify.com/sites/comforting-meerkat-58ecb6/deploys)</p>
 
