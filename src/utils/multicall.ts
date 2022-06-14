@@ -1,6 +1,7 @@
 import { Interface } from '@ethersproject/abi'
 import { CallOverrides } from '@ethersproject/contracts'
 import { getMulticallContract } from 'utils/contractHelpers'
+import { ethers } from 'ethers'
 
 export interface Call {
   address: string // Address of the contract
@@ -12,19 +13,28 @@ export interface MulticallOptions extends CallOverrides {
   requireSuccess?: boolean
 }
 
+declare const window:any
 const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
+  // console.log(window.ethereum, 'window.ethereum >>>>')
+ // const provider = new ethers.providers.Web3Provider(window.ethereum)
   const multi = getMulticallContract()
+
+  // console.log(multi, 'multi')
   const itf = new Interface(abi)
 
   const calldata = calls.map((call) => ({
     target: call.address.toLowerCase(),
     callData: itf.encodeFunctionData(call.name, call.params),
   }))
-  const { returnData } = await multi.aggregate(calldata)
+  try {
+    const { returnData } = await multi.aggregate(calldata)
+    const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call))
+    return res as any
+  }
+  catch(e){
+  //  console.log('aggregate failed >>>>>', e)
 
-  const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call))
-
-  return res as any
+  }
 }
 
 /**
@@ -35,7 +45,8 @@ const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
  */
 export const multicallv2 = async <T = any>(abi: any[], calls: Call[], options?: MulticallOptions): Promise<T> => {
   const { requireSuccess = true, ...overrides } = options || {}
-  const multi = getMulticallContract()
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  const multi = getMulticallContract(provider)
   const itf = new Interface(abi)
 
   const calldata = calls.map((call) => ({

@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@pancakeswap/sdk'
-import { Button, Text, AddIcon, CardBody, Message, useModal } from '@pancakeswap/uikit'
+import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from 'hydroswap-v2-sdk'
+import { Button, Text, AddIcon, CardBody, Message, useModal } from 'hydroswap-uikitv2'
 import { logError } from 'utils/sentry'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import { useTranslation } from 'contexts/Localization'
@@ -136,6 +136,8 @@ export default function AddLiquidity() {
   async function onAdd() {
     if (!chainId || !library || !account) return
     const routerContract = getRouterContract(chainId, library, account)
+   
+   
 
     const { [Field.CURRENCY_A]: parsedAmountA, [Field.CURRENCY_B]: parsedAmountB } = parsedAmounts
     if (!parsedAmountA || !parsedAmountB || !currencyA || !currencyB || !deadline) {
@@ -146,6 +148,8 @@ export default function AddLiquidity() {
       [Field.CURRENCY_A]: calculateSlippageAmount(parsedAmountA, noLiquidity ? 0 : allowedSlippage)[0],
       [Field.CURRENCY_B]: calculateSlippageAmount(parsedAmountB, noLiquidity ? 0 : allowedSlippage)[0],
     }
+
+
 
     let estimate
     let method: (...args: any) => Promise<TransactionResponse>
@@ -179,7 +183,7 @@ export default function AddLiquidity() {
       ]
       value = null
     }
-
+     
     setLiquidityState({ attemptingTxn: true, liquidityErrorMessage: undefined, txHash: undefined })
     await estimate(...args, value ? { value } : {}).then(i => console.log(i, 'estimate gas ++'))
     await estimate(...args, value ? { value } : {})
@@ -188,7 +192,8 @@ export default function AddLiquidity() {
           ...(value ? { value } : {}),
           gasLimit: calculateGasMargin(estimatedGasLimit),
           gasPrice,
-        }).then((response) => {
+        })
+        .then((response) => {
           setLiquidityState({ attemptingTxn: false, liquidityErrorMessage: undefined, txHash: response.hash })
 
           addTransaction(response, {
@@ -197,16 +202,17 @@ export default function AddLiquidity() {
             } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
             type: 'add-liquidity',
           })
-        }),
+        })
+        ,
       )
       .catch((err) => {
         if (err && err.code !== 4001) {
           logError(err)
-          console.error(`Add Liquidity failed`, err, args, value)
+          console.error(`Add Liquidity failed `, err, args, value)
         }
         setLiquidityState({
           attemptingTxn: false,
-          liquidityErrorMessage: err && err.code !== 4001 ? `Add Liquidity failed: ${err.message}` : undefined,
+          liquidityErrorMessage: err && err.code !== 4001 ? `Add Liquidity failed : ${err.message}` : undefined,
           txHash: undefined,
         })
       })
@@ -285,7 +291,7 @@ export default function AddLiquidity() {
       <AppBody>
         <AppHeader
           title={t('Add Liquidity')}
-          subtitle={t('Add liquidity to receive LP tokens')}
+          subtitle={t('Add liquidity to receive Droplet tokens')}
           helper={t(
             'Liquidity providers earn a 0.17% trading fee on all trades made for that token pair, proportional to their share of the liquidity pool.',
           )}
@@ -424,7 +430,7 @@ export default function AddLiquidity() {
       </AppBody>
       {!addIsUnsupported ? (
         pair && !noLiquidity && pairState !== PairState.INVALID ? (
-          <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '400px', marginTop: '1rem' }}>
+          <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '434px', marginTop: '1rem' }}>
             <MinimalPositionCard showUnwrapped={oneCurrencyIsWBNB} pair={pair} />
           </AutoColumn>
         ) : null

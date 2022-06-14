@@ -1,4 +1,4 @@
-import { Button, Heading, Skeleton, Text } from '@pancakeswap/uikit'
+import { Button, Heading, Skeleton, Text } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import BigNumber from 'bignumber.js'
 import Balance from 'components/Balance'
@@ -6,10 +6,10 @@ import { useTranslation } from 'contexts/Localization'
 import { ToastDescriptionWithTx } from 'components/Toast'
 import useToast from 'hooks/useToast'
 import useCatchTxError from 'hooks/useCatchTxError'
-
 import { useAppDispatch } from 'state'
 import { fetchFarmUserDataAsync } from 'state/farms'
-import { usePriceCakeBusd } from 'state/farms/hooks'
+import { useCakeBusdPrice } from 'hooks/useBUSDPrice'
+// import { usePriceCakeBusd } from 'state/farms/hooks'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { getBalanceAmount } from 'utils/formatBalance'
 import { FarmWithStakedValue } from '../../types'
@@ -24,17 +24,19 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
   const { toastSuccess } = useToast()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
   const earningsBigNumber = new BigNumber(userData.earnings)
-  const cakePrice = usePriceCakeBusd()
+  // const cakePrice = usePriceCakeBusd()
+  const cakePrice = useCakeBusdPrice()
   let earnings = BIG_ZERO
   let earningsBusd = 0
   let displayBalance = userDataReady ? earnings.toLocaleString() : <Skeleton width={60} />
 
   // If user didn't connect wallet default balance will be 0
-  if (!earningsBigNumber.isZero()) {
-    earnings = getBalanceAmount(earningsBigNumber)
-    earningsBusd = earnings.multipliedBy(cakePrice).toNumber()
-    displayBalance = earnings.toFixed(3, BigNumber.ROUND_DOWN)
-  }
+  
+  // if (!earningsBigNumber.isZero()) {
+  //   earnings = getBalanceAmount(earningsBigNumber)
+  //   earningsBusd = earnings.multipliedBy(cakePrice).toNumber()
+  //   displayBalance = earnings.toFixed(3, BigNumber.ROUND_DOWN)
+  // }
 
   const { onReward } = useHarvestFarm(pid)
   const { t } = useTranslation()
@@ -76,7 +78,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
           }}
           ml="4px"
         >
-          {pendingTx ? t('Harvesting') : t('Harvest')}
+          {pendingTx ? t('Harvesting') : t('Harvest00')}
         </Button>
       </ActionContent>
     </ActionContainer>

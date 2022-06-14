@@ -1,4 +1,4 @@
-import { Tag, TagProps, Text, SplitIcon, LockIcon, UnlockIcon, HotIcon, Box } from '@pancakeswap/uikit'
+import { Tag, TagProps, Text,  Box } from 'hydroswap-uikitv2'
 import { FlexGap, FlexGapProps } from 'components/Layout/Flex'
 import Trans from 'components/Trans'
 import { useTranslation } from 'contexts/Localization'
@@ -25,10 +25,10 @@ const tagConfig: Record<VaultPosition, TagProps> = {
 }
 const iconConfig: Record<VaultPosition, any> = {
   [VaultPosition.None]: null,
-  [VaultPosition.Flexible]: SplitIcon,
-  [VaultPosition.Locked]: LockIcon,
-  [VaultPosition.LockedEnd]: UnlockIcon,
-  [VaultPosition.AfterBurning]: HotIcon,
+  [VaultPosition.Flexible]: null,
+  [VaultPosition.Locked]: null,
+  [VaultPosition.LockedEnd]: null,
+  [VaultPosition.AfterBurning]: null,
 }
 
 const positionLabel: Record<VaultPosition, ReactNode> = {

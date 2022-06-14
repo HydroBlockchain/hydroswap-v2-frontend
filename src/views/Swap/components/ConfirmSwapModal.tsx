@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react'
-import { currencyEquals, Trade } from '@pancakeswap/sdk'
-import { InjectedModalProps } from '@pancakeswap/uikit'
+import { currencyEquals, Trade } from 'hydroswap-v2-sdk'
+import { InjectedModalProps } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,

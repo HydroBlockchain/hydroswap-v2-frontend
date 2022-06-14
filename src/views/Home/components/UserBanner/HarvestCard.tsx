@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import styled from 'styled-components'
-import { AutoRenewIcon, Button, Card, CardBody, Flex, Skeleton, Text, ArrowForwardIcon } from '@pancakeswap/uikit'
+import { AutoRenewIcon, Button, Card, CardBody, Flex, Skeleton, Text, ArrowForwardIcon } from 'hydroswap-uikitv2'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
@@ -54,6 +54,7 @@ const HarvestCard = () => {
   }, [farmsWithStakedBalance, masterChefContract, toastSuccess, t, fetchWithCatchTxError])
 
   return (
+    <>
     <StyledCard>
       <CardBody>
         <Flex flexDirection={['column', null, null, 'row']} justifyContent="space-between" alignItems="center">
@@ -105,6 +106,7 @@ const HarvestCard = () => {
         </Flex>
       </CardBody>
     </StyledCard>
+    </>
   )
 }
 

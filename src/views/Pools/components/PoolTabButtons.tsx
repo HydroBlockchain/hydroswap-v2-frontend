@@ -3,7 +3,7 @@ import ToggleView from 'components/ToggleView/ToggleView'
 import { ViewMode } from 'state/user/actions'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import { ButtonMenu, ButtonMenuItem, Toggle, Text, NotificationDot } from '@pancakeswap/uikit'
+import { ButtonMenu, ButtonMenuItem, Toggle, Text, NotificationDot } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 
 const ToggleWrapper = styled.div`
@@ -78,19 +78,21 @@ const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, vi
     </Wrapper>
   )
 
-  const stakedOnlySwitch = (
-    <ToggleWrapper>
-      <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
-      <Text> {t('Staked only')}</Text>
-    </ToggleWrapper>
-  )
+  // const stakedOnlySwitch = (
+  //   <ToggleWrapper>
+  //     <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
+  //     <Text> {t('Staked only')}</Text>
+  //   </ToggleWrapper>
+  // )
 
   return (
-    <ViewControls>
+    <>
+    {/* <ViewControls>
       {viewModeToggle}
       {stakedOnlySwitch}
       {liveOrFinishedSwitch}
-    </ViewControls>
+    </ViewControls> */}
+    </>
   )
 }
 

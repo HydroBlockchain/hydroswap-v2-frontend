@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { escapeRegExp } from 'utils'
-import { Text, Button, Input, Flex, Box } from '@pancakeswap/uikit'
+import { Text, Button, Input, Flex, Box } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { useUserSlippageTolerance, useUserTransactionTTL } from 'state/user/hooks'
 import QuestionHelper from '../../QuestionHelper'
@@ -17,7 +17,7 @@ enum DeadlineError {
 
 const inputRegex = RegExp(`^\\d*(?:\\\\[.])?\\d*$`) // match escaped "." characters via in a non-capturing group
 
-const SlippageTabs = () => {
+const SlippageTabs = ({borderColor='grey'}) => {
   const [userSlippageTolerance, setUserSlippageTolerance] = useUserSlippageTolerance()
   const [ttl, setTtl] = useUserTransactionTTL()
   const [slippageInput, setSlippageInput] = useState('')
@@ -77,18 +77,21 @@ const SlippageTabs = () => {
 
   return (
     <Flex flexDirection="column">
-      <Flex flexDirection="column" mb="24px">
-        <Flex mb="12px">
+      <Flex flexDirection="column" mb="15px">
+        <Flex mb="12px" >
           <Text>{t('Slippage Tolerance')}</Text>
-          <QuestionHelper
+          {/* <QuestionHelper
             text={t(
               'Setting a high slippage tolerance can help transactions succeed, but you may not get such a good price. Use with caution.',
             )}
             placement="top-start"
             ml="4px"
-          />
+          /> */}
         </Flex>
-        <Flex flexWrap="wrap">
+        <Flex flexWrap="wrap"
+        pb='1rem' 
+          borderBottom={`1px ${borderColor} solid`}
+        >
           <Button
             mt="4px"
             mr="4px"
@@ -97,7 +100,7 @@ const SlippageTabs = () => {
               setSlippageInput('')
               setUserSlippageTolerance(10)
             }}
-            variant={userSlippageTolerance === 10 ? 'primary' : 'tertiary'}
+            variant={userSlippageTolerance === 10 ? 'secondary' : 'tertiary'}
           >
             0.1%
           </Button>
@@ -109,7 +112,7 @@ const SlippageTabs = () => {
               setSlippageInput('')
               setUserSlippageTolerance(50)
             }}
-            variant={userSlippageTolerance === 50 ? 'primary' : 'tertiary'}
+            variant={userSlippageTolerance === 50 ? 'secondary' : 'tertiary'}
           >
             0.5%
           </Button>
@@ -121,7 +124,7 @@ const SlippageTabs = () => {
               setSlippageInput('')
               setUserSlippageTolerance(100)
             }}
-            variant={userSlippageTolerance === 100 ? 'primary' : 'tertiary'}
+            variant={userSlippageTolerance === 100 ? 'secondary' : 'tertiary'}
           >
             1.0%
           </Button>
@@ -145,7 +148,7 @@ const SlippageTabs = () => {
                 isSuccess={![10, 50, 100].includes(userSlippageTolerance)}
               />
             </Box>
-            <Text color="primary" bold ml="2px">
+            <Text color="secondary" bold ml="2px">
               %
             </Text>
           </Flex>
@@ -160,14 +163,14 @@ const SlippageTabs = () => {
           </Text>
         )}
       </Flex>
-      <Flex justifyContent="space-between" alignItems="center" mb="24px">
+      <Flex justifyContent="space-between" alignItems="center" mb="15px">
         <Flex alignItems="center">
           <Text>{t('Tx deadline (mins)')}</Text>
-          <QuestionHelper
+          {/* <QuestionHelper
             text={t('Your transaction will revert if it is left confirming for longer than this time.')}
             placement="top-start"
             ml="4px"
-          />
+          /> */}
         </Flex>
         <Flex>
           <Box width="52px" mt="4px">

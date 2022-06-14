@@ -1,4 +1,4 @@
-import { Box } from '@pancakeswap/uikit'
+import { Box } from 'hydroswap-uikitv2'
 import { ReactElement } from 'react-markdown'
 
 interface CellFormatProps {

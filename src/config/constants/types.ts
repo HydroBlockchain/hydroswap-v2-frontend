@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { Token } from '@pancakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
 
 export type TranslatableText =
   | string

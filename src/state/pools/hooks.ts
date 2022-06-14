@@ -30,7 +30,7 @@ export const useFetchPublicPoolsData = () => {
         const activeFarms = farmsConfig.filter((farm) => farm.pid !== 0)
         await dispatch(fetchFarmsPublicDataAsync(activeFarms.map((farm) => farm.pid)))
         batch(() => {
-          dispatch(fetchPoolsPublicDataAsync(currentBlock))
+          dispatch(fetchPoolsPublicDataAsync())
           dispatch(fetchPoolsStakingLimitsAsync())
         })
       }

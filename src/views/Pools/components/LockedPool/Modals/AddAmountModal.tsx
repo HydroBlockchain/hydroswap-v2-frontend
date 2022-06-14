@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
 import { differenceInSeconds } from 'date-fns'
 import { convertTimeToSeconds } from 'utils/timeHelper'
-import { Modal, Box, MessageText, Message, Checkbox, Flex, Text } from '@pancakeswap/uikit'
+import { Modal, Box, MessageText, Message, Checkbox, Flex, Text } from 'hydroswap-uikitv2'
 import _noop from 'lodash/noop'
 import { useTranslation } from 'contexts/Localization'
 import BigNumber from 'bignumber.js'
@@ -77,7 +77,7 @@ const AddAmountModal: React.FC<AddAmountModalProps> = ({
     roundingMethod: 'ceil',
   })
 
-  // if you locked for 1 week, then add cake without renew the extension, it's possible that remainingDuration + passedDuration less than 1 week.
+  // if you locked for 1 week, then Add HYDRO without renew the extension, it's possible that remainingDuration + passedDuration less than 1 week.
   const atLeastOneWeekNewDuration = Math.max(ONE_WEEK_DEFAULT + MIN_DURATION_BUFFER, remainingDuration + passedDuration)
 
   const prepConfirmArg = useCallback(() => {
@@ -115,7 +115,7 @@ const AddAmountModal: React.FC<AddAmountModalProps> = ({
     <RoiCalculatorModalProvider lockedAmount={lockedAmount}>
       <Modal
         style={{ maxWidth: '420px' }}
-        title={t('Add CAKE')}
+        title={t('Add HYDRO')}
         onDismiss={onDismiss}
         headerBackground={theme.colors.gradients.cardHeader}
       >

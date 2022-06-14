@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Box, Flex } from '@pancakeswap/uikit'
+import { Box, Flex } from 'hydroswap-uikitv2'
 import Footer from 'components/Menu/Footer'
 import { PageMeta } from 'components/Layout/Page'
 import { EXCHANGE_DOCS_URLS } from 'config/constants'
@@ -11,7 +11,7 @@ const StyledPage = styled.div<{ $removePadding: boolean; $noMinHeight }>`
   width: 100%;
   padding: ${({ $removePadding }) => ($removePadding ? '0' : '16px')};
   padding-bottom: 0;
-  min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : 'calc(100vh - 64px)')};
+  min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : '72vh')};
   background: ${({ theme }) => theme.colors.gradients.bubblegum};
 
   ${({ theme }) => theme.mediaQueries.xs} {
@@ -19,14 +19,14 @@ const StyledPage = styled.div<{ $removePadding: boolean; $noMinHeight }>`
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding: ${({ $removePadding }) => ($removePadding ? '0' : '24px')};
+    padding: ${({ $removePadding }) => ($removePadding ? '0' : '12px')};
     padding-bottom: 0;
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
     padding: ${({ $removePadding }) => ($removePadding ? '0' : '32px')};
     padding-bottom: 0;
-    min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : 'calc(100vh - 100px)')};
+    min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : '72vh')};
   }
 `
 

@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@pancakeswap/uikit'
+import { Flex, Heading } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 
 export const StyledSubheading = styled(Heading)`

@@ -1,7 +1,11 @@
+
+
+/* eslint-disable no-console */
 import BigNumber from 'bignumber.js'
 import { BigNumber as EthersBigNumber } from '@ethersproject/bignumber'
 import poolsConfig from 'config/constants/pools'
 import sousChefABI from 'config/abi/sousChef.json'
+import kvsStakingABI from 'config/abi/kvsStaking.json'
 import erc20ABI from 'config/abi/erc20.json'
 import multicall, { multicallv2 } from 'utils/multicall'
 import { getAddress } from 'utils/addressHelpers'
@@ -9,48 +13,52 @@ import { BIG_ZERO } from 'utils/bigNumber'
 import chunk from 'lodash/chunk'
 import sousChefV2 from '../../config/abi/sousChefV2.json'
 import sousChefV3 from '../../config/abi/sousChefV3.json'
+import { getBalanceNumber } from "../../utils/formatBalance";
 
 const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0)
 
-const startEndBlockCalls = poolsWithEnd.flatMap((poolConfig) => {
-  return [
-    {
-      address: getAddress(poolConfig.contractAddress),
-      name: 'startBlock',
-    },
-    {
-      address: getAddress(poolConfig.contractAddress),
-      name: 'bonusEndBlock',
-    },
-  ]
-})
+// const startEndBlockCalls = poolsWithEnd.flatMap((poolConfig) => {
+//   return [
+//     {
+//       address: getAddress(poolConfig.contractAddress),
+//       name: 'startBlock',
+//     },
+//     {
+//       address: getAddress(poolConfig.contractAddress),
+//       name: 'bonusEndBlock',
+//     },
+//   ]
+// })
 
-export const fetchPoolsBlockLimits = async () => {
-  const startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
+// export const fetchPoolsBlockLimits = async () => {
+//   let startEndBlockRaw
+//   // try {
+//   //   startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
+//   // } catch (error) 
+//   // }
 
-  const startEndBlockResult = startEndBlockRaw.reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index / 2)
+//   const startEndBlockResult = startEndBlockRaw.reduce((resultArray, item, index) => {
+//     const chunkIndex = Math.floor(index / 2)
 
-    if (!resultArray[chunkIndex]) {
-      // eslint-disable-next-line no-param-reassign
-      resultArray[chunkIndex] = [] // start a new chunk
-    }
+//     if (!resultArray[chunkIndex]) {
+//       // eslint-disable-next-line no-param-reassign
+//       resultArray[chunkIndex] = [] // start a new chunk
+//     }
 
-    resultArray[chunkIndex].push(item)
+//     resultArray[chunkIndex].push(item)
 
-    return resultArray
-  }, [])
+//     return resultArray
+//   }, [])
 
-  return poolsWithEnd.map((cakePoolConfig, index) => {
-    const [[startBlock], [endBlock]] = startEndBlockResult[index]
-    return {
-      sousId: cakePoolConfig.sousId,
-      startBlock: startBlock.toNumber(),
-      endBlock: endBlock.toNumber(),
-    }
-  })
-}
-
+//   return poolsWithEnd.map((cakePoolConfig, index) => {
+//     const [[startBlock], [endBlock]] = startEndBlockResult[index]
+//     return {
+//       sousId: cakePoolConfig.sousId,
+//       startBlock: startBlock.toNumber(),
+//       endBlock: endBlock.toNumber(),
+//     }
+//   })
+// }
 const poolsBalanceOf = poolsConfig.map((poolConfig) => {
   return {
     address: poolConfig.stakingToken.address,
@@ -61,10 +69,26 @@ const poolsBalanceOf = poolsConfig.map((poolConfig) => {
 
 export const fetchPoolsTotalStaking = async () => {
   const poolsTotalStaked = await multicall(erc20ABI, poolsBalanceOf)
-
   return poolsConfig.map((p, index) => ({
     sousId: p.sousId,
     totalStaked: new BigNumber(poolsTotalStaked[index]).toJSON(),
+  }))
+}
+
+const poolsAPR = poolsConfig.map((poolConfig) => {
+  return {
+    address: getAddress(poolConfig.contractAddress),
+    name: 'checkAPY'
+  }
+})
+
+
+export const fetchPoolsAPR = async () => {
+  const poolsApr = await multicall(kvsStakingABI, poolsAPR)
+ 
+  return poolsConfig.map((p, index) => ({
+    sousId : p.sousId,
+    apy : new BigNumber(poolsApr[index]).toJSON()
   }))
 }
 
@@ -134,4 +158,5 @@ export const fetchPoolsProfileRequirement = async (): Promise<{
       },
     }
   }, {})
+  
 }

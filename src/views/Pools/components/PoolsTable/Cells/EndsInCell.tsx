@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Flex, Link, Skeleton, Text, TimerIcon } from '@pancakeswap/uikit'
+import { Flex, Link, Skeleton, Text, TimerIcon } from 'hydroswap-uikitv2'
 import { getBscScanLink } from 'utils'
 import { DeserializedPool } from 'state/types'
 import { useCurrentBlock } from 'state/block/hooks'
@@ -57,10 +57,10 @@ const EndsInCell: React.FC<FinishCellProps> = ({ pool }) => {
   return (
     <StyledCell role="cell">
       <CellContent>
-        <Text fontSize="12px" color="textSubtle" textAlign="left">
-          {hasPoolStarted || !shouldShowBlockCountdown ? t('Ends in') : t('Starts in')}
+        {/* <Text fontSize="12px" color="textSubtle" textAlign="left">
+          {hasPoolStarted || !shouldShowBlockCountdown ? t('End0s in') : t('Starts in')}
         </Text>
-        {showLoading ? <Skeleton width="80px" height="16px" /> : renderBlocks}
+        {showLoading ? <Skeleton width="80px" height="16px" /> : renderBlocks} */}
       </CellContent>
     </StyledCell>
   )

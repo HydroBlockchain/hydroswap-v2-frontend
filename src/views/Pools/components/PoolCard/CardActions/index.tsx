@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js'
 
 import styled from 'styled-components'
 import { BIG_ZERO } from 'utils/bigNumber'
-import { Flex, Text, Box } from '@pancakeswap/uikit'
+import { Flex, Text, Box } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { PoolCategory } from 'config/constants/types'
 import { useProfileRequirement } from 'views/Pools/hooks/useProfileRequirement'
@@ -50,6 +50,7 @@ const CardActions: React.FC<CardActionsProps> = ({ pool, stakedBalance }) => {
               </InlineText>
             </Box>
             <HarvestActions
+              pool={pool}
               earnings={earnings}
               earningToken={earningToken}
               sousId={sousId}

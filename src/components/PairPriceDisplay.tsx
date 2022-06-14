@@ -1,4 +1,4 @@
-import { Flex, Skeleton, Text } from '@pancakeswap/uikit'
+import { Flex, Skeleton, Text } from 'hydroswap-uikitv2'
 import { FC } from 'react'
 import styled from 'styled-components'
 import { formatAmount, formatAmountNotation } from 'utils/formatInfoNumbers'

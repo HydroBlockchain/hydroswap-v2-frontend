@@ -1,4 +1,4 @@
-import { Text, TextProps } from '@pancakeswap/uikit'
+import { Text, TextProps } from 'hydroswap-uikitv2'
 
 export interface PercentProps extends TextProps {
   value: number | undefined

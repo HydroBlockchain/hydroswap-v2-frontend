@@ -1,4 +1,4 @@
-import { Svg } from '@pancakeswap/uikit'
+import { Svg } from 'hydroswap-uikitv2'
 
 // NOTE: Temporary save icon here. Will move to uikit when the feature is done
 

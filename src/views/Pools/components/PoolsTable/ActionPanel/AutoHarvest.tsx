@@ -1,4 +1,4 @@
-import { Text, Flex, Skeleton, Heading, Box, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Text, Flex, Skeleton, Heading, Box, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import { getCakeVaultEarnings } from 'views/Pools/helpers'
 import { useTranslation } from 'contexts/Localization'

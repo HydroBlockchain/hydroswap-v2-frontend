@@ -1,4 +1,4 @@
-import { ResetCSS } from '@pancakeswap/uikit'
+import { ResetCSS } from 'hydroswap-uikitv2'
 import Script from 'next/script'
 import dynamic from 'next/dynamic'
 import BigNumber from 'bignumber.js'
@@ -54,17 +54,17 @@ function MyApp(props: AppProps) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover PancakeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
+          content=""
         />
         <meta name="theme-color" content="#1FC7D4" />
-        <meta name="twitter:image" content="https://pancakeswap.finance/images/hero.png" />
+        <meta name="twitter:image" content="https://s2.coinmarketcap.com/static/img/coins/64x64/2698.png" />
         <meta
           name="twitter:description"
-          content="The most popular AMM on BSC! Earn CAKE through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by PancakeSwap), NFTs, and more, on a platform you can trust."
+          content=""
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="🥞 PancakeSwap - A next evolution DeFi exchange on BNB Smart Chain (BSC)" />
-        <title>PancakeSwap</title>
+        <meta name="twitter:title" content="" />
+        <title>HydroSwap</title>
       </Head>
       <Providers store={store}>
         <Blocklist>
@@ -78,19 +78,6 @@ function MyApp(props: AppProps) {
           </PersistGate>
         </Blocklist>
       </Providers>
-      <Script
-        strategy="afterInteractive"
-        id="google-tag"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer', '${process.env.NEXT_PUBLIC_GTAG}');
-          `,
-        }}
-      />
     </>
   )
 }
@@ -110,14 +97,20 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const Layout = Component.Layout || Fragment
   return (
     <ProductionErrorBoundary>
-      <Menu>
+     
+       
+
         <Layout>
-          <Component {...pageProps} />
+          <Menu> 
+            <Component {...pageProps} />
+          </Menu>
         </Layout>
-      </Menu>
-      <EasterEgg iterations={2} />
+      
+
+      
+      {/* <EasterEgg iterations={2} /> */}
       <ToastListener />
-      <FixedSubgraphHealthIndicator />
+      {/* <FixedSubgraphHealthIndicator /> */}
     </ProductionErrorBoundary>
   )
 }

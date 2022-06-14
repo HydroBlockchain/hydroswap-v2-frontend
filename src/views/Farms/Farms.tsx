@@ -1,8 +1,8 @@
 import { useEffect, useCallback, useState, useMemo, useRef, createContext } from 'react'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Image, Heading, RowType, Toggle, Text, Button, ArrowForwardIcon, Flex, Link } from '@pancakeswap/uikit'
-import { ChainId } from '@pancakeswap/sdk'
+import { Image, Heading, RowType, Toggle, Text, Button, ArrowForwardIcon, Flex, Link } from 'hydroswap-uikitv2'
+import { ChainId } from 'hydroswap-v2-sdk'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import styled from 'styled-components'
 import FlexLayout from 'components/Layout/Flex'
@@ -426,24 +426,24 @@ const Farms: React.FC = ({ children }) => {
         </ControlContainer>
         {isInactive && (
           <FinishedTextContainer>
-            <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
+            {/* <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
               {t("Don't see the farm you are staking?")}
-            </Text>
+            </Text> */}
             <Flex>
-              <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="failure">
+              {/* <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="failure">
                 {t('Go to migration page')}
-              </FinishedTextLink>
-              <Text fontSize={['16px', null, '20px']} color="failure" padding="0px 4px">
+              </FinishedTextLink> */}
+              {/* <Text fontSize={['16px', null, '20px']} color="failure" padding="0px 4px">
                 or
-              </Text>
-              <FinishedTextLink
+              </Text> */}
+              {/* <FinishedTextLink
                 external
                 color="failure"
                 fontSize={['16px', null, '20px']}
                 href="https://v1-farms.pancakeswap.finance/farms/history"
               >
                 {t('check out v1 farms')}.
-              </FinishedTextLink>
+              </FinishedTextLink> */}
             </Flex>
           </FinishedTextContainer>
         )}

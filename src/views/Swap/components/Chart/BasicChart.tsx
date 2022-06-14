@@ -1,4 +1,4 @@
-import { Box, ButtonMenu, ButtonMenuItem, Flex, Text } from '@pancakeswap/uikit'
+import { Box, ButtonMenu, ButtonMenuItem, Flex, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { useState, memo } from 'react'
 import { useFetchPairPrices } from 'state/swap/hooks'
@@ -34,7 +34,8 @@ const BasicChart = ({
   const valueToDisplay = hoverValue || pairPrices[pairPrices.length - 1]?.value
   const { changePercentage, changeValue } = getTimeWindowChange(pairPrices)
   const isChangePositive = changeValue >= 0
-  const chartHeight = isChartExpanded ? 'calc(100% - 120px)' : '378px'
+  const chartHeight = isChartExpanded ? 'calc(70vh - 120px)' : '310px'
+  // const chartHeight = isChartExpanded ? 'calc(100% - 120px)' : '378px'
   const {
     t,
     currentLanguage: { locale },

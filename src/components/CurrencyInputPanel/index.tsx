@@ -1,5 +1,5 @@
-import { Currency, Pair, Token } from '@pancakeswap/sdk'
-import { Button, ChevronDownIcon, Text, useModal, Flex, Box, MetamaskIcon } from '@pancakeswap/uikit'
+import { Currency, Pair, Token } from 'hydroswap-v2-sdk'
+import { Button, ChevronDownIcon, Text, useModal, Flex, Box, MetamaskIcon } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { registerToken } from 'utils/wallet'
 import { isAddress } from 'utils'
@@ -18,7 +18,6 @@ const InputRow = styled.div<{ selected: boolean }>`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-end;
-  padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0.75rem 0.75rem 0.75rem 1rem')};
 `
 const CurrencySelectButton = styled(Button).attrs({ variant: 'text', scale: 'sm' })`
   padding: 0 0.5rem;
@@ -30,7 +29,7 @@ const LabelRow = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-size: 0.75rem;
   line-height: 1rem;
-  padding: 0.75rem 1rem 0 1rem;
+  padding: 1rem 1rem 1rem 1rem;
 `
 const InputPanel = styled.div`
   display: flex;
@@ -44,6 +43,8 @@ const Container = styled.div`
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.input};
   box-shadow: ${({ theme }) => theme.shadows.inset};
+  /* border: 1px solid ${({ theme }) => theme.colors.inputSecondary}; */
+
 `
 interface CurrencyInputPanelProps {
   value: string
@@ -175,16 +176,24 @@ export default function CurrencyInputPanel({
                 onUserInput(val)
               }}
             />
-          </LabelRow>
-          <InputRow selected={disableCurrencySelect}>
+             <InputRow selected={disableCurrencySelect}>
             {account && currency && showMaxButton && label !== 'To' && (
-              <Button onClick={onMax} scale="xs" variant="secondary">
+              < StyledMax onClick={onMax} scale="xs" variant="tertiary">
                 {t('Max').toLocaleUpperCase(locale)}
-              </Button>
+              </ StyledMax>
             )}
           </InputRow>
+          </LabelRow>
+         
         </Container>
       </InputPanel>
     </Box>
   )
 }
+
+
+const StyledMax=styled(Button)`
+background-color:${({ theme }) => theme.colors.gradients.cardHeader};
+padding:0.8rem 1rem;
+color:${({ theme }) => theme.colors.text};
+`

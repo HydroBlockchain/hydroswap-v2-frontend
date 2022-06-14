@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import { Text, PancakeToggle, Toggle, Flex, Modal, InjectedModalProps, ThemeSwitcher } from '@pancakeswap/uikit'
+import { Text, Toggle, Flex, Modal, InjectedModalProps, ThemeSwitcher } from 'hydroswap-uikitv2'
 import {
-  useAudioModeManager,
   useExpertModeManager,
-  useSubgraphHealthIndicatorManager,
   useUserExpertModeAcknowledgementShow,
   useUserSingleHopOnly,
 } from 'state/user/hooks'
@@ -29,8 +27,8 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   const [showExpertModeAcknowledgement, setShowExpertModeAcknowledgement] = useUserExpertModeAcknowledgementShow()
   const [expertMode, toggleExpertMode] = useExpertModeManager()
   const [singleHopOnly, setSingleHopOnly] = useUserSingleHopOnly()
-  const [audioPlay, toggleSetAudioMode] = useAudioModeManager()
-  const [subgraphHealth, setSubgraphHealth] = useSubgraphHealthIndicatorManager()
+  // const [audioPlay, toggleSetAudioMode] = useAudioModeManager()
+  // const [subgraphHealth, setSubgraphHealth] = useSubgraphHealthIndicatorManager()
   const { onChangeRecipient } = useSwapActionHandlers()
 
   const { t } = useTranslation()
@@ -66,37 +64,41 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
       style={{ maxWidth: '420px' }}
     >
       <ScrollableContainer>
-        <Flex pb="24px" flexDirection="column">
-          <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
+        <Flex pb="0px" flexDirection="column">
+          {/* <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
             {t('Global')}
-          </Text>
-          <Flex justifyContent="space-between">
-            <Text mb="24px">{t('Dark mode')}</Text>
-            <ThemeSwitcher isDark={isDark} toggleTheme={() => setTheme(isDark ? 'light' : 'dark')} />
-          </Flex>
+          </Text> */}
           <GasSettings />
         </Flex>
-        <Flex pt="24px" flexDirection="column" borderTop={`1px ${theme.colors.cardBorder} solid`}>
-          <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
+        
+        <Flex 
+         flexDirection="column" 
+        pt="24px"
+        // borderTop={`1px ${theme.colors.cardBorder} solid`}
+        >
+          {/* <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
             {t('Swaps & Liquidity')}
-          </Text>
-          <TransactionSettings />
+          </Text> */}
+          <TransactionSettings borderColor={theme.colors.cardBorder} />
         </Flex>
-        <Flex justifyContent="space-between" alignItems="center" mb="24px">
-          <Flex alignItems="center">
+        <Flex justifyContent="space-between" alignItems="center" mb="15px"
+        
+        >
+          <Flex alignItems="center"
+          >
             <Text>{t('Expert Mode')}</Text>
-            <QuestionHelper
+            {/* <QuestionHelper
               text={t('Bypasses confirmation modals and allows high slippage trades. Use at your own risk.')}
               placement="top-start"
               ml="4px"
-            />
+            /> */}
           </Flex>
           <Toggle id="toggle-expert-mode-button" scale="md" checked={expertMode} onChange={handleExpertModeToggle} />
         </Flex>
-        <Flex justifyContent="space-between" alignItems="center" mb="24px">
+        <Flex justifyContent="space-between" alignItems="center" mb="20px">
           <Flex alignItems="center">
             <Text>{t('Disable Multihops')}</Text>
-            <QuestionHelper text={t('Restricts swaps to direct pairs only.')} placement="top-start" ml="4px" />
+            {/* <QuestionHelper text={t('Restricts swaps to direct pairs only.')} placement="top-start" ml="4px" /> */}
           </Flex>
           <Toggle
             id="toggle-disable-multihop-button"
@@ -107,7 +109,11 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
             }}
           />
         </Flex>
-        <Flex justifyContent="space-between" alignItems="center" mb="24px">
+        <Flex justifyContent="space-between">
+            <Text mb="0px">{t('Dark mode')}</Text>
+            <ThemeSwitcher isDark={isDark} toggleTheme={() => setTheme(isDark ? 'light' : 'dark')} />
+          </Flex>
+        {/* <Flex justifyContent="space-between" alignItems="center" mb="24px">
           <Flex alignItems="center">
             <Text>{t('Subgraph Health Indicator')}</Text>
             <QuestionHelper
@@ -126,8 +132,8 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
               setSubgraphHealth(!subgraphHealth)
             }}
           />
-        </Flex>
-        <Flex justifyContent="space-between" alignItems="center">
+        </Flex> */}
+        {/* <Flex justifyContent="space-between" alignItems="center">
           <Flex alignItems="center">
             <Text>{t('Flippy sounds')}</Text>
             <QuestionHelper
@@ -137,7 +143,7 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
             />
           </Flex>
           <PancakeToggle checked={audioPlay} onChange={toggleSetAudioMode} scale="md" />
-        </Flex>
+        </Flex> */}
       </ScrollableContainer>
     </Modal>
   )

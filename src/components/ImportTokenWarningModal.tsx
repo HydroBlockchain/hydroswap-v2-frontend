@@ -1,5 +1,5 @@
-import { Token } from '@pancakeswap/sdk'
-import { Modal, InjectedModalProps } from '@pancakeswap/uikit'
+import { Token } from 'hydroswap-v2-sdk'
+import { Modal, InjectedModalProps } from 'hydroswap-uikitv2'
 import ImportToken from 'components/SearchModal/ImportToken'
 import { useTranslation } from 'contexts/Localization'
 

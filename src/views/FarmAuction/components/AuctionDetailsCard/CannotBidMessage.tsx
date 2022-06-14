@@ -1,4 +1,4 @@
-import { Text, Flex, HelpIcon, useTooltip } from '@pancakeswap/uikit'
+import { Text, Flex, HelpIcon, useTooltip } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 
 const CannotBidMessage: React.FC = () => {

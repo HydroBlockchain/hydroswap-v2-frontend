@@ -1,4 +1,4 @@
-import { TokenAmount, Pair, Currency } from '@pancakeswap/sdk'
+import { TokenAmount, Pair, Currency } from 'hydroswap-v2-sdk'
 import { useMemo } from 'react'
 import IPancakePairABI from 'config/abi/IPancakePair.json'
 import { Interface } from '@ethersproject/abi'
@@ -38,7 +38,7 @@ export function usePairs(currencies: [Currency | undefined, Currency | undefined
           console.error(
             error.msg,
             `- pairAddresses: ${tokenA?.address}-${tokenB?.address}`,
-            `chainId: ${tokenA?.chainId}`,
+            `chainId: ${97}`,
           )
 
           return undefined

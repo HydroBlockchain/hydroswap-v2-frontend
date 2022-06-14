@@ -1,4 +1,4 @@
-import { Button, Flex, Link, LinkExternal, MetamaskIcon, Skeleton, Text, TimerIcon } from '@pancakeswap/uikit'
+import { Button, Flex, Link, LinkExternal, MetamaskIcon, Skeleton, Text, TimerIcon } from 'hydroswap-uikitv2'
 import Balance from 'components/Balance'
 import { BASE_BSC_SCAN_URL } from 'config'
 import { useTranslation } from 'contexts/Localization'
@@ -153,7 +153,7 @@ const PoolStatsInfo: React.FC<ExpandedFooterProps> = ({
                 tokenAddress,
                 earningToken.symbol,
                 earningToken.decimals,
-                `https://tokens.pancakeswap.finance/images/${tokenAddress}.png`,
+                `https://www.hydroswap.org/images/${tokenAddress}.png`,
               )
             }
           >

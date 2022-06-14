@@ -1,4 +1,4 @@
-import { ArrowForwardIcon, Button, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { ArrowForwardIcon, Button, Text, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'
 import { useActiveIfoWithBlocks } from 'hooks/useActiveIfoWithBlocks'
@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { memo } from 'react'
 import { useCurrentBlock } from 'state/block/hooks'
 import styled, { keyframes } from 'styled-components'
-import { getStatus } from '../../../Ifos/hooks/helpers'
+// import { getStatus } from '../../../Ifos/hooks/helpers'
 import { IFOImage, IFOMobileImage } from './images'
 import * as S from './Styled'
 
@@ -79,8 +79,10 @@ const IFOBanner = () => {
 
   const isIfoAlive = !!(currentBlock && activeIfoWithBlocks && activeIfoWithBlocks.endBlock > currentBlock)
   const status = isIfoAlive
-    ? getStatus(currentBlock, activeIfoWithBlocks.startBlock, activeIfoWithBlocks.endBlock)
+    ? null
     : null
+    // ? getStatus(currentBlock, activeIfoWithBlocks.startBlock, activeIfoWithBlocks.endBlock)
+    // : null
   const { isMobile } = useMatchBreakpoints()
   return isIfoAlive && status ? (
     <S.Wrapper>

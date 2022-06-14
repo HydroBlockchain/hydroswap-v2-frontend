@@ -1,4 +1,4 @@
-import { Flex, ArrowForwardIcon, Button, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Flex, ArrowForwardIcon, Button, Text, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'
 import Image from 'next/image'

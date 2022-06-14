@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount } from '@pancakeswap/sdk'
+import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount } from 'hydroswap-v2-sdk'
 import { useMemo } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import ERC20_INTERFACE from 'config/abi/erc20'
@@ -6,6 +6,7 @@ import { useAllTokens } from 'hooks/Tokens'
 import { useMulticallContract } from 'hooks/useContract'
 import { isAddress } from 'utils'
 import orderBy from 'lodash/orderBy'
+import { useGetBnbBalance } from 'hooks/useTokenBalance'
 import { useSingleContractMultipleData, useMultipleContractSingleData } from '../multicall/hooks'
 
 /**
@@ -27,6 +28,7 @@ export function useBNBBalances(uncheckedAddresses?: (string | undefined)[]): {
     'getEthBalance',
     addresses.map((address) => [address]),
   )
+ 
 
   return useMemo(
     () =>
@@ -53,6 +55,7 @@ export function useTokenBalancesWithLoadingIndicator(
 
   const validatedTokenAddresses = useMemo(() => validatedTokens.map((vt) => vt.address), [validatedTokens])
 
+ 
   const balances = useMultipleContractSingleData(
     validatedTokenAddresses,
     ERC20_INTERFACE,

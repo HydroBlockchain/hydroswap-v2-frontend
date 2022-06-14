@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Skeleton, Text, CalculateIcon, useModal } from '@pancakeswap/uikit'
+import { Box, Button, Flex, Skeleton, Text, CalculateIcon, useModal } from 'hydroswap-uikitv2'
 import Balance from 'components/Balance'
 import { useTranslation } from 'contexts/Localization'
 import { DeserializedPool, DeserializedLockedVaultUser } from 'state/types'

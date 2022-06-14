@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import { KeyboardEvent, RefObject, useCallback, useMemo, useRef, useState, useEffect } from 'react'
-import { Currency, ETHER, Token } from '@pancakeswap/sdk'
-import { Text, Input, Box } from '@pancakeswap/uikit'
+import { Currency, ETHER, Token } from 'hydroswap-v2-sdk'
+import { Text, Input, Box } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { FixedSizeList } from 'react-window'
 import { useAudioModeManager } from 'state/user/hooks'
@@ -125,9 +125,9 @@ function CurrencySearch({
   const handleCurrencySelect = useCallback(
     (currency: Currency) => {
       onCurrencySelect(currency)
-      if (audioPlay) {
-        getSwapSound().play()
-      }
+      // if (audioPlay) {
+      //   getSwapSound().play()
+      // }
     },
     [audioPlay, onCurrencySelect],
   )

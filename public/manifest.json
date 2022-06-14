@@ -1,11 +1,11 @@
 {
-  "short_name": "PancakeSwap",
-  "name": "PancakeSwap",
-  "description": "Farm CAKE with Pancake LP Tokens",
-  "homepage_url": "https://pancakeswap.finance",
+  "short_name": "HydroSwap",
+  "name": "HydroSwap",
+  "description": "Farm KVS with Hydro Tokens",
+  "homepage_url": "https://hydroswap.org",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#1FC7D4",
+  "theme_color": "#000",
   "background_color": "#ffffff",
   "orientation": "portrait",
   "icons": [

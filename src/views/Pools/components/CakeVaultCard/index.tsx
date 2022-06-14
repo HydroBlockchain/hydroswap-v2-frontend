@@ -1,4 +1,4 @@
-import { Box, CardBody, CardProps, Flex, Text, TokenPairImage } from '@pancakeswap/uikit'
+import { Box, CardBody, CardProps, Flex, Text, TokenPairImage } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import { FlexGap } from 'components/Layout/Flex'
@@ -47,6 +47,7 @@ const CakeVaultCard: React.FC<CakeVaultProps> = ({ pool, showStakedOnly, default
   }
 
   return (
+    <>
     <StyledCard isActive {...props}>
       <PoolCardHeader isStaking={accountHasSharesStaked}>
         <PoolCardHeaderTitle
@@ -98,6 +99,7 @@ const CakeVaultCard: React.FC<CakeVaultProps> = ({ pool, showStakedOnly, default
       </StyledCardBody>
       <CardFooter defaultExpanded={defaultFooterExpanded} pool={pool} account={account} />
     </StyledCard>
+    </>
   )
 }
 

@@ -10,8 +10,8 @@ import {
   useTooltip,
   Box,
   useMatchBreakpoints,
-  SkeletonV2,
-} from '@pancakeswap/uikit'
+  // SkeletonV2,
+} from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import BigNumber from 'bignumber.js'
 import Balance from 'components/Balance'
@@ -80,7 +80,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
   const { isVaultApproved, setLastUpdated } = useCheckVaultApprovalStatus()
   const { handleApprove: handleVaultApprove, pendingTx: pendingVaultTx } = useVaultApprove(setLastUpdated)
 
-  const handleApprove = vaultKey ? handleVaultApprove : handlePoolApprove
+  const handleApprove = handlePoolApprove
   const pendingTx = vaultKey ? pendingVaultTx : pendingPoolTx
 
   const isBnbPool = poolCategory === PoolCategory.BINANCE
@@ -230,7 +230,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
           </Text>
         </ActionTitles>
         <ActionContent>
-          <Button width="100%" disabled={pendingTx} onClick={handleApprove} variant="secondary">
+          <Button width="100%" disabled={pendingTx} onClick={handlePoolApprove} variant="secondary">
             {t('Enable')}
           </Button>
         </ActionContent>
@@ -263,7 +263,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
                     decimals={5}
                     value={vaultKey ? cakeAsNumberBalance : stakedTokenBalance}
                   />
-                  <SkeletonV2
+                  {/* <SkeletonV2
                     isDataReady={Number.isFinite(vaultKey ? stakedAutoDollarValue : stakedTokenDollarBalance)}
                     width={120}
                     wrapperProps={{ height: '20px' }}
@@ -278,7 +278,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
                       unit=" USD"
                       prefix="~"
                     />
-                  </SkeletonV2>
+                  </SkeletonV2> */}
                 </Box>
               </ActionContent>
               {vaultPosition === VaultPosition.Locked && (

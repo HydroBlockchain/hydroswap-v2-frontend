@@ -1,4 +1,4 @@
-import { ErrorIcon, Flex, Text } from '@pancakeswap/uikit'
+import { ErrorIcon, Flex, Text } from 'hydroswap-uikitv2'
 import { AutoColumn } from 'components/Layout/Column'
 import styled, { css } from 'styled-components'
 
@@ -7,6 +7,7 @@ export const Wrapper = styled(Flex)`
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
+  background:${({ theme }) => theme.colors.gradients.cardBody};
 `
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`

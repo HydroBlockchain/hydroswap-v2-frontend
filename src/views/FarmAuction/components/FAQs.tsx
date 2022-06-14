@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Text, Heading, Card, CardHeader, CardBody, Flex, Link, Box } from '@pancakeswap/uikit'
+import { Text, Heading, Card, CardHeader, CardBody, Flex, Link, Box } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import FoldableText from 'components/FoldableSection/FoldableText'
 import { FORM_ADDRESS } from '../helpers'

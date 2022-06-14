@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useModal } from '@pancakeswap/uikit'
+import { useModal } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import dynamic from 'next/dynamic'
 import request, { gql } from 'graphql-request'
@@ -8,7 +8,7 @@ import { GALAXY_NFT_CAMPAIGN_ID } from 'config/constants'
 import { GALAXY_NFT_CLAIMING_API } from 'config/constants/endpoints'
 import { useERC721 } from 'hooks/useContract'
 
-const GalaxyNFTClaimModal = dynamic(() => import('./GalaxyNFTClaimModal'), { ssr: false })
+// const GalaxyNFTClaimModal = dynamic(() => import('./GalaxyNFTClaimModal'), { ssr: false })
 
 interface GlobalCheckClaimStatusProps {
   excludeLocations: string[]
@@ -39,7 +39,8 @@ const GlobalCheckClaim: React.FC<GlobalCheckClaimStatusProps> = ({ excludeLocati
   const galaxyNFTContract = useERC721('0x2aD5745b7aD37037339EDe18407bf9395DE2d97F', false)
   const { account } = useWeb3React()
   const { pathname } = useRouter()
-  const [onPresentModal] = useModal(<GalaxyNFTClaimModal cid={cid} />, false, true, 'galaxyNFTClaimModal')
+  const [onPresentModal] = useModal(<></>, false, true, 'galaxyNFTClaimModal')
+  // const [onPresentModal] = useModal(<GalaxyNFTClaimModal cid={cid} />, false, true, 'galaxyNFTClaimModal')
 
   // Check claim status
   useEffect(() => {

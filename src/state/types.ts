@@ -12,7 +12,7 @@ import {
   DeserializedFarmConfig,
   FetchStatus,
 } from 'config/constants/types'
-import { Token, ChainId } from '@pancakeswap/sdk'
+import { Token, ChainId } from 'hydroswap-v2-sdk'
 import { TokenInfo, TokenList, Tags } from '@uniswap/token-lists'
 import { parseUnits } from '@ethersproject/units'
 import { NftToken, State as NftMarketState } from './nftMarket/types'
@@ -128,9 +128,11 @@ interface CorePoolProps {
   stakingTokenPrice?: number
   earningTokenPrice?: number
   vaultKey?: VaultKey
+  apy?: number
 }
 
 export interface DeserializedPool extends DeserializedPoolConfig, CorePoolProps {
+  find?: any
   totalStaked?: BigNumber
   stakingLimit?: BigNumber
   stakingLimitEndBlock?: number

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { formatUnits } from '@ethersproject/units'
-import { Card, CardBody, Heading, Text } from '@pancakeswap/uikit'
+import { Card, CardBody, Heading, Text } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
@@ -11,7 +11,7 @@ import ApproveConfirmButtons from 'components/ApproveConfirmButtons'
 import useToast from 'hooks/useToast'
 import { getNftsFromCollectionApi } from 'state/nftMarket/helpers'
 import { ApiSingleTokenData } from 'state/nftMarket/types'
-import { pancakeBunniesAddress } from 'views/Nft/market/constants'
+// import { pancakeBunniesAddress } from 'views/Nft/market/constants'
 import { requiresApproval } from 'utils/requiresApproval'
 import { FetchStatus } from 'config/constants/types'
 import SelectionCard from './SelectionCard'
@@ -39,7 +39,7 @@ const Mint: React.FC = () => {
 
   useEffect(() => {
     const getStarterNfts = async () => {
-      const response = await getNftsFromCollectionApi(pancakeBunniesAddress)
+      const response = await getNftsFromCollectionApi('')
       if (!response) return
       const { data: allPbTokens } = response
       const nfts = STARTER_NFT_BUNNY_IDS.map((bunnyId) => {

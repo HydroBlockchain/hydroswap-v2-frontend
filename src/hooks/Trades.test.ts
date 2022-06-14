@@ -1,7 +1,11 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { mainnetTokens } from 'config/constants/tokens'
 import { createReduxWrapper } from 'testUtils'
-import { Pair, TokenAmount, CurrencyAmount, Trade } from '@pancakeswap/sdk'
+<<<<<<< HEAD
+import { Pair, TokenAmount, CurrencyAmount, Trade } from '@panakeswap/sdk'
+=======
+import { Pair, TokenAmount, CurrencyAmount, Trade } from 'hydroswap-v2-sdk'
+>>>>>>> 07e0a34d8671a81f9cff3bd3f3bdf15cfd4caaa6
 import * as UsePairs from './usePairs'
 import * as Trades from './Trades'
 

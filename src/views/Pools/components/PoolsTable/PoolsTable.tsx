@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import styled from 'styled-components'
-import { Button, ChevronUpIcon } from '@pancakeswap/uikit'
+import { Button, ChevronUpIcon } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { DeserializedPool } from 'state/types'
 import PoolRow from './PoolRow'
@@ -45,7 +45,7 @@ const PoolsTable: React.FC<PoolsTableProps> = ({ pools, account }) => {
   return (
     <StyledTableBorder>
       <StyledTable id="pools-table" role="table" ref={tableWrapperEl}>
-        {pools.map((pool) => (
+        {pools.filter(i=> !i?.vaultKey).map((pool) => (
           <PoolRow key={pool.vaultKey ?? pool.sousId} pool={pool} account={account} />
         ))}
         <ScrollButtonContainer>

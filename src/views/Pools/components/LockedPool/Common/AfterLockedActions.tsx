@@ -1,5 +1,5 @@
 import { memo, ReactNode } from 'react'
-import { Message, MessageText, Box, Flex, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Message, MessageText, Box, Flex, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import Trans from 'components/Trans'
 import { VaultPosition } from 'utils/cakePool'
@@ -40,6 +40,7 @@ const AfterLockedActions: React.FC<AfterLockedActionsPropsType> = ({
     <Message
       variant="warning"
       mb="16px"
+      /*@ts-ignore*/
       action={
         <Container mt={!isDesktopView && '8px'} ml="10px">
           <ConvertToFlexibleButton

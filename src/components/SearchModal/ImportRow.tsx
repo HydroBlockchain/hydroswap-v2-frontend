@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react'
-import { Token } from '@pancakeswap/sdk'
-import { Button, Text, CheckmarkCircleIcon, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Token } from 'hydroswap-v2-sdk'
+import { Button, Text, CheckmarkCircleIcon, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { AutoRow, RowFixed } from 'components/Layout/Row'
 import { AutoColumn } from 'components/Layout/Column'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'

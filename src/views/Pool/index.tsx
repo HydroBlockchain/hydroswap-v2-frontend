@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import styled from 'styled-components'
-import { Text, Flex, CardBody, CardFooter, Button, AddIcon } from '@pancakeswap/uikit'
+import { Text, Flex, CardBody, CardFooter, Button, AddIcon } from 'hydroswap-uikitv2'
 import Link from 'next/link'
 import { useTranslation } from 'contexts/Localization'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
@@ -12,8 +12,11 @@ import Dots from '../../components/Loader/Dots'
 import { AppHeader, AppBody } from '../../components/App'
 import Page from '../Page'
 
+const Wrapper = styled(CardFooter)`
+background-color: ${({ theme }) => theme.colors.gradients.cardBody};
+`
 const Body = styled(CardBody)`
-  background-color: ${({ theme }) => theme.colors.dropdownDeep};
+  background-color: ${({ theme }) => theme.colors.gradients.cardBody};
 `
 
 export default function Pool() {
@@ -103,13 +106,13 @@ export default function Pool() {
             </Flex>
           )}
         </Body>
-        <CardFooter style={{ textAlign: 'center' }}>
+        <Wrapper style={{ textAlign: 'center' }}>
           <Link href="/add" passHref>
             <Button id="join-pool-button" width="100%" startIcon={<AddIcon color="white" />}>
               {t('Add Liquidity')}
             </Button>
           </Link>
-        </CardFooter>
+        </Wrapper>
       </AppBody>
     </Page>
   )

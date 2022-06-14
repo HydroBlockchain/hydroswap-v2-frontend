@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Text, Flex, Box } from '@pancakeswap/uikit'
+import { Text, Flex, Box } from 'hydroswap-uikitv2'
 import { Auction, AuctionStatus } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'
 

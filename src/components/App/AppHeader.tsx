@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Text, Flex, Heading, IconButton, ArrowBackIcon, NotificationDot } from '@pancakeswap/uikit'
+import { Text, Flex, Heading, IconButton, ArrowBackIcon, NotificationDot } from 'hydroswap-uikitv2'
 import { useExpertModeManager } from 'state/user/hooks'
 import GlobalSettings from 'components/Menu/GlobalSettings'
 import Link from 'next/link'
@@ -19,6 +19,7 @@ const AppHeaderContainer = styled(Flex)`
   justify-content: space-between;
   padding: 24px;
   width: 100%;
+  background:${({theme})=> theme.colors.gradients.cardHeader};
   border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
 `
 

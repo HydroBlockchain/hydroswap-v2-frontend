@@ -1,5 +1,5 @@
-import { Token } from '@pancakeswap/sdk'
-import { Flex, Message, MessageText, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Token } from 'hydroswap-v2-sdk'
+import { Flex, Message, MessageText, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { memo } from 'react'
 import { useVaultApy } from 'hooks/useVaultApy'
@@ -23,6 +23,7 @@ const ConvertToLock: React.FC<ConvertToLockProps> = ({ stakingToken, currentStak
   return (
     <Message
       variant="warning"
+        /*@ts-ignore*/
       action={
         <Flex mt={!isTableView && '8px'} flexGrow={1} ml={isTableView && '80px'}>
           <ExtendButton

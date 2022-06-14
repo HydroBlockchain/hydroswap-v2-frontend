@@ -3,7 +3,7 @@ import type {
   UnknownAsyncThunkPendingAction,
   UnknownAsyncThunkRejectedAction,
   // eslint-disable-next-line import/no-unresolved
-} from '@reduxjs/toolkit/dist/matchers'
+} from '@reduxjs/toolkit/dist'
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit'
 import stringify from 'fast-json-stable-stringify'
 import farmsConfig from 'config/constants/farms'
@@ -51,39 +51,43 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
   }
 >(
   'farms/fetchFarmsPublicDataAsync',
+  /*@ts-ignore*/
   async (pids) => {
-    const masterChefAddress = getMasterChefAddress()
-    const calls = [
-      {
-        address: masterChefAddress,
-        name: 'poolLength',
-      },
-      {
-        address: masterChefAddress,
-        name: 'cakePerBlock',
-        params: [true],
-      },
-    ]
-    const [[poolLength], [cakePerBlockRaw]] = await multicall(masterchefABI, calls)
-    const regularCakePerBlock = getBalanceAmount(ethersToBigNumber(cakePerBlockRaw))
-    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
-    const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.pid))
 
-    const farms = await fetchFarms(farmsCanFetch)
-    const farmsWithPrices = getFarmsPrices(farms)
+  // async (pids) => {
+    // const masterChefAddress = getMasterChefAddress()
+    // const calls = [
+    //   {
+    //     address: masterChefAddress,
+    //     name: 'poolLength',
+    //   },
+    //   {
+    //     address: masterChefAddress,
+    //     name: 'cakePerBlock',
+    //     params: [true],
+    //   },
+    // ]
+    // const [[poolLength], [cakePerBlockRaw]] = await multicall(masterchefABI, calls)
 
-    return [farmsWithPrices, poolLength.toNumber(), regularCakePerBlock.toNumber()]
+    // const regularCakePerBlock = getBalanceAmount(ethersToBigNumber(cakePerBlockRaw))
+    // const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
+    // const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.pid))
+
+    // const farms = await fetchFarms(farmsCanFetch)
+    // const farmsWithPrices =getcch getFarmsPrices(farms)
+
+    // return [farmsWithPrices, poolLength.toNumber(), regularCakePerBlock.toNumber()]
   },
-  {
-    condition: (arg, { getState }) => {
-      const { farms } = getState()
-      if (farms.loadingKeys[stringify({ type: fetchFarmsPublicDataAsync.typePrefix, arg })]) {
-        console.debug('farms action is fetching, skipping here')
-        return false
-      }
-      return true
-    },
-  },
+  // {
+  //   condition: (arg, { getState }) => {
+  //     const { farms } = getState()
+  //     if (farms.loadingKeys[stringify({ type: fetchFarmsPublicDataAsync.typePrefix, arg })]) {
+  //       console.debug('farms action is fetching, skipping here')
+  //       return false
+  //     }
+  //     return true
+  //   },
+  // },
 )
 
 interface FarmUserDataResponse {
@@ -173,13 +177,13 @@ export const farmsSlice = createSlice({
     })
     // Update farms with live data
     builder.addCase(fetchFarmsPublicDataAsync.fulfilled, (state, action) => {
-      const [farmPayload, poolLength, regularCakePerBlock] = action.payload
-      state.data = state.data.map((farm) => {
-        const liveFarmData = farmPayload.find((farmData) => farmData.pid === farm.pid)
-        return { ...farm, ...liveFarmData }
-      })
-      state.poolLength = poolLength
-      state.regularCakePerBlock = regularCakePerBlock
+      // const [farmPayload, poolLength, regularCakePerBlock] = action.payload
+      // state.data = state.data.map((farm) => {
+      //   const liveFarmData = farmPayload.find((farmData) => farmData.pid === farm.pid)
+      //   return { ...farm, ...liveFarmData }
+      // })
+      // state.poolLength = poolLength
+      // state.regularCakePerBlock = regularCakePerBlock
     })
 
     // Update farms with user data
@@ -198,13 +202,13 @@ export const farmsSlice = createSlice({
     builder.addMatcher(
       isAnyOf(fetchFarmUserDataAsync.fulfilled, fetchFarmsPublicDataAsync.fulfilled),
       (state, action) => {
-        state.loadingKeys[serializeLoadingKey(action, 'fulfilled')] = false
+     //   state.loadingKeys[serializeLoadingKey(action, 'fulfilled')] = false
       },
     )
     builder.addMatcher(
       isAnyOf(fetchFarmsPublicDataAsync.rejected, fetchFarmUserDataAsync.rejected),
       (state, action) => {
-        state.loadingKeys[serializeLoadingKey(action, 'rejected')] = false
+      //  state.loadingKeys[serializeLoadingKey(action, 'rejected')] = false
       },
     )
   },

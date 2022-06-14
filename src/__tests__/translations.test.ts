@@ -53,7 +53,7 @@ describe('Check translations available', () => {
   }
 
   throughDirectory('src/')
-  throughDirectory('node_modules/@pancakeswap/uikit', true)
+  throughDirectory('node_modules/hydroswap-uikitv2', true)
 
   let match
 

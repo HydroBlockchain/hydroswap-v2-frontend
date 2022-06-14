@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import BigNumber from 'bignumber.js'
 import { DEFAULT_TOKEN_DECIMAL, DEFAULT_GAS_LIMIT } from 'config'
 import { BIG_TEN } from 'utils/bigNumber'
-import { useSousChef } from 'hooks/useContract'
+import { useSousChef, useKvsContract } from 'hooks/useContract'
 import getGasPrice from 'utils/getGasPrice'
 
 const options = {
@@ -11,7 +11,7 @@ const options = {
 
 const sousStake = async (sousChefContract, amount, decimals = 18) => {
   const gasPrice = getGasPrice()
-  return sousChefContract.deposit(new BigNumber(amount).times(BIG_TEN.pow(decimals)).toString(), {
+  return sousChefContract.stake(new BigNumber(amount).times(BIG_TEN.pow(decimals)).toString(), {
     ...options,
     gasPrice,
   })
@@ -19,14 +19,14 @@ const sousStake = async (sousChefContract, amount, decimals = 18) => {
 
 const sousStakeBnb = async (sousChefContract, amount) => {
   const gasPrice = getGasPrice()
-  return sousChefContract.deposit(new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString(), {
+  return sousChefContract.stake(new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString(), {
     ...options,
     gasPrice,
   })
 }
 
 const useStakePool = (sousId: number, isUsingBnb = false) => {
-  const sousChefContract = useSousChef(sousId)
+  const sousChefContract = useKvsContract(sousId)
 
   const handleStake = useCallback(
     async (amount: string, decimals: number) => {

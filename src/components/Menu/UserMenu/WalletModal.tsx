@@ -10,7 +10,7 @@ import {
   ModalContainer,
   ModalHeader as UIKitModalHeader,
   ModalTitle,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { parseUnits } from '@ethersproject/units'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
@@ -19,6 +19,7 @@ import { FetchStatus } from 'config/constants/types'
 import WalletInfo from './WalletInfo'
 import WalletTransactions from './WalletTransactions'
 import WalletWrongNetwork from './WalletWrongNetwork'
+
 
 export enum WalletView {
   WALLET_INFO,
@@ -33,7 +34,8 @@ interface WalletModalProps extends InjectedModalProps {
 export const LOW_BNB_BALANCE = parseUnits('2', 'gwei')
 
 const ModalHeader = styled(UIKitModalHeader)`
-  background: ${({ theme }) => theme.colors.gradients.bubblegum};
+  background: ${({ theme }) => theme.colors.gradients.cardHeader};
+  /* background: ${({ theme }) => theme.colors.gradients.cardHeader}; */
 `
 
 const Tabs = styled.div`
@@ -52,12 +54,26 @@ const WalletModal: React.FC<WalletModalProps> = ({ initialView = WalletView.WALL
     setView(newIndex)
   }
 
+  const ButtonMenuStyled = styled(ButtonMenu)`
+  background-color: transparent;
+  border: 0;
+  `
+  const ButtonMenuItemStyled = styled(ButtonMenuItem)`
+  margin:0 0.5rem;
+  background: ${({theme, isActive}) => {
+    return isActive? theme?.colors?.btnBackground:theme?.colors?.backgroundAlt
+  }};
+  color: ${({theme, isActive}) => {
+    return isActive? 'hsla(0, 0%, 91%, 1)':!theme?.isDark ? theme?.colors?.btnBackground:theme?.colors?.btnColor
+  }};
+  `
   const TabsComponent: React.FC = () => (
     <Tabs>
-      <ButtonMenu scale="sm" variant="subtle" onItemClick={handleClick} activeIndex={view} fullWidth>
-        <ButtonMenuItem>{t('Wallet')}</ButtonMenuItem>
-        <ButtonMenuItem>{t('Transactions')}</ButtonMenuItem>
-      </ButtonMenu>
+      <ButtonMenuStyled 
+      scale="sm" variant="subtle" onItemClick={handleClick} activeIndex={view} fullWidth>
+        <ButtonMenuItemStyled>{t('Wallet')}</ButtonMenuItemStyled>
+        <ButtonMenuItemStyled>{t('Transactions')}</ButtonMenuItemStyled>
+      </ButtonMenuStyled>
     </Tabs>
   )
 
@@ -72,7 +88,7 @@ const WalletModal: React.FC<WalletModalProps> = ({ initialView = WalletView.WALL
         </IconButton>
       </ModalHeader>
       {view !== WalletView.WRONG_NETWORK && <TabsComponent />}
-      <ModalBody p="24px" maxWidth="400px" width="100%">
+      <ModalBody p="24px" maxWidth="500px" width="100%">
         {view === WalletView.WALLET_INFO && <WalletInfo hasLowBnbBalance={hasLowBnbBalance} onDismiss={onDismiss} />}
         {view === WalletView.TRANSACTIONS && <WalletTransactions />}
         {view === WalletView.WRONG_NETWORK && <WalletWrongNetwork onDismiss={onDismiss} />}

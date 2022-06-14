@@ -1,10 +1,12 @@
-import { Box, Button, Flex, InjectedModalProps, LinkExternal, Message, Skeleton, Text } from '@pancakeswap/uikit'
+import { Box, Button, Flex, InjectedModalProps, LinkExternal, Message, Skeleton, Text } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import tokens from 'config/constants/tokens'
 import { FetchStatus } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'
 import useAuth from 'hooks/useAuth'
 import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
+import styled, {useTheme} from 'styled-components'
+
 
 import { getBscScanLink } from 'utils'
 import { formatBigNumber, getFullDisplayBalance } from 'utils/formatBalance'
@@ -15,13 +17,18 @@ interface WalletInfoProps {
   onDismiss: InjectedModalProps['onDismiss']
 }
 
+const LinkExternalStyled = styled(LinkExternal)`
+  color: ${({theme}) => theme.colors.btnColor};
+`
 const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) => {
+  const theme = useTheme()
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const { balance, fetchStatus } = useGetBnbBalance()
-  const { balance: cakeBalance, fetchStatus: cakeFetchStatus } = useTokenBalance(tokens.cake.address)
+  const { balance: cakeBalance, fetchStatus: cakeFetchStatus } = useTokenBalance(tokens.hydro.address)
+  
   const { logout } = useAuth()
-
+ 
   const handleLogout = () => {
     onDismiss?.()
     logout()
@@ -50,19 +57,34 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
         )}
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="24px">
-        <Text color="textSubtle">{t('CAKE Balance')}</Text>
+        <Text color="textSubtle">{t('Hydro Balance')}</Text>
         {cakeFetchStatus !== FetchStatus.Fetched ? (
           <Skeleton height="22px" width="60px" />
         ) : (
           <Text>{getFullDisplayBalance(cakeBalance, 18, 3)}</Text>
         )}
       </Flex>
-      <Flex alignItems="center" justifyContent="end" mb="24px">
-        <LinkExternal href={getBscScanLink(account, 'address')}>{t('View on BscScan')}</LinkExternal>
-      </Flex>
-      <Button variant="secondary" width="100%" onClick={handleLogout}>
-        {t('Disconnect Wallet')}
+
+      <Flex >
+      <Box width='50%' >
+      <Button 
+       width="100%" onClick={handleLogout}  mr='0.5rem'
+        >
+        {t('Disconnect')}
       </Button>
+      </Box>
+      <Box width='50%' >
+      <Button 
+      width="100%" onClick={handleLogout} ml='0.5rem' style={{
+        whiteSpace: 'nowrap',
+        minWidth: 'auto',
+      }}>
+        <LinkExternalStyled 
+        color={theme.colors.btnColor}
+        href={getBscScanLink(account, 'address')}>{t('View on BscScan')}</LinkExternalStyled>
+      </Button>
+      </Box>
+      </Flex>
     </>
   )
 }

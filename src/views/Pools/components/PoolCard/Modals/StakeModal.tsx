@@ -14,7 +14,7 @@ import {
   CalculateIcon,
   IconButton,
   Skeleton,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'
 import useToast from 'hooks/useToast'
@@ -30,6 +30,7 @@ import { getInterestBreakdown } from 'utils/compoundApyHelpers'
 import PercentageButton from './PercentageButton'
 import useStakePool from '../../../hooks/useStakePool'
 import useUnstakePool from '../../../hooks/useUnstakePool'
+import useUserStakeInfo from '../../../hooks/useUserStakeInfo'
 
 interface StakeModalProps {
   isBnbPool: boolean
@@ -38,6 +39,8 @@ interface StakeModalProps {
   stakingTokenPrice: number
   isRemovingStake?: boolean
   onDismiss?: () => void
+  placeRequest?:boolean
+  claimHydro?:boolean
 }
 
 const StyledLink = styled(Link)`
@@ -63,6 +66,8 @@ const StakeModal: React.FC<StakeModalProps> = ({
   stakingTokenPrice,
   isRemovingStake = false,
   onDismiss,
+  placeRequest=false,
+  claimHydro=false
 }) => {
   const { sousId, stakingToken, earningTokenPrice, apr, userData, stakingLimit, earningToken } = pool
   const { account } = useWeb3React()
@@ -138,11 +143,16 @@ const StakeModal: React.FC<StakeModalProps> = ({
   }
 
   const handleConfirmClick = async () => {
+    if(claimHydro){
+      return;
+    }
     const receipt = await fetchWithCatchTxError(() => {
       if (isRemovingStake) {
-        return onUnstake(stakeAmount, stakingToken.decimals)
+       return onUnstake(stakeAmount, stakingToken.decimals)
       }
-      return onStake(stakeAmount, stakingToken.decimals)
+       else {
+         return onStake(stakeAmount, stakingToken.decimals)
+       }
     })
     if (receipt?.status) {
       if (isRemovingStake) {
@@ -164,6 +174,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
           </ToastDescriptionWithTx>,
         )
       }
+
       dispatch(updateUserStakedBalance({ sousId, account }))
       dispatch(updateUserPendingReward({ sousId, account }))
       dispatch(updateUserBalance({ sousId, account }))
@@ -187,11 +198,11 @@ const StakeModal: React.FC<StakeModalProps> = ({
       />
     )
   }
-
+console.log(placeRequest, "placeRequest")
   return (
     <Modal
       minWidth="346px"
-      title={isRemovingStake ? t('Unstake') : t('Stake in Pool')}
+      title={ placeRequest ? 'Place Unstake Request': isRemovingStake ? t('Unstake') : t('Stake in Pool')}
       onDismiss={onDismiss}
       headerBackground={theme.colors.gradients.cardHeader}
     >
@@ -206,9 +217,14 @@ const StakeModal: React.FC<StakeModalProps> = ({
       <Flex alignItems="center" justifyContent="space-between" mb="8px">
         <Text bold>{isRemovingStake ? t('Unstake') : t('Stake')}:</Text>
         <Flex alignItems="center" minWidth="70px">
-          <Image src={`/images/tokens/${stakingToken.address}.png`} width={24} height={24} alt={stakingToken.symbol} />
+          {/* <Image src={`/images/tokens/${stakingToken.address}.png`} width={24} height={24} alt={stakingToken.symbol} />
           <Text ml="4px" bold>
             {stakingToken.symbol}
+          </Text> */}
+          <Text ml="auto" color="textSubtle" fontSize="12px" mb="6px">
+            {t('Balance: %balance%', {
+              balance: getFullDisplayBalance(getCalculatedStakingLimit(), stakingToken.decimals),
+            })}
           </Text>
         </Flex>
       </Flex>
@@ -234,11 +250,11 @@ const StakeModal: React.FC<StakeModalProps> = ({
           })}
         </Text>
       )}
-      <Text ml="auto" color="textSubtle" fontSize="12px" mb="8px">
+      {/* <Text ml="auto" color="textSubtle" fontSize="12px" mb="8px">
         {t('Balance: %balance%', {
           balance: getFullDisplayBalance(getCalculatedStakingLimit(), stakingToken.decimals),
         })}
-      </Text>
+      </Text> */}
       <Slider
         min={0}
         max={100}
@@ -254,7 +270,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
         <PercentageButton onClick={() => handleChangePercent(75)}>75%</PercentageButton>
         <PercentageButton onClick={() => handleChangePercent(100)}>{t('Max')}</PercentageButton>
       </Flex>
-      {!isRemovingStake && (
+      {/* {!isRemovingStake && (
         <Flex mt="24px" alignItems="center" justifyContent="space-between">
           <Text mr="8px" color="textSubtle">
             {t('Annual ROI at current rates')}:
@@ -275,7 +291,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
             <Skeleton width={60} />
           )}
         </Flex>
-      )}
+      )} */}
       {isRemovingStake && pool.enableEmergencyWithdraw && (
         <Flex maxWidth="346px" mt="24px">
           <Text textAlign="center">
@@ -285,24 +301,31 @@ const StakeModal: React.FC<StakeModalProps> = ({
           </Text>
         </Flex>
       )}
+     <Flex justifyContent='center' alignItems='center' >
       <Button
-        isLoading={pendingTx}
-        endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
-        onClick={handleConfirmClick}
-        disabled={!stakeAmount || parseFloat(stakeAmount) === 0 || hasReachedStakeLimit || userNotEnoughToken}
-        mt="24px"
-      >
-        {pendingTx ? t('Confirming') : t('Confirm')}
-      </Button>
-      {!isRemovingStake && (
-        <StyledLink external href={getTokenLink}>
-          <Button width="100%" mt="8px" variant="secondary">
-            {t('Get %symbol%', { symbol: stakingToken.symbol })}
-          </Button>
-        </StyledLink>
-      )}
+          isLoading={pendingTx}
+          endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
+          onClick={handleConfirmClick}
+          disabled={!stakeAmount || parseFloat(stakeAmount) === 0  || userNotEnoughToken}
+          mt="24px"
+           mr={placeRequest? '0px': '"24px"'}
+          width='100%'
+        >
+          {pendingTx ? t('Confirming') : t('Confirm')}
+        </Button>
+        {/* { (!isRemovingStake && !placeRequest ) && (
+            <Button mt="24px" variant="secondary">
+               <StyledLink external href={getTokenLink}>
+              {t('Get %symbol%', { symbol: stakingToken.symbol })}
+              </StyledLink>
+            </Button>
+        )} */}
+     </Flex>
     </Modal>
   )
 }
 
 export default StakeModal
+
+
+

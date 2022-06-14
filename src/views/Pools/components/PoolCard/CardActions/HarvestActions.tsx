@@ -1,9 +1,11 @@
-import { Flex, Text, Button, Heading, useModal, Skeleton } from '@pancakeswap/uikit'
+import { Flex, Text, Button, Heading, useModal, Skeleton } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
-import { Token } from '@pancakeswap/sdk'
+import { Token } from 'hydroswap-v2-sdk'
+
 import { useTranslation } from 'contexts/Localization'
 import { getFullDisplayBalance, getBalanceNumber, formatNumber } from 'utils/formatBalance'
 import Balance from 'components/Balance'
+import { DeserializedPool } from 'state/types'
 import CollectModal from '../Modals/CollectModal'
 
 interface HarvestActionsProps {
@@ -13,6 +15,7 @@ interface HarvestActionsProps {
   earningTokenPrice: number
   isBnbPool: boolean
   isLoading?: boolean
+  pool: DeserializedPool
 }
 
 const HarvestActions: React.FC<HarvestActionsProps> = ({
@@ -35,6 +38,7 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
 
   const [onPresentCollect] = useModal(
     <CollectModal
+      earning={earnings}
       formattedBalance={formattedBalance}
       fullBalance={fullBalance}
       earningToken={earningToken}
@@ -79,7 +83,7 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
         )}
       </Flex>
       <Button disabled={!hasEarnings} onClick={onPresentCollect}>
-        {isCompoundPool ? t('Collect') : t('Harvest')}
+        {t('Harvest')}
       </Button>
     </Flex>
   )

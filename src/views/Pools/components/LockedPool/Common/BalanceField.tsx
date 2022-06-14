@@ -1,4 +1,4 @@
-import { BalanceInput, Button, Flex, Image, Slider, Text } from '@pancakeswap/uikit'
+import { BalanceInput, Button, Flex, Image, Slider, Text } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
 import { Dispatch, useMemo, memo, SetStateAction, useCallback } from 'react'

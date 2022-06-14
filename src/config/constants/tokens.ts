@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@pancakeswap/sdk'
+import { ChainId, Token } from 'hydroswap-v2-sdk'
 import { serializeToken } from 'state/user/hooks/helpers'
 import { CHAIN_ID } from './networks'
 import { SerializedToken } from './types'
@@ -24,11 +24,11 @@ export const mainnetTokens = defineTokens({
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
     MAINNET,
-    '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    '0xf3DBB49999B25c9D6641a9423C7ad84168D00071',
     18,
-    'CAKE',
-    'PancakeSwap Token',
-    'https://pancakeswap.finance/',
+    'HYDRO',
+    'Hydro',
+    'https://projecthydro.org/',
   ),
   gmi: new Token(MAINNET, '0x93D8d25E3C9A847a5Da79F79ecaC89461FEcA846', 18, 'GMI', 'Gamifi', 'https://gamifi.gg/'),
   tlos: new Token(MAINNET, '0xb6C53431608E626AC81a9776ac3e999c5556717c', 18, 'TLOS', 'Telos', 'https://www.telos.net/'),
@@ -2104,6 +2104,22 @@ export const mainnetTokens = defineTokens({
     'MixMarvel Token',
     'https://www.mixmarvel.com/',
   ),
+  hydro: new Token(
+    MAINNET,
+    '0xf3DBB49999B25c9D6641a9423C7ad84168D00071',
+    18,
+    'HYDRO',
+    'Hydro Token',
+    'https://projecthydro.org/',
+  ),
+  kvs: new Token(
+    MAINNET,
+    '0x804d51B4751eec021fef2199936FAFde0A520e04',
+    18,
+    'KVS',
+    'Kvs Token',
+    'https://projecthydro.org/',
+  ),
 } as const)
 
 export const testnetTokens = defineTokens({
@@ -2117,11 +2133,11 @@ export const testnetTokens = defineTokens({
   ),
   cake: new Token(
     TESTNET,
-    '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
+    '0x5B387f4886F043f603f7d0cb55DBd727D6649C73',
     18,
-    'CAKE',
-    'PancakeSwap Token',
-    'https://pancakeswap.finance/',
+    'HYDRO',
+    'Hydro',
+    'https://projecthydro.org/',
   ),
   busd: new Token(
     TESTNET,
@@ -2147,11 +2163,27 @@ export const testnetTokens = defineTokens({
     'Bakeryswap Token',
     'https://www.bakeryswap.org/',
   ),
+  hydro: new Token(
+    TESTNET,
+    '0x5B387f4886F043f603f7d0cb55DBd727D6649C73',
+    18,
+    'HYDRO',
+    'Hydro Token',
+    'https://projecthydro.org/',
+  ),
+  kvs: new Token(
+    TESTNET,
+    '0x14866bb7db3276cD5f3249934f86Dbd79A741D34',
+    18,
+    'KVS',
+    'Kvs Token',
+    'https://projecthydro.org/',
+  ),
 } as const)
 
 const tokens = () => {
   const chainId = CHAIN_ID
-
+ 
   // If testnet - return list comprised of testnetTokens wherever they exist, and mainnetTokens where they don't
   if (parseInt(chainId, 10) === ChainId.TESTNET) {
     return Object.keys(mainnetTokens).reduce((accum, key) => {

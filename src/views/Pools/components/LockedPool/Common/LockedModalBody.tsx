@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Button, AutoRenewIcon, Box, Flex } from '@pancakeswap/uikit'
+import { Button, AutoRenewIcon, Box, Flex } from 'hydroswap-uikitv2'
 import _noop from 'lodash/noop'
 import { useTranslation } from 'contexts/Localization'
 import { MAX_LOCK_DURATION } from 'config/constants/pools'

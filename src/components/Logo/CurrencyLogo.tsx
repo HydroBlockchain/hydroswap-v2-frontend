@@ -1,5 +1,5 @@
-import { Currency, ETHER, Token } from '@pancakeswap/sdk'
-import { BinanceIcon } from '@pancakeswap/uikit'
+import { Currency, ETHER, Token } from 'hydroswap-v2-sdk'
+import { BinanceIcon } from 'hydroswap-uikitv2'
 import { useMemo } from 'react'
 import styled from 'styled-components'
 import { WrappedTokenInfo } from 'state/types'

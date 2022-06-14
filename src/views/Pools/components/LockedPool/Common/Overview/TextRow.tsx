@@ -1,4 +1,4 @@
-import { Text, Flex } from '@pancakeswap/uikit'
+import { Text, Flex } from 'hydroswap-uikitv2'
 import isUndefinedOrNull from 'utils/isUndefinedOrNull'
 import CrossText from './CrossText'
 

@@ -1,6 +1,6 @@
 import { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
-import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@pancakeswap/sdk'
-import { Text } from '@pancakeswap/uikit'
+import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from 'hydroswap-v2-sdk'
+import { Text } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { FixedSizeList } from 'react-window'
 import { wrappedCurrency } from 'utils/wrappedCurrency'

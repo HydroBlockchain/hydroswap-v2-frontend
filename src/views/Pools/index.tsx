@@ -4,7 +4,7 @@ import { BigNumber as EthersBigNumber } from '@ethersproject/bignumber'
 import { formatUnits } from '@ethersproject/units'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Heading, Flex, Image, Text, Link } from '@pancakeswap/uikit'
+import { Flex, Text, Link, CardHeader, CardBody, Heading, CardFooter, Card, Image } from 'hydroswap-uikitv2'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import { useTranslation } from 'contexts/Localization'
@@ -23,15 +23,48 @@ import { useRouter } from 'next/router'
 import Loading from 'components/Loading'
 import { useInitialBlock } from 'state/block/hooks'
 import { BSC_BLOCK_TIME } from 'config'
+import useTheme from 'hooks/useTheme'
 import PoolCard from './components/PoolCard'
 import CakeVaultCard from './components/CakeVaultCard'
 import PoolTabButtons from './components/PoolTabButtons'
 import PoolsTable from './components/PoolsTable/PoolsTable'
 import { getCakeVaultEarnings } from './helpers'
+import PoolCardHeader from './components/PoolCard/PoolCardHeader'
 
-const CardLayout = styled(FlexLayout)`
-  justify-content: center;
+const CardLayout = styled(FlexLayout)``
+
+const CardHead = styled(CardHeader)`
+  background: ${({ theme }) => theme.colors.gradients.cardHeader};
 `
+
+const Grid = styled.div`
+  display: grid;
+  grid-row-gap: 40px;
+  grid-template-columns: 1fr 320px 1fr;
+  grid-template-areas:
+    '. b .'
+    'a a a';
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    grid-row-gap: 45px;
+    grid-template-areas:
+      '. b .'
+      'a a a';
+  }
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    grid-row-gap: 45px;
+    grid-template-areas:
+      '. b .'
+      'a a a';
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    grid-column-gap: 45px;
+    grid-template-areas: 'a a b';
+  }
+`
+const SCointainer = styled.div``
 
 const PoolControls = styled.div`
   display: flex;
@@ -87,6 +120,10 @@ const FinishedTextLink = styled(Link)`
   font-weight: 400;
   white-space: nowrap;
   text-decoration: underline;
+`
+
+const H = styled.h1`
+  font-family: 'Droidiga';
 `
 
 const NUMBER_OF_POOLS_VISIBLE = 12
@@ -165,6 +202,7 @@ const Pools: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [sortOption, setSortOption] = useState('hot')
   const chosenPoolsLength = useRef(0)
+  const { theme } = useTheme()
   const initialBlock = useInitialBlock()
 
   const [finishedPools, openPools] = useMemo(() => partition(pools, (pool) => pool.isFinished), [pools])
@@ -214,12 +252,12 @@ const Pools: React.FC = () => {
 
   const showFinishedPools = router.pathname.includes('history')
 
-  const handleChangeSearchQuery = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(event.target.value),
-    [],
-  )
+  // const handleChangeSearchQuery = useCallback(
+  //   (event: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(event.target.value),
+  //   [],
+  // )
 
-  const handleSortOptionChange = useCallback((option: OptionProps) => setSortOption(option.value), [])
+  // const handleSortOptionChange = useCallback((option: OptionProps) => setSortOption(option.value), [])
 
   let chosenPools
   if (showFinishedPools) {
@@ -239,28 +277,53 @@ const Pools: React.FC = () => {
   }, [account, sortOption, pools, chosenPools, numberOfPoolsVisible, searchQuery])
   chosenPoolsLength.current = chosenPools.length
 
-  const cardLayout = (
-    <CardLayout>
-      {chosenPools.map((pool) =>
-        pool.vaultKey ? (
-          <CakeVaultCard key={pool.vaultKey} pool={pool} showStakedOnly={stakedOnly} />
-        ) : (
-          <PoolCard key={pool.sousId} pool={pool} account={account} />
-        ),
-      )}
-    </CardLayout>
-  )
+  // const cardLayout = (
+  //   <CardLayout>
+  //     {chosenPools.map((pool) =>
+  //       pool.vaultKey ? (
+  //         <CakeVaultCard key={pool.vaultKey} pool={pool} showStakedOnly={stakedOnly} />
+  //       ) : (
+  //           <PoolCard key={pool.sousId} pool={pool} account={account} />
 
-  const tableLayout = <PoolsTable pools={chosenPools} account={account} />
+  //       )
+  //     )}
+  //   </CardLayout>
+  // )
+
+  const cardLayout = chosenPools.map((pool) => {
+    return (
+      <Grid>
+        <div style={{ gridArea: 'a' }}>
+          <PoolCard key={pool.sousId} pool={pool} account={account} />
+        </div>
+        <div style={{ gridArea: 'b' }}>
+          <Card>
+            <CardHead>
+              <Heading textAlign="center" scale="lg" paddingTop="19px" paddingBottom="19px">
+                <Image
+                  src={theme.isDark ? '/images/Keresverse.svg' : '/images/Keresverse-black.svg'}
+                  width={300}
+                  height={30}
+                />
+              </Heading>
+            </CardHead>
+            <CardBody>
+              <Image src="/images/wex.gif" alt="keresverse" width={350} height={350} paddingTop="0px" paddingBottom="-10px" />
+            </CardBody>
+          </Card>
+        </div>
+      </Grid>
+    )
+  })
+
+  // const tableLayout = <PoolsTable pools={chosenPools} account={account} />
 
   return (
     <>
       <PageHeader>
-        <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
-          <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
-            <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-              {t('Syrup Pools')}
-            </Heading>
+        {/* <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
+          <Flex flex="1" alignItems="center" flexDirection="column" mr={['8px', 0]}>
+           
             <Heading scale="md" color="text">
               {t('Just stake some tokens to earn.')}
             </Heading>
@@ -268,7 +331,7 @@ const Pools: React.FC = () => {
               {t('High APR, low risk.')}
             </Heading>
           </Flex>
-        </Flex>
+        </Flex> */}
       </PageHeader>
       <Page>
         <PoolControls>
@@ -279,7 +342,7 @@ const Pools: React.FC = () => {
             viewMode={viewMode}
             setViewMode={setViewMode}
           />
-          <FilterContainer>
+          {/* <FilterContainer>
             <LabelWrapper>
               <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
                 {t('Sort by')}
@@ -318,16 +381,16 @@ const Pools: React.FC = () => {
               </Text>
               <SearchInput onChange={handleChangeSearchQuery} placeholder="Search Pools" />
             </LabelWrapper>
-          </FilterContainer>
+          </FilterContainer> */}
         </PoolControls>
         {showFinishedPools && (
           <FinishedTextContainer>
-            <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
-              {t('Looking for v1 CAKE syrup pools?')}
-            </Text>
-            <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="failure">
+            {/* <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
+              {t('Looking for v1 CAKE Hydro Pools?')}
+            </Text> */}
+            {/* <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="failure">
               {t('Go to migration page')}.
-            </FinishedTextLink>
+            </FinishedTextLink> */}
           </FinishedTextContainer>
         )}
         {account && !userDataLoaded && stakedOnly && (
@@ -335,16 +398,9 @@ const Pools: React.FC = () => {
             <Loading />
           </Flex>
         )}
-        {viewMode === ViewMode.CARD ? cardLayout : tableLayout}
+        {cardLayout}
+        {/* {viewMode === ViewMode.CARD ? cardLayout : tableLayout} */}
         <div ref={observerRef} />
-        <Image
-          mx="auto"
-          mt="12px"
-          src="/images/decorations/3d-syrup-bunnies.png"
-          alt="Pancake illustration"
-          width={192}
-          height={184.5}
-        />
       </Page>
     </>
   )

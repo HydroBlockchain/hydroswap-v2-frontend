@@ -1,4 +1,4 @@
-import { ChevronLeftIcon, Flex, Text } from '@pancakeswap/uikit'
+import { ChevronLeftIcon, Flex, Text } from 'hydroswap-uikitv2'
 import Page from 'components/Layout/Page'
 import { useTranslation } from 'contexts/Localization'
 import { useRouter } from 'next/router'

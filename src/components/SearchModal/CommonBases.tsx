@@ -1,5 +1,5 @@
-import { ChainId, Currency, currencyEquals, ETHER, Token } from '@pancakeswap/sdk'
-import { Text } from '@pancakeswap/uikit'
+import { ChainId, Currency, currencyEquals, ETHER, Token } from 'hydroswap-v2-sdk'
+import { Text } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 
@@ -56,9 +56,9 @@ export default function CommonBases({
         {(chainId ? SUGGESTED_BASES[chainId] : []).map((token: Token) => {
           const selected = selectedCurrency instanceof Token && selectedCurrency.address === token.address
           return (
-            <BaseWrapper onClick={() => !selected && onSelect(token)} disable={selected} key={token.address}>
+            <BaseWrapper onClick={() => !selected && onSelect(token)} disable={selected} key={token?.address}>
               <CurrencyLogo currency={token} style={{ marginRight: 8, borderRadius: '50%' }} />
-              <Text>{token.symbol}</Text>
+              <Text>{token?.symbol}</Text>
             </BaseWrapper>
           )
         })}

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { AutoRenewIcon, Button, Card, CardBody, Heading, Skeleton, Text } from '@pancakeswap/uikit'
+import { AutoRenewIcon, Button, Card, CardBody, Heading, Skeleton, Text } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { getPancakeProfileAddress } from 'utils/addressHelpers'
@@ -10,7 +10,7 @@ import useToast from 'hooks/useToast'
 import { useProfileContract } from 'hooks/useContract'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import useCatchTxError from 'hooks/useCatchTxError'
-import { nftsBaseUrl } from 'views/Nft/market/constants'
+// import { nftsBaseUrl } from 'views/Nft/market/constants'
 import { NftLocation } from 'state/nftMarket/types'
 import { useProfile } from 'state/profile/hooks'
 import SelectionCard from './SelectionCard'
@@ -18,7 +18,7 @@ import NextStepButton from './NextStepButton'
 import { ProfileCreationContext } from './contexts/ProfileCreationProvider'
 import multicall from '../../utils/multicall'
 import profileABI from '../../config/abi/pancakeProfile.json'
-import useNftsForAddress from '../Nft/market/hooks/useNftsForAddress'
+// import useNftsForAddress from '../Nft/market/hooks/useNftsForAddress'
 
 const Link = styled(NextLinkFromReactRouter)`
   color: ${({ theme }) => theme.colors.primary};
@@ -35,16 +35,16 @@ const ProfilePicture: React.FC = () => {
   const { selectedNft, actions } = useContext(ProfileCreationContext)
   const profileContract = useProfileContract(false)
   const { isLoading: isProfileLoading, profile } = useProfile()
-  const { nfts, isLoading: isUserNftLoading } = useNftsForAddress(account, profile, isProfileLoading)
+  // const { nfts, isLoading: isUserNftLoading } = useNftsForAddress(account, profile, isProfileLoading)
 
   useEffect(() => {
     const fetchUserPancakeCollectibles = async () => {
       try {
-        const nftsByCollection = Array.from(
-          nfts.reduce((acc, value) => {
-            acc.add(value.collectionAddress)
-            return acc
-          }, new Set<string>()),
+        const nftsByCollection = Array.from( "str"
+          // nfts.reduce((acc, value) => {
+          //   acc.add(value.collectionAddress)
+          //   return acc
+          // }, new Set<string>()),
         )
 
         if (nftsByCollection.length > 0) {
@@ -59,17 +59,18 @@ const ProfilePicture: React.FC = () => {
           const collectionRolesRaw = await multicall(profileABI, collectionsNftRoleCalls)
           const collectionRoles = collectionRolesRaw.flat()
           setUserProfileCreationNfts(
-            nfts.filter((nft) => collectionRoles[nftsByCollection.indexOf(nft.collectionAddress)]),
+            []
+          //  nfts.filter((nft) => collectionRoles[nftsByCollection.indexOf(nft.collectionAddress)]),
           )
         }
       } catch (e) {
         console.error(e)
       }
     }
-    if (!isUserNftLoading) {
-      fetchUserPancakeCollectibles()
-    }
-  }, [nfts, profileContract, isUserNftLoading])
+    // if (!isUserNftLoading) {
+    //   fetchUserPancakeCollectibles()
+    // }
+  }, [ profileContract])
 
   const { t } = useTranslation()
   const { toastSuccess } = useToast()
@@ -123,9 +124,9 @@ const ProfilePicture: React.FC = () => {
           </Text>
           <Text as="p" color="textSubtle" mb="24px">
             {t('Only approved Pancake Collectibles can be used.')}
-            <Link to={`${nftsBaseUrl}/collections`} style={{ marginLeft: '4px' }}>
+            {/* <Link to={`${nftsBaseUrl}/collections`} style={{ marginLeft: '4px' }}>
               {t('See the list >')}
-            </Link>
+            </Link> */}
           </Text>
           <NftWrapper>
             {userProfileCreationNfts?.length > 0 ? (

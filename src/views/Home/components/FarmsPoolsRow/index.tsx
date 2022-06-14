@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import styled from 'styled-components'
-import { Flex, Box, SwapVertIcon, IconButton } from '@pancakeswap/uikit'
+import { Flex, Box, SwapVertIcon, IconButton } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { DeserializedPool } from 'state/types'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
@@ -67,7 +67,7 @@ const FarmsPoolsRow = () => {
     <div ref={observerRef}>
       <Flex flexDirection="column" mt="24px">
         <Flex mb="24px">
-          <RowHeading text={showFarms ? t('Top Farms') : t('Top Syrup Pools')} />
+          <RowHeading text={showFarms ? t('Top Farms') : t('Top Hydro Pools')} />
           <IconButton
             variant="text"
             height="100%"

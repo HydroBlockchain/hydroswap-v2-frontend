@@ -11,7 +11,7 @@ import {
   HelpIcon,
   ButtonMenuItem,
   useTooltip,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -179,7 +179,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
           <Text color="secondary" bold fontSize="12px" textTransform="uppercase">
             {t('%asset% staked', { asset: stakingTokenSymbol })}
           </Text>
-          <BalanceInput
+          {/* <BalanceInput
             inputProps={{
               scale: 'sm',
             }}
@@ -191,7 +191,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
             onUserInput={onUserInput}
             switchEditingUnits={toggleEditingCurrency}
             onFocus={onBalanceFocus}
-          />
+          /> */}
           <Flex justifyContent="space-between" mt="8px">
             <Button
               scale="xs"

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
-import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap/sdk'
+import { CurrencyAmount, JSBI, Token, Trade } from 'hydroswap-v2-sdk'
 import {
   Button,
   Text,
@@ -13,7 +13,7 @@ import {
   useMatchBreakpoints,
   ArrowUpDownIcon,
   Skeleton,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import UnsupportedCurrencyFooter from 'components/UnsupportedCurrencyFooter'
 import Footer from 'components/Menu/Footer'
@@ -146,6 +146,7 @@ export default function Swap() {
     currencies,
     inputError: swapInputError,
   } = useDerivedSwapInfo(independentField, typedValue, inputCurrency, outputCurrency, recipient)
+ 
 
   const {
     wrapType,
@@ -368,6 +369,8 @@ export default function Swap() {
 
   return (
     <Page removePadding={isChartExpanded} hideFooterOnDesktop={isChartExpanded}>
+      <>
+      </>
       <Flex width="100%" justifyContent="center" position="relative">
         {!isMobile && (
           <PriceChartContainer
@@ -410,7 +413,7 @@ export default function Swap() {
                   hasAmount={hasAmount}
                   onRefreshPrice={onRefreshPrice}
                 />
-                <Wrapper id="swap-page" style={{ minHeight: '412px' }}>
+                <Wrapper id="swap-page" style={{ minHeight: '350px' }}>
                   <AutoColumn gap="sm">
                     <CurrencyInputPanel
                       label={
@@ -478,7 +481,7 @@ export default function Swap() {
                     ) : null}
 
                     {showWrap ? null : (
-                      <AutoColumn gap="7px" style={{ padding: '0 16px' }}>
+                      <AutoColumn gap="7px" style={{ padding: '0 8px' }}>
                         <RowBetween align="center">
                           {Boolean(trade) && (
                             <>

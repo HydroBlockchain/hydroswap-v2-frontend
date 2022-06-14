@@ -1,4 +1,4 @@
-import { Currency } from '@pancakeswap/sdk'
+import { Currency } from 'hydroswap-v2-sdk'
 import {
   ArrowDownIcon,
   Button,
@@ -9,7 +9,7 @@ import {
   Modal,
   Spinner,
   Text,
-} from '@pancakeswap/uikit'
+} from 'hydroswap-uikitv2'
 import { CurrencyLogo } from 'components/Logo'
 import { TransactionErrorContent, TransactionSubmittedContent } from 'components/TransactionConfirmationModal'
 import { useTranslation } from 'contexts/Localization'

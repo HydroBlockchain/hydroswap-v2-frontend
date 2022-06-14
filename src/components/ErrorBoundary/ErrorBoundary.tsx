@@ -1,12 +1,14 @@
 import * as Sentry from '@sentry/react'
 import Page from 'components/Layout/Page'
 import { useTranslation } from 'contexts/Localization'
-import { Button, Text, LogoIcon, Flex, IconButton, CopyIcon } from '@pancakeswap/uikit'
+import { Button, Text, LogoIcon, Flex, IconButton, CopyIcon } from 'hydroswap-uikitv2'
 import { copyText } from 'utils/copyText'
 
 export default function ErrorBoundary({ children }) {
   const { t } = useTranslation()
   return (
+    <>
+      {/* @ts-ignore */}
     <Sentry.ErrorBoundary
       beforeCapture={(scope) => {
         scope.setLevel(Sentry.Severity.Fatal)
@@ -36,5 +38,6 @@ export default function ErrorBoundary({ children }) {
     >
       {children}
     </Sentry.ErrorBoundary>
+    </>
   )
 }

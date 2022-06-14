@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Flex, Skeleton, Text } from '@pancakeswap/uikit'
+import { Flex, Skeleton, Text } from 'hydroswap-uikitv2'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import Balance from 'components/Balance'
@@ -37,7 +37,12 @@ const TotalStakedCell: React.FC<TotalStakedCellProps> = ({ pool }) => {
         </Text>
         {totalStaked && totalStaked.gte(0) ? (
           <Flex height="20px" alignItems="center">
-            <Balance fontSize="16px" value={totalStakedBalance} decimals={0} unit={` ${stakingToken.symbol}`} />
+            <Balance
+              fontSize="14px"
+              value={totalStakedBalance / 10 ** 5}
+              decimals={2}
+              unit={` ${stakingToken.symbol}`}
+            />
           </Flex>
         ) : (
           <Skeleton width="80px" height="16px" />

@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { Modal, Box } from '@pancakeswap/uikit'
+import { Modal, Box } from 'hydroswap-uikitv2'
 import _noop from 'lodash/noop'
 import useTheme from 'hooks/useTheme'
 import { useBUSDCakeAmount } from 'hooks/useBUSDPrice'

@@ -3,6 +3,8 @@ import { useEffect, useMemo, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useCurrentBlock } from 'state/block/hooks'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
+import { ethers } from 'ethers'
+// import { getMulticallContract } from 'utils/contractHelpers'
 import { useMulticallContract } from '../../hooks/useContract'
 import useDebounce from '../../hooks/useDebounce'
 import { CancelledError, retry, RetryableError } from './retry'
@@ -27,10 +29,10 @@ const CALL_CHUNK_SIZE = 500
  */
 async function fetchChunk(
   multicallContract: Contract,
-  chunk: Call[],
+  chun: Call[],
   minBlockNumber: number,
 ): Promise<{ results: string[]; blockNumber: number }> {
-  console.debug('Fetching chunk', multicallContract, chunk, minBlockNumber)
+  const chunk = chun.filter(i =>!(i.address =='0x8F3273Fb89B075b1645095ABaC6ed17B2d4Bc576'))
   let resultsBlockNumber
   let returnData
   try {
@@ -146,7 +148,9 @@ export default function Updater(): null {
   const debouncedListeners = useDebounce(state.callListeners, 100)
   const currentBlock = useCurrentBlock()
   const { chainId } = useActiveWeb3React()
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
   const multicallContract = useMulticallContract()
+  // const multicallContract = getMulticallContract(provider)
   const cancellations = useRef<{ blockNumber: number; cancellations: (() => void)[] }>()
 
   const listeningKeys: { [callKey: string]: number } = useMemo(() => {
@@ -168,9 +172,8 @@ export default function Updater(): null {
     const outdatedCallKeys: string[] = JSON.parse(serializedOutdatedCallKeys)
     if (outdatedCallKeys.length === 0) return
     const calls = outdatedCallKeys.map((key) => parseCallKey(key))
-
     const chunkedCalls = chunkArray(calls, CALL_CHUNK_SIZE)
-
+    
     if (cancellations.current?.blockNumber !== currentBlock) {
       cancellations.current?.cancellations?.forEach((c) => c())
     }

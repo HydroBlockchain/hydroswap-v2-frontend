@@ -35,13 +35,14 @@ import {
   getErc721CollectionContract,
   getBunnySpecialXmasContract,
   getGalaxyNTFClaimingContract,
+  getKvsContract,
 } from 'utils/contractHelpers'
 import { getMulticallAddress } from 'utils/addressHelpers'
 import { Erc20, Erc20Bytes32, Multicall, Weth, Cake, Erc721collection, CakeVaultV2 } from 'config/abi/types'
 
 // Imports below migrated from Exchange useContract.ts
 import { Contract } from '@ethersproject/contracts'
-import { WETH } from '@pancakeswap/sdk'
+import { WETH } from 'hydroswap-v2-sdk'
 import IPancakePairABI from '../config/abi/IPancakePair.json'
 import { ERC20_BYTES32_ABI } from '../config/abi/erc20'
 import ERC20_ABI from '../config/abi/erc20.json'
@@ -138,6 +139,11 @@ export const useMasterchefV1 = () => {
 export const useSousChef = (id) => {
   const { library } = useActiveWeb3React()
   return useMemo(() => getSouschefContract(id, library.getSigner()), [id, library])
+}
+
+export const useKvsContract = (id) => {
+  const { library } = useActiveWeb3React()
+  return useMemo(() => getKvsContract(id, library.getSigner()), [id, library])
 }
 
 export const usePointCenterIfoContract = () => {

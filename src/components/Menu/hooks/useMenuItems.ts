@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { menuStatus } from '@pancakeswap/uikit'
+import { menuStatus } from 'hydroswap-uikitv2'
 import { useTranslation } from '../../../contexts/Localization'
 import { useMenuItemsStatus } from './useMenuItemsStatus'
 import config, { ConfigMenuItemsType } from '../config/config'
@@ -18,7 +18,7 @@ export const useMenuItems = (): ConfigMenuItemsType[] => {
   return useMemo(() => {
     if (menuItemsStatus && Object.keys(menuItemsStatus).length) {
       return menuItems.map((item) => {
-        const innerItems = item.items.map((innerItem) => {
+        const innerItems = item?.items?.map((innerItem) => {
           const itemStatus = menuItemsStatus[innerItem.href]
           if (itemStatus) {
             let itemMenuStatus

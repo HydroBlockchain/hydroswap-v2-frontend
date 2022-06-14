@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount, Fraction, Percent } from '@pancakeswap/sdk'
-import { Button, Text } from '@pancakeswap/uikit'
+import { Currency, CurrencyAmount, Fraction, Percent } from 'hydroswap-v2-sdk'
+import { Button, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import { RowBetween, RowFixed } from '../../components/Layout/Row'
 import { CurrencyLogo } from '../../components/Logo'

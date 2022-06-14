@@ -1,4 +1,4 @@
-import { Flex, LinkExternal, Text } from '@pancakeswap/uikit'
+import { Flex, LinkExternal, Text } from 'hydroswap-uikitv2'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
 import { getBscScanLink } from 'utils'
@@ -93,7 +93,7 @@ const DetailsView: React.FC<DetailsViewProps> = ({
       {Number.isFinite(poolsBalance) && (
         <Flex alignItems="center" justifyContent="space-between" mb="4px">
           <Text color="textSubtle" fontSize="16px">
-            {t('Other Syrup Pools')}
+            {t('Other Hydro Pools')}
           </Text>
           <Text textAlign="right">{formatNumber(poolsBalance, 0, 3)}</Text>
         </Flex>

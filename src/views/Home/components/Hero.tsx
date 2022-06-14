@@ -1,4 +1,4 @@
-import { Button, Flex, Heading } from '@pancakeswap/uikit'
+import { Button, Flex, Heading } from 'hydroswap-uikitv2'
 import { useWeb3React } from '@web3-react/core'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import { NextLinkFromReactRouter } from 'components/NextLink'
@@ -96,10 +96,10 @@ const Hero = () => {
 
   return (
     <>
-      <BgWrapper>
+      {/* <BgWrapper>
         <InnerWrapper>{theme.isDark ? <SlideSvgDark width="100%" /> : <SlideSvgLight width="100%" />}</InnerWrapper>
-      </BgWrapper>
-      <Flex
+      </BgWrapper> */}
+      {/* <Flex
         position="relative"
         flexDirection={['column-reverse', null, null, 'row']}
         alignItems={['flex-end', null, null, 'center']}
@@ -135,7 +135,7 @@ const Hero = () => {
             <CompositeImage {...starsImage} />
           </StarsWrapper>
         </Flex>
-      </Flex>
+      </Flex> */}
     </>
   )
 }

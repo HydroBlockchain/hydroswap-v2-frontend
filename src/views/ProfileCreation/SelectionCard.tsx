@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Card, Radio } from '@pancakeswap/uikit'
+import { Card, Radio } from 'hydroswap-uikitv2'
 
 interface SelectionCardProps {
   name: string

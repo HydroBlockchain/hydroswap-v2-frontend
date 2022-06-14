@@ -1,4 +1,4 @@
-import { Text, Flex, Image, Box } from '@pancakeswap/uikit'
+import { Text, Flex, Image, Box } from 'hydroswap-uikitv2'
 import { BalanceWithLoading } from 'components/Balance'
 import Divider from 'components/Divider'
 import { useTranslation } from 'contexts/Localization'
@@ -15,7 +15,7 @@ const StaticAmount: React.FC<StaticAmountPropsType> = ({
   return (
     <>
       <Text color="textSubtle" textTransform="uppercase" bold fontSize="12px">
-        {t('Add CAKE to lock')}
+        {t('Add HYDRO to lock')}
       </Text>
       <Flex alignItems="center" justifyContent="space-between" mb="16px">
         <Box>

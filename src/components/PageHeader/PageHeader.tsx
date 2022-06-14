@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Box } from '@pancakeswap/uikit'
+import { Box } from 'hydroswap-uikitv2'
 import Container from '../Layout/Container'
 import { PageHeaderProps } from './types'
 
@@ -8,8 +8,7 @@ const Outer = styled(Box)<{ background?: string }>`
 `
 
 const Inner = styled(Container)`
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-top: 16px;
 `
 
 const PageHeader: React.FC<PageHeaderProps> = ({ background, children, ...props }) => (

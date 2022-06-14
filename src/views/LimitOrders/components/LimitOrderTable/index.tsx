@@ -1,5 +1,5 @@
 import { useState, useCallback, memo } from 'react'
-import { Flex, Card } from '@pancakeswap/uikit'
+import { Flex, Card } from 'hydroswap-uikitv2'
 import useGelatoLimitOrdersHistory from '../../hooks/useGelatoLimitOrdersHistory'
 
 import OrderTab from './OrderTab'

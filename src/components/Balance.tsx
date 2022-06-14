@@ -1,4 +1,4 @@
-import { Text, TextProps, Skeleton } from '@pancakeswap/uikit'
+import { Text, TextProps, Skeleton } from 'hydroswap-uikitv2'
 import { useEffect, useRef } from 'react'
 import CountUp from 'react-countup'
 import styled, { keyframes } from 'styled-components'
@@ -35,6 +35,7 @@ const Balance: React.FC<BalanceProps> = ({
 
   return (
     <Text color={isDisabled ? 'textDisabled' : color} onClick={onClick} {...props}>
+      {/* @ts-ignore */}
       <CountUp
         start={previousValue.current}
         end={value}
@@ -43,7 +44,7 @@ const Balance: React.FC<BalanceProps> = ({
         decimals={decimals}
         duration={1}
         separator=","
-      />
+      /> 
     </Text>
   )
 }
