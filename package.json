@@ -69,7 +69,7 @@
     "graphql": "16.3.0",
     "graphql-request": "4.2.0",
     "hydroswap-uikitv2": "^0.8.9",
-    "hydroswap-v2-sdk": "^0.0.4",
+    "hydroswap-v2-sdk": "^0.0.6",
     "lightweight-charts": "3.8.0",
     "lint-staged": "12.3.4",
     "local-storage": "2.0.0",

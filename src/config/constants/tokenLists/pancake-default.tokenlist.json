@@ -59,6 +59,14 @@
       "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/2698.png"
     },
     {
+      "name": "Keres Vouchers",
+      "symbol": "KVS",
+      "address": "0x804d51B4751eec021fef2199936FAFde0A520e04",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/HydroBlockchain/brand-kit/main/kvs-ticker.png"
+    },
+    {
       "name": "PancakeSwap Token",
       "symbol": "CAKE",
       "address": "0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe",
