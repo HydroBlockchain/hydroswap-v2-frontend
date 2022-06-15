@@ -6941,16 +6941,6 @@ husky@7.0.0:
   resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.0.tgz#3dbd5d28e76234689ee29bb41e048f28e3e46616"
   integrity sha512-xK7lO0EtSzfFPiw+oQncQVy/XqV7UVVjxBByc+Iv5iK3yhW9boDoWgvZy3OGo48QKg/hUtZkzz0hi2HXa0kn7w==
 
-hydroswap-uikit@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/hydroswap-uikit/-/hydroswap-uikit-0.0.5.tgz#8b8cec31254c339dee88e57b3bd1fdbfa7c90403"
-  integrity sha512-PdNJpjfZHTt2t8QEFgNh6cVBTrs73aD23UkhP7vk4AzTtvqRBWNicEXNDVJmz6payqNTptGFmp+9rA4YbWLT0A==
-  dependencies:
-    "@popperjs/core" "^2.9.2"
-    lodash "^4.17.20"
-    react-popper "^2.2.5"
-    styled-system "^5.1.5"
-
 hydroswap-uikitv2@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/hydroswap-uikitv2/-/hydroswap-uikitv2-0.0.7.tgz#1ad4b1ba7de1bdb87963112a578873e197da9733"
@@ -6977,10 +6967,10 @@ hydroswap-uikitv2@^0.2.3:
     rollup "^2.75.5"
     styled-system "^5.1.5"
 
-hydroswap-uikitv2@^0.8.7:
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/hydroswap-uikitv2/-/hydroswap-uikitv2-0.8.7.tgz#36aa61c42f2944985d3f2fb45b69976d2c3b78e8"
-  integrity sha512-UUhAzxU5O7lHhfN98sQuQV4VSHEPwztFyM7eXilYeVAhuwAXsvwniq/qRhdi/Hxj3z98ya5HKedsdWe8eIs8oA==
+hydroswap-uikitv2@^0.8.9:
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/hydroswap-uikitv2/-/hydroswap-uikitv2-0.8.9.tgz#bbe874d120a41dbdaaf1195b3361e14a4e42dbe2"
+  integrity sha512-/rFUUNgTEPnQFMHc2LGU/OQVoE3/n+g0bBjTZay9VxnyG4ep28kRJitcXR5Jd4jhXNPt+FnqFGKMPeRuC1CgbQ==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@rollup/plugin-typescript" "^8.3.2"
@@ -6992,10 +6982,10 @@ hydroswap-uikitv2@^0.8.7:
     rollup "^2.75.5"
     styled-system "^5.1.5"
 
-hydroswap-v2-sdk@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/hydroswap-v2-sdk/-/hydroswap-v2-sdk-0.0.4.tgz#59389158e6b9c33c6c61c36536d00412627e68b2"
-  integrity sha512-xvdLkw7c8dObdqwIGPW5evbkjwToZ4yldxf3TWJwllRHgCEdXjZBTu4aYGgJujEbZ7rR3K+wqXjiOMC+3tq9yA==
+hydroswap-v2-sdk@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/hydroswap-v2-sdk/-/hydroswap-v2-sdk-0.0.6.tgz#c3dd4ed4aab9c6654bbe28a8d388724cd4ef7794"
+  integrity sha512-JFISGdHZtWwBs7djrP1NxpwcglC0wyFaG1hVAtBt3cPwrksyYEtKIPUC1Bw21xFm2uJcIDW0Xn/PIG2JgSGoUg==
   dependencies:
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"

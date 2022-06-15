@@ -8,7 +8,7 @@ import uniq from 'lodash/uniq'
 import { BigNumber } from '@ethersproject/bignumber'
 import { getNftMarketContract } from 'utils/contractHelpers'
 import { NOT_ON_SALE_SELLER } from 'config/constants'
-import { pancakeBunniesAddress } from 'views/Nft/market/constants'
+// import { pancakeBunniesAddress } from 'views/Nft/market/constants'
 import { formatBigNumber } from 'utils/formatBalance'
 import { getNftMarketAddress } from 'utils/addressHelpers'
 import nftMarketAbi from 'config/abi/nftMarket.json'
@@ -145,10 +145,13 @@ export const getNftsFromCollectionApi = async (
   size = 100,
   page = 1,
 ): Promise<ApiResponseCollectionTokens> => {
-  const isPBCollection = collectionAddress.toLowerCase() === pancakeBunniesAddress.toLowerCase()
+  // const isPBCollection = collectionAddress.toLowerCase() === pancakeBunniesAddress.toLowerCase()
   const requestPath = `${API_NFT}/collections/${collectionAddress}/tokens${
-    !isPBCollection ? `?page=${page}&size=${size}` : ``
+     ``
   }`
+  // const requestPath = `${API_NFT}/collections/${collectionAddress}/tokens${
+  //   !isPBCollection ? `?page=${page}&size=${size}` : ``
+  // }`
 
   try {
     const res = await fetch(requestPath)
@@ -285,7 +288,7 @@ export const getNftsFromCollectionSg = async (
   skip = 0,
 ): Promise<TokenMarketData[]> => {
   // Squad to be sorted by tokenId as this matches the order of the paginated API return. For PBs - get the most recent,
-  const isPBCollection = collectionAddress.toLowerCase() === pancakeBunniesAddress.toLowerCase()
+  // const isPBCollection = collectionAddress.toLowerCase() === pancakeBunniesAddress.toLowerCase()
 
   try {
     const res = await request(
@@ -294,7 +297,7 @@ export const getNftsFromCollectionSg = async (
         query getNftCollectionMarketData($collectionAddress: String!) {
           collection(id: $collectionAddress) {
             id
-            nfts(orderBy:${isPBCollection ? 'updatedAt' : 'tokenId'}, skip: $skip, first: $first) {
+            nfts(orderBy:${'tokenId'}, skip: $skip, first: $first) {
              ${getBaseNftFields()}
             }
           }
@@ -335,7 +338,7 @@ export const getNftsByBunnyIdSg = async (
         }
       `,
       {
-        collectionAddress: pancakeBunniesAddress.toLowerCase(),
+        collectionAddress: '',
         where,
         orderDirection,
       },
@@ -903,7 +906,7 @@ export const combineApiAndSgResponseToNftToken = (
     name: apiMetadata.name,
     description: apiMetadata.description,
     collectionName: apiMetadata.collection.name,
-    collectionAddress: pancakeBunniesAddress,
+    collectionAddress: '',
     image: apiMetadata.image,
     marketData,
     attributes,

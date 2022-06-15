@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from 'config/constants/types'
 import isEmpty from 'lodash/isEmpty'
-import { pancakeBunniesAddress } from 'views/Nft/market/constants'
+// import { pancakeBunniesAddress } from 'views/Nft/market/constants'
 import { fetchNftsFiltered, getMarketDataForTokenIds, getNftsFromCollectionApi, getNftsMarketData } from './helpers'
 import { MarketEvent, NftActivityFilter, NftAttribute, NftFilter, NftToken, State } from './types'
 
@@ -39,11 +39,11 @@ export const fetchNftsFromCollections = createAsyncThunk<
   { collectionAddress: string; page: number; size: number }
 >('nft/fetchNftsFromCollections', async ({ collectionAddress, page, size }) => {
   try {
-    if (collectionAddress === pancakeBunniesAddress) {
+   // if (collectionAddress === pancakeBunniesAddress) {
       // PancakeBunnies don't need to pre-fetch "all nfts" from the collection
       // When user visits IndividualNFTPage required nfts will be fetched via bunny id
-      return []
-    }
+    //  return []
+   // }
 
     const nfts = await getNftsFromCollectionApi(collectionAddress, size, page)
 
