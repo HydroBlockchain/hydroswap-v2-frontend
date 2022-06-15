@@ -1,5 +1,5 @@
 import { ResetCSS } from 'hydroswap-uikitv2'
-import Script from 'next/script'
+// import Script from 'next/script'
 import dynamic from 'next/dynamic'
 import BigNumber from 'bignumber.js'
 import GlobalCheckClaimStatus from 'components/GlobalCheckClaimStatus'
@@ -97,9 +97,6 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const Layout = Component.Layout || Fragment
   return (
     <ProductionErrorBoundary>
-     
-       
-
         <Layout>
           <Menu> 
             <Component {...pageProps} />
