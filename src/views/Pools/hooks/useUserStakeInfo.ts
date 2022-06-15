@@ -53,8 +53,8 @@ const useUserStakeInfo = (sousId,  account) => {
     }
 
     return () => {
-      mounted = false;
       clearInterval(interval)
+      mounted = false;
     };
 
 },[handleRequest])
