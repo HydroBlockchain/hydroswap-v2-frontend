@@ -198,7 +198,6 @@ const StakeModal: React.FC<StakeModalProps> = ({
       />
     )
   }
-console.log(placeRequest, "placeRequest")
   return (
     <Modal
       minWidth="346px"
