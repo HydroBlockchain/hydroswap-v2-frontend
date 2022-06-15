@@ -1,4 +1,6 @@
-# Hydroswap Frontend
+<p align="center"><img src="https://github.com/HydroBlockchain/brand-kit/blob/main/hydroswap-logo.png?raw=true">
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0d87bd7e-3492-4fbe-adc1-dc91ee204217/deploy-status)](https://app.netlify.com/sites/hydro-swap/deploys)</p>
 
 This project contains the main features of the Hydroswap application.
 
