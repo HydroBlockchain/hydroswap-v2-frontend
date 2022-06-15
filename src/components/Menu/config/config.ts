@@ -29,16 +29,19 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     // ],
   },
   {
-    label:t('Liquidity'),
-    href: '/liquidity',
+    label: t('liquidity'),
+     href: '/liquidity',
+    showItemsOnMobile: false,
   },
   {
     label: t('Stake'),
-    href: '/pools',
+     href: '/pools',
+    showItemsOnMobile: false,
   },
   {
     label: t('Bridge'),
-    href: 'https://hydro-bridge.org',
+     href: 'https://hydro-bridge.org',
+    showItemsOnMobile: false,
     external:true,
   },
 ]

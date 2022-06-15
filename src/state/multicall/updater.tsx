@@ -148,7 +148,7 @@ export default function Updater(): null {
   const debouncedListeners = useDebounce(state.callListeners, 100)
   const currentBlock = useCurrentBlock()
   const { chainId } = useActiveWeb3React()
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  // const provider = new ethers.providers.Web3Provider(window.ethereum)
   const multicallContract = useMulticallContract()
   // const multicallContract = getMulticallContract(provider)
   const cancellations = useRef<{ blockNumber: number; cancellations: (() => void)[] }>()
