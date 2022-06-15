@@ -292,7 +292,7 @@ const Pools: React.FC = () => {
 
   const cardLayout = chosenPools.map((pool) => {
     return (
-      <Grid>
+      <Grid key={pool.sousId}>
         <div style={{ gridArea: 'a' }}>
           <PoolCard key={pool.sousId} pool={pool} account={account} />
         </div>
