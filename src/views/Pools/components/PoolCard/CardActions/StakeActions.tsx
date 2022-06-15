@@ -178,20 +178,21 @@ const StakeAction: React.FC<StakeActionsProps> = ({
 <div > 
   {
     (loaded &&  (stakeInfo?.pending && stakeInfo.requestedAmount > 0 && stakeInfo.releaseAt )  ) && <>
-     <Flex justifyContent='space-between' alignItems='center'>
-    <div>
+     <Flex justifyContent= {isMobile? 'center' : 'space-between'} alignItems='center' flexWrap='wrap-reverse'>
+    <div style = {
+      {
+        width:isMobile ? '100%' : 'auto',
+      }
+    }>
     <Text mt='16px' fontSize='12px'>
     Stake Unlocks In
   </Text>
     <CurrentTimer targetDate={ new Date(stakeInfo?.releaseAt) } />
     </div>
-    <div style={{
-     
+    <div style={{   
       marginTop: '8px',
-
-    }}>
-
-  
+      width:isMobile ? '100%' : 'auto',
+    }}>  
       <Text
       fontSize='12px'
        mb='0.5rem'>
