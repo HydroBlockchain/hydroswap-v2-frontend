@@ -42,14 +42,20 @@ const useUserStakeInfo = (sousId,  account) => {
     handleRequest()
   }, 30000);
   useEffect(() => {
-    
+    let mounted = true;
+    if (!mounted) {
+      return;
+    }
     if (loaded && error) {
       interval
     } else {
       handleRequest()
     }
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval)
+      mounted = false;
+    };
 
 },[handleRequest])
 

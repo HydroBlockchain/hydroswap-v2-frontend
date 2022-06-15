@@ -114,7 +114,7 @@ export default function RemoveLiquidity() {
       throw new Error('missing liquidity amount')
     }
 
-    // try to gather a signature for permission
+  ///  try to gather a signature for permission
     const nonce = await pairContract.nonces(account)
 
     const EIP712Domain = [
@@ -124,7 +124,7 @@ export default function RemoveLiquidity() {
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: 'Droplets LPs',
+      name: 'Droplet LPs',
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address,

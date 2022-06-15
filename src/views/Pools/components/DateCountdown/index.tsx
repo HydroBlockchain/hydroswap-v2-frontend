@@ -80,7 +80,8 @@ const ExpiredNotice = () => {
 
 const WrapperCounter = styled.div`
 .show-counter {
-  padding: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .show-counter .countdown-link {

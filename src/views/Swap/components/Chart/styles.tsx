@@ -7,7 +7,7 @@ export const StyledPriceChart = styled(Box)<{
   $isFullWidthContainer?: boolean
 }>`
   border: none;
-  width: 80%;
+  width: 100%;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 8px;
     background: ${({ $isDark }) => ($isDark ? 'rgba(39, 38, 44, 0.5)' : 'rgba(255, 255, 255, 0.5)')};

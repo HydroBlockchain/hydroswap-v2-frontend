@@ -59,14 +59,17 @@ const PriceChart = ({
       $isFullWidthContainer={isFullWidthContainer}
     >
       <StyledChartHeader  >
-  <div style={{
+ {
+  !!isDesktop && (<>
+    <div style={{
     fontWeight:'700',
-    // padding:'16px 0px',
   }}>
     <Text fontSize='32px'>
       Charts
     </Text>
   </div>
+  </>)
+ }
   <div>
   <Flex alignItems="center">
           {outputCurrency ? (

@@ -1,4 +1,4 @@
-import { Flex, Text, Button, IconButton, AddIcon, MinusIcon, useModal, Skeleton, useTooltip } from 'hydroswap-uikitv2'
+import { Flex, Text, Button, IconButton, AddIcon, MinusIcon, useModal, Skeleton, useTooltip, useMatchBreakpoints } from 'hydroswap-uikitv2'
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -39,6 +39,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
 }) => {
   const { stakingToken, stakingTokenPrice, stakingLimit, isFinished, userData, sousId,  } = pool
   const {account} = useActiveWeb3React()
+  const  {  isMobile } = useMatchBreakpoints()
   const {stakeInfo, loading, loaded } = useUserStakeInfo(sousId, account)
 
   const { t } = useTranslation()
@@ -84,6 +85,37 @@ const StakeAction: React.FC<StakeActionsProps> = ({
 
   const reachStakingLimit = stakingLimit.gt(0) && userData.stakedBalance.gte(stakingLimit)
 
+  const placeRequestAction = (mobile = false)=>{
+    return (<>
+
+{(!loaded  && mobile) && 
+              <StyledBtn
+              mr='16px'
+                disabled={loading}
+              >
+                {t(`Checking`)}
+              </StyledBtn>
+          }
+           { mobile &&
+             (placeRequest && loaded) &&    <StyledBtn 
+             disabled={loading || stakeInfo?.pending }
+             onClick={onPresentStake} mr="6px">
+               {t(`${loading ? 'checking': stakeInfo?.pending ? 'Request Pending' : 'Place Unstake Request'}`)}
+             </StyledBtn>
+           }
+        
+
+           {
+            claimHydro &&  <StyledBtn 
+            disabled={loading || stakeInfo?.pending}
+            onClick={onPresentStake} mr="6px">
+              {t(`Claim Hydro`)}
+            </StyledBtn>
+           }
+    
+    </>)
+  }
+
   const renderStakeAction = () => {
     return isStaked ? (
       <Flex justifyContent="space-between" alignItems="center">
@@ -106,31 +138,9 @@ const StakeAction: React.FC<StakeActionsProps> = ({
         </Flex>
         <Flex>
 
-          {!loaded &&
-              <StyledBtn
-              mr='16px'
-                disabled={loading}
-              >
-                {/* <AddIcon color="primary" width="24px" height="24px" /> */}
-                {t(`Checking`)}
-              </StyledBtn>
+          {
+            placeRequestAction(!isMobile)
           }
-           {
-             (placeRequest && loaded) &&    <StyledBtn 
-             disabled={loading || stakeInfo?.pending }
-             onClick={onPresentStake} mr="6px">
-               {t(`${loading ? 'checking': stakeInfo?.pending ? 'Request Pending' : 'Place Unstake Request'}`)}
-             </StyledBtn>
-           }
-        
-
-           {
-            claimHydro &&  <StyledBtn 
-            disabled={loading || stakeInfo?.pending}
-            onClick={onPresentStake} mr="6px">
-              {t(`Claim Hydro`)}
-            </StyledBtn>
-           }
          
           {reachStakingLimit ? (
             <span ref={targetRef}>
@@ -162,23 +172,27 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   return <Flex flexDirection="column">{isLoading ? <Skeleton width="100%" height="52px" /> : 
   <>
 {renderStakeAction()}
+<Flex justifyContent='center' mt='16px'>
+{placeRequestAction(isMobile)}
+</Flex>
 <div > 
   {
     (loaded &&  (stakeInfo?.pending && stakeInfo.requestedAmount > 0 && stakeInfo.releaseAt )  ) && <>
-     <Flex justifyContent='space-between' alignItems='center'>
-    <div>
+     <Flex justifyContent= {isMobile? 'center' : 'space-between'} alignItems='center' flexWrap='wrap-reverse'>
+    <div style = {
+      {
+        width:isMobile ? '100%' : 'auto',
+      }
+    }>
     <Text mt='16px' fontSize='12px'>
     Stake Unlocks In
   </Text>
     <CurrentTimer targetDate={ new Date(stakeInfo?.releaseAt) } />
     </div>
-    <div style={{
-     
+    <div style={{   
       marginTop: '8px',
-
-    }}>
-
-  
+      width:isMobile ? '100%' : 'auto',
+    }}>  
       <Text
       fontSize='12px'
        mb='0.5rem'>
