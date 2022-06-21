@@ -73,13 +73,16 @@ export const fetchUserStakeBalances = async (account) => {
   }))
   const userInfos = await multicall(kvsStakingABI, calls)
 
-  return nonBnbPools.reduce(
+  const userStakeBalances =  nonBnbPools.reduce(
     (acc, pool, index) => ({
       ...acc,
       [pool.sousId]: new BigNumber(userInfos?.[index]?.[0]?.["amount"]?.toString()).toJSON() ?? new BigNumber(0),
     }),
     {},
   )
+
+  const requestedAmount = userInfos?.[1]?.[0]?.["requests"]?.["amount"]?.toString() ?? 0
+  return {userStakeBalances, requestedAmount}
 }
 
 export const fetchUserPendingRewards = async (account) => {

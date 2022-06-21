@@ -80,6 +80,7 @@ const CardActions: React.FC<CardActionsProps> = ({ pool, stakedBalance }) => {
             stakedBalance={stakedBalance}
             isBnbPool={isBnbPool}
             isStaked={isStaked}
+            earningToken={earningToken}
           />
         )}
       </Flex>

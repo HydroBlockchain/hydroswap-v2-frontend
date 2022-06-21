@@ -25,18 +25,24 @@ import { DeserializedPool } from 'state/types'
 import BigNumber from 'bignumber.js'
 import useHarvestPool from '../../../hooks/useHarvestPool'
 import useStakePool from '../../../hooks/useStakePool'
+import useClaimHydro from "../../../hooks/useClaimHydro";
 
 interface CollectModalProps {
   formattedBalance: string
-  fullBalance: string
+  fullBalance?: string
   earningToken: Token
-  earningsDollarValue: number
+  earningsDollarValue?: number
   sousId: number
   isBnbPool: boolean
   isCompoundPool?: boolean
   onDismiss?: () => void
   earning?: BigNumber
+  isClaiming?: boolean
+  onRequest?: () => void
 }
+
+// Type '{ formattedBalance: any; earningToken: Token; sousId: number; isBnbPool: boolean; }' is missing the following properties from type 'CollectModalProps': fullBalance, earningsDollarValue
+
 
 const CollectModal: React.FC<CollectModalProps> = ({
   earning,
@@ -48,7 +54,10 @@ const CollectModal: React.FC<CollectModalProps> = ({
   isBnbPool,
   isCompoundPool = false,
   onDismiss,
+  isClaiming = false,
+  onRequest
 }) => {
+
   const { t } = useTranslation()
   const { theme } = useTheme()
   const { toastSuccess } = useToast()
@@ -56,7 +65,9 @@ const CollectModal: React.FC<CollectModalProps> = ({
   const dispatch = useAppDispatch()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
   const { onReward } = useHarvestPool(sousId, isBnbPool, account)
+  
   const { onStake } = useStakePool(sousId, isBnbPool)
+  const { onClaimHydro} = useClaimHydro(sousId)
   const [shouldCompound, setShouldCompound] = useState(isCompoundPool)
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     <>
@@ -68,17 +79,25 @@ const CollectModal: React.FC<CollectModalProps> = ({
 
   const handleHarvestConfirm = async () => {
     const receipt = await fetchWithCatchTxError(() => {
+      if(isClaiming){
+        return onClaimHydro()
+      }
       // if (shouldCompound) {
       //   return onStake(fullBalance, earningToken.decimals)
       // }
       return onReward()
     })
+
+    const statusToast = isClaiming  ?   <ToastDescriptionWithTx txHash={receipt.transactionHash}>
+    {t('Your harvested kvs vouchers have been sent to your wallet!', { symbol: 'KVS' })}
+  </ToastDescriptionWithTx>
+  :  <ToastDescriptionWithTx txHash={receipt.transactionHash}>
+  {t('Your %symbol% earnings have been sent to your wallet!', { symbol: earningToken.symbol })}
+</ToastDescriptionWithTx>
+
     if (receipt?.status) {
       toastSuccess(
-        `${t('Harvested')}!`,
-        <ToastDescriptionWithTx txHash={receipt.transactionHash}>
-          {t('Your %symbol% earnings have been sent to your wallet!', { symbol: earningToken.symbol })}
-        </ToastDescriptionWithTx>,
+        `${ isClaiming ? "Claimed": t('Harvested')}!`, statusToast,
       )
       // if (shouldCompound) {
       //   toastSuccess(
@@ -95,7 +114,7 @@ const CollectModal: React.FC<CollectModalProps> = ({
       //     </ToastDescriptionWithTx>,
       //   )
       // }
-      
+        onRequest()
       dispatch(updateUserStakedBalance({ sousId, account }))
       dispatch(updateUserPendingReward({ sousId, account }))
       dispatch(updateUserBalance({ sousId, account }))
@@ -103,9 +122,24 @@ const CollectModal: React.FC<CollectModalProps> = ({
     }
   }
 
+  const actionStatus = ()=>{
+
+    if(pendingTx && isClaiming){
+      return 'Claiming'
+    }
+
+    if(pendingTx && !isClaiming){
+      return 'Harvesting'
+    }
+    if (isClaiming) {
+      return 'Claim'
+    }
+    return 'Harvest'
+  }
+
   return (
     <Modal
-      title={`${('Harvest Vouchers')}`}
+      title={isClaiming ? t('Claim Hydro') : `${('Harvest Vouchers')}`}
       onDismiss={onDismiss}
       headerBackground={theme.colors.gradients.cardHeader}
     >
@@ -135,7 +169,9 @@ const CollectModal: React.FC<CollectModalProps> = ({
             {formattedBalance} 
         </Text>
           <Heading ml='0.5rem'>
-            {earningToken.symbol}
+            {
+              isClaiming ? t('HYDRO') : earningToken.symbol
+            }
           </Heading>
             </Flex>
       </Flex>
@@ -152,7 +188,11 @@ const CollectModal: React.FC<CollectModalProps> = ({
         isLoading={pendingTx}
         endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
       >
-        {pendingTx ? t('Harvesting') : t('Harvest')}
+        {
+          actionStatus()
+        }
+        {/* {pendingTx ? t('Harvesting') : t('Harvest')} */}
+        
       </Button>
       {/* <Button variant="text" onClick={onDismiss} pb="0px">
         {t('Close Window')}

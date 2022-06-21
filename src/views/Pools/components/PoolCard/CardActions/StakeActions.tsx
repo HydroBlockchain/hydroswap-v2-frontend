@@ -1,4 +1,5 @@
 import { Flex, Text, Button, IconButton, AddIcon, MinusIcon, useModal, Skeleton, useTooltip, useMatchBreakpoints } from 'hydroswap-uikitv2'
+import {Token} from 'hydroswap-v2-sdk'
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -11,6 +12,7 @@ import StakeModal from '../Modals/StakeModal'
 import useUserStakeInfo from "../../../hooks/useUserStakeInfo"
 import CurrentTimer from "../../DateCountdown"
 import AddStakeModal from '../Modals/AddStakeModal'
+import CollectModal from '../Modals/CollectModal'
 
 
 
@@ -22,6 +24,7 @@ interface StakeActionsProps {
   isBnbPool: boolean
   isStaked: ConstrainBoolean
   isLoading?: boolean
+  earningToken?: Token
 }
 
 const StyledBtn = styled(Button)`
@@ -36,11 +39,12 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   isBnbPool,
   isStaked,
   isLoading = true,
+  earningToken,
 }) => {
   const { stakingToken, stakingTokenPrice, stakingLimit, isFinished, userData, sousId,  } = pool
   const {account} = useActiveWeb3React()
   const  {  isMobile } = useMatchBreakpoints()
-  const {stakeInfo, loading, loaded } = useUserStakeInfo(sousId, account)
+  const {stakeInfo, loading, loaded, onRequest } = useUserStakeInfo(sousId, account)
 
   const { t } = useTranslation()
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals)
@@ -50,10 +54,11 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   )
 
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />)
-
+    const requestedAmount = (+stakeInfo?.requestedAmount ?? 0 )
   const placeRequest =  (stakeInfo?.pending == false  && stakeInfo?.amount > 0) 
 
-  const claimHydro = (stakeInfo?.requestedAmount > 0 && (stakeInfo?.releasedAt < stakeInfo?.currentTimeStamp) && stakeInfo?.pending )
+  const claimHydro = ((+stakeInfo?.requestedAmount ?? 0) > 0 && (stakeInfo?.releaseAt < stakeInfo?.currentTimeStamp) && stakeInfo?.pending )
+
   const [onPresentStake] = useModal(
     <StakeModal
       isBnbPool={isBnbPool}
@@ -61,9 +66,19 @@ const StakeAction: React.FC<StakeActionsProps> = ({
       stakingTokenBalance={stakingTokenBalance}
       stakingTokenPrice={stakingTokenPrice}
       placeRequest={placeRequest}
-      claimHydro={claimHydro}
-      isRemovingStake={placeRequest}
-      
+      isRemovingStake={placeRequest}   
+    />,
+  )
+
+
+  const [onClaimHydro] = useModal(
+    <CollectModal
+      formattedBalance={String(requestedAmount/10**18)}
+      earningToken={earningToken}
+      sousId={sousId}
+      isBnbPool={isBnbPool}
+      onRequest={onRequest}
+      isClaiming
     />,
   )
 
@@ -87,7 +102,6 @@ const StakeAction: React.FC<StakeActionsProps> = ({
 
   const placeRequestAction = (mobile = false)=>{
     return (<>
-
 {(!loaded  && mobile) && 
               <StyledBtn
               mr='16px'
@@ -103,15 +117,14 @@ const StakeAction: React.FC<StakeActionsProps> = ({
                {t(`${loading ? 'checking': stakeInfo?.pending ? 'Request Pending' : 'Place Unstake Request'}`)}
              </StyledBtn>
            }
-        
 
-           {
+           {/* {
             claimHydro &&  <StyledBtn 
-            disabled={loading || stakeInfo?.pending}
-            onClick={onPresentStake} mr="6px">
+            disabled={loading}
+            onClick={onClaimHydro} mr="6px">
               {t(`Claim Hydro`)}
             </StyledBtn>
-           }
+           } */}
     
     </>)
   }
@@ -182,6 +195,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
     <div style = {
       {
         width:isMobile ? '100%' : 'auto',
+        
       }
     }>
     <Text mt='16px' fontSize='12px'>
@@ -207,11 +221,21 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   {/* <Button width='100%' onClick={onRequest}>Error Checking Staking Status, Try again</Button> */}
     </>
   }
-
+    {
+            claimHydro  &&  <StyledBtn 
+            mt='1.5rem'
+            width="100%"
+            disabled={loading}
+            onClick={onClaimHydro}>
+              {t(`Claim Unstaked Hydro`)}
+            </StyledBtn>
+           }
  
     </div>
   </>
-  }</Flex>
+
+  }
+  </Flex>
 }
 
 const StyledStakedHydro = styled.div`
