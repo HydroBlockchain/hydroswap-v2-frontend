@@ -29,7 +29,6 @@ export const poolsWithVaultSelector = createSelector(
      const cakePool = pools.find((pool) => !pool.isFinished && pool.sousId === 0)
     // const withoutCakePool = pools.filter((pool) => pool.sousId !== 0)
     const withoutCakePool = pools.filter((pool) => !pool.isFinished && pool.sousId === 0)
-
     const cakeAutoVault = {
       ...cakePool,
       ...deserializedCakeVault,

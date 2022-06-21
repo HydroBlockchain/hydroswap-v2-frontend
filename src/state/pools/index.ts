@@ -250,7 +250,7 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
 
   try {
     const [allowances, stakingTokenBalances,
-       stakedBalances, 
+       {userStakeBalances:stakedBalances=[], requestedAmount}, 
        pendingRewards
       ] = await Promise.all([
       fetchPoolsAllowance(account),
@@ -258,14 +258,14 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
       fetchUserStakeBalances(account),
       fetchUserPendingRewards(account),
     ])
-
     
-    const userData = poolsConfig.map((pool) => ({
+  const userData = poolsConfig.map((pool) => ({
       sousId: pool.sousId,
       allowance: allowances[pool.sousId],
       stakingTokenBalance: stakingTokenBalances[pool.sousId],
       stakedBalance: stakedBalances?.[pool.sousId],
       pendingReward: pendingRewards?.[pool.sousId],
+      requestedAmount
     }))
     return userData
   } catch (e) {

@@ -67,7 +67,6 @@ const StakeModal: React.FC<StakeModalProps> = ({
   isRemovingStake = false,
   onDismiss,
   placeRequest=false,
-  claimHydro=false
 }) => {
   const { sousId, stakingToken, earningTokenPrice, apr, userData, stakingLimit, earningToken } = pool
   const { account } = useWeb3React()
@@ -89,9 +88,10 @@ const StakeModal: React.FC<StakeModalProps> = ({
     return stakingLimit.gt(0) && stakingTokenBalance.gt(stakingLimit) ? stakingLimit : stakingTokenBalance
   }
   const fullDecimalStakeAmount = getDecimalAmount(new BigNumber(stakeAmount), stakingToken.decimals)
-  const userNotEnoughToken = isRemovingStake
+  const userNotEnoughToken =  isRemovingStake
     ? userData.stakedBalance.lt(fullDecimalStakeAmount)
     : userData.stakingTokenBalance.lt(fullDecimalStakeAmount)
+
 
   const usdValueStaked = new BigNumber(stakeAmount).times(stakingTokenPrice)
   const formattedUsdValueStaked = !usdValueStaked.isNaN() && formatNumber(usdValueStaked.toNumber())
@@ -143,9 +143,6 @@ const StakeModal: React.FC<StakeModalProps> = ({
   }
 
   const handleConfirmClick = async () => {
-    if(claimHydro){
-      return;
-    }
     const receipt = await fetchWithCatchTxError(() => {
       if (isRemovingStake) {
        return onUnstake(stakeAmount, stakingToken.decimals)
@@ -201,7 +198,15 @@ const StakeModal: React.FC<StakeModalProps> = ({
   return (
     <Modal
       minWidth="346px"
-      title={ placeRequest ? 'Place Unstake Request': isRemovingStake ? t('Unstake') : t('Stake in Pool')}
+      title={ 
+      placeRequest 
+      ? 
+      'Place Unstake Request'
+      : 
+      isRemovingStake 
+      ? 
+      t('Unstake') : t('Stake in Pool')
+    }
       onDismiss={onDismiss}
       headerBackground={theme.colors.gradients.cardHeader}
     >
@@ -231,7 +236,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
         value={stakeAmount}
         onUserInput={handleStakeInputChange}
         currencyValue={stakingTokenPrice !== 0 && `~${formattedUsdValueStaked || 0} USD`}
-        isWarning={hasReachedStakeLimit || userNotEnoughToken}
+        isWarning={hasReachedStakeLimit || userNotEnoughToken }
         decimals={stakingToken.decimals}
       />
       {hasReachedStakeLimit && (
@@ -242,7 +247,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
           })}
         </Text>
       )}
-      {userNotEnoughToken && (
+      {( userNotEnoughToken )&& (
         <Text color="failure" fontSize="12px" style={{ textAlign: 'right' }} mt="4px">
           {t('Insufficient %symbol% balance', {
             symbol: stakingToken.symbol,
