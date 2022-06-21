@@ -201,7 +201,14 @@ const StakeAction: React.FC<StakeActionsProps> = ({
     <Text mt='16px' fontSize='12px'>
     Stake Unlocks In
   </Text>
-    <CurrentTimer targetDate={ new Date(stakeInfo?.releaseAt) } />
+  {
+    claimHydro ? <StyledBtn 
+    width="100%"
+    disabled={loading}
+    onClick={onClaimHydro}>
+      {t(`Claim Unstaked Hydro`)}
+    </StyledBtn> : <CurrentTimer targetDate={ new Date(stakeInfo?.releaseAt) } />
+  }
     </div>
     <div style={{   
       marginTop: '8px',
@@ -210,7 +217,9 @@ const StakeAction: React.FC<StakeActionsProps> = ({
       <Text
       fontSize='12px'
        mb='0.5rem'>
-    Amount to Unlock
+    {
+      claimHydro ? 'Ready to Claim' : 'Amount to Unlock'
+    }
 
       </Text>
       <StyledStakedHydro>
@@ -221,15 +230,6 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   {/* <Button width='100%' onClick={onRequest}>Error Checking Staking Status, Try again</Button> */}
     </>
   }
-    {
-            claimHydro  &&  <StyledBtn 
-            mt='1.5rem'
-            width="100%"
-            disabled={loading}
-            onClick={onClaimHydro}>
-              {t(`Claim Unstaked Hydro`)}
-            </StyledBtn>
-           }
  
     </div>
   </>
