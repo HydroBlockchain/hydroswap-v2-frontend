@@ -16,7 +16,6 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
      href: '/swap',
     showItemsOnMobile: false,
     // type: 1,
-
     // items: [
     //   {
     //     label: t('Swap'),
