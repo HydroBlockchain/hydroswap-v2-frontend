@@ -38,12 +38,6 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
      href: '/pools',
     showItemsOnMobile: false,
   },
-  {
-    label: t('Bridge'),
-     href: 'https://hydro-bridge.org',
-    showItemsOnMobile: false,
-    external:true,
-  },
 ]
 
 export default config
